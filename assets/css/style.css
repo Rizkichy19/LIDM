@@ -1,0 +1,251 @@
+/* ===================================================
+   LIDM — Etnomatematika Fort Willem I
+   Main Stylesheet
+   =================================================== */
+
+/* ===== Google Fonts (loaded via HTML <link>) ===== */
+
+/* ===== CSS Variables (Theme) ===== */
+:root {
+    --font-sans: 'Google Sans Flex', 'Montserrat', ui-sans-serif, system-ui, sans-serif;
+    --font-heading: 'Montserrat', 'Anton', ui-sans-serif, system-ui, sans-serif;
+    --font-anton: 'Anton', sans-serif;
+    --font-oleo: 'Oleo Script', cursive;
+
+    /* Heritage Brown Colors */
+    --color-primary: #7B3F00;
+    --color-primary-light: #A0522D;
+    --color-primary-dark: #5C2E00;
+
+    /* Gold Accent */
+    --color-gold: #D4A017;
+    --color-gold-light: #F5D060;
+    --color-gold-dark: #B8860B;
+
+    /* Cream/Warm Backgrounds */
+    --color-cream: #FDF8F0;
+    --color-cream-dark: #F5EDE0;
+
+    /* Sidebar */
+    --color-sidebar: #1C1108;
+    --color-sidebar-hover: #2E1D0F;
+
+    /* Accent Green */
+    --color-accent: #2E7D32;
+    --color-accent-light: #4CAF50;
+
+    /* Text */
+    --color-text-main: #1A1A1A;
+    --color-text-light: #6B5B4F;
+    --color-text-muted: #9B8B7F;
+}
+
+/* ===== Global Styles ===== */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-sans);
+    color: var(--color-text-main);
+    background-color: var(--color-cream);
+    min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ===== Scrollbar Styling ===== */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--color-cream-dark); }
+::-webkit-scrollbar-thumb { background: var(--color-primary-light); border-radius: 10px; }
+
+/* ===== Custom Animations ===== */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideInLeft {
+    from { opacity: 0; transform: translateX(-30px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes pulse-gold {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(212, 160, 23, 0.4); }
+    50%       { box-shadow: 0 0 20px 10px rgba(212, 160, 23, 0.1); }
+}
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50%       { transform: translateY(-10px); }
+}
+
+.animate-fade-in-up    { animation: fadeInUp 0.6s ease-out forwards; }
+.animate-slide-in-left { animation: slideInLeft 0.5s ease-out forwards; }
+.animate-pulse-gold    { animation: pulse-gold 2s infinite; }
+.animate-float         { animation: float 3s ease-in-out infinite; }
+
+/* ===== Heritage Border ===== */
+.heritage-border { border: 2px solid var(--color-gold); position: relative; }
+.heritage-border::before {
+    content: '';
+    position: absolute;
+    top: -4px; left: -4px; right: -4px; bottom: -4px;
+    border: 1px solid rgba(212, 160, 23, 0.3);
+    pointer-events: none;
+}
+
+/* ===== Card Styles ===== */
+.card-heritage {
+    background: white;
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(123, 63, 0, 0.08);
+    border: 1px solid rgba(212, 160, 23, 0.15);
+    transition: all 0.3s ease;
+}
+.card-heritage:hover {
+    box-shadow: 0 8px 30px rgba(123, 63, 0, 0.15);
+    transform: translateY(-4px);
+}
+
+/* ===== CBL Step Cards ===== */
+.cbl-step {
+    border-left: 4px solid var(--color-gold);
+    background: rgba(253, 248, 240, 0.5);
+    border-radius: 0 1rem 1rem 0;
+    transition: all 0.3s ease;
+}
+.cbl-step:hover {
+    border-left-color: var(--color-primary);
+    background: white;
+}
+
+/* ===== Quiz Option Styles ===== */
+.quiz-option {
+    background: white;
+    border: 2px solid rgba(212, 160, 23, 0.2);
+    border-radius: 0.75rem;
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    text-align: left;
+}
+.quiz-option:hover        { border-color: var(--color-gold); background: rgba(253,248,240,0.8); transform: translateX(4px); }
+.quiz-option.selected     { border-color: var(--color-primary); background: rgba(123,63,0,0.05); box-shadow: 0 0 0 3px rgba(123,63,0,0.1); }
+.quiz-option.correct      { border-color: var(--color-accent); background: rgba(46,125,50,0.05); }
+.quiz-option.wrong        { border-color: #E53935; background: rgba(229,57,53,0.05); }
+
+/* ===== Gradient Backgrounds ===== */
+.bg-heritage-gradient {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 50%, #3E1F00 100%);
+}
+.bg-gold-gradient {
+    background: linear-gradient(135deg, var(--color-gold-dark) 0%, var(--color-gold) 50%, var(--color-gold-light) 100%);
+}
+
+/* ===== Flip Card ===== */
+.flip-card { perspective: 1000px; cursor: pointer; }
+.flip-card-inner { transition: transform 0.6s; transform-style: preserve-3d; position: relative; }
+.flip-card.flipped .flip-card-inner { transform: rotateY(180deg); }
+.flip-card-front, .flip-card-back { backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+.flip-card-back { transform: rotateY(180deg); color: white; }
+
+/* ===== Sidebar Layout ===== */
+.sidebar {
+    position: fixed;
+    top: 0; left: 0;
+    height: 100vh;
+    width: 288px;
+    background: var(--color-sidebar);
+    color: white;
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
+.sidebar.open { transform: translateX(0); }
+
+@media (min-width: 1024px) {
+    .sidebar { transform: translateX(0); }
+    .main-content { margin-left: 288px; }
+}
+
+.sidebar-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 40;
+}
+.sidebar-overlay.active { display: block; }
+
+/* ===== Mobile Header ===== */
+.mobile-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--color-sidebar);
+    color: white;
+    padding: 12px 16px;
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 50;
+}
+@media (min-width: 1024px) {
+    .mobile-header { display: none; }
+}
+
+.main-content {
+    min-height: 100vh;
+    padding-top: 64px;
+}
+@media (min-width: 1024px) {
+    .main-content { padding-top: 0; }
+}
+
+/* ===== Hamburger Button ===== */
+.hamburger {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: white;
+    padding: 8px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.hamburger:hover { background: var(--color-sidebar-hover); }
+
+/* ===== Sidebar Nav Link ===== */
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    border-radius: 12px;
+    font-size: 14px;
+    color: rgba(245,237,224,0.7);
+    transition: all 0.2s;
+    text-decoration: none;
+}
+.sidebar-link:hover { background: var(--color-sidebar-hover); color: var(--color-gold-light); }
+.sidebar-link.active {
+    background: rgba(212,160,23,0.2);
+    color: var(--color-gold);
+    font-weight: 600;
+    border: 1px solid rgba(212,160,23,0.3);
+}

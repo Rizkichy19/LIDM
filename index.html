@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Media Interaktif Etnomatematika - Challenge-Based Learning Benteng Fort Willem I">
+    <title>Etnomatematika Fort Willem I — Media Interaktif</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'anton': ['Anton', 'sans-serif'],
+                        'sans': ['Montserrat', 'ui-sans-serif', 'system-ui'],
+                    },
+                    colors: {
+                        'gold': '#D4A017',
+                        'cream': '#FDF8F0',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <style>
+        .dot-pattern {
+            background-image: radial-gradient(#F5EDE0 10%, transparent 10%);
+            background-size: 150px 150px;
+        }
+        .fade-in {
+            animation: fadeInUp 0.7s ease-out forwards;
+        }
+        .fade-in-delay {
+            opacity: 0;
+            animation: fadeInUp 0.7s ease-out 0.3s forwards;
+        }
+        .fade-in-delay-2 {
+            opacity: 0;
+            animation: fadeInUp 0.7s ease-out 0.6s forwards;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-[#FDF8F0] min-h-screen overflow-x-hidden font-sans text-black dot-pattern">
+
+    <!-- Top Navbar -->
+    <nav class="relative z-50 flex items-center justify-between px-6 py-6 max-w-[1400px] mx-auto">
+        <div class="font-anton text-2xl tracking-tighter">LIDM benteng</div>
+        <div class="hidden md:flex items-center gap-8 text-xs font-bold uppercase tracking-widest">
+            <a href="#" class="hover:text-yellow-600 transition flex items-center gap-1">✦ VIBE</a>
+            <a href="#" class="hover:text-yellow-600 transition">MATERI</a>
+            <a href="#" class="hover:text-yellow-600 transition">BENTENG</a>
+            <a href="menu.html" class="bg-black text-white px-6 py-2 rounded-full hover:scale-105 transition-transform active:scale-95 inline-block">
+                MULAI BELAJAR
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <main class="relative min-h-[85vh] flex flex-col items-center justify-center text-center px-4 -mt-10 overflow-hidden">
+
+        <!-- Floating Character: Green -->
+        <div class="absolute animate-float z-20"
+             style="top:20%; left:8%; width:96px; height:96px; animation-duration:8s;">
+            <div style="width:100%;height:100%;background:#22C55E;border:3px solid black;border-radius:50%;position:relative;box-shadow:4px 4px 0 rgba(0,0,0,1);">
+                <div style="position:absolute;top:40%;left:20%;width:12px;height:12px;background:black;border-radius:50%;"></div>
+                <div style="position:absolute;top:40%;right:20%;width:12px;height:12px;background:black;border-radius:50%;"></div>
+                <div style="position:absolute;bottom:25%;left:50%;transform:translateX(-50%);width:32px;height:4px;background:black;border-radius:4px;"></div>
+                <div style="position:absolute;top:-8px;left:-8px;font-size:24px;">✨</div>
+            </div>
+        </div>
+
+        <!-- Floating Character: Red -->
+        <div class="absolute animate-float z-20"
+             style="bottom:20%; left:12%; width:80px; height:80px; animation-duration:6s; animation-delay:1s;">
+            <div style="width:100%;height:100%;background:#EF4444;border:3px solid black;border-radius:50%;position:relative;box-shadow:4px 4px 0 rgba(0,0,0,1);">
+                <div style="position:absolute;top:35%;left:25%;font-size:10px;font-weight:700;">X</div>
+                <div style="position:absolute;top:35%;right:25%;font-size:10px;font-weight:700;">X</div>
+            </div>
+        </div>
+
+        <!-- Floating Character: Purple -->
+        <div class="absolute animate-float z-20"
+             style="top:35%; right:8%; width:96px; height:96px; animation-duration:7s; animation-delay:0.5s;">
+            <div style="width:100%;height:100%;background:#A855F7;border:3px solid black;border-radius:50%;position:relative;box-shadow:4px 4px 0 rgba(0,0,0,1);">
+                <div style="position:absolute;top:45%;left:30%;width:8px;height:8px;background:black;border-radius:50%;"></div>
+                <div style="position:absolute;top:45%;right:30%;width:8px;height:8px;background:black;border-radius:50%;"></div>
+                <div style="position:absolute;top:8px;right:8px;font-size:20px;">💫</div>
+            </div>
+        </div>
+
+        <!-- Floating Character: Blue (Bottom) -->
+        <div class="absolute animate-float z-10"
+             style="bottom:-40px; left:50%; transform:translateX(-50%); width:128px; height:64px;
+                    background:#3B82F6; border:3px solid black; border-bottom:none; border-radius:9999px 9999px 0 0;
+                    animation-duration:9s;">
+            <div style="position:absolute;top:16px;left:35%;width:8px;height:8px;background:black;border-radius:50%;"></div>
+            <div style="position:absolute;top:16px;right:35%;width:8px;height:8px;background:black;border-radius:50%;"></div>
+        </div>
+
+        <!-- Floating Character: Yellow -->
+        <div class="absolute animate-float z-20"
+             style="bottom:10%; right:10%; width:80px; height:80px; transform:rotate(-15deg); animation-duration:5s;">
+            <div style="width:100%;height:100%;background:#FACC15;border:3px solid black;border-radius:50%;position:relative;box-shadow:4px 4px 0 rgba(0,0,0,1);">
+                <div style="position:absolute;top:45%;left:30%;width:8px;height:8px;background:black;border-radius:50%;"></div>
+                <div style="position:absolute;top:45%;right:30%;width:8px;height:8px;background:black;border-radius:50%;"></div>
+                <div style="position:absolute;bottom:25%;left:50%;transform:translateX(-50%);width:40px;height:4px;background:black;border-radius:4px;"></div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="relative z-30 max-w-[1000px] mx-auto">
+            <p class="fade-in text-[10px] md:text-sm font-bold uppercase tracking-[0.3em] mb-4">
+                Implementasi Challenge-Based Learning melalui ❤️
+            </p>
+
+            <h1 class="fade-in-delay font-anton text-[12vw] md:text-[8vw] leading-[0.85] tracking-[-0.05em] uppercase pointer-events-none">
+                <span class="block">ETNO-</span>
+                <span class="block">MATEMATIKA</span>
+                <span class="block">BENTENG</span>
+            </h1>
+
+            <div class="relative mt-8">
+                <!-- Scribble Arrow -->
+                <div class="hidden lg:block absolute -left-20 -top-10 w-24 opacity-60" style="transform:rotate(-45deg);">
+                    <svg viewBox="0 0 100 100" fill="none" stroke="black" stroke-width="2" stroke-linecap="round">
+                        <path d="M10,80 Q40,90 60,40 T90,20" />
+                        <path d="M80,30 L90,20 L75,15" />
+                    </svg>
+                </div>
+
+                <p class="fade-in-delay-2 max-w-md mx-auto text-sm md:text-lg font-medium leading-relaxed text-[#1A1A1A]">
+                    Tingkatkan kemampuan spasialmu dengan cara seru di Benteng Fort Willem I!
+                    Volume dan Luas Permukaan jadi tidak sulit lagi.
+                </p>
+            </div>
+
+            <!-- CTA Button (Mobile) -->
+            <div class="mt-12 md:hidden">
+                <a href="menu.html"
+                   class="bg-black text-white px-10 py-5 rounded-full font-anton text-xl tracking-wide shadow-xl active:scale-95 transition-transform inline-block">
+                    MULAI BELAJAR
+                </a>
+            </div>
+        </div>
+
+        <!-- Footer Decor: Bottom Left -->
+        <div class="absolute bottom-10 left-6 flex flex-col items-start gap-2">
+            <p class="text-[9px] font-bold uppercase tracking-widest text-gray-400">FIND US ON:</p>
+            <div class="flex gap-2">
+                <div class="w-8 h-8 bg-black rounded-lg flex items-center justify-center text-white text-[10px] font-anton italic">L</div>
+                <div class="w-8 h-8 bg-black rounded-lg flex items-center justify-center text-white text-[10px] font-anton italic">I</div>
+                <div class="w-8 h-8 bg-black rounded-lg flex items-center justify-center text-white text-[10px] font-anton italic">D</div>
+                <div class="w-8 h-8 bg-black rounded-lg flex items-center justify-center text-white text-[10px] font-anton italic">M</div>
+            </div>
+        </div>
+
+        <!-- Footer Decor: Bottom Right -->
+        <div class="hidden md:flex absolute bottom-10 right-10 items-center gap-2 font-anton text-xs tracking-tight">
+            <span>CHEW THE MATH!!!!</span>
+            <div class="w-6 h-6 border-2 border-black rounded-full flex items-center justify-center">✦</div>
+        </div>
+    </main>
+
+    <!-- JS -->
+    <script src="assets/js/app.js"></script>
+</body>
+</html>

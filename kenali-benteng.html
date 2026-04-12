@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Media Interaktif Etnomatematika - Challenge-Based Learning Benteng Fort Willem I">
+    <title>Ayo Kenali Benteng Fort Willem I — Etnomatematika</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
+    <!-- Alpine.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'heading': ['Montserrat', 'ui-sans-serif', 'system-ui'],
+                        'sans': ['Montserrat', 'ui-sans-serif', 'system-ui'],
+                    },
+                    colors: {
+                        'primary': '#7B3F00',
+                        'primary-dark': '#5C2E00',
+                        'gold': '#D4A017',
+                        'gold-light': '#F5D060',
+                        'gold-dark': '#B8860B',
+                        'cream': '#FDF8F0',
+                        'cream-dark': '#F5EDE0',
+                        'sidebar': '#1C1108',
+                        'accent': '#2E7D32',
+                        'text-main': '#1A1A1A',
+                        'text-light': '#6B5B4F',
+                        'text-muted': '#9B8B7F',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+</head>
+<body class="bg-cream min-h-screen">
+
+    <!-- Top Navigation Bar -->
+    <header class="fixed top-0 left-0 right-0 z-50 text-white shadow-lg border-b border-gold/20" style="background-color: #1C1108;">
+        <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
+            <!-- Back Button -->
+            <a href="menu.html"
+               class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 transition-all duration-200 text-sm font-medium text-white group">
+                <svg class="w-4 h-4 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                </svg>
+                <span>Kembali ke Menu</span>
+            </a>
+
+            <!-- Title -->
+            <div class="flex items-center gap-2">
+                <div class="w-7 h-7 rounded-lg bg-gold-gradient flex items-center justify-center">
+                    <svg class="w-4 h-4 text-sidebar" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                    </svg>
+                </div>
+                <span class="font-heading font-bold text-gold text-sm hidden sm:inline">Etnomatematika Fort Willem I</span>
+            </div>
+
+            <!-- Current Page -->
+            <div class="text-xs text-[#F5D060]/70 bg-white/10 px-3 py-1.5 rounded-lg hidden md:block">
+                Ayo Kenali Benteng Fort Willem I
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-16 min-h-screen">
+        <div class="p-6 lg:p-10 max-w-5xl mx-auto">
+
+            <!-- Page Header -->
+            <div class="mb-8 animate-fade-in-up">
+                <div class="inline-flex items-center gap-2 bg-gold/10 border border-gold/20 rounded-full px-4 py-1.5 mb-4">
+                    <svg class="w-4 h-4 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                    </svg>
+                    <span class="text-primary text-sm font-semibold">Kenali Benteng</span>
+                </div>
+                <h1 class="font-heading font-bold text-3xl lg:text-4xl text-primary-dark mb-2">Ayo Kenali Benteng Fort Willem I</h1>
+                <p class="text-text-light">Jelajahi sejarah, arsitektur, dan keindahan Benteng Fort Willem I di Ambarawa</p>
+            </div>
+
+            <!-- Materi Teks -->
+            <div class="card-heritage mb-8">
+                <h2 class="font-heading font-bold text-xl text-primary mb-4">Sejarah Benteng Fort Willem I</h2>
+                <div class="prose max-w-none text-text-main text-sm leading-relaxed space-y-4">
+                    <p>
+                        <strong>Benteng Fort Willem I</strong> adalah sebuah bangunan bersejarah peninggalan kolonial Belanda yang terletak di <strong>Ambarawa, Kabupaten Semarang, Jawa Tengah</strong>. Benteng ini dibangun pada tahun <strong>1834–1845</strong> atas perintah pemerintah Hindia Belanda dan dinamai menurut Raja Willem I dari Belanda.
+                    </p>
+                    <p>
+                        Benteng ini awalnya berfungsi sebagai <strong>markas militer</strong> untuk mengendalikan keamanan wilayah di sekitar Ambarawa dan daerah Kedu. Arsitektur benteng ini memadukan gaya Eropa dengan adaptasi iklim tropis, menghasilkan bentuk bangunan yang unik dan menarik secara geometris.
+                    </p>
+                    <p>
+                        Dari sudut pandang <strong>matematika</strong>, Benteng Fort Willem I kaya akan bentuk-bentuk geometri. Bangunan utamanya terdiri dari balok-balok besar (dinding, ruangan, menara), sementara beberapa pos pengawas berbentuk menyerupai kubus. Konsep <strong>volume dan luas permukaan</strong> dapat dipelajari secara kontekstual melalui pengukuran dan analisis bagian-bagian benteng.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Model 3D Benteng -->
+            <div class="card-heritage mb-8">
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="font-heading font-bold text-xl text-primary">🏰 Model 3D Benteng Fort Willem I</h2>
+                    <span class="text-xs text-text-muted bg-cream px-3 py-1 rounded-full">Interaktif</span>
+                </div>
+                <div id="benteng-3d" class="w-full h-[400px] md:h-[500px] rounded-xl overflow-hidden border border-gold/10 bg-cream-dark"></div>
+                <div class="flex items-center gap-4 mt-3 text-xs text-text-muted">
+                    <span class="flex items-center gap-1">🖱️ Drag untuk memutar</span>
+                    <span class="flex items-center gap-1">🔍 Scroll untuk zoom</span>
+                    <span class="flex items-center gap-1">📱 Touch & pinch di HP</span>
+                </div>
+                <p class="text-xs text-text-light mt-2 italic">Model 3D menunjukkan kombinasi bangun ruang kubus (pos jaga) dan balok (barak, gudang, menara) pada arsitektur benteng.</p>
+            </div>
+
+            <!-- Galeri Foto -->
+            <div class="card-heritage mb-8" x-data="{ activeSlide: 0 }">
+                <h2 class="font-heading font-bold text-xl text-primary mb-4">📸 Galeri Foto Benteng</h2>
+
+                <div class="relative overflow-hidden rounded-xl bg-cream-dark">
+                    <!-- Slide Container -->
+                    <div class="relative h-72 md:h-[500px]">
+                        
+                        <div x-show="activeSlide === 0" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" class="absolute inset-0">
+                            <img src="assets/img/IMG_4498.JPG" alt="Gerbang Utama Benteng" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/800x500/F5EDE0/7B3F00?text=Gerbang+Utama+Benteng'">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-6 text-white text-left">
+                                <h3 class="font-heading font-bold text-lg mb-1">Gerbang Utama Benteng</h3>
+                                <p class="text-xs text-gray-200 line-clamp-2">Arsitektur pintu masuk benteng yang memperlihatkan struktur balok yang kokoh.</p>
+                            </div>
+                        </div>
+                        
+                        <div x-show="activeSlide === 1" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" class="absolute inset-0">
+                            <img src="assets/img/IMG_4510.JPG" alt="Lorong Barisan Ruangan" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/800x500/F5EDE0/7B3F00?text=Lorong+Barisan+Ruangan'">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-6 text-white text-left">
+                                <h3 class="font-heading font-bold text-lg mb-1">Lorong Barisan Ruangan</h3>
+                                <p class="text-xs text-gray-200 line-clamp-2">Deretan ruangan yang membentuk pola geometris berulang di sepanjang koridor benteng.</p>
+                            </div>
+                        </div>
+
+                        <div x-show="activeSlide === 2" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" class="absolute inset-0">
+                            <img src="assets/img/IMG_4522.JPG" alt="Struktur Menara Pengawas" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/800x500/F5EDE0/7B3F00?text=Struktur+Menara+Pengawas'">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-6 text-white text-left">
+                                <h3 class="font-heading font-bold text-lg mb-1">Struktur Menara Pengawas</h3>
+                                <p class="text-xs text-gray-200 line-clamp-2">Bagian atas benteng yang memiliki bentuk dasar kubus dan balok pada bangunannya.</p>
+                            </div>
+                        </div>
+
+                        <div x-show="activeSlide === 3" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" class="absolute inset-0">
+                            <img src="assets/img/IMG_4526.JPG" alt="Detail Batu Bata Heritage" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/800x500/F5EDE0/7B3F00?text=Detail+Batu+Bata'">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-6 text-white text-left">
+                                <h3 class="font-heading font-bold text-lg mb-1">Detail Batu Bata Heritage</h3>
+                                <p class="text-xs text-gray-200 line-clamp-2">Setiap batu bata adalah balok kecil yang menyusun kekuatan benteng selama ratusan tahun.</p>
+                            </div>
+                        </div>
+
+                        <div x-show="activeSlide === 4" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" class="absolute inset-0">
+                            <img src="assets/img/IMG_4550.JPG" alt="Sudut Pandang Arsitektur" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/800x500/F5EDE0/7B3F00?text=Arsitektur'">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-6 text-white text-left">
+                                <h3 class="font-heading font-bold text-lg mb-1">Sudut Pandang Arsitektur</h3>
+                                <p class="text-xs text-gray-200 line-clamp-2">Keindahan simetri dan perspektif pada bangunan tua Fort Willem I.</p>
+                            </div>
+                        </div>
+
+                        <div x-show="activeSlide === 5" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" class="absolute inset-0">
+                            <img src="assets/img/IMG_4563.JPG" alt="Halaman Tengah Benteng" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/800x500/F5EDE0/7B3F00?text=Halaman+Tengah'">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-6 text-white text-left">
+                                <h3 class="font-heading font-bold text-lg mb-1">Halaman Tengah Benteng</h3>
+                                <p class="text-xs text-gray-200 line-clamp-2">Area terbuka yang dikelilingi oleh bangunan bersejarah Ambarawa.</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Navigation -->
+                    <div class="absolute bottom-4 left-0 right-0 flex justify-center gap-2">
+                        <button @click="activeSlide = 0" class="w-3 h-3 rounded-full transition-all duration-300" :class="activeSlide === 0 ? 'bg-gold w-8' : 'bg-primary/30 hover:bg-primary/50'"></button>
+                        <button @click="activeSlide = 1" class="w-3 h-3 rounded-full transition-all duration-300" :class="activeSlide === 1 ? 'bg-gold w-8' : 'bg-primary/30 hover:bg-primary/50'"></button>
+                        <button @click="activeSlide = 2" class="w-3 h-3 rounded-full transition-all duration-300" :class="activeSlide === 2 ? 'bg-gold w-8' : 'bg-primary/30 hover:bg-primary/50'"></button>
+                        <button @click="activeSlide = 3" class="w-3 h-3 rounded-full transition-all duration-300" :class="activeSlide === 3 ? 'bg-gold w-8' : 'bg-primary/30 hover:bg-primary/50'"></button>
+                        <button @click="activeSlide = 4" class="w-3 h-3 rounded-full transition-all duration-300" :class="activeSlide === 4 ? 'bg-gold w-8' : 'bg-primary/30 hover:bg-primary/50'"></button>
+                        <button @click="activeSlide = 5" class="w-3 h-3 rounded-full transition-all duration-300" :class="activeSlide === 5 ? 'bg-gold w-8' : 'bg-primary/30 hover:bg-primary/50'"></button>
+                    </div>
+
+                    <!-- Prev/Next -->
+                    <button @click="activeSlide = (activeSlide - 1 + 6) % 6"
+                            class="absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/80 rounded-full flex items-center justify-center hover:bg-white transition shadow-lg">
+                        <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+                    </button>
+                    <button @click="activeSlide = (activeSlide + 1) % 6"
+                            class="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/80 rounded-full flex items-center justify-center hover:bg-white transition shadow-lg">
+                        <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Video -->
+            <div class="card-heritage mb-8">
+                <h2 class="font-heading font-bold text-xl text-primary mb-4">🎬 Video Singkat</h2>
+                <div class="aspect-video rounded-xl overflow-hidden bg-cream-dark">
+                    <iframe class="w-full h-full"
+                            src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                            title="Video Benteng Fort Willem I"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                    </iframe>
+                </div>
+                <p class="text-text-muted text-sm mt-3 italic">
+                    💡 Placeholder — Ganti dengan video tentang Benteng Fort Willem I Ambarawa
+                </p>
+            </div>
+
+            <!-- Google Maps -->
+            <div class="card-heritage mb-8">
+                <h2 class="font-heading font-bold text-xl text-primary mb-4">📍 Lokasi Benteng Fort Willem I</h2>
+                <div class="aspect-video rounded-xl overflow-hidden">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.5!2d110.4062!3d-7.2632!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a7c1c0e6f7d1f%3A0x5027a76e355e3b0!2sBenteng%20Fort%20Willem%20I!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid"
+                        width="100%"
+                        height="100%"
+                        style="border:0;"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+                <div class="mt-3 flex items-center gap-2 text-sm">
+                    <svg class="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                    </svg>
+                    <span class="text-text-light">Ambarawa, Kabupaten Semarang, Jawa Tengah, Indonesia</span>
+                </div>
+            </div>
+
+            <!-- Fakta Menarik (Flip Cards) -->
+            <div class="mb-8">
+                <h2 class="font-heading font-bold text-xl text-primary mb-6">✨ Fakta Menarik</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    
+                    <div class="flip-card h-48" x-data="{ flipped: false }" @click="flipped = !flipped" :class="flipped ? 'flipped' : ''">
+                        <div class="flip-card-inner relative w-full h-full">
+                            <!-- Front -->
+                            <div class="flip-card-front absolute inset-0 card-heritage flex flex-col items-center justify-center text-center">
+                                <span class="text-4xl mb-3">📅</span>
+                                <h3 class="font-heading font-semibold text-primary">Tahun Pembangunan</h3>
+                                <p class="text-text-muted text-xs mt-2">Klik untuk melihat</p>
+                            </div>
+                            <!-- Back -->
+                            <div class="flip-card-back absolute inset-0 rounded-2xl flex items-center justify-center text-center p-4" style="background-color: var(--color-primary-dark, #5c2d0e); color: white;">
+                                <p class="text-sm leading-relaxed" style="color: white !important;">Benteng Fort Willem I dibangun pada tahun 1834-1845, membutuhkan waktu 11 tahun untuk menyelesaikannya.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flip-card h-48" x-data="{ flipped: false }" @click="flipped = !flipped" :class="flipped ? 'flipped' : ''">
+                        <div class="flip-card-inner relative w-full h-full">
+                            <div class="flip-card-front absolute inset-0 card-heritage flex flex-col items-center justify-center text-center">
+                                <span class="text-4xl mb-3">📏</span>
+                                <h3 class="font-heading font-semibold text-primary">Luas Area Benteng</h3>
+                                <p class="text-text-muted text-xs mt-2">Klik untuk melihat</p>
+                            </div>
+                            <div class="flip-card-back absolute inset-0 rounded-2xl flex items-center justify-center text-center p-4" style="background-color: var(--color-primary-dark, #5c2d0e); color: white;">
+                                <p class="text-sm leading-relaxed" style="color: white !important;">Benteng ini memiliki luas area sekitar 5 hektar dengan berbagai bangunan di dalamnya yang berbentuk balok dan kubus.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flip-card h-48" x-data="{ flipped: false }" @click="flipped = !flipped" :class="flipped ? 'flipped' : ''">
+                        <div class="flip-card-inner relative w-full h-full">
+                            <div class="flip-card-front absolute inset-0 card-heritage flex flex-col items-center justify-center text-center">
+                                <span class="text-4xl mb-3">⚔️</span>
+                                <h3 class="font-heading font-semibold text-primary">Fungsi Awal</h3>
+                                <p class="text-text-muted text-xs mt-2">Klik untuk melihat</p>
+                            </div>
+                            <div class="flip-card-back absolute inset-0 rounded-2xl flex items-center justify-center text-center p-4" style="background-color: var(--color-primary-dark, #5c2d0e); color: white;">
+                                <p class="text-sm leading-relaxed" style="color: white !important;">Awalnya berfungsi sebagai markas militer dan tempat penahanan tentara, kini menjadi cagar budaya.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flip-card h-48" x-data="{ flipped: false }" @click="flipped = !flipped" :class="flipped ? 'flipped' : ''">
+                        <div class="flip-card-inner relative w-full h-full">
+                            <div class="flip-card-front absolute inset-0 card-heritage flex flex-col items-center justify-center text-center">
+                                <span class="text-4xl mb-3">📐</span>
+                                <h3 class="font-heading font-semibold text-primary">Geometri Benteng</h3>
+                                <p class="text-text-muted text-xs mt-2">Klik untuk melihat</p>
+                            </div>
+                            <div class="flip-card-back absolute inset-0 rounded-2xl flex items-center justify-center text-center p-4" style="background-color: var(--color-primary-dark, #5c2d0e); color: white;">
+                                <p class="text-sm leading-relaxed" style="color: white !important;">Dinding benteng membentuk pola geometris dengan bagian bastion (sudut) yang unik — gabungan beberapa balok.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flip-card h-48" x-data="{ flipped: false }" @click="flipped = !flipped" :class="flipped ? 'flipped' : ''">
+                        <div class="flip-card-inner relative w-full h-full">
+                            <div class="flip-card-front absolute inset-0 card-heritage flex flex-col items-center justify-center text-center">
+                                <span class="text-4xl mb-3">🧱</span>
+                                <h3 class="font-heading font-semibold text-primary">Bahan Bangunan</h3>
+                                <p class="text-text-muted text-xs mt-2">Klik untuk melihat</p>
+                            </div>
+                            <div class="flip-card-back absolute inset-0 rounded-2xl flex items-center justify-center text-center p-4" style="background-color: var(--color-primary-dark, #5c2d0e); color: white;">
+                                <p class="text-sm leading-relaxed" style="color: white !important;">Dibangun dari batu bata berbentuk balok berukuran sekitar 20cm × 10cm × 5cm — contoh nyata bangun ruang.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flip-card h-48" x-data="{ flipped: false }" @click="flipped = !flipped" :class="flipped ? 'flipped' : ''">
+                        <div class="flip-card-inner relative w-full h-full">
+                            <div class="flip-card-front absolute inset-0 card-heritage flex flex-col items-center justify-center text-center">
+                                <span class="text-4xl mb-3">🏛️</span>
+                                <h3 class="font-heading font-semibold text-primary">Warisan Budaya</h3>
+                                <p class="text-text-muted text-xs mt-2">Klik untuk melihat</p>
+                            </div>
+                            <div class="flip-card-back absolute inset-0 rounded-2xl flex items-center justify-center text-center p-4" style="background-color: var(--color-primary-dark, #5c2d0e); color: white;">
+                                <p class="text-sm leading-relaxed" style="color: white !important;">Benteng ini merupakan warisan budaya yang dilindungi dan menjadi sumber belajar etnomatematika.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="assets/js/app.js"></script>
+    
+    <!-- External library for 3D model (Three.js and OrbitControls) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="assets/js/3d-benteng.js"></script>
+</body>
+</html>

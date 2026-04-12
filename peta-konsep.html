@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Media Interaktif Etnomatematika - Challenge-Based Learning Benteng Fort Willem I">
+    <title>Peta Konsep — Etnomatematika Fort Willem I</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
+    <!-- Alpine.js untuk interaksi zoom-in -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'heading': ['Montserrat', 'ui-sans-serif', 'system-ui'],
+                        'sans': ['Montserrat', 'ui-sans-serif', 'system-ui'],
+                    },
+                    colors: {
+                        'primary': '#7B3F00',
+                        'primary-dark': '#5C2E00',
+                        'gold': '#D4A017',
+                        'gold-light': '#F5D060',
+                        'gold-dark': '#B8860B',
+                        'cream': '#FDF8F0',
+                        'cream-dark': '#F5EDE0',
+                        'sidebar': '#1C1108',
+                        'accent': '#2E7D32',
+                        'text-main': '#1A1A1A',
+                        'text-light': '#6B5B4F',
+                        'text-muted': '#9B8B7F',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <style>
+        .custom-scrollbar::-webkit-scrollbar { height: 8px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: var(--color-cream-dark); border-radius: 10px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: var(--color-gold); border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-cream min-h-screen">
+
+    <!-- Top Navigation Bar -->
+    <header class="fixed top-0 left-0 right-0 z-50 text-white shadow-lg border-b border-gold/20" style="background-color: #1C1108;">
+        <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
+            <!-- Back Button -->
+            <a href="menu.html"
+               class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 transition-all duration-200 text-sm font-medium text-white group">
+                <svg class="w-4 h-4 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                </svg>
+                <span>Kembali ke Menu</span>
+            </a>
+
+            <!-- Title -->
+            <div class="flex items-center gap-2">
+                <div class="w-7 h-7 rounded-lg bg-gold-gradient flex items-center justify-center">
+                    <svg class="w-4 h-4 text-sidebar" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                    </svg>
+                </div>
+                <span class="font-heading font-bold text-gold text-sm hidden sm:inline">Etnomatematika Fort Willem I</span>
+            </div>
+
+            <!-- Current Page -->
+            <div class="text-xs text-[#F5D060]/70 bg-white/10 px-3 py-1.5 rounded-lg hidden md:block">
+                Peta Konsep
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-16 min-h-screen">
+        <div class="p-6 lg:p-10 max-w-5xl mx-auto">
+
+            <!-- Page Header -->
+            <div class="mb-8 animate-fade-in-up">
+                <div class="inline-flex items-center gap-2 bg-gold/10 border border-gold/20 rounded-full px-4 py-1.5 mb-4">
+                    <svg class="w-4 h-4 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/>
+                    </svg>
+                    <span class="text-primary text-sm font-semibold">Peta Konsep</span>
+                </div>
+                <h1 class="font-heading font-bold text-3xl lg:text-4xl text-primary-dark mb-2">Peta Konsep Pembelajaran</h1>
+                <p class="text-text-light">Alur pembelajaran materi Volume & Luas Permukaan Kubus dan Balok berbasis Etnomatematika Benteng Fort Willem I</p>
+            </div>
+
+            <!-- Peta Konsep Image -->
+            <div class="card-heritage mb-8" x-data="{ zoomed: false }">
+                <div class="relative overflow-hidden rounded-xl" :class="zoomed ? 'cursor-zoom-out' : 'cursor-zoom-in'" @click="zoomed = !zoomed">
+                    <div class="overflow-x-auto pb-2 custom-scrollbar">
+                        
+                        <!-- Peta Konsep Content -->
+                        <div class="bg-cream-dark rounded-xl p-6 md:p-8 min-h-[500px] flex flex-col items-center justify-center transition-transform duration-500 min-w-[700px] md:min-w-full"
+                             :class="zoomed ? 'scale-[1.15]' : 'scale-100'">
+
+                            <!-- Visual Concept Map -->
+                            <div class="w-full max-w-3xl mx-auto">
+                                
+                                <!-- Top Level -->
+                                <div class="flex justify-center mb-6">
+                                    <div class="bg-heritage-gradient text-white px-6 py-3 rounded-xl font-heading font-bold text-center shadow-lg">
+                                        Bangun Ruang Sisi Datar<br>
+                                        <span class="text-gold-light text-sm font-normal">Konteks: Benteng Fort Willem I</span>
+                                    </div>
+                                </div>
+
+                                <!-- Connector -->
+                                <div class="flex justify-center mb-4">
+                                    <div class="w-0.5 h-8 bg-gold"></div>
+                                </div>
+
+                                <!-- Two Branches -->
+                                <div class="grid grid-cols-2 gap-4 md:gap-8 relative">
+                                    
+                                    <!-- Horizontal line connecting the branches -->
+                                    <div class="absolute top-0 left-1/4 right-1/4 h-0.5 bg-gold translate-y-[-16px]"></div>
+                                    <div class="absolute top-0 left-1/4 w-0.5 h-4 bg-gold translate-y-[-16px]"></div>
+                                    <div class="absolute top-0 right-1/4 w-0.5 h-4 bg-gold translate-y-[-16px]"></div>
+
+                                    <!-- Branch 1: Kubus -->
+                                    <div class="space-y-4">
+                                        <div class="bg-primary text-white px-5 py-3 rounded-xl font-heading font-semibold text-center shadow-md">
+                                            KUBUS
+                                        </div>
+                                        <div class="flex justify-center">
+                                            <div class="w-0.5 h-4 bg-gold/50"></div>
+                                        </div>
+                                        <div class="space-y-2 relative">
+                                            <div class="bg-white border border-gold/20 px-4 py-2 rounded-lg text-sm text-center shadow-sm">
+                                                📏 Volume
+                                            </div>
+                                            <div class="flex justify-center">
+                                                <div class="w-0.5 h-3 bg-gold/30"></div>
+                                            </div>
+                                            <div class="bg-white border border-gold/20 px-4 py-2 rounded-lg text-sm text-center shadow-sm">
+                                                📊 Luas Permukaan
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Branch 2: Balok -->
+                                    <div class="space-y-4">
+                                        <div class="bg-primary text-white px-5 py-3 rounded-xl font-heading font-semibold text-center shadow-md">
+                                            BALOK
+                                        </div>
+                                        <div class="flex justify-center">
+                                            <div class="w-0.5 h-4 bg-gold/50"></div>
+                                        </div>
+                                        <div class="space-y-2 relative">
+                                            <div class="bg-white border border-gold/20 px-4 py-2 rounded-lg text-sm text-center shadow-sm">
+                                                📏 Volume
+                                            </div>
+                                            <div class="flex justify-center">
+                                                <div class="w-0.5 h-3 bg-gold/30"></div>
+                                            </div>
+                                            <div class="bg-white border border-gold/20 px-4 py-2 rounded-lg text-sm text-center shadow-sm">
+                                                📊 Luas Permukaan
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Bottom: Kemampuan Spasial -->
+                                <div class="flex justify-center relative mt-6">
+                                    <!-- Connecting lines from branches to bottom -->
+                                    <div class="absolute top-0 left-1/4 right-1/4 h-0.5 bg-gold translate-y-[-16px]"></div>
+                                    <div class="absolute top-0 left-1/4 w-0.5 h-4 bg-gold translate-y-[-16px]"></div>
+                                    <div class="absolute top-0 right-1/4 w-0.5 h-4 bg-gold translate-y-[-16px]"></div>
+                                    
+                                    <div class="w-0.5 h-8 bg-gold -mt-4"></div>
+                                </div>
+                                <div class="flex justify-center">
+                                    <div class="bg-accent text-white px-6 py-3 rounded-xl font-heading font-semibold text-center shadow-lg">
+                                        Kemampuan Spasial Matematis
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-text-muted text-sm mt-4 text-center">
+                    💡 Geser (scroll) ke kanan/kiri pada mode mobile. Klik untuk memperbesar.
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <script src="assets/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asesmen Sumatif — Etnomatematika</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'heading': ['Montserrat', 'ui-sans-serif', 'system-ui'],
+                        'sans': ['Montserrat', 'ui-sans-serif', 'system-ui'],
+                    },
+                    colors: {
+                        'primary': '#7B3F00',
+                        'primary-dark': '#5C2E00',
+                        'gold': '#D4A017',
+                        'gold-light': '#F5D060',
+                        'gold-dark': '#B8860B',
+                        'cream': '#FDF8F0',
+                        'cream-dark': '#F5EDE0',
+                        'sidebar': '#1C1108',
+                        'accent': '#2E7D32',
+                        'text-main': '#1A1A1A',
+                        'text-light': '#6B5B4F',
+                        'text-muted': '#9B8B7F',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-cream min-h-screen pt-16">
+    <!-- Top Navigation Bar -->
+    <header class="fixed top-0 left-0 right-0 z-50 text-white shadow-lg border-b border-gold/20" style="background-color: #1C1108;">
+        <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
+            <a href="menu.html" class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 transition-all duration-200 text-sm font-medium text-white group">
+                <svg class="w-4 h-4 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+                <span>Menu</span>
+            </a>
+            <div class="text-xs text-[#F5D060]/70 bg-white/10 px-3 py-1.5 rounded-lg hidden md:block">
+                Asesmen Sumatif
+            </div>
+        </div>
+    </header>
+
+    <div class="p-6 lg:p-10 max-w-4xl mx-auto" x-data="kuisSumatif()">
+        
+        <!-- Welcome Screen -->
+        <div x-show="!mulai && !selesai" class="animate-fade-in-up" style="display: none;">
+            <div class="inline-flex items-center gap-2 bg-accent/10 border border-accent/20 rounded-full px-4 py-1.5 mb-4">
+                <span class="text-accent text-sm font-semibold">🏆 Asesmen Sumatif</span>
+            </div>
+            <h1 class="font-heading font-bold text-3xl text-primary-dark mb-2">Asesmen Sumatif</h1>
+            <p class="text-text-light mb-8">Kuis ini bertujuan mengukur pemahaman akhir Anda tentang volume dan luas permukaan kubus & balok dalam konteks Benteng Fort Willem I.</p>
+
+            <div class="card-heritage max-w-md mx-auto text-center">
+                <div class="w-16 h-16 bg-accent/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+                </div>
+                <h3 class="font-heading font-semibold text-lg text-primary mb-4">Masukkan Nama Anda</h3>
+                <input type="text" x-model="namaSiswa" placeholder="Nama lengkap..." class="w-full px-4 py-3 rounded-xl border-2 border-accent/20 focus:border-accent focus:outline-none bg-cream text-text-main font-medium text-center mb-4">
+                <p class="text-xs text-text-muted mb-6" x-text="`${soals.length} soal pilihan ganda`"></p>
+                <button @click="mulaiKuis" class="w-full bg-accent text-white font-heading font-bold py-3 rounded-xl hover:opacity-90 transition">
+                    Mulai Ujian →
+                </button>
+            </div>
+        </div>
+
+        <!-- Quiz Screen -->
+        <div x-show="mulai && !selesai" style="display: none;">
+            <!-- Header -->
+            <div class="flex items-center justify-between mb-6">
+                <div>
+                    <span class="text-sm text-text-muted">Asesmen Sumatif</span>
+                    <h2 class="font-heading font-bold text-xl text-primary" x-text="`Soal ${currentIndex + 1} / ${soals.length}`"></h2>
+                </div>
+                <span class="bg-accent/10 text-accent text-sm font-semibold px-3 py-1 rounded-full" x-text="namaSiswa"></span>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="w-full bg-cream-dark rounded-full h-2 mb-6">
+                <div class="bg-accent h-2 rounded-full transition-all duration-500" :style="`width: ${((currentIndex + 1) / soals.length) * 100}%`"></div>
+            </div>
+
+            <!-- Navigation Dots -->
+            <div class="flex flex-wrap gap-2 mb-6">
+                <template x-for="(soal, index) in soals" :key="index">
+                    <button @click="currentIndex = index"
+                            class="w-8 h-8 rounded-lg text-xs font-bold transition-all duration-200"
+                            :class="index === currentIndex ? 'bg-accent text-white scale-110' : (jawaban[index] ? 'bg-accent/20 text-accent border border-accent/30' : 'bg-cream-dark text-text-muted hover:bg-cream')"
+                            x-text="index + 1">
+                    </button>
+                </template>
+            </div>
+
+            <!-- Question Card -->
+            <div class="card-heritage mb-6 border-t-4 border-t-accent">
+                <div class="flex items-start gap-3 mb-6">
+                    <span class="bg-accent text-white font-bold text-sm w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" x-text="currentIndex + 1"></span>
+                    <p class="text-text-main font-medium leading-relaxed" x-text="soals[currentIndex].pertanyaan"></p>
+                </div>
+
+                <!-- Options -->
+                <div class="space-y-3">
+                    <template x-for="pilihan_key in ['a', 'b', 'c', 'd']" :key="pilihan_key">
+                        <button @click="jawaban[currentIndex] = pilihan_key"
+                                class="quiz-option w-full text-left flex items-center gap-3 p-3 rounded-lg border transition-all"
+                                :class="jawaban[currentIndex] === pilihan_key ? 'border-accent bg-accent/10' : 'border-accent/10 hover:border-accent/30'">
+                            <span class="w-8 h-8 rounded-lg flex items-center justify-center font-bold text-sm flex-shrink-0"
+                                  :class="jawaban[currentIndex] === pilihan_key ? 'bg-accent text-white' : 'bg-cream text-accent'"
+                                  x-text="pilihan_key.toUpperCase()">
+                            </span>
+                            <span class="text-sm" x-text="soals[currentIndex].pilihan[pilihan_key]"></span>
+                        </button>
+                    </template>
+                </div>
+            </div>
+
+            <!-- Bottom Navigation -->
+            <div class="flex items-center justify-between">
+                <button @click="if(currentIndex > 0) currentIndex--"
+                        class="flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-sm transition"
+                        :class="currentIndex === 0 ? 'bg-cream-dark text-text-muted cursor-not-allowed' : 'bg-white border border-accent/20 text-accent hover:bg-cream'"
+                        :disabled="currentIndex === 0">
+                    ← Sebelumnya
+                </button>
+
+                <button x-show="currentIndex < soals.length - 1" @click="currentIndex++" class="flex items-center gap-2 bg-accent text-white px-6 py-2.5 rounded-xl font-semibold text-sm hover:opacity-90 transition">
+                    Selanjutnya →
+                </button>
+                <button x-show="currentIndex === soals.length - 1" @click="submitKuis" class="flex items-center gap-2 bg-red-600 text-white px-6 py-2.5 rounded-xl font-semibold text-sm hover:bg-red-700 transition">
+                    ✓ Selesai & Lihat Hasil
+                </button>
+            </div>
+        </div>
+
+        <!-- Result Screen -->
+        <div x-show="selesai" class="animate-fade-in-up" style="display: none;">
+            <div class="text-center mb-8">
+                <div class="inline-flex items-center justify-center w-24 h-24 rounded-full mb-4"
+                     :class="skor >= 80 ? 'bg-accent/10' : (skor >= 60 ? 'bg-gold/10' : 'bg-red-50')">
+                    <span class="font-heading font-black text-4xl"
+                          :class="skor >= 80 ? 'text-accent' : (skor >= 60 ? 'text-gold-dark' : 'text-red-500')"
+                          x-text="skor"></span>
+                </div>
+                <h2 class="font-heading font-bold text-2xl text-primary-dark mb-1">Hasil Asesmen Sumatif</h2>
+                <p class="text-text-light"><span x-text="namaSiswa"></span> — Benar: <span x-text="jawabanBenar"></span>/<span x-text="soals.length"></span></p>
+                <div class="inline-block mt-3 px-4 py-1.5 rounded-full text-sm font-semibold"
+                     :class="skor >= 80 ? 'bg-accent/10 text-accent' : (skor >= 60 ? 'bg-gold/10 text-gold-dark' : 'bg-red-50 text-red-500')"
+                     x-text="skor >= 80 ? '🌟 Luar Biasa!' : (skor >= 60 ? '👍 Lulus KKM' : '📖 Perlu Remedial')">
+                </div>
+            </div>
+
+            <!-- Review -->
+            <div class="space-y-4 mb-8">
+                <h3 class="font-heading font-semibold text-lg text-primary">Pembahasan Soal</h3>
+                <template x-for="(r, index) in review" :key="index">
+                    <div class="card-heritage !p-4 border-l-4" :class="r.is_benar ? '!border-l-accent' : '!border-l-red-400'">
+                        <div class="flex items-start gap-3 mb-2">
+                            <span class="text-sm font-bold" :class="r.is_benar ? 'text-accent' : 'text-red-500'" x-text="`${r.is_benar ? '✓' : '✗'} Soal ${index + 1}`"></span>
+                        </div>
+                        <p class="text-sm text-text-main mb-2" x-text="r.pertanyaan"></p>
+                        <div class="flex flex-wrap gap-4 text-xs">
+                            <span class="text-text-muted">Jawaban kamu: <strong :class="r.is_benar ? 'text-accent' : 'text-red-500'" x-text="(r.jawaban_siswa || '-').toUpperCase()"></strong></span>
+                            <span class="text-text-muted">Jawaban benar: <strong class="text-accent" x-text="r.jawaban_benar.toUpperCase()"></strong></span>
+                        </div>
+                        <p class="text-xs text-text-light mt-2 bg-cream rounded-lg p-2" x-text="`💡 ${r.pembahasan}`"></p>
+                    </div>
+                </template>
+            </div>
+
+            <div class="flex flex-wrap gap-4 justify-center">
+                <a href="menu.html" class="px-6 py-2.5 bg-heritage-gradient text-white rounded-xl font-semibold text-sm hover:opacity-90 transition">
+                    Kembali ke Menu Utama →
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('alpine:init', () => {
+            Alpine.data('kuisSumatif', () => ({
+                mulai: false,
+                selesai: false,
+                namaSiswa: '',
+                currentIndex: 0,
+                jawaban: {},
+                skor: 0,
+                jawabanBenar: 0,
+                review: [],
+                soals: [
+                    { pertanyaan: 'Sebuah ruangan gudang senjata di Benteng Fort Willem I berbentuk kubus dengan rusuk 6 m. Berapa volume ruangan itu?', pilihan: { a: '36 m³', b: '108 m³', c: '216 m³', d: '256 m³' }, jawaban_benar: 'c', pembahasan: 'Volume kubus = s³ = 6³ = 216 m³' },
+                    { pertanyaan: 'Dinding benteng berbentuk balok memiliki panjang 12 m, tinggi 4 m, dan tebal 1 m. Berapa volume dinding tersebut?', pilihan: { a: '36 m³', b: '44 m³', c: '48 m³', d: '52 m³' }, jawaban_benar: 'c', pembahasan: 'Volume = p × l × t = 12 × 4 × 1 = 48 m³' },
+                    { pertanyaan: 'Luas seluruh permukaan kubus dengan rusuk 8 cm adalah...', pilihan: { a: '256 cm²', b: '384 cm²', c: '448 cm²', d: '512 cm²' }, jawaban_benar: 'b', pembahasan: 'Luas permukaan kubus = 6s² = 6 × 64 = 384 cm²' },
+                    { pertanyaan: 'Sebuah bak air berbentuk balok memiliki ukuran 80 cm × 60 cm × 50 cm. Berapa liter air yang dapat ditampung bak tersebut?', pilihan: { a: '200 liter', b: '220 liter', c: '240 liter', d: '260 liter' }, jawaban_benar: 'c', pembahasan: 'Volume = 80 × 60 × 50 = 240.000 cm³ = 240 liter (1 liter = 1.000 cm³)' },
+                    { pertanyaan: 'Pos jaga Benteng Fort Willem I berbentuk kubus dengan volume 27 m³. Berapa luas permukaan pos jaga tersebut?', pilihan: { a: '36 m²', b: '48 m²', c: '54 m²', d: '72 m²' }, jawaban_benar: 'c', pembahasan: 'V = s³ = 27, maka s = 3. Luas permukaan = 6s² = 6 × 9 = 54 m²' },
+                    { pertanyaan: 'Jaring-jaring kubus terdiri dari berapa persegi?', pilihan: { a: '4', b: '5', c: '6', d: '8' }, jawaban_benar: 'c', pembahasan: 'Kubus tersusun dari 6 sisi berbentuk persegi, sehingga jaring-jaringnya terdiri dari 6 persegi.' },
+                    { pertanyaan: 'Sebuah kotak suvenir benteng berukuran 15 cm × 10 cm × 8 cm akan dibungkus kertas kado. Berapa luas kertas kado minimal yang dibutuhkan?', pilihan: { a: '600 cm²', b: '700 cm²', c: '760 cm²', d: '800 cm²' }, jawaban_benar: 'b', pembahasan: 'LP = 2(15×10 + 15×8 + 10×8) = 2(150+120+80) = 2×350 = 700 cm²' },
+                    { pertanyaan: 'Perbandingan volume dua kubus adalah 1:8. Jika rusuk kubus kecil 3 cm, berapa rusuk kubus besar?', pilihan: { a: '4 cm', b: '6 cm', c: '8 cm', d: '12 cm' }, jawaban_benar: 'b', pembahasan: 'Perbandingan Volume = (perbandingan sisi)³. 1:8 = 1:2³, jadi perbandingan sisi = 1:2. Rusuk besar = 3 × 2 = 6 cm.' },
+                    { pertanyaan: 'Menara pengawas benteng berbentuk balok dengan alas persegi sisi 3 m dan tinggi 8 m. Volume menara adalah...', pilihan: { a: '54 m³', b: '64 m³', c: '72 m³', d: '96 m³' }, jawaban_benar: 'c', pembahasan: 'Volume = p × l × t = 3 × 3 × 8 = 72 m³' },
+                    { pertanyaan: 'Sebuah balok memiliki luas permukaan 94 cm². Jika panjang 5 cm dan lebar 3 cm, berapa tingginya?', pilihan: { a: '2 cm', b: '3 cm', c: '4 cm', d: '5 cm' }, jawaban_benar: 'c', pembahasan: 'LP = 2(pl + pt + lt). 94 = 2(15 + 5t + 3t). 47 = 15 + 8t. 8t = 32. t = 4 cm.' },
+                    { pertanyaan: 'Sebuah kolam berbentuk balok dengan panjang 5 m, lebar 3 m, dan kedalaman 2 m akan dicat bagian dalam seluruhnya. Luas yang dicat adalah...', pilihan: { a: '46 m²', b: '47 m²', c: '62 m²', d: '47 m²' }, jawaban_benar: 'a', pembahasan: 'Luas yang dicat = luas alas + 2(p×t) + 2(l×t) = 15 + 20 + 12 = 47 m².' },
+                    { pertanyaan: 'Dua buah kubus masing-masing berusuk 4 cm disusun menjadi balok. Berapa volume balok yang terbentuk?', pilihan: { a: '64 cm³', b: '96 cm³', c: '128 cm³', d: '192 cm³' }, jawaban_benar: 'c', pembahasan: 'Volume 2 kubus = 2 × s³ = 2 × 64 = 128 cm³. Atau: balok 8×4×4 = 128 cm³.' },
+                    { pertanyaan: 'Batu bata memiliki ukuran 20 cm × 10 cm × 5 cm. Berapa batu bata yang diperlukan untuk mengisi ruangan berukuran 2 m × 1 m × 0.5 m?', pilihan: { a: '500', b: '800', c: '1000', d: '1200' }, jawaban_benar: 'c', pembahasan: 'Volume ruangan = 200×100×50 = 1.000.000 cm³. Volume bata = 20×10×5 = 1.000 cm³. Jumlah = 1.000.000/1.000 = 1.000 batu bata.' },
+                    { pertanyaan: 'Luas permukaan kubus A adalah 4 kali luas permukaan kubus B. Perbandingan rusuk A dan B adalah...', pilihan: { a: '2 : 1', b: '4 : 1', c: '√2 : 1', d: '√4 : 1' }, jawaban_benar: 'a', pembahasan: 'LP = 6s². Jika LP_A = 4 × LP_B, maka 6sA² = 4 × 6sB², sehingga sA² = 4sB², sA = 2sB. Perbandingan = 2:1.' },
+                    { pertanyaan: 'Pada konteks Benteng Fort Willem I, bagian bastion (sudut benteng) berbentuk menyerupai gabungan balok. Jika satu bastion terdiri dari 3 balok berukuran 2m × 2m × 3m, berapa total volume bastion?', pilihan: { a: '24 m³', b: '30 m³', c: '36 m³', d: '42 m³' }, jawaban_benar: 'c', pembahasan: 'Volume 1 balok = 2×2×3 = 12 m³. Total 3 balok = 3 × 12 = 36 m³.' }
+                ],
+                mulaiKuis() {
+                    if (!this.namaSiswa.trim()) {
+                        alert('Silakan masukkan nama Anda terlebih dahulu.');
+                        return;
+                    }
+                    this.mulai = true;
+                },
+                submitKuis() {
+                    if (Object.keys(this.jawaban).length < this.soals.length) {
+                        if (!confirm('Anda belum menjawab semua soal. Yakin ingin menyelesaikan kuis?')) return;
+                    }
+                    
+                    let benar = 0;
+                    this.review = this.soals.map((soal, index) => {
+                        let jawab = this.jawaban[index] || null;
+                        let isBenar = jawab === soal.jawaban_benar;
+                        if (isBenar) benar++;
+                        return {
+                            pertanyaan: soal.pertanyaan,
+                            jawaban_siswa: jawab,
+                            jawaban_benar: soal.jawaban_benar,
+                            is_benar: isBenar,
+                            pembahasan: soal.pembahasan
+                        };
+                    });
+                    
+                    this.jawabanBenar = benar;
+                    this.skor = Math.round((benar / this.soals.length) * 100);
+                    this.selesai = true;
+                }
+            }));
+        });
+    </script>
+</body>
+</html>

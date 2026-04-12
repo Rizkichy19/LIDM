@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Pembelajaran — Etnomatematika Fort Willem I</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        body { background: #f5f0e8; margin: 0; font-family: 'Montserrat', sans-serif; }
+
+        :root {
+            --node-size: 78px;
+            --node-r: 39px;
+            --label-w: 82px;
+            --label-gap: 10px;
+            --row-h: 125px;
+            --wrap-max: 350px;
+        }
+        @media (min-width: 640px) {
+            :root {
+                --node-size: 108px;
+                --node-r: 54px;
+                --label-w: 145px;
+                --label-gap: 14px;
+                --row-h: 165px;
+                --wrap-max: 600px;
+            }
+        }
+
+        .site-header {
+            background: #1C1108; color: white;
+            padding: 12px 16px;
+            position: sticky; top: 0; z-index: 50;
+            box-shadow: 0 4px 20px rgba(0,0,0,.25);
+        }
+        .site-header .inner {
+            max-width: 700px; margin: 0 auto;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .logo-box {
+            width: 34px; height: 34px; border-radius: 9px;
+            background: linear-gradient(135deg,#D4A017,#F5D060);
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+        }
+        @media (min-width: 640px) {
+            .site-header { padding: 16px 24px; }
+            .logo-box { width: 46px; height: 46px; border-radius: 12px; }
+            .logo-box svg { width: 22px; height: 22px; }
+            .brand-name { font-size: 15px !important; }
+            .brand-sub  { font-size: 12px !important; }
+        }
+
+        .intro-section { text-align: center; padding: 32px 16px 8px; }
+        @media (min-width: 640px) {
+            .intro-section { padding: 52px 24px 12px; }
+            .intro-badge { font-size: 14px !important; padding: 10px 22px !important; }
+            .intro-sub   { font-size: 15px !important; margin-top: 8px !important; }
+        }
+
+        .level-section { padding: 8px 16px 80px; }
+        @media (min-width: 640px) { .level-section { padding: 12px 32px 120px; } }
+
+        .zigzag-wrapper {
+            position: relative; width: 100%;
+            max-width: var(--wrap-max); margin: 0 auto;
+        }
+        .zigzag-svg {
+            position: absolute; inset: 0; width: 100%;
+            pointer-events: none; z-index: 1; overflow: visible;
+        }
+        .zz-row {
+            display: flex; align-items: center;
+            height: var(--row-h); position: relative; z-index: 2;
+        }
+        .zz-spacer { flex: 1; min-width: 0; }
+
+        .node-btn {
+            width: var(--node-size); height: var(--node-size);
+            flex-shrink: 0; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: clamp(1.5rem, 4vw, 2.1rem);
+            text-decoration: none;
+            position: relative; z-index: 10;
+            transition: transform .2s cubic-bezier(.34,1.56,.64,1), box-shadow .2s;
+        }
+        .node-btn:hover  { transform: translateY(-5px) scale(1.07); }
+        .node-btn:active { transform: translateY(2px) scale(0.96); }
+
+        .node-number {
+            position: absolute; bottom: 0; right: 0;
+            width: clamp(20px, 4vw, 28px); height: clamp(20px, 4vw, 28px);
+            background: white; border: 2px solid #e5e7eb; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: clamp(9px, 2vw, 12px); font-weight: 700; color: #6b7280;
+            box-shadow: 0 2px 6px rgba(0,0,0,.12);
+        }
+        .node-label {
+            width: var(--label-w); flex-shrink: 0;
+            background: white; border-radius: 10px;
+            padding: clamp(6px,1.5vw,10px) clamp(8px,2vw,12px);
+            box-shadow: 0 3px 16px rgba(0,0,0,.08);
+            border: 1.5px solid rgba(212,160,23,.25);
+            word-break: break-word; hyphens: auto;
+        }
+        .label-left  { text-align: right; margin-right: var(--label-gap); }
+        .label-right { text-align: left;  margin-left:  var(--label-gap); }
+        .label-name {
+            font-weight: 700; font-size: clamp(11px,2.5vw,13px);
+            line-height: 1.25; color: #7B3F00; margin: 0;
+        }
+        .label-sub {
+            font-size: clamp(9px,2vw,11px); line-height: 1.3;
+            color: #9B8B7F; margin: 3px 0 0;
+        }
+
+        .footer-card { margin-top: clamp(40px,8vw,80px); text-align: center; }
+        .footer-card .inner {
+            display: inline-block; background: white; border-radius: 18px;
+            padding: clamp(12px,3vw,20px) clamp(20px,5vw,36px);
+            box-shadow: 0 2px 12px rgba(0,0,0,.06);
+            border: 1px solid rgba(212,160,23,.15);
+        }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+    <div class="inner">
+        <div style="display:flex; align-items:center; gap:12px;">
+            <div class="logo-box">
+                <svg style="width:18px;height:18px;color:#1C1108" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2
+                          0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5
+                          10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                </svg>
+            </div>
+            <div>
+                <p class="brand-name" style="font-size:13px;font-weight:700;color:#D4A017;margin:0;line-height:1.2">
+                    Etnomatematika
+                </p>
+                <p class="brand-sub" style="font-size:10px;color:rgba(245,237,224,.5);margin:0">
+                    Fort Willem I
+                </p>
+            </div>
+        </div>
+        <a href="index.html" style="font-size:11px;color:rgba(245,237,224,.5);text-decoration:none;">← Kembali</a>
+    </div>
+</header>
+
+<!-- INTRO -->
+<div class="intro-section">
+    <div class="intro-badge" style="display:inline-flex;align-items:center;gap:8px;
+         border-radius:999px;padding:8px 18px;margin-bottom:10px;
+         background:rgba(212,160,23,.12);border:1px solid rgba(212,160,23,.25);
+         font-size:12px;font-weight:700;color:#7B3F00;">
+        🏰 Mulai Petualangan Belajarmu
+    </div>
+    <p class="intro-sub" style="font-size:13px;color:#9B8B7F;margin:4px 0 0;">
+        Pilih level untuk memulai perjalanan belajar
+    </p>
+</div>
+
+<!-- LEVEL PATH / ZIGZAG -->
+<div class="level-section">
+    <div class="zigzag-wrapper" id="zzWrapper">
+        <svg class="zigzag-svg" id="zzSvg" style="height:0" aria-hidden="true"></svg>
+
+        <!-- Level 1: Peta Konsep (LEFT) -->
+        <div class="zz-row">
+            <div class="node-label label-left">
+                <p class="label-name">Peta Konsep</p>
+                <p class="label-sub">Alur Pembelajaran</p>
+            </div>
+            <a href="peta-konsep.html" class="node-btn zz-node"
+               style="background:#4F7FE8;box-shadow:0 8px 0 rgba(79,127,232,.45);">
+                <span>🗺️</span>
+                <span class="node-number">1</span>
+            </a>
+            <div class="zz-spacer"></div>
+        </div>
+
+        <!-- Level 2: Capaian & Tujuan (RIGHT) -->
+        <div class="zz-row">
+            <div class="zz-spacer"></div>
+            <a href="capaian-pembelajaran.html" class="node-btn zz-node"
+               style="background:#8B5CF6;box-shadow:0 8px 0 rgba(139,92,246,.45);">
+                <span>🎯</span>
+                <span class="node-number">2</span>
+            </a>
+            <div class="node-label label-right">
+                <p class="label-name">Capaian &amp; Tujuan</p>
+                <p class="label-sub">Pembelajaran</p>
+            </div>
+        </div>
+
+        <!-- Level 3: Kenali Benteng (LEFT) -->
+        <div class="zz-row">
+            <div class="node-label label-left">
+                <p class="label-name">Kenali Benteng</p>
+                <p class="label-sub">Fort Willem I</p>
+            </div>
+            <a href="kenali-benteng.html" class="node-btn zz-node"
+               style="background:#F59E0B;box-shadow:0 8px 0 rgba(245,158,11,.45);">
+                <span>🏰</span>
+                <span class="node-number">3</span>
+            </a>
+            <div class="zz-spacer"></div>
+        </div>
+
+        <!-- Level 4: Asesmen Diagnostik (RIGHT) -->
+        <div class="zz-row">
+            <div class="zz-spacer"></div>
+            <a href="asesmen-diagnostik.html" class="node-btn zz-node"
+               style="background:#EF4444;box-shadow:0 8px 0 rgba(239,68,68,.45);">
+                <span>📋</span>
+                <span class="node-number">4</span>
+            </a>
+            <div class="node-label label-right">
+                <p class="label-name">Asesmen Diagnostik</p>
+                <p class="label-sub">Uji KBM Awal</p>
+            </div>
+        </div>
+
+        <!-- Level 5: Pertemuan 1 (LEFT) -->
+        <div class="zz-row">
+            <div class="node-label label-left">
+                <p class="label-name">Pertemuan 1</p>
+                <p class="label-sub">Volume Kubus &amp; Balok</p>
+            </div>
+            <a href="pertemuan-1.html" class="node-btn zz-node"
+               style="background:#7B3F00;box-shadow:0 8px 0 rgba(123,63,0,.45);">
+                <span>📚</span>
+                <span class="node-number">5</span>
+            </a>
+            <div class="zz-spacer"></div>
+        </div>
+
+        <!-- Level 6: Pertemuan 2 (RIGHT) -->
+        <div class="zz-row">
+            <div class="zz-spacer"></div>
+            <a href="pertemuan-2.html" class="node-btn zz-node"
+               style="background:#14B8A6;box-shadow:0 8px 0 rgba(20,184,166,.45);">
+                <span>📖</span>
+                <span class="node-number">6</span>
+            </a>
+            <div class="node-label label-right">
+                <p class="label-name">Pertemuan 2</p>
+                <p class="label-sub">Luas Permukaan</p>
+            </div>
+        </div>
+
+        <!-- Level 7: Asesmen Sumatif (LEFT) -->
+        <div class="zz-row">
+            <div class="node-label label-left">
+                <p class="label-name">Asesmen Sumatif</p>
+                <p class="label-sub">Penilaian Akhir</p>
+            </div>
+            <a href="asesmen-sumatif.html" class="node-btn zz-node"
+               style="background:#2E7D32;box-shadow:0 8px 0 rgba(46,125,50,.45);">
+                <span>🏆</span>
+                <span class="node-number">7</span>
+            </a>
+            <div class="zz-spacer"></div>
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer-card">
+        <div class="inner">
+            <p class="f-title" style="font-size:12px;font-weight:600;color:#9B8B7F;margin:0">
+                🏰 Challenge-Based Learning × Etnomatematika
+            </p>
+            <p class="f-sub" style="font-size:10px;color:#b8a89f;margin:4px 0 0">
+                Benteng Fort Willem I · Kurikulum Merdeka
+            </p>
+        </div>
+    </div>
+</div>
+
+<script src="assets/js/app.js"></script>
+</body>
+</html>

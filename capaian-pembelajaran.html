@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Media Interaktif Etnomatematika - Challenge-Based Learning Benteng Fort Willem I">
+    <title>Capaian & Tujuan Pembelajaran — Etnomatematika Fort Willem I</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
+    <!-- Alpine.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'heading': ['Montserrat', 'ui-sans-serif', 'system-ui'],
+                        'sans': ['Montserrat', 'ui-sans-serif', 'system-ui'],
+                    },
+                    colors: {
+                        'primary': '#7B3F00',
+                        'primary-dark': '#5C2E00',
+                        'gold': '#D4A017',
+                        'gold-light': '#F5D060',
+                        'gold-dark': '#B8860B',
+                        'cream': '#FDF8F0',
+                        'cream-dark': '#F5EDE0',
+                        'sidebar': '#1C1108',
+                        'accent': '#2E7D32',
+                        'text-main': '#1A1A1A',
+                        'text-light': '#6B5B4F',
+                        'text-muted': '#9B8B7F',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+</head>
+<body class="bg-cream min-h-screen">
+
+    <!-- Top Navigation Bar -->
+    <header class="fixed top-0 left-0 right-0 z-50 text-white shadow-lg border-b border-gold/20" style="background-color: #1C1108;">
+        <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
+            <!-- Back Button -->
+            <a href="menu.html"
+               class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 transition-all duration-200 text-sm font-medium text-white group">
+                <svg class="w-4 h-4 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                </svg>
+                <span>Kembali ke Menu</span>
+            </a>
+
+            <!-- Title -->
+            <div class="flex items-center gap-2">
+                <div class="w-7 h-7 rounded-lg bg-gold-gradient flex items-center justify-center">
+                    <svg class="w-4 h-4 text-sidebar" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                    </svg>
+                </div>
+                <span class="font-heading font-bold text-gold text-sm hidden sm:inline">Etnomatematika Fort Willem I</span>
+            </div>
+
+            <!-- Current Page -->
+            <div class="text-xs text-[#F5D060]/70 bg-white/10 px-3 py-1.5 rounded-lg hidden md:block">
+                Capaian & Tujuan
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-16 min-h-screen">
+        <div class="p-6 lg:p-10 max-w-5xl mx-auto">
+
+            <!-- Page Header -->
+            <div class="mb-8 animate-fade-in-up">
+                <div class="inline-flex items-center gap-2 bg-gold/10 border border-gold/20 rounded-full px-4 py-1.5 mb-4">
+                    <svg class="w-4 h-4 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
+                    </svg>
+                    <span class="text-primary text-sm font-semibold">Capaian & Tujuan</span>
+                </div>
+                <h1 class="font-heading font-bold text-3xl lg:text-4xl text-primary-dark mb-2">Capaian & Tujuan Pembelajaran</h1>
+                <p class="text-text-light">Kurikulum Merdeka — Bangun Ruang Sisi Datar (Kubus & Balok)</p>
+            </div>
+
+            <!-- Capaian Pembelajaran -->
+            <div class="card-heritage mb-8" style="animation-delay: 0.1s">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-12 h-12 bg-heritage-gradient rounded-xl flex items-center justify-center shadow-lg">
+                        <svg class="w-7 h-7 text-[#F5D060]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h2 class="font-heading font-bold text-xl text-primary-dark">Capaian Pembelajaran (CP)</h2>
+                        <p class="text-text-muted text-sm">Sesuai Kurikulum Merdeka</p>
+                    </div>
+                </div>
+                <div class="bg-cream rounded-xl p-6 border border-gold/10">
+                    <p class="text-text-main leading-relaxed">
+                        Pada akhir fase C, peserta didik dapat mengonstruksi dan mengurai bangun ruang (kubus, balok, dan gabungannya) dan mengenali visualisasi spasial (bagian depan, atas, dan samping). Mereka dapat membandingkan karakteristik antar bangun datar dan antar bangun ruang. Mereka dapat menentukan lokasi pada peta yang menggunakan sistem berpetak.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Tujuan Pembelajaran -->
+            <div class="mb-8" style="animation-delay: 0.2s">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-12 h-12 bg-accent rounded-xl flex items-center justify-center shadow-lg">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h2 class="font-heading font-bold text-xl text-primary-dark">Tujuan Pembelajaran (TP)</h2>
+                    </div>
+                </div>
+
+                <div class="card-heritage">
+                    <p class="text-text-main mb-4 leading-relaxed">
+                        Melalui model Challenge Based Learning bernuansa etnomatematika Benteng Fort Willem 1 berbantuan website, peserta didik mampu:
+                    </p>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-3">
+                            <span class="w-7 h-7 bg-gold/10 text-primary font-bold text-sm rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">1</span>
+                            <span class="text-text-main text-sm leading-relaxed">Menentukan volume kubus dan balok menggunakan rumus dengan benar.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="w-7 h-7 bg-gold/10 text-primary font-bold text-sm rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">2</span>
+                            <span class="text-text-main text-sm leading-relaxed">Menyelesaikan masalah kontekstual yang berkaitan dengan volume kubus dan balok dengan tepat.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="w-7 h-7 bg-gold/10 text-primary font-bold text-sm rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">3</span>
+                            <span class="text-text-main text-sm leading-relaxed">Menentukan luas permukaan kubus dan balok menggunakan rumus dengan benar.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="w-7 h-7 bg-gold/10 text-primary font-bold text-sm rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">4</span>
+                            <span class="text-text-main text-sm leading-relaxed">Menyelesaikan masalah kontekstual yang berkaitan dengan luas permukaan kubus dan balok dengan tepat.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Kompetensi yang Dikembangkan -->
+            <div class="card-heritage">
+                <h3 class="font-heading font-semibold text-lg text-primary mb-4">Kompetensi yang Dikembangkan</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="bg-cream rounded-xl p-4 text-center border border-gold/10 hover:border-gold/30 transition">
+                        <span class="text-3xl mb-2 block">🧠</span>
+                        <h4 class="font-heading font-semibold text-sm text-primary mb-1">Berpikir Kritis</h4>
+                        <p class="text-text-muted text-xs">Menganalisis bentuk dan ruang</p>
+                    </div>
+                    <div class="bg-cream rounded-xl p-4 text-center border border-gold/10 hover:border-gold/30 transition">
+                        <span class="text-3xl mb-2 block">📐</span>
+                        <h4 class="font-heading font-semibold text-sm text-primary mb-1">Kemampuan Spasial</h4>
+                        <p class="text-text-muted text-xs">Visualisasi 3D</p>
+                    </div>
+                    <div class="bg-cream rounded-xl p-4 text-center border border-gold/10 hover:border-gold/30 transition">
+                        <span class="text-3xl mb-2 block">🤝</span>
+                        <h4 class="font-heading font-semibold text-sm text-primary mb-1">Kolaborasi</h4>
+                        <p class="text-text-muted text-xs">Kerja kelompok dalam challenge</p>
+                    </div>
+                    <div class="bg-cream rounded-xl p-4 text-center border border-gold/10 hover:border-gold/30 transition">
+                        <span class="text-3xl mb-2 block">🌍</span>
+                        <h4 class="font-heading font-semibold text-sm text-primary mb-1">Literasi Budaya</h4>
+                        <p class="text-text-muted text-xs">Konteks Benteng Fort Willem I</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="assets/js/app.js"></script>
+</body>
+</html>
