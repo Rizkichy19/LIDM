@@ -37,7 +37,7 @@
     </script>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body class="bg-cream min-h-screen">
+<body class="bg-cream h-screen overflow-hidden flex flex-col" x-data="{ activeStep: 0, stepsCount: 10 }">
     <!-- Top Navigation Bar -->
     <header class="fixed top-0 left-0 right-0 z-50 text-white shadow-lg border-b border-gold/20" style="background-color: #1C1108;">
         <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
@@ -49,7 +49,7 @@
                 <div class="w-7 h-7 rounded-lg bg-gold-gradient flex items-center justify-center">
                     <svg class="w-4 h-4 text-sidebar" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
                 </div>
-                <span class="font-heading font-bold text-gold text-sm hidden sm:inline">Etnomatematika Fort Willem I</span>
+                <span class="font-heading font-bold text-gold text-sm hidden sm:inline">FORTIVY</span>
             </div>
             <div class="text-xs text-[#F5D060]/70 bg-white/10 px-3 py-1.5 rounded-lg hidden md:block">
                 Pertemuan 2
@@ -57,10 +57,10 @@
         </div>
     </header>
 
-    <main class="pt-16 min-h-screen">
-        <div class="p-6 lg:p-10 max-w-5xl mx-auto" x-data="{ activeStep: 0, stepsCount: 10 }">
+    <main class="pt-[72px] flex-grow flex flex-col h-full overflow-hidden w-full relative z-10">
+        <div class="px-4 lg:px-8 pt-6 w-full max-w-5xl mx-auto h-full flex flex-col">
             <!-- Page Header -->
-            <div class="mb-8 animate-fade-in-up">
+            <div class="mb-4 lg:mb-6 animate-fade-in-up flex-none">
                 <div class="inline-flex items-center gap-2 bg-accent/10 border border-accent/20 rounded-full px-4 py-1.5 mb-4">
                     <span class="text-accent text-sm font-semibold">📚 Pertemuan 2</span>
                 </div>
@@ -69,7 +69,7 @@
             </div>
 
             <!-- Step Progress Bar -->
-            <div class="flex items-center gap-1 mb-8 overflow-x-auto pb-2">
+            <div class="flex items-center flex-nowrap gap-1.5 mb-4 lg:mb-5 overflow-x-auto pb-2 flex-none" style="scrollbar-width: thin; -webkit-overflow-scrolling: touch;">
                 <template x-for="(step, index) in [
                     {label: 'Big Idea', short: 'BI'}, {label: 'Essential Question', short: 'EQ'}, {label: 'The Challenge', short: 'TC'},
                     {label: 'Guiding Resources', short: 'GR'}, {label: 'Guiding Questions', short: 'GQ'}, {label: 'Guiding Activities', short: 'GA'},
@@ -78,19 +78,37 @@
                 ]" :key="index">
                     <div class="flex items-center">
                         <button @click="activeStep = index"
-                                class="flex-shrink-0 flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-semibold transition-all duration-300"
-                                :class="activeStep === index ? 'bg-accent text-white shadow-lg scale-105' : (activeStep > index ? 'bg-accent/20 text-accent' : 'bg-cream-dark text-text-muted hover:bg-cream')">
-                            <span class="w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold"
+                                class="flex-shrink-0 flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-semibold transition-all duration-300 whitespace-nowrap"
+                                :class="activeStep === index ? 'bg-accent text-white shadow-md' : (activeStep > index ? 'bg-accent/15 text-accent' : 'bg-cream-dark text-text-muted hover:bg-cream')">
+                            <span class="w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold flex-shrink-0"
                                   :class="activeStep === index ? 'bg-white/20' : 'bg-white/50'" x-text="index + 1"></span>
-                            <span class="hidden md:inline" x-text="step.label"></span>
-                            <span class="md:hidden" x-text="step.short"></span>
+                            <span class="text-xs" x-text="step.label"></span>
                         </button>
-                        <div x-show="index < stepsCount - 1" class="w-4 h-0.5 flex-shrink-0 ml-1" :class="activeStep > index ? 'bg-accent' : 'bg-cream-dark'"></div>
+                        <div x-show="index < stepsCount - 1" class="w-3 h-0.5 flex-shrink-0" :class="activeStep > index ? 'bg-accent' : 'bg-cream-dark'"></div>
                     </div>
                 </template>
             </div>
 
-            <!-- Steps Content -->
+            <!-- Scrollable Steps Content Wrapper -->
+            <style>
+                /* Scoped constraints for step cards */
+                .step-viewport {
+                    position: relative;
+                    flex-grow: 1;
+                    height: 0; /* Flexbox constraint */
+                }
+                .step-viewport > div[x-show] {
+                    position: absolute;
+                    inset: 0;
+                    margin-bottom: 120px; /* Space for bottom buttons */
+                }
+                .step-viewport > div[x-show] > .card-heritage {
+                    height: 100%;
+                    overflow-y: auto;
+                    scrollbar-width: thin;
+                }
+            </style>
+            <div class="step-viewport pr-1 lg:pr-3">
             <!-- Step 1: Big Idea -->
             <div x-show="activeStep === 0" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0 translate-y-4" x-transition:enter-end="opacity-100 translate-y-0" style="display: none;">
                 <div class="card-heritage">
@@ -99,19 +117,12 @@
                         <div><h2 class="font-heading font-bold text-xl text-primary">Big Idea</h2><p class="text-text-muted text-sm">Materi Utama Pertemuan 2</p></div>
                     </div>
                     <div class="bg-cream rounded-xl p-6 border border-gold/10 space-y-4 text-text-main leading-relaxed">
-                        <p><strong>Luas Permukaan</strong> adalah jumlah seluruh luas sisi-sisi yang membatasi suatu bangun ruang. Dalam konteks Benteng Fort Willem I, kita akan menghitung luas permukaan untuk menentukan <strong>kebutuhan cat, plester, atau bahan penutup dinding</strong> bangunan.</p>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-                            <div class="bg-white rounded-xl p-4 border border-accent/10 text-center">
-                                <div class="text-4xl mb-2">🧊</div>
-                                <h4 class="font-heading font-bold text-accent mb-1">LP Kubus</h4>
-                                <p class="text-2xl font-heading font-bold text-accent mb-2">LP = 6s²</p>
-                                <p class="text-sm text-text-muted">6 sisi × luas satu sisi (s²)</p>
-                            </div>
-                            <div class="bg-white rounded-xl p-4 border border-accent/10 text-center">
-                                <div class="text-4xl mb-2">📦</div>
-                                <h4 class="font-heading font-bold text-accent mb-1">LP Balok</h4>
-                                <p class="text-2xl font-heading font-bold text-accent mb-2">LP = 2(pl+pt+lt)</p>
-                                <p class="text-sm text-text-muted">3 pasang sisi berbeda</p>
+                         <p>Benteng Fort Willem I merupakan bangunan bersejarah yang dapat dimanfaatkan sebagai konteks pembelajaran matematika pada materi luas permukaan bangun ruang sisi datar. Salah satu ruang berbentuk balok memiliki panjang 10 m, lebar 6 m, dan tinggi 4 m, sehingga dapat dihitung luas permukaannya untuk mengetahui luas dinding, lantai, dan atap. Selain itu, terdapat peti berbentuk kubus dengan rusuk 2 m yang juga dapat dihitung luas permukaannya untuk menentukan kebutuhan bahan pelapis.</p>
+                        
+                        <div class="mt-6 rounded-2xl overflow-hidden shadow-md border-4 border-white">
+                            <img src="assets/images/IMG_4510.JPG" alt="Area dan Ruangan Benteng Fort Willem I" class="w-full h-72 md:h-96 object-cover" onerror="this.src='https://placehold.co/800x400/F5EDE0/7B3F00?text=Benteng+Fort+Willem+I'">
+                            <div class="bg-white/50 p-3 text-center border-t border-gold/10">
+                                <p class="text-xs text-text-muted italic">Struktur bangunan dan lorong di Benteng Fort Willem I yang perlu diperhatikan luas permukaannya saat renovasi.</p>
                             </div>
                         </div>
                         <p class="text-sm text-text-light italic mt-4">🏰 Konteks: Untuk merenovasi dinding Benteng Fort Willem I, kita perlu tahu berapa luas seluruh permukaan dinding agar bisa menghitung kebutuhan cat.</p>
@@ -149,17 +160,27 @@
                     </div>
                     <div class="bg-gradient-to-br from-accent/5 to-gold/5 rounded-xl p-6 border border-accent/20">
                         <h3 class="font-heading font-bold text-lg text-primary mb-4">Tantangan:</h3>
-                        <p class="text-text-main leading-relaxed mb-4">
-                            Tim kalian mendapat proyek untuk <strong>menghitung kebutuhan cat</strong> untuk merenovasi seluruh ruangan di Benteng Fort Willem I. Setiap 1 liter cat dapat menutup 10 m² dinding. Hitunglah berapa liter cat yang dibutuhkan!
-                        </p>
-                        <div class="bg-white rounded-xl p-4 border border-accent/10 space-y-2">
-                            <h4 class="font-semibold text-primary text-sm">Yang harus kalian lakukan:</h4>
-                            <ul class="space-y-2 text-sm text-text-main">
-                                <li class="flex items-start gap-2"><span class="text-accent">✦</span> Identifikasi jaring-jaring kubus dan balok dari setiap ruangan benteng</li>
-                                <li class="flex items-start gap-2"><span class="text-accent">✦</span> Hitung luas permukaan setiap ruangan</li>
-                                <li class="flex items-start gap-2"><span class="text-accent">✦</span> Tentukan total luas permukaan yang perlu dicat (kecuali lantai)</li>
-                                <li class="flex items-start gap-2"><span class="text-accent">✦</span> Hitung kebutuhan cat total dan estimasi biayanya</li>
-                            </ul>
+                        <div class="text-text-main leading-relaxed mb-6 space-y-4">
+                            <p>
+                                Di kawasan <strong>Benteng Fort Willem I</strong> terdapat sebuah menara pengawas kecil berbentuk kubus dengan panjang rusuk <strong>5 meter</strong>. Menara tersebut akan direnovasi dengan cara mengecat seluruh bagian luar kecuali bagian bawah yang menempel pada tanah.
+                            </p>
+                            <p>
+                                Di dekat menara tersebut juga terdapat sebuah bangunan gudang berbentuk balok dengan panjang <strong>8 meter</strong>, lebar <strong>5 meter</strong>, dan tinggi <strong>3 meter</strong>. Gudang tersebut akan dilapisi pelindung pada seluruh permukaannya.
+                            </p>
+                            <p>
+                                Diketahui setiap 1 meter persegi permukaan membutuhkan <strong>0,2 liter cat</strong>.
+                            </p>
+                        </div>
+                        <div class="bg-white rounded-xl p-4 border border-accent/10 space-y-3">
+                            <h4 class="font-semibold text-primary text-sm flex items-center gap-2">
+                                <span class="w-1.5 h-6 bg-accent rounded-full"></span>
+                                Berdasarkan informasi tersebut, tentukan:
+                            </h4>
+                            <ol class="space-y-2 text-sm text-text-main list-decimal ml-5">
+                                <li class="pl-2">Luas permukaan menara kubus yang akan dicat.</li>
+                                <li class="pl-2">Luas permukaan gudang berbentuk balok.</li>
+                                <li class="pl-2">Jumlah cat yang dibutuhkan untuk mengecat kedua bangunan tersebut.</li>
+                            </ol>
                         </div>
                     </div>
                 </div>
@@ -170,21 +191,75 @@
                 <div class="card-heritage">
                     <div class="flex items-center gap-3 mb-6">
                         <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center"><span class="text-2xl">📖</span></div>
-                        <div><h2 class="font-heading font-bold text-xl text-primary">Guiding Resources</h2></div>
+                        <div>
+                            <h2 class="font-heading font-bold text-xl text-primary">Guiding Resources</h2>
+                            <p class="text-text-muted text-sm italic">Pelajari materi ini untuk memudahkan tantangan kalian!</p>
+                        </div>
                     </div>
-                    <div class="space-y-4">
-                        <div class="cbl-step p-5">
-                            <h4 class="font-heading font-semibold text-primary mb-2">📐 Jaring-jaring Kubus</h4>
-                            <p class="text-sm text-text-main mb-2">Jaring-jaring kubus terdiri dari 6 persegi yang kongruen. Ada 11 jenis jaring-jaring kubus.</p>
-                            <p class="text-sm text-text-muted">LP = 6 × s² (jumlah luas 6 persegi)</p>
+
+                    <div class="space-y-6">
+                        <!-- Section 1: Bangun Ruang Sisi Datar -->
+                        <div class="cbl-step p-5 border-l-4 border-accent">
+                            <h4 class="font-heading font-bold text-primary mb-3">🧱 Bangun Ruang Sisi Datar</h4>
+                            <p class="text-sm text-text-main leading-relaxed">
+                                Bangun ruang adalah bangun yang memiliki <strong>panjang, lebar, dan tinggi</strong>. Selain memiliki volume, bangun ruang juga memiliki <strong>luas permukaan</strong>.
+                            </p>
+                            <div class="mt-3 bg-white/50 p-3 rounded-lg border border-gold/10">
+                                <p class="text-sm text-text-main">
+                                    <span class="font-bold text-accent">Luas permukaan</span> adalah jumlah luas seluruh sisi yang membentuk bagian luar suatu bangun ruang.
+                                </p>
+                            </div>
+                            <p class="text-xs text-text-muted mt-3 italic">
+                                Contohnya: Saat kita mengecat ruangan atau melapisi kotak, bagian luar yang terkena cat itulah yang disebut luas permukaan.
+                            </p>
                         </div>
-                        <div class="cbl-step p-5">
-                            <h4 class="font-heading font-semibold text-primary mb-2">📐 Jaring-jaring Balok</h4>
-                            <p class="text-sm text-text-main mb-2">Jaring-jaring balok terdiri dari 3 pasang persegi panjang yang kongruen.</p>
-                            <p class="text-sm text-text-muted">LP = 2(p×l + p×t + l×t)</p>
+
+                        <!-- Section 2: Konteks Benteng & Rumus Balok -->
+                        <div class="cbl-step p-6 bg-cream-dark/30 border-2 border-dashed border-gold/20">
+                            <h4 class="font-heading font-bold text-primary mb-4 flex items-center gap-2">
+                                🏰 Kembali ke Konteks Benteng
+                            </h4>
+                            <p class="text-sm text-text-main mb-4">
+                                Pada Benteng Fort Willem I, terdapat bangunan gudang <strong>berbentuk balok</strong> dengan ukuran:
+                                <span class="block mt-1 font-semibold text-accent">p = 10 m, l = 6 m, t = 4 m</span>
+                            </p>
+                            
+                            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                                <!-- Rumus & Subtitusi -->
+                                <div class="bg-white p-4 rounded-xl shadow-sm border border-gold/10">
+                                    <h5 class="text-xs font-bold text-primary uppercase tracking-wider mb-2">Rumus Luas Permukaan Balok</h5>
+                                    <div class="font-heading font-bold text-lg text-accent text-center py-2 bg-accent/5 rounded-lg mb-3">
+                                        LP = 2(pl + pt + lt)
+                                    </div>
+                                    <div class="text-sm font-mono space-y-1 text-center">
+                                        <div class="text-text-muted text-xs">Substitusi nilai:</div>
+                                        <div>LP = 2(10 &times; 6 + 10 &times; 4 + 6 &times; 4)</div>
+                                        <div>LP = 2(60 + 40 + 24)</div>
+                                        <div>LP = 2(124)</div>
+                                        <div class="text-lg font-bold text-primary border-t pt-1 mt-1 font-heading">= 248 m²</div>
+                                    </div>
+                                </div>
+
+                                <!-- Rumus Kubus -->
+                                <div class="bg-white p-4 rounded-xl shadow-sm border border-gold/10">
+                                    <h5 class="text-xs font-bold text-primary uppercase tracking-wider mb-2">Rumus Luas Permukaan Kubus</h5>
+                                    <div class="font-heading font-bold text-lg text-accent text-center py-2 bg-accent/5 rounded-lg mb-3">
+                                        LP = 6 &times; s²
+                                    </div>
+                                    <div class="mt-4 p-3 bg-blue-50/50 rounded-lg">
+                                        <p class="text-xs leading-relaxed">
+                                            <strong class="text-primary">Studi Kasus:</strong> Peti tentara di benteng berbentuk kubus dengan rusuk <strong>2m</strong>.
+                                        </p>
+                                        <div class="text-sm font-mono mt-2 text-center">
+                                            <div>LP = 6(2²) = 6(4)</div>
+                                            <div class="text-lg font-bold text-primary font-heading">= 24 m²</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        
-                        <!-- 3D Interactive Surface Area -->
+
+                        <!-- 3D Interactive Surface Area (Maintained) -->
                         <div class="cbl-step p-5">
                             <h4 class="font-heading font-semibold text-primary mb-3">🧊 Visualisasi 3D Luas Permukaan</h4>
                             <div id="surface-3d" class="w-full h-[350px] md:h-[400px] rounded-xl overflow-hidden border border-accent/10 bg-cream-dark mb-4"></div>
@@ -214,27 +289,204 @@
                 </div>
             </div>
             
-            <!-- Other steps abbreviated for brevity, logic identical to previous file -->
-            <div x-show="activeStep >= 4 && activeStep <= 9" style="display: none;">
+            <!-- Step 5: Guiding Question -->
+            <div x-show="activeStep === 4" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0 translate-y-4" x-transition:enter-end="opacity-100 translate-y-0" style="display: none;">
                 <div class="card-heritage">
-                    <h2 class="font-heading font-bold text-xl text-primary">Lanjutkan Diskusi & Evaluasi Pembelajaran</h2>
-                    <p class="text-text-main mt-4">Silakan ikuti instruksi pada buku panduan untuk Lembar Kerja Peserta Didik (LKPD).</p>
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-12 h-12 bg-amber-50 rounded-xl flex items-center justify-center"><span class="text-2xl">💡</span></div>
+                        <div><h2 class="font-heading font-bold text-xl text-primary">Guiding Question</h2></div>
+                    </div>
+                    <div class="bg-white rounded-xl p-6 border border-gold/10 shadow-sm">
+                        <p class="text-text-main font-semibold mb-4 italic text-sm">Untuk membantu kalian menyelesaikan challenge, jawablah pertanyaan berikut:</p>
+                        <ul class="space-y-4 text-sm text-text-main">
+                            <li class="flex gap-3 p-3 rounded-lg bg-cream/50 border border-gold/5">
+                                <span class="flex-shrink-0 w-6 h-6 rounded-full bg-accent text-white flex items-center justify-center text-[10px] font-bold">1</span>
+                                <span>Bangun ruang apa yang digunakan untuk memodelkan bangunan dan peti tersebut?</span>
+                            </li>
+                            <li class="flex gap-3 p-3 rounded-lg bg-cream/50 border border-gold/5">
+                                <span class="flex-shrink-0 w-6 h-6 rounded-full bg-accent text-white flex items-center justify-center text-[10px] font-bold">2</span>
+                                <span>Informasi ukuran apa saja yang sudah diketahui?</span>
+                            </li>
+                            <li class="flex gap-3 p-3 rounded-lg bg-cream/50 border border-gold/5">
+                                <span class="flex-shrink-0 w-6 h-6 rounded-full bg-accent text-white flex items-center justify-center text-[10px] font-bold">3</span>
+                                <span>Rumus apa yang digunakan untuk menghitung luas permukaan balok dan kubus?</span>
+                            </li>
+                            <li class="flex gap-3 p-3 rounded-lg bg-cream/50 border border-gold/5">
+                                <span class="flex-shrink-0 w-6 h-6 rounded-full bg-accent text-white flex items-center justify-center text-[10px] font-bold">4</span>
+                                <span>Bagaimana cara menentukan jumlah cat yang dibutuhkan berdasarkan luas permukaan?</span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
 
-            <!-- Navigation Buttons -->
-            <div class="flex items-center justify-between mt-8">
-                <button @click="activeStep = Math.max(0, activeStep - 1)" class="flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-sm bg-white border border-gold/20 text-primary hover:bg-cream transition" :disabled="activeStep === 0" :class="activeStep === 0 ? 'opacity-50 cursor-not-allowed' : ''">← Sebelumnya</button>
-                <span class="text-sm text-text-muted" x-text="`${activeStep + 1} / ${stepsCount}`"></span>
-                <button x-show="activeStep < stepsCount - 1" @click="activeStep++" class="flex items-center gap-2 bg-accent text-white px-6 py-2.5 rounded-xl font-semibold text-sm hover:opacity-90 transition">Selanjutnya →</button>
-                <a x-show="activeStep === stepsCount - 1" href="asesmen-sumatif.html" class="flex items-center gap-2 bg-accent text-white px-6 py-2.5 rounded-xl font-semibold text-sm hover:bg-accent/90 transition" style="display: none;">Lanjut Asesmen Sumatif →</a>
+            <!-- Step 6: Guiding Activities -->
+            <div x-show="activeStep === 5" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0 translate-y-4" x-transition:enter-end="opacity-100 translate-y-0" style="display: none;">
+                <div class="card-heritage">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-12 h-12 bg-emerald-50 rounded-xl flex items-center justify-center"><span class="text-2xl">🏃</span></div>
+                        <div><h2 class="font-heading font-bold text-xl text-primary">Guiding Activities</h2></div>
+                    </div>
+                    <div class="space-y-4">
+                        <p class="text-text-main text-sm">Untuk membantu menyelesaikan challenge, lakukan kegiatan berikut secara <strong>berkelompok</strong>:</p>
+                        <div class="space-y-3">
+                            <template x-for="(task, i) in [
+                                'Identifikasi bentuk bangun ruang dari bangunan dan peti pada soal.',
+                                'Gambarlah model bangun balok dan kubus beserta ukurannya (ukurannya bisa berbeda disesuaikan dengan diskusi dari kelompok kalian sendiri) pada LKPD.',
+                                'Hitung luas permukaan masing-masing bangun (balok dan kubus).',
+                                'Tentukan jumlah cat yang dibutuhkan berdasarkan luas permukaan yang diperoleh.',
+                                'Sajikan hasil diskusi kelompok secara jelas dan rapi.'
+                            ]" :key="i">
+                                <div class="flex items-start gap-3 p-4 bg-white rounded-xl border border-accent/10 hover:border-accent/30 transition shadow-sm group">
+                                    <div class="w-6 h-6 rounded-full bg-accent/10 text-accent flex items-center justify-center text-xs font-bold group-hover:bg-accent group-hover:text-white transition" x-text="i + 1"></div>
+                                    <p class="text-sm text-text-main leading-relaxed" x-text="task"></p>
+                                </div>
+                            </template>
+                        </div>
+                    </div>
+                </div>
             </div>
+
+            <!-- Step 7: Solution & Action -->
+            <div x-show="activeStep === 6" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0 translate-y-4" x-transition:enter-end="opacity-100 translate-y-0" style="display: none;">
+                <div class="card-heritage">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center"><span class="text-2xl">✅</span></div>
+                        <div><h2 class="font-heading font-bold text-xl text-primary">Solution & Action</h2></div>
+                    </div>
+                    <div class="bg-accent/5 rounded-2xl p-6 border border-accent/20">
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-4 p-4 bg-white rounded-xl border border-gold/10 shadow-sm hover:border-gold/30 transition">
+                                <span class="text-accent mt-0.5 font-bold">✦</span>
+                                <span class="text-sm text-text-main">Diskusikanlah dengan anggota kelompok kalian untuk menyelesaikan tantangan yang telah dirumuskan pada bagian <em>Challenge</em>.</span>
+                            </li>
+                            <li class="flex items-start gap-4 p-4 bg-white rounded-xl border border-gold/10 shadow-sm hover:border-gold/30 transition">
+                                <span class="text-accent mt-0.5 font-bold">✦</span>
+                                <span class="text-sm text-text-main">Gunakan <em>Guiding Resources, Guiding Questions, dan Guiding Activities</em> sebagai panduan dalam proses diskusi dan pemecahan masalah.</span>
+                            </li>
+                            <li class="flex items-start gap-4 p-4 bg-white rounded-xl border border-gold/10 shadow-sm hover:border-gold/30 transition">
+                                <span class="text-accent mt-0.5 font-bold">✦</span>
+                                <span class="text-sm text-text-main">Tuliskan hasil kerja kelompok pada lembar yang telah disediakan, kemudian siapkan hasil tersebut untuk dipresentasikan dan didiskusikan bersama di kelas.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 8: Assessment Publishing -->
+            <div x-show="activeStep === 7" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0 translate-y-4" x-transition:enter-end="opacity-100 translate-y-0" style="display: none;">
+                <div class="card-heritage">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center"><span class="text-2xl">📢</span></div>
+                        <div><h2 class="font-heading font-bold text-xl text-primary">Assessment Publishing</h2></div>
+                    </div>
+                    <div class="space-y-6">
+                        <!-- Custom Spinwheel Widget -->
+                        <div class="mx-auto w-full max-w-[340px] flex flex-col items-center justify-center my-6">
+                            <div class="relative w-full aspect-square">
+                                <!-- Pointer/Indicator -->
+                                <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-2 w-0 h-0 border-l-[15px] border-r-[15px] border-t-[30px] border-l-transparent border-r-transparent border-t-accent z-20 filter drop-shadow hover:scale-110 transition-transform origin-top"></div>
+                                
+                                <!-- Wheel Canvas Container -->
+                                <div class="w-full h-full rounded-full border-[6px] border-gold shadow-xl overflow-hidden relative bg-cream-dark">
+                                    <canvas id="custom-spinwheel" class="w-full h-full transition-transform duration-[4000ms] ease-[cubic-bezier(0.25,0.1,0.15,1)] origin-center" width="400" height="400"></canvas>
+                                </div>
+                                
+                                <!-- Center Spin Button -->
+                                <button id="custom-spin-btn" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-white rounded-full shadow-[0_4px_10px_rgba(0,0,0,0.3)] border-4 border-gold-dark flex items-center justify-center font-heading font-bold text-primary-dark hover:scale-110 active:scale-95 transition-transform z-10 cursor-pointer">
+                                    SPIN
+                                </button>
+                            </div>
+                            
+                            <!-- Result Text -->
+                            <div class="mt-6 h-10 w-full flex items-center justify-center">
+                                <p id="spin-result" class="font-heading font-bold text-lg md:text-xl text-accent opacity-0 scale-90 transition-all duration-500 text-center px-4 py-2 bg-accent/10 border border-accent/20 rounded-xl w-full"></p>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-2xl p-6 border border-gold/10 shadow-sm">
+                            <ul class="space-y-4">
+                                <li class="flex items-start gap-4 p-3 hover:bg-cream/30 rounded-xl transition border border-transparent hover:border-gold/10">
+                                    <span class="text-blue-500 mt-0.5 font-bold">✦</span>
+                                    <span class="text-sm text-text-main leading-relaxed">Salah satu kelompok mempresentasikan hasil diskusi di depan kelas.</span>
+                                </li>
+                                <li class="flex items-start gap-4 p-3 hover:bg-cream/30 rounded-xl transition border border-transparent hover:border-gold/10">
+                                    <span class="text-blue-500 mt-0.5 font-bold">✦</span>
+                                    <span class="text-sm text-text-main leading-relaxed">Kelompok lain memberikan tanggapan, pertanyaan, atau saran terhadap hasil presentasi.</span>
+                                </li>
+                                <li class="flex items-start gap-4 p-3 hover:bg-cream/30 rounded-xl transition border border-transparent hover:border-gold/10">
+                                    <span class="text-blue-500 mt-0.5 font-bold">✦</span>
+                                    <span class="text-sm text-text-main leading-relaxed">Peserta didik bersama guru menyimpulkan hasil kegiatan pembelajaran yang telah dilakukan.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 9: Assessment Reflection -->
+            <div x-show="activeStep === 8" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0 translate-y-4" x-transition:enter-end="opacity-100 translate-y-0" style="display: none;">
+                <div class="card-heritage">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-12 h-12 bg-purple-50 rounded-xl flex items-center justify-center"><span class="text-2xl">🧠</span></div>
+                        <div><h2 class="font-heading font-bold text-xl text-primary">Assessment Reflection</h2></div>
+                    </div>
+                    <div class="bg-gradient-to-r from-accent/10 to-gold/10 rounded-2xl p-8 border border-accent/20 flex flex-col md:flex-row items-center gap-6">
+                        <div class="flex-1 text-center md:text-left">
+                            <h3 class="font-heading font-bold text-lg text-primary mb-2">Waktunya Refleksi Diri!</h3>
+                            <p class="text-sm text-text-main leading-relaxed">
+                                Jawablah pertanyaan berikut secara jujur sebagai bahan refleksi diri. Klik tombol disamping untuk melakukan refleksi diri.
+                            </p>
+                        </div>
+                        <a href="asesmen-refleksi.html" class="flex-shrink-0 flex items-center gap-2 bg-accent text-white px-8 py-4 rounded-2xl font-bold shadow-xl hover:scale-105 transition transform active:scale-95 group">
+                            <span>Mulai Refleksi</span>
+                            <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 10: Rangkuman -->
+            <div x-show="activeStep === 9" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0 translate-y-4" x-transition:enter-end="opacity-100 translate-y-0" style="display: none;">
+                <div class="card-heritage">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-12 h-12 bg-accent rounded-xl flex items-center justify-center"><span class="text-white text-2xl">📋</span></div>
+                        <div><h2 class="font-heading font-bold text-xl text-primary">Rangkuman</h2></div>
+                    </div>
+                    <div class="bg-cream rounded-xl p-6 border border-gold/10 space-y-4">
+                        <p class="text-sm text-text-main">Selamat! Kalian telah mempelajari:</p>
+                        <ul class="space-y-2 text-sm text-text-main">
+                            <li class="flex items-center gap-2 font-semibold text-accent"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> Luas Permukaan Kubus: LP = 6s²</li>
+                            <li class="flex items-center gap-2 font-semibold text-accent"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> Luas Permukaan Balok: LP = 2(pl + pt + lt)</li>
+                            <li class="flex items-center gap-2 font-semibold text-accent"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span> Implementasi dalam renovasi Benteng Fort Willem I</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            </div> <!-- End of Scrollable Steps Wrapper -->
         </div>
+    </main>
+
+    <!-- Navigation Buttons (Fixed Bottom) -->
+    <div class="fixed bottom-0 left-0 right-0 z-50 px-4 pb-6 sm:pb-8 flex justify-center pointer-events-none">
+        <div class="w-full max-w-5xl px-0 lg:px-4 flex items-center justify-between pointer-events-auto drop-shadow-md">
+            <button @click="activeStep = Math.max(0, activeStep - 1)" class="flex items-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl font-bold text-sm bg-white border-2 border-gold/40 text-primary hover:bg-cream hover:border-gold transition shadow-sm" :disabled="activeStep === 0" :class="activeStep === 0 ? 'opacity-0 cursor-not-allowed' : ''">← Sebelumnya</button>
+            
+            <div class="flex-grow flex justify-center px-4" :class="activeStep === 0 ? 'opacity-0' : ''">
+                 <span class="text-xs sm:text-sm font-bold text-primary bg-white/90 backdrop-blur-sm border border-gold/30 px-3 py-1.5 rounded-full shadow-sm" x-text="`${activeStep + 1} / ${stepsCount}`"></span>
+            </div>
+            
+            <button x-show="activeStep < stepsCount - 1" @click="activeStep++" class="flex items-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl font-bold text-sm bg-white border-2 border-gold/40 text-primary hover:bg-cream hover:border-gold transition shadow-sm ml-auto">Selanjutnya →</button>
+            <a x-show="activeStep === stepsCount - 1" href="asesmen-sumatif.html" class="flex items-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl font-bold text-sm bg-white border-2 border-gold/40 text-primary hover:bg-cream hover:border-gold transition shadow-sm ml-auto" style="display: none;">Lanjut Asesmen →</a>
+        </div>
+    </div>
     </main>
 
     <script src="assets/js/app.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
     <script src="assets/js/3d-surface.js"></script>
+    <script src="assets/js/spinwheel.js"></script>
 </body>
 </html>

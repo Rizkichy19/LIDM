@@ -55,6 +55,13 @@ body {
     font-family: var(--font-sans);
     color: var(--color-text-main);
     background-color: var(--color-cream);
+    background-image: 
+        url("data:image/svg+xml,%3Csvg width='480' height='180' viewBox='0 0 480 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='brick' width='60' height='30' patternUnits='userSpaceOnUse'%3E%3Crect width='60' height='30' fill='%23D26B4E'/%3E%3Crect x='0' y='0' width='30' height='15' fill='%23AB4E37'/%3E%3Crect x='30' y='15' width='30' height='15' fill='%23713524'/%3E%3Cpath d='M0,15 H60 M0,30 H60 M30,0 V15 M0,15 V30 M60,15 V30' fill='none' stroke='%233E1F11' stroke-width='2'/%3E%3C/pattern%3E%3C/defs%3E%3Cpath d='M0,90 H60 V75 H90 V60 H120 V45 H180 V60 H240 V45 H270 V30 H330 V45 H360 V60 H420 V45 H480 V60 L480,180 L0,180 Z' fill='url(%23brick)'/%3E%3Cpath d='M0,90 H60 V75 H90 V60 H120 V45 H180 V60 H240 V45 H270 V30 H330 V45 H360 V60 H420 V45 H480 V60' fill='none' stroke='%233E1F11' stroke-width='3' stroke-linecap='square'/%3E%3Cpath d='M0,90 H60 V75 H90 V60 H120 V45 H180 V60 H240 V45 H270 V30 H330 V45 H360 V60 H420 V45 H480 V60' fill='none' stroke='%23E28D70' stroke-width='1.5' stroke-linecap='square' transform='translate(0,-1.5)'/%3E%3C/svg%3E"), 
+        url("data:image/svg+xml,%3Csvg width='80' height='40' viewBox='0 0 80 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%237B3F00' stroke-opacity='0.20' stroke-width='1.2'%3E%3Cpath d='M0,20 H80 M40,20 V40 M0,0 V20 M80,0 V20'/%3E%3C/g%3E%3C/svg%3E");
+    background-position: bottom left, top left;
+    background-size: 480px 180px, 80px 40px;
+    background-repeat: repeat-x, repeat;
+    background-attachment: fixed;
     min-height: 100vh;
 }
 
