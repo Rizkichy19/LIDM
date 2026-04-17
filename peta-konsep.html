@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Media Interaktif Etnomatematika - Challenge-Based Learning Benteng Fort Willem I">
-    <title>Peta Konsep — FORTIVY</title>
+    <title>Peta Konsep — FORTIFY</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -70,7 +70,7 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
                     </svg>
                 </div>
-                <span class="font-heading font-bold text-gold text-sm hidden sm:inline">FORTIVY</span>
+                <span class="font-heading font-bold text-gold text-sm hidden sm:inline">FORTIFY</span>
             </div>
 
             <!-- Current Page -->
@@ -96,102 +96,73 @@
                 <p class="text-text-light">Alur pembelajaran materi Volume & Luas Permukaan Kubus dan Balok berbasis Etnomatematika Benteng Fort Willem I</p>
             </div>
 
-            <!-- Peta Konsep Image -->
-            <div class="card-heritage mb-8" x-data="{ zoomed: false }">
-                <div class="relative overflow-hidden rounded-xl" :class="zoomed ? 'cursor-zoom-out' : 'cursor-zoom-in'" @click="zoomed = !zoomed">
-                    <div class="overflow-x-auto pb-2 custom-scrollbar">
-                        
-                        <!-- Peta Konsep Content -->
-                        <div class="bg-cream-dark rounded-xl p-6 md:p-8 min-h-[500px] flex flex-col items-center justify-center transition-transform duration-500 min-w-[700px] md:min-w-full"
-                             :class="zoomed ? 'scale-[1.15]' : 'scale-100'">
+            <!-- Peta Konsep - Full Vertical, No Scroll -->
+            <div class="card-heritage mb-8">
+                <div class="bg-cream-dark rounded-xl p-6 md:p-10">
 
-                            <!-- Visual Concept Map -->
-                            <div class="w-full max-w-3xl mx-auto">
-                                
-                                <!-- Top Level -->
-                                <div class="flex justify-center mb-6">
-                                    <div class="bg-heritage-gradient text-white px-6 py-3 rounded-xl font-heading font-bold text-center shadow-lg">
-                                        Bangun Ruang Sisi Datar<br>
-                                        <span class="text-gold-light text-sm font-normal">Konteks: Benteng Fort Willem I</span>
+                    <!-- Visual Concept Map: Full Vertical -->
+                    <div class="flex flex-col items-center gap-0 w-full max-w-2xl mx-auto">
+
+                        <!-- Top Level -->
+                        <div class="w-full flex justify-center">
+                            <div class="bg-heritage-gradient text-white px-6 py-3 rounded-xl font-heading font-bold text-center shadow-lg text-sm md:text-base">
+                                Bangun Ruang Sisi Datar<br>
+                                <span class="text-gold-light text-xs md:text-sm font-normal">Konteks: Benteng Fort Willem I</span>
+                            </div>
+                        </div>
+
+                        <!-- Connector down -->
+                        <div class="w-[2px] h-6 bg-gold"></div>
+
+                        <!-- Branch row: Kubus & Balok side by side -->
+                        <div class="w-full flex relative">
+                            <!-- Left Branch (Kubus) -->
+                            <div class="flex-1 flex flex-col">
+                                <!-- Connecting lines -->
+                                <div class="w-full flex justify-end">
+                                    <div class="w-1/2 h-6 border-t-2 border-l-2 border-gold rounded-tl"></div>
+                                </div>
+                                <div class="px-2 md:px-5 flex flex-col items-center gap-0">
+                                    <div class="bg-primary text-white px-4 py-2.5 rounded-xl font-heading font-semibold text-center shadow-md text-sm w-full">
+                                        KUBUS
+                                    </div>
+                                    <div class="w-[2px] h-6 bg-gold/50"></div>
+                                    <div class="bg-white border border-gold/20 px-3 py-2 rounded-lg text-xs md:text-sm text-center shadow-sm w-full">
+                                        📐 Volume = s³
+                                    </div>
+                                    <div class="w-[2px] h-4 bg-gold/30"></div>
+                                    <div class="bg-white border border-gold/20 px-3 py-2 rounded-lg text-xs md:text-sm text-center shadow-sm w-full">
+                                        🟦 Luas Permukaan = 6s²
                                     </div>
                                 </div>
+                            </div>
 
-                                <!-- Connector -->
-                                <div class="flex justify-center mb-4">
-                                    <div class="w-0.5 h-8 bg-gold"></div>
+                            <!-- Right Branch (Balok) -->
+                            <div class="flex-1 flex flex-col">
+                                <!-- Connecting lines -->
+                                <div class="w-full flex justify-start">
+                                    <div class="w-1/2 h-6 border-t-2 border-r-2 border-gold rounded-tr"></div>
                                 </div>
-
-                                <!-- Two Branches -->
-                                <div class="grid grid-cols-2 gap-4 md:gap-8 relative">
-                                    
-                                    <!-- Horizontal line connecting the branches -->
-                                    <div class="absolute top-0 left-1/4 right-1/4 h-0.5 bg-gold translate-y-[-16px]"></div>
-                                    <div class="absolute top-0 left-1/4 w-0.5 h-4 bg-gold translate-y-[-16px]"></div>
-                                    <div class="absolute top-0 right-1/4 w-0.5 h-4 bg-gold translate-y-[-16px]"></div>
-
-                                    <!-- Branch 1: Kubus -->
-                                    <div class="space-y-4">
-                                        <div class="bg-primary text-white px-5 py-3 rounded-xl font-heading font-semibold text-center shadow-md">
-                                            KUBUS
-                                        </div>
-                                        <div class="flex justify-center">
-                                            <div class="w-0.5 h-4 bg-gold/50"></div>
-                                        </div>
-                                        <div class="space-y-2 relative">
-                                            <div class="bg-white border border-gold/20 px-4 py-2 rounded-lg text-sm text-center shadow-sm">
-                                                📏 Volume
-                                            </div>
-                                            <div class="flex justify-center">
-                                                <div class="w-0.5 h-3 bg-gold/30"></div>
-                                            </div>
-                                            <div class="bg-white border border-gold/20 px-4 py-2 rounded-lg text-sm text-center shadow-sm">
-                                                📊 Luas Permukaan
-                                            </div>
-                                        </div>
+                                <div class="px-2 md:px-5 flex flex-col items-center gap-0">
+                                    <div class="bg-primary text-white px-4 py-2.5 rounded-xl font-heading font-semibold text-center shadow-md text-sm w-full">
+                                        BALOK
                                     </div>
-
-                                    <!-- Branch 2: Balok -->
-                                    <div class="space-y-4">
-                                        <div class="bg-primary text-white px-5 py-3 rounded-xl font-heading font-semibold text-center shadow-md">
-                                            BALOK
-                                        </div>
-                                        <div class="flex justify-center">
-                                            <div class="w-0.5 h-4 bg-gold/50"></div>
-                                        </div>
-                                        <div class="space-y-2 relative">
-                                            <div class="bg-white border border-gold/20 px-4 py-2 rounded-lg text-sm text-center shadow-sm">
-                                                📏 Volume
-                                            </div>
-                                            <div class="flex justify-center">
-                                                <div class="w-0.5 h-3 bg-gold/30"></div>
-                                            </div>
-                                            <div class="bg-white border border-gold/20 px-4 py-2 rounded-lg text-sm text-center shadow-sm">
-                                                📊 Luas Permukaan
-                                            </div>
-                                        </div>
+                                    <div class="w-[2px] h-6 bg-gold/50"></div>
+                                    <div class="bg-white border border-gold/20 px-3 py-2 rounded-lg text-xs md:text-sm text-center shadow-sm w-full">
+                                        📐 Volume = p×l×t
                                     </div>
-                                </div>
-
-                                <!-- Bottom: Kemampuan Spasial -->
-                                <div class="flex justify-center relative mt-6">
-                                    <!-- Connecting lines from branches to bottom -->
-                                    <div class="absolute top-0 left-1/4 right-1/4 h-0.5 bg-gold translate-y-[-16px]"></div>
-                                    <div class="absolute top-0 left-1/4 w-0.5 h-4 bg-gold translate-y-[-16px]"></div>
-                                    <div class="absolute top-0 right-1/4 w-0.5 h-4 bg-gold translate-y-[-16px]"></div>
-                                    
-                                    <div class="w-0.5 h-8 bg-gold -mt-4"></div>
-                                </div>
-                                <div class="flex justify-center">
-                                    <div class="bg-accent text-white px-6 py-3 rounded-xl font-heading font-semibold text-center shadow-lg">
-                                        Kemampuan Spasial Matematis
+                                    <div class="w-[2px] h-4 bg-gold/30"></div>
+                                    <div class="bg-white border border-gold/20 px-3 py-2 rounded-lg text-xs md:text-sm text-center shadow-sm w-full">
+                                        🟦 LP = 2(pl+pt+lt)
                                     </div>
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
                 <p class="text-text-muted text-sm mt-4 text-center">
-                    💡 Geser (scroll) ke kanan/kiri pada mode mobile. Klik untuk memperbesar.
+                    💡 Klik salah satu cabang untuk mempelajari lebih lanjut.
                 </p>
             </div>
         </div>

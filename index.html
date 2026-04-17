@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Media Interaktif Etnomatematika - Challenge-Based Learning Benteng Fort Willem I">
-    <title>FORTIVY — Media Interaktif</title>
+    <title>FORTIFY — Media Interaktif</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -55,7 +55,7 @@
 
     <!-- Top Navbar -->
     <nav class="relative z-50 flex items-center justify-between px-6 py-6 max-w-[1400px] mx-auto">
-        <div class="font-anton text-2xl tracking-tighter">FORTIVY</div>
+        <div class="font-anton text-2xl tracking-tighter">FORTIFY</div>
         <div class="hidden md:flex items-center gap-8 text-xs font-bold uppercase tracking-widest">
             <a href="#" class="hover:text-yellow-600 transition flex items-center gap-1">✦ VIBE</a>
             <a href="#" class="hover:text-yellow-600 transition">MATERI</a>
@@ -69,53 +69,73 @@
     <!-- Hero Section -->
     <main class="relative min-h-[85vh] flex flex-col items-center justify-center text-center px-4 -mt-10 overflow-hidden">
 
-        <!-- Floating Character: Green -->
+        <!-- Floating Math: Pi symbol (top-left) -->
         <div class="absolute animate-float z-20"
-             style="top:20%; left:8%; width:96px; height:96px; animation-duration:8s;">
-            <div style="width:100%;height:100%;background:#22C55E;border:3px solid black;border-radius:50%;position:relative;box-shadow:4px 4px 0 rgba(0,0,0,1);">
-                <div style="position:absolute;top:40%;left:20%;width:12px;height:12px;background:black;border-radius:50%;"></div>
-                <div style="position:absolute;top:40%;right:20%;width:12px;height:12px;background:black;border-radius:50%;"></div>
-                <div style="position:absolute;bottom:25%;left:50%;transform:translateX(-50%);width:32px;height:4px;background:black;border-radius:4px;"></div>
-                <div style="position:absolute;top:-8px;left:-8px;font-size:24px;">✨</div>
-            </div>
+             style="top:18%; left:6%; animation-duration:8s;">
+            <svg width="90" height="90" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="4" y="4" width="82" height="82" rx="20" fill="#A855F7" stroke="black" stroke-width="3"/>
+                <rect x="4" y="4" width="82" height="82" rx="20" fill="url(#pi-grad)" stroke="black" stroke-width="3"/>
+                <defs><linearGradient id="pi-grad" x1="0" y1="0" x2="90" y2="90"><stop stop-color="#C084FC"/><stop offset="1" stop-color="#7C3AED"/></linearGradient></defs>
+                <text x="45" y="62" text-anchor="middle" font-family="serif" font-size="52" font-weight="900" fill="white" stroke="black" stroke-width="1.5" paint-order="stroke">π</text>
+                <circle cx="20" cy="22" r="5" fill="white" opacity="0.6"/>
+            </svg>
         </div>
 
-        <!-- Floating Character: Red -->
+        <!-- Floating Math: Cute Cube (bottom-left) -->
         <div class="absolute animate-float z-20"
-             style="bottom:20%; left:12%; width:80px; height:80px; animation-duration:6s; animation-delay:1s;">
-            <div style="width:100%;height:100%;background:#EF4444;border:3px solid black;border-radius:50%;position:relative;box-shadow:4px 4px 0 rgba(0,0,0,1);">
-                <div style="position:absolute;top:35%;left:25%;font-size:10px;font-weight:700;">X</div>
-                <div style="position:absolute;top:35%;right:25%;font-size:10px;font-weight:700;">X</div>
-            </div>
+             style="bottom:18%; left:10%; animation-duration:6s; animation-delay:1s;">
+            <svg width="78" height="78" viewBox="0 0 78 78" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- cube top face -->
+                <polygon points="39,8 70,24 39,40 8,24" fill="#4ADE80" stroke="black" stroke-width="2.5" stroke-linejoin="round"/>
+                <!-- cube left face -->
+                <polygon points="8,24 39,40 39,70 8,54" fill="#16A34A" stroke="black" stroke-width="2.5" stroke-linejoin="round"/>
+                <!-- cube right face -->
+                <polygon points="70,24 39,40 39,70 70,54" fill="#22C55E" stroke="black" stroke-width="2.5" stroke-linejoin="round"/>
+                <circle cx="16" cy="16" r="4" fill="white" opacity="0.5"/>
+            </svg>
         </div>
 
-        <!-- Floating Character: Purple -->
+        <!-- Floating Math: Cuboid (top-right) -->
         <div class="absolute animate-float z-20"
-             style="top:35%; right:8%; width:96px; height:96px; animation-duration:7s; animation-delay:0.5s;">
-            <div style="width:100%;height:100%;background:#A855F7;border:3px solid black;border-radius:50%;position:relative;box-shadow:4px 4px 0 rgba(0,0,0,1);">
-                <div style="position:absolute;top:45%;left:30%;width:8px;height:8px;background:black;border-radius:50%;"></div>
-                <div style="position:absolute;top:45%;right:30%;width:8px;height:8px;background:black;border-radius:50%;"></div>
-                <div style="position:absolute;top:8px;right:8px;font-size:20px;">💫</div>
-            </div>
+             style="top:30%; right:6%; animation-duration:7s; animation-delay:0.5s;">
+            <svg width="100" height="80" viewBox="0 0 100 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- cuboid top face -->
+                <polygon points="20,15 80,15 65,5 5,5" fill="#FDE68A" stroke="black" stroke-width="2.5" stroke-linejoin="round"/>
+                <!-- cuboid front face -->
+                <rect x="20" y="15" width="60" height="50" rx="2" fill="#FACC15" stroke="black" stroke-width="2.5"/>
+                <!-- cuboid right face -->
+                <polygon points="80,15 65,5 65,55 80,65" fill="#CA8A04" stroke="black" stroke-width="2.5" stroke-linejoin="round"/>
+                <circle cx="30" cy="24" r="4" fill="white" opacity="0.5"/>
+            </svg>
         </div>
 
-        <!-- Floating Character: Blue (Bottom) -->
+        <!-- Floating Math: Equals sign (bottom-center) -->
         <div class="absolute animate-float z-10"
-             style="bottom:-40px; left:50%; transform:translateX(-50%); width:128px; height:64px;
-                    background:#3B82F6; border:3px solid black; border-bottom:none; border-radius:9999px 9999px 0 0;
-                    animation-duration:9s;">
-            <div style="position:absolute;top:16px;left:35%;width:8px;height:8px;background:black;border-radius:50%;"></div>
-            <div style="position:absolute;top:16px;right:35%;width:8px;height:8px;background:black;border-radius:50%;"></div>
+             style="bottom:8%; left:50%; transform:translateX(-50%); animation-duration:9s;">
+            <svg width="100" height="64" viewBox="0 0 100 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="4" y="10" width="92" height="18" rx="9" fill="#38BDF8" stroke="black" stroke-width="2.5"/>
+                <rect x="4" y="36" width="92" height="18" rx="9" fill="#38BDF8" stroke="black" stroke-width="2.5"/>
+                <rect x="4" y="10" width="92" height="18" rx="9" fill="url(#eq-grad)" stroke="black" stroke-width="2.5"/>
+                <rect x="4" y="36" width="92" height="18" rx="9" fill="url(#eq-grad2)" stroke="black" stroke-width="2.5"/>
+                <defs>
+                  <linearGradient id="eq-grad" x1="0" y1="0" x2="100" y2="0"><stop stop-color="#7DD3FC"/><stop offset="1" stop-color="#0EA5E9"/></linearGradient>
+                  <linearGradient id="eq-grad2" x1="0" y1="0" x2="100" y2="0"><stop stop-color="#7DD3FC"/><stop offset="1" stop-color="#0EA5E9"/></linearGradient>
+                </defs>
+            </svg>
         </div>
 
-        <!-- Floating Character: Yellow -->
+        <!-- Floating Math: Plus sign (bottom-right) -->
         <div class="absolute animate-float z-20"
-             style="bottom:10%; right:10%; width:80px; height:80px; transform:rotate(-15deg); animation-duration:5s;">
-            <div style="width:100%;height:100%;background:#FACC15;border:3px solid black;border-radius:50%;position:relative;box-shadow:4px 4px 0 rgba(0,0,0,1);">
-                <div style="position:absolute;top:45%;left:30%;width:8px;height:8px;background:black;border-radius:50%;"></div>
-                <div style="position:absolute;top:45%;right:30%;width:8px;height:8px;background:black;border-radius:50%;"></div>
-                <div style="position:absolute;bottom:25%;left:50%;transform:translateX(-50%);width:40px;height:4px;background:black;border-radius:4px;"></div>
-            </div>
+             style="bottom:12%; right:8%; animation-duration:5s; transform:rotate(-10deg);">
+            <svg width="78" height="78" viewBox="0 0 78 78" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- horizontal bar -->
+                <rect x="4" y="30" width="70" height="18" rx="9" fill="#FB923C" stroke="black" stroke-width="2.5"/>
+                <!-- vertical bar -->
+                <rect x="30" y="4" width="18" height="70" rx="9" fill="#FB923C" stroke="black" stroke-width="2.5"/>
+                <!-- overlap center -->
+                <rect x="30" y="30" width="18" height="18" rx="4" fill="#FB923C"/>
+                <circle cx="20" cy="18" r="4" fill="white" opacity="0.5"/>
+            </svg>
         </div>
 
         <!-- Main Content -->
@@ -125,7 +145,7 @@
             </p>
 
             <h1 class="fade-in-delay font-anton text-[12vw] md:text-[8vw] leading-[0.85] tracking-[-0.05em] uppercase pointer-events-none">
-                <span class="block">FORTIVY</span>
+                <span class="block">FORTIFY</span>
                 <!-- <span class="block">MATEMATIKA</span>
                 <span class="block">BENTENG</span> -->
             </h1>
@@ -140,8 +160,7 @@
                 </div>
 
                 <p class="fade-in-delay-2 max-w-md mx-auto text-sm md:text-lg font-medium leading-relaxed text-[#1A1A1A]">
-                    Tingkatkan kemampuan spasialmu dengan cara seru di Benteng Fort Willem I!
-                    Volume dan Luas Permukaan jadi tidak sulit lagi.
+                    Fort Willem Integrative Geometry
                 </p>
             </div>
 
@@ -157,11 +176,28 @@
         <!-- Footer Decor: Bottom Left -->
         <div class="absolute bottom-10 left-6 flex flex-col items-start gap-2">
             <p class="text-[9px] font-bold uppercase tracking-widest text-gray-400">FIND US ON:</p>
-            <div class="flex gap-2">
-                <div class="w-8 h-8 bg-black rounded-lg flex items-center justify-center text-white text-[10px] font-anton italic">L</div>
-                <div class="w-8 h-8 bg-black rounded-lg flex items-center justify-center text-white text-[10px] font-anton italic">I</div>
-                <div class="w-8 h-8 bg-black rounded-lg flex items-center justify-center text-white text-[10px] font-anton italic">D</div>
-                <div class="w-8 h-8 bg-black rounded-lg flex items-center justify-center text-white text-[10px] font-anton italic">M</div>
+            <div class="flex items-center gap-3">
+                <a href="https://instagram.com/fort.ifyy" target="_blank" rel="noopener noreferrer"
+                   class="flex items-center gap-2 hover:opacity-80 transition-opacity">
+                    <div class="w-8 h-8 bg-black rounded-lg flex items-center justify-center">
+                        <!-- Instagram Icon -->
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <radialGradient id="ig-grad" cx="30%" cy="107%" r="150%">
+                                    <stop offset="0%" stop-color="#fdf497"/>
+                                    <stop offset="5%" stop-color="#fdf497"/>
+                                    <stop offset="45%" stop-color="#fd5949"/>
+                                    <stop offset="60%" stop-color="#d6249f"/>
+                                    <stop offset="90%" stop-color="#285AEB"/>
+                                </radialGradient>
+                            </defs>
+                            <rect x="2" y="2" width="20" height="20" rx="6" fill="url(#ig-grad)"/>
+                            <circle cx="12" cy="12" r="4" stroke="white" stroke-width="1.8" fill="none"/>
+                            <circle cx="17.5" cy="6.5" r="1.2" fill="white"/>
+                        </svg>
+                    </div>
+                    <span class="text-[10px] font-bold text-gray-600">@fort.ifyy</span>
+                </a>
             </div>
         </div>
 

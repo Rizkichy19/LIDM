@@ -49,7 +49,7 @@
                 <div class="w-7 h-7 rounded-lg bg-gold-gradient flex items-center justify-center">
                     <svg class="w-4 h-4 text-sidebar" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
                 </div>
-                <span class="font-heading font-bold text-gold text-sm hidden sm:inline">FORTIVY</span>
+                <span class="font-heading font-bold text-gold text-sm hidden sm:inline">FORTIFY</span>
             </div>
             <div class="text-xs text-[#F5D060]/70 bg-white/10 px-3 py-1.5 rounded-lg hidden md:block">
                 Pertemuan 2
@@ -58,18 +58,16 @@
     </header>
 
     <main class="pt-[72px] flex-grow flex flex-col h-full overflow-hidden w-full relative z-10">
-        <div class="px-4 lg:px-8 pt-6 w-full max-w-5xl mx-auto h-full flex flex-col">
+        <div class="px-4 lg:px-8 pt-3 md:pt-6 w-full max-w-5xl mx-auto h-full flex flex-col">
             <!-- Page Header -->
-            <div class="mb-4 lg:mb-6 animate-fade-in-up flex-none">
-                <div class="inline-flex items-center gap-2 bg-accent/10 border border-accent/20 rounded-full px-4 py-1.5 mb-4">
-                    <span class="text-accent text-sm font-semibold">📚 Pertemuan 2</span>
-                </div>
-                <h1 class="font-heading font-bold text-3xl lg:text-4xl text-primary-dark mb-2">Luas Permukaan Kubus & Balok</h1>
-                <p class="text-text-light">Challenge-Based Learning terintegrasi Etnomatematika Benteng Fort Willem I</p>
+            <div class="mb-3 animate-fade-in-up flex-none">
+                <h1 class="font-heading font-bold text-lg md:text-2xl text-primary-dark">
+                    <span class="text-accent mr-1">📚 Pertemuan 2:</span> Luas Permukaan Kubus & Balok
+                </h1>
             </div>
 
             <!-- Step Progress Bar -->
-            <div class="flex items-center flex-nowrap gap-1.5 mb-4 lg:mb-5 overflow-x-auto pb-2 flex-none" style="scrollbar-width: thin; -webkit-overflow-scrolling: touch;">
+            <div class="flex items-center flex-nowrap gap-1.5 mb-3 md:mb-5 overflow-x-auto pb-2 flex-none" style="scrollbar-width: thin; -webkit-overflow-scrolling: touch;">
                 <template x-for="(step, index) in [
                     {label: 'Big Idea', short: 'BI'}, {label: 'Essential Question', short: 'EQ'}, {label: 'The Challenge', short: 'TC'},
                     {label: 'Guiding Resources', short: 'GR'}, {label: 'Guiding Questions', short: 'GQ'}, {label: 'Guiding Activities', short: 'GA'},
@@ -100,7 +98,7 @@
                 .step-viewport > div[x-show] {
                     position: absolute;
                     inset: 0;
-                    margin-bottom: 120px; /* Space for bottom buttons */
+                    margin-bottom: 85px; /* Space for bottom buttons */
                 }
                 .step-viewport > div[x-show] > .card-heritage {
                     height: 100%;
@@ -113,14 +111,14 @@
             <div x-show="activeStep === 0" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0 translate-y-4" x-transition:enter-end="opacity-100 translate-y-0" style="display: none;">
                 <div class="card-heritage">
                     <div class="flex items-center gap-3 mb-6">
-                        <div class="w-12 h-12 bg-accent rounded-xl flex items-center justify-center"><span class="text-2xl">💡</span></div>
-                        <div><h2 class="font-heading font-bold text-xl text-primary">Big Idea</h2><p class="text-text-muted text-sm">Materi Utama Pertemuan 2</p></div>
+                        <div class="w-10 h-10 md:w-12 md:h-12 bg-accent rounded-xl flex items-center justify-center"><span class="text-xl md:text-2xl">💡</span></div>
+                        <div><h2 class="font-heading font-bold text-lg md:text-xl text-primary">Big Idea</h2><p class="text-text-muted text-sm">Materi Utama Pertemuan 2</p></div>
                     </div>
-                    <div class="bg-cream rounded-xl p-6 border border-gold/10 space-y-4 text-text-main leading-relaxed">
+                    <div class="bg-cream rounded-xl p-4 md:p-6 border border-gold/10 space-y-4 text-sm text-text-main leading-relaxed text-justify">
                          <p>Benteng Fort Willem I merupakan bangunan bersejarah yang dapat dimanfaatkan sebagai konteks pembelajaran matematika pada materi luas permukaan bangun ruang sisi datar. Salah satu ruang berbentuk balok memiliki panjang 10 m, lebar 6 m, dan tinggi 4 m, sehingga dapat dihitung luas permukaannya untuk mengetahui luas dinding, lantai, dan atap. Selain itu, terdapat peti berbentuk kubus dengan rusuk 2 m yang juga dapat dihitung luas permukaannya untuk menentukan kebutuhan bahan pelapis.</p>
                         
-                        <div class="mt-6 rounded-2xl overflow-hidden shadow-md border-4 border-white">
-                            <img src="assets/images/IMG_4510.JPG" alt="Area dan Ruangan Benteng Fort Willem I" class="w-full h-72 md:h-96 object-cover" onerror="this.src='https://placehold.co/800x400/F5EDE0/7B3F00?text=Benteng+Fort+Willem+I'">
+                        <div class="mt-4 md:mt-6 rounded-2xl overflow-hidden shadow-md border-4 border-white">
+                            <img src="assets/images/IMG_4510.JPG" alt="Area dan Ruangan Benteng Fort Willem I" class="w-full h-48 md:h-80 object-cover" onerror="this.src='https://placehold.co/800x400/F5EDE0/7B3F00?text=Benteng+Fort+Willem+I'">
                             <div class="bg-white/50 p-3 text-center border-t border-gold/10">
                                 <p class="text-xs text-text-muted italic">Struktur bangunan dan lorong di Benteng Fort Willem I yang perlu diperhatikan luas permukaannya saat renovasi.</p>
                             </div>
@@ -134,7 +132,7 @@
             <div x-show="activeStep === 1" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0 translate-y-4" x-transition:enter-end="opacity-100 translate-y-0" style="display: none;">
                 <div class="card-heritage text-center">
                     <div class="w-16 h-16 bg-accent/10 rounded-2xl flex items-center justify-center mx-auto mb-4"><span class="text-3xl">❓</span></div>
-                    <h2 class="font-heading font-bold text-xl text-primary mb-6">Essential Question</h2>
+                    <h2 class="font-heading font-bold text-lg md:text-xl text-primary mb-6">Essential Question</h2>
                     <div class="bg-accent rounded-2xl p-8 text-white max-w-2xl mx-auto mb-8 shadow-xl">
                         <p class="text-xl md:text-2xl font-heading font-semibold leading-relaxed">
                             Mari kita kaitkan dengan matematika!
@@ -155,12 +153,12 @@
             <div x-show="activeStep === 2" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0 translate-y-4" x-transition:enter-end="opacity-100 translate-y-0" style="display: none;">
                 <div class="card-heritage">
                     <div class="flex items-center gap-3 mb-6">
-                        <div class="w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center"><span class="text-2xl">🎯</span></div>
-                        <div><h2 class="font-heading font-bold text-xl text-primary">The Challenge</h2></div>
+                        <div class="w-10 h-10 md:w-12 md:h-12 bg-red-50 rounded-xl flex items-center justify-center"><span class="text-xl md:text-2xl">🎯</span></div>
+                        <div><h2 class="font-heading font-bold text-lg md:text-xl text-primary">The Challenge</h2></div>
                     </div>
-                    <div class="bg-gradient-to-br from-accent/5 to-gold/5 rounded-xl p-6 border border-accent/20">
+                    <div class="bg-gradient-to-br from-accent/5 to-gold/5 rounded-xl p-4 md:p-6 border border-accent/20">
                         <h3 class="font-heading font-bold text-lg text-primary mb-4">Tantangan:</h3>
-                        <div class="text-text-main leading-relaxed mb-6 space-y-4">
+                        <div class="text-sm text-text-main leading-relaxed text-justify mb-6 space-y-4">
                             <p>
                                 Di kawasan <strong>Benteng Fort Willem I</strong> terdapat sebuah menara pengawas kecil berbentuk kubus dengan panjang rusuk <strong>5 meter</strong>. Menara tersebut akan direnovasi dengan cara mengecat seluruh bagian luar kecuali bagian bawah yang menempel pada tanah.
                             </p>
@@ -190,9 +188,9 @@
             <div x-show="activeStep === 3" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0 translate-y-4" x-transition:enter-end="opacity-100 translate-y-0" style="display: none;">
                 <div class="card-heritage">
                     <div class="flex items-center gap-3 mb-6">
-                        <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center"><span class="text-2xl">📖</span></div>
+                        <div class="w-10 h-10 md:w-12 md:h-12 bg-blue-50 rounded-xl flex items-center justify-center"><span class="text-xl md:text-2xl">📖</span></div>
                         <div>
-                            <h2 class="font-heading font-bold text-xl text-primary">Guiding Resources</h2>
+                            <h2 class="font-heading font-bold text-lg md:text-xl text-primary">Guiding Resources</h2>
                             <p class="text-text-muted text-sm italic">Pelajari materi ini untuk memudahkan tantangan kalian!</p>
                         </div>
                     </div>
@@ -201,7 +199,7 @@
                         <!-- Section 1: Bangun Ruang Sisi Datar -->
                         <div class="cbl-step p-5 border-l-4 border-accent">
                             <h4 class="font-heading font-bold text-primary mb-3">🧱 Bangun Ruang Sisi Datar</h4>
-                            <p class="text-sm text-text-main leading-relaxed">
+                            <p class="text-sm text-text-main leading-relaxed text-justify">
                                 Bangun ruang adalah bangun yang memiliki <strong>panjang, lebar, dan tinggi</strong>. Selain memiliki volume, bangun ruang juga memiliki <strong>luas permukaan</strong>.
                             </p>
                             <div class="mt-3 bg-white/50 p-3 rounded-lg border border-gold/10">
@@ -215,7 +213,7 @@
                         </div>
 
                         <!-- Section 2: Konteks Benteng & Rumus Balok -->
-                        <div class="cbl-step p-6 bg-cream-dark/30 border-2 border-dashed border-gold/20">
+                        <div class="cbl-step p-4 md:p-6 bg-cream-dark/30 border-2 border-dashed border-gold/20">
                             <h4 class="font-heading font-bold text-primary mb-4 flex items-center gap-2">
                                 🏰 Kembali ke Konteks Benteng
                             </h4>
@@ -293,10 +291,10 @@
             <div x-show="activeStep === 4" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0 translate-y-4" x-transition:enter-end="opacity-100 translate-y-0" style="display: none;">
                 <div class="card-heritage">
                     <div class="flex items-center gap-3 mb-6">
-                        <div class="w-12 h-12 bg-amber-50 rounded-xl flex items-center justify-center"><span class="text-2xl">💡</span></div>
-                        <div><h2 class="font-heading font-bold text-xl text-primary">Guiding Question</h2></div>
+                        <div class="w-10 h-10 md:w-12 md:h-12 bg-amber-50 rounded-xl flex items-center justify-center"><span class="text-xl md:text-2xl">💡</span></div>
+                        <div><h2 class="font-heading font-bold text-lg md:text-xl text-primary">Guiding Question</h2></div>
                     </div>
-                    <div class="bg-white rounded-xl p-6 border border-gold/10 shadow-sm">
+                    <div class="bg-white rounded-xl p-4 md:p-6 border border-gold/10 shadow-sm">
                         <p class="text-text-main font-semibold mb-4 italic text-sm">Untuk membantu kalian menyelesaikan challenge, jawablah pertanyaan berikut:</p>
                         <ul class="space-y-4 text-sm text-text-main">
                             <li class="flex gap-3 p-3 rounded-lg bg-cream/50 border border-gold/5">
@@ -324,8 +322,8 @@
             <div x-show="activeStep === 5" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0 translate-y-4" x-transition:enter-end="opacity-100 translate-y-0" style="display: none;">
                 <div class="card-heritage">
                     <div class="flex items-center gap-3 mb-6">
-                        <div class="w-12 h-12 bg-emerald-50 rounded-xl flex items-center justify-center"><span class="text-2xl">🏃</span></div>
-                        <div><h2 class="font-heading font-bold text-xl text-primary">Guiding Activities</h2></div>
+                        <div class="w-10 h-10 md:w-12 md:h-12 bg-emerald-50 rounded-xl flex items-center justify-center"><span class="text-xl md:text-2xl">🏃</span></div>
+                        <div><h2 class="font-heading font-bold text-lg md:text-xl text-primary">Guiding Activities</h2></div>
                     </div>
                     <div class="space-y-4">
                         <p class="text-text-main text-sm">Untuk membantu menyelesaikan challenge, lakukan kegiatan berikut secara <strong>berkelompok</strong>:</p>
@@ -339,7 +337,7 @@
                             ]" :key="i">
                                 <div class="flex items-start gap-3 p-4 bg-white rounded-xl border border-accent/10 hover:border-accent/30 transition shadow-sm group">
                                     <div class="w-6 h-6 rounded-full bg-accent/10 text-accent flex items-center justify-center text-xs font-bold group-hover:bg-accent group-hover:text-white transition" x-text="i + 1"></div>
-                                    <p class="text-sm text-text-main leading-relaxed" x-text="task"></p>
+                                    <p class="text-sm text-text-main leading-relaxed text-justify" x-text="task"></p>
                                 </div>
                             </template>
                         </div>
@@ -351,10 +349,10 @@
             <div x-show="activeStep === 6" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0 translate-y-4" x-transition:enter-end="opacity-100 translate-y-0" style="display: none;">
                 <div class="card-heritage">
                     <div class="flex items-center gap-3 mb-6">
-                        <div class="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center"><span class="text-2xl">✅</span></div>
-                        <div><h2 class="font-heading font-bold text-xl text-primary">Solution & Action</h2></div>
+                        <div class="w-10 h-10 md:w-12 md:h-12 bg-indigo-50 rounded-xl flex items-center justify-center"><span class="text-xl md:text-2xl">✅</span></div>
+                        <div><h2 class="font-heading font-bold text-lg md:text-xl text-primary">Solution & Action</h2></div>
                     </div>
-                    <div class="bg-accent/5 rounded-2xl p-6 border border-accent/20">
+                    <div class="bg-accent/5 rounded-2xl p-4 md:p-6 border border-accent/20">
                         <ul class="space-y-4">
                             <li class="flex items-start gap-4 p-4 bg-white rounded-xl border border-gold/10 shadow-sm hover:border-gold/30 transition">
                                 <span class="text-accent mt-0.5 font-bold">✦</span>
@@ -377,8 +375,8 @@
             <div x-show="activeStep === 7" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0 translate-y-4" x-transition:enter-end="opacity-100 translate-y-0" style="display: none;">
                 <div class="card-heritage">
                     <div class="flex items-center gap-3 mb-6">
-                        <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center"><span class="text-2xl">📢</span></div>
-                        <div><h2 class="font-heading font-bold text-xl text-primary">Assessment Publishing</h2></div>
+                        <div class="w-10 h-10 md:w-12 md:h-12 bg-blue-50 rounded-xl flex items-center justify-center"><span class="text-xl md:text-2xl">📢</span></div>
+                        <div><h2 class="font-heading font-bold text-lg md:text-xl text-primary">Assessment Publishing</h2></div>
                     </div>
                     <div class="space-y-6">
                         <!-- Custom Spinwheel Widget -->
@@ -404,19 +402,19 @@
                             </div>
                         </div>
 
-                        <div class="bg-white rounded-2xl p-6 border border-gold/10 shadow-sm">
+                        <div class="bg-white rounded-2xl p-4 md:p-6 border border-gold/10 shadow-sm">
                             <ul class="space-y-4">
                                 <li class="flex items-start gap-4 p-3 hover:bg-cream/30 rounded-xl transition border border-transparent hover:border-gold/10">
                                     <span class="text-blue-500 mt-0.5 font-bold">✦</span>
-                                    <span class="text-sm text-text-main leading-relaxed">Salah satu kelompok mempresentasikan hasil diskusi di depan kelas.</span>
+                                    <span class="text-sm text-text-main leading-relaxed text-justify">Salah satu kelompok mempresentasikan hasil diskusi di depan kelas.</span>
                                 </li>
                                 <li class="flex items-start gap-4 p-3 hover:bg-cream/30 rounded-xl transition border border-transparent hover:border-gold/10">
                                     <span class="text-blue-500 mt-0.5 font-bold">✦</span>
-                                    <span class="text-sm text-text-main leading-relaxed">Kelompok lain memberikan tanggapan, pertanyaan, atau saran terhadap hasil presentasi.</span>
+                                    <span class="text-sm text-text-main leading-relaxed text-justify">Kelompok lain memberikan tanggapan, pertanyaan, atau saran terhadap hasil presentasi.</span>
                                 </li>
                                 <li class="flex items-start gap-4 p-3 hover:bg-cream/30 rounded-xl transition border border-transparent hover:border-gold/10">
                                     <span class="text-blue-500 mt-0.5 font-bold">✦</span>
-                                    <span class="text-sm text-text-main leading-relaxed">Peserta didik bersama guru menyimpulkan hasil kegiatan pembelajaran yang telah dilakukan.</span>
+                                    <span class="text-sm text-text-main leading-relaxed text-justify">Peserta didik bersama guru menyimpulkan hasil kegiatan pembelajaran yang telah dilakukan.</span>
                                 </li>
                             </ul>
                         </div>
@@ -428,14 +426,14 @@
             <div x-show="activeStep === 8" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0 translate-y-4" x-transition:enter-end="opacity-100 translate-y-0" style="display: none;">
                 <div class="card-heritage">
                     <div class="flex items-center gap-3 mb-6">
-                        <div class="w-12 h-12 bg-purple-50 rounded-xl flex items-center justify-center"><span class="text-2xl">🧠</span></div>
-                        <div><h2 class="font-heading font-bold text-xl text-primary">Assessment Reflection</h2></div>
+                        <div class="w-10 h-10 md:w-12 md:h-12 bg-purple-50 rounded-xl flex items-center justify-center"><span class="text-xl md:text-2xl">🧠</span></div>
+                        <div><h2 class="font-heading font-bold text-lg md:text-xl text-primary">Assessment Reflection</h2></div>
                     </div>
-                    <div class="bg-gradient-to-r from-accent/10 to-gold/10 rounded-2xl p-6 border border-accent/20 flex flex-col md:flex-row items-center gap-6 mb-6">
+                    <div class="bg-gradient-to-r from-accent/10 to-gold/10 rounded-2xl p-4 md:p-6 border border-accent/20 flex flex-col md:flex-row items-center gap-6 mb-6">
                         <div class="text-6xl text-primary opacity-80 flex-shrink-0 hidden md:block">🤔</div>
                         <div class="flex-1 text-center md:text-left">
                             <h3 class="font-heading font-bold text-lg text-primary mb-2">Waktunya Refleksi Diri!</h3>
-                            <p class="text-sm text-text-main leading-relaxed">
+                            <p class="text-sm text-text-main leading-relaxed text-justify">
                                 Mainkan permainan di bawah ini dan jawablah pertanyaan secara jujur sebagai bahan refleksi diri dari kegiatan pembelajaran yang telah dilakukan.
                             </p>
                         </div>
@@ -453,11 +451,11 @@
             <div x-show="activeStep === 9" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0 translate-y-4" x-transition:enter-end="opacity-100 translate-y-0" style="display: none;">
                 <div class="card-heritage">
                     <div class="flex items-center gap-3 mb-6">
-                        <div class="w-12 h-12 bg-accent rounded-xl flex items-center justify-center"><span class="text-white text-2xl">📋</span></div>
-                        <div><h2 class="font-heading font-bold text-xl text-primary">Rangkuman</h2></div>
+                        <div class="w-10 h-10 md:w-12 md:h-12 bg-accent rounded-xl flex items-center justify-center"><span class="text-white text-2xl">📋</span></div>
+                        <div><h2 class="font-heading font-bold text-lg md:text-xl text-primary">Rangkuman</h2></div>
                     </div>
                     <div class="space-y-6">
-                        <div class="bg-cream rounded-xl p-6 border border-gold/10 text-sm text-text-main leading-relaxed space-y-4">
+                        <div class="bg-cream rounded-xl p-4 md:p-6 border border-gold/10 text-sm text-text-main leading-relaxed text-justify space-y-4">
                             <p>
                                 Bangun ruang adalah bangun yang memiliki panjang, lebar, dan tinggi. Selain volume, bangun ruang juga memiliki <strong>luas permukaan</strong>.
                             </p>
@@ -466,7 +464,7 @@
                             </p>
                         </div>
 
-                        <div class="bg-white rounded-xl p-6 border border-gold/10 shadow-sm text-sm text-text-main">
+                        <div class="bg-white rounded-xl p-4 md:p-6 border border-gold/10 shadow-sm text-sm text-text-main">
                             <h3 class="font-bold text-primary mb-6 text-base">Rumus Luas Permukaan Bangun Ruang</h3>
                             
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
@@ -528,16 +526,16 @@
     </main>
 
     <!-- Navigation Buttons (Fixed Bottom) -->
-    <div class="fixed bottom-0 left-0 right-0 z-50 px-4 pb-6 sm:pb-8 flex justify-center pointer-events-none">
+    <div class="fixed bottom-0 left-0 right-0 z-50 px-4 pb-3 sm:pb-5 flex justify-center pointer-events-none">
         <div class="w-full max-w-5xl px-0 lg:px-4 flex items-center justify-between pointer-events-auto drop-shadow-md">
-            <button @click="activeStep = Math.max(0, activeStep - 1)" class="flex items-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl font-bold text-sm bg-white border-2 border-gold/40 text-primary hover:bg-cream hover:border-gold transition shadow-sm" :disabled="activeStep === 0" :class="activeStep === 0 ? 'opacity-0 cursor-not-allowed' : ''">← Sebelumnya</button>
+            <button @click="activeStep = Math.max(0, activeStep - 1)" class="flex items-center justify-center gap-1.5 px-3 sm:px-6 py-2 sm:py-3 rounded-xl font-bold text-xs sm:text-sm md:text-base whitespace-nowrap bg-white border-2 border-gold/40 text-primary hover:bg-cream hover:border-gold transition shadow-sm" :disabled="activeStep === 0" :class="activeStep === 0 ? 'opacity-0 cursor-not-allowed hidden' : ''">← Sebelumnya</button>
             
-            <div class="flex-grow flex justify-center px-4" :class="activeStep === 0 ? 'opacity-0' : ''">
-                 <span class="text-xs sm:text-sm font-bold text-primary bg-white/90 backdrop-blur-sm border border-gold/30 px-3 py-1.5 rounded-full shadow-sm" x-text="`${activeStep + 1} / ${stepsCount}`"></span>
+            <div class="flex-grow flex justify-center px-2" :class="activeStep === 0 ? 'opacity-0' : ''">
+                 <span class="text-xs sm:text-sm font-bold text-primary bg-white/90 backdrop-blur-sm border border-gold/30 px-3 py-1.5 rounded-full shadow-sm whitespace-nowrap" x-text="`${activeStep + 1} / ${stepsCount}`"></span>
             </div>
             
-            <button x-show="activeStep < stepsCount - 1" @click="activeStep++" class="flex items-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl font-bold text-sm bg-white border-2 border-gold/40 text-primary hover:bg-cream hover:border-gold transition shadow-sm ml-auto">Selanjutnya →</button>
-            <a x-show="activeStep === stepsCount - 1" href="asesmen-sumatif.html" class="flex items-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl font-bold text-sm bg-white border-2 border-gold/40 text-primary hover:bg-cream hover:border-gold transition shadow-sm ml-auto" style="display: none;">Lanjut Asesmen →</a>
+            <button x-show="activeStep < stepsCount - 1" @click="activeStep++" class="flex items-center justify-center gap-1.5 px-3 sm:px-6 py-2 sm:py-3 rounded-xl font-bold text-xs sm:text-sm md:text-base whitespace-nowrap bg-white border-2 border-gold/40 text-primary hover:bg-cream hover:border-gold transition shadow-sm ml-auto">Selanjutnya →</button>
+            <a x-show="activeStep === stepsCount - 1" href="asesmen-sumatif.html" class="flex items-center justify-center gap-1.5 px-3 sm:px-6 py-2 sm:py-3 rounded-xl font-bold text-xs sm:text-sm md:text-base whitespace-nowrap bg-white border-2 border-gold/40 text-primary hover:bg-cream hover:border-gold transition shadow-sm ml-auto" style="display: none;">Lanjut Asesmen →</a>
         </div>
     </div>
     </main>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu Pembelajaran — FORTIVY</title>
+    <title>Menu Pembelajaran — FORTIFY</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -14,19 +14,19 @@
         :root {
             --node-size: 78px;
             --node-r: 39px;
-            --label-w: 82px;
+            --label-w: 110px;
             --label-gap: 10px;
-            --row-h: 125px;
-            --wrap-max: 350px;
+            --row-h: 130px;
+            --wrap-max: 360px;
         }
         @media (min-width: 640px) {
             :root {
                 --node-size: 108px;
                 --node-r: 54px;
-                --label-w: 145px;
+                --label-w: 170px;
                 --label-gap: 14px;
                 --row-h: 165px;
-                --wrap-max: 600px;
+                --wrap-max: 620px;
             }
         }
 
@@ -109,12 +109,20 @@
         .label-left  { text-align: right; margin-right: var(--label-gap); }
         .label-right { text-align: left;  margin-left:  var(--label-gap); }
         .label-name {
-            font-weight: 700; font-size: clamp(11px,2.5vw,13px);
-            line-height: 1.25; color: #7B3F00; margin: 0;
+            font-weight: 700; font-size: clamp(11px,2.5vw,14px);
+            line-height: 1.3; color: #7B3F00; margin: 0;
         }
         .label-sub {
-            font-size: clamp(9px,2vw,11px); line-height: 1.3;
+            font-size: clamp(9px,2vw,12px); line-height: 1.3;
             color: #9B8B7F; margin: 3px 0 0;
+        }
+        a.node-label {
+            text-decoration: none;
+            cursor: pointer;
+        }
+        a.node-label:hover .label-name {
+            color: #5C2E00;
+            text-decoration: underline;
         }
 
         .footer-card { margin-top: clamp(40px,8vw,80px); text-align: center; }
@@ -142,7 +150,7 @@
             </div>
             <div>
                 <p class="brand-name" style="font-size:13px;font-weight:700;color:#D4A017;margin:0;line-height:1.2">
-                    FORTIVY
+                    FORTIFY
                 </p>
             </div>
         </div>
@@ -159,7 +167,7 @@
         🏰 Mulai Petualangan Belajarmu
     </div>
     <p class="intro-sub" style="font-size:13px;color:#9B8B7F;margin:4px 0 0;">
-        Pilih level untuk memulai perjalanan belajar
+        Mulai perjalanan belajar geometrimu!
     </p>
 </div>
 
@@ -170,10 +178,10 @@
 
         <!-- Level 1: Peta Konsep (LEFT) -->
         <div class="zz-row">
-            <div class="node-label label-left">
+            <a href="peta-konsep.html" class="node-label label-left">
                 <p class="label-name">Peta Konsep</p>
                 <p class="label-sub">Alur Pembelajaran</p>
-            </div>
+            </a>
             <a href="peta-konsep.html" class="node-btn zz-node"
                style="background:#4F7FE8;box-shadow:0 8px 0 rgba(79,127,232,.45);">
                 <span>🗺️</span>
@@ -190,18 +198,18 @@
                 <span>🎯</span>
                 <span class="node-number">2</span>
             </a>
-            <div class="node-label label-right">
+            <a href="capaian-pembelajaran.html" class="node-label label-right">
                 <p class="label-name">Capaian &amp; Tujuan</p>
                 <p class="label-sub">Pembelajaran</p>
-            </div>
+            </a>
         </div>
 
         <!-- Level 3: Kenali Benteng (LEFT) -->
         <div class="zz-row">
-            <div class="node-label label-left">
+            <a href="kenali-benteng.html" class="node-label label-left">
                 <p class="label-name">Kenali Benteng</p>
                 <p class="label-sub">Fort Willem I</p>
-            </div>
+            </a>
             <a href="kenali-benteng.html" class="node-btn zz-node"
                style="background:#F59E0B;box-shadow:0 8px 0 rgba(245,158,11,.45);">
                 <span>🏰</span>
@@ -218,18 +226,18 @@
                 <span>📋</span>
                 <span class="node-number">4</span>
             </a>
-            <div class="node-label label-right">
+            <a href="asesmen-diagnostik.html" class="node-label label-right">
                 <p class="label-name">Asesmen Diagnostik</p>
                 <p class="label-sub">Uji KBM Awal</p>
-            </div>
+            </a>
         </div>
 
         <!-- Level 5: Pertemuan 1 (LEFT) -->
         <div class="zz-row">
-            <div class="node-label label-left">
+            <a href="pertemuan-1.html" class="node-label label-left">
                 <p class="label-name">Pertemuan 1</p>
                 <p class="label-sub">Volume Kubus &amp; Balok</p>
-            </div>
+            </a>
             <a href="pertemuan-1.html" class="node-btn zz-node"
                style="background:#7B3F00;box-shadow:0 8px 0 rgba(123,63,0,.45);">
                 <span>📚</span>
@@ -246,18 +254,18 @@
                 <span>📖</span>
                 <span class="node-number">6</span>
             </a>
-            <div class="node-label label-right">
+            <a href="pertemuan-2.html" class="node-label label-right">
                 <p class="label-name">Pertemuan 2</p>
                 <p class="label-sub">Luas Permukaan</p>
-            </div>
+            </a>
         </div>
 
         <!-- Level 7: Asesmen Sumatif (LEFT) -->
         <div class="zz-row">
-            <div class="node-label label-left">
+            <a href="asesmen-sumatif.html" class="node-label label-left">
                 <p class="label-name">Asesmen Sumatif</p>
                 <p class="label-sub">Penilaian Akhir</p>
-            </div>
+            </a>
             <a href="asesmen-sumatif.html" class="node-btn zz-node"
                style="background:#2E7D32;box-shadow:0 8px 0 rgba(46,125,50,.45);">
                 <span>🏆</span>
