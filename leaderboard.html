@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!-- Alpine.js dimuat secara dinamis dalam module -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -146,8 +146,9 @@
 
     </div>
 
-    <!-- Firebase SDK (Modular) -->
+    <!-- Firebase SDK & Alpine (Modular) -->
     <script type="module">
+        import Alpine from 'https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/module.esm.js';
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
         import { getDatabase, ref, onValue, query, orderByChild } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js";
 
@@ -165,42 +166,45 @@
         const app = initializeApp(firebaseConfig);
         const database = getDatabase(app);
 
-        document.addEventListener('alpine:init', () => {
-            Alpine.data('leaderboardData', () => ({
-                students: [],
-                loading: true,
-                init() {
-                    const leaderboardRef = query(ref(database, 'leaderboard/sumatif'), orderByChild('skor'));
-                    
-                    onValue(leaderboardRef, (snapshot) => {
-                        this.loading = false;
-                        const data = snapshot.val();
-                        if (data) {
-                            // Convert object to array, attach id
-                            let studentsArray = Object.keys(data).map(key => ({
-                                id: key,
-                                ...data[key]
-                            }));
-                            
-                            // Sort by score descending, then by time ascending (earlier = better rank if tied)
-                            studentsArray.sort((a, b) => {
-                                if (b.skor !== a.skor) {
-                                    return b.skor - a.skor;
-                                }
-                                return a.waktu - b.waktu;
-                            });
+        // Define Alpine component BEFORE starting Alpine
+        Alpine.data('leaderboardData', () => ({
+            students: [],
+            loading: true,
+            init() {
+                const leaderboardRef = query(ref(database, 'leaderboard/sumatif'), orderByChild('skor'));
+                
+                onValue(leaderboardRef, (snapshot) => {
+                    this.loading = false;
+                    const data = snapshot.val();
+                    if (data) {
+                        // Convert object to array, attach id
+                        let studentsArray = Object.keys(data).map(key => ({
+                            id: key,
+                            ...data[key]
+                        }));
+                        
+                        // Sort by score descending, then by time ascending
+                        studentsArray.sort((a, b) => {
+                            if (b.skor !== a.skor) {
+                                return b.skor - a.skor;
+                            }
+                            return a.waktu - b.waktu;
+                        });
 
-                            this.students = studentsArray;
-                        } else {
-                            this.students = [];
-                        }
-                    }, (error) => {
-                        console.error("Firebase Read Error:", error);
-                        this.loading = false;
-                    });
-                }
-            }));
-        });
+                        this.students = studentsArray;
+                    } else {
+                        this.students = [];
+                    }
+                }, (error) => {
+                    console.error("Firebase Read Error:", error);
+                    this.loading = false;
+                });
+            }
+        }));
+
+        // Start Alpine manually after defining data
+        window.Alpine = Alpine;
+        Alpine.start();
     </script>
 </body>
 </html>
