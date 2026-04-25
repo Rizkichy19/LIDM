@@ -37,7 +37,7 @@
     </script>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body class="bg-cream h-screen overflow-hidden flex flex-col" x-data="{ activeStep: 0, stepsCount: 10 }">
+<body class="bg-cream h-screen overflow-hidden flex flex-col" x-data="{ activeStep: 0, stepsCount: 10, answerEq: '' }">
     <!-- Top Navigation Bar -->
     <header class="fixed top-0 left-0 right-0 z-50 text-white shadow-lg border-b border-gold/20" style="background-color: #1C1108;">
         <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
@@ -141,7 +141,7 @@
                     </div>
                     <div class="max-w-2xl mx-auto text-left space-y-4">
                         <label for="answer-eq" class="block font-heading font-semibold text-primary">Tuliskan Jawaban Kalian di Sini:</label>
-                        <textarea id="answer-eq" rows="4" class="w-full rounded-2xl border-2 border-gold/30 focus:border-primary focus:ring-primary bg-white/50 p-4 text-sm shadow-sm transition-all focus:bg-white" placeholder="Ketikkan hasil diskusi kelompok kalian mengenai cara menentukan luas permukaan balok dan kubus..."></textarea>
+                        <textarea id="answer-eq" x-model="answerEq" rows="4" class="w-full rounded-2xl border-2 border-gold/30 focus:border-primary focus:ring-primary bg-white/50 p-4 text-sm shadow-sm transition-all focus:bg-white" placeholder="Ketikkan hasil diskusi kelompok kalian mengenai cara menentukan luas permukaan balok dan kubus..."></textarea>
                         <button class="w-full bg-accent text-white font-bold py-3 rounded-xl hover:bg-accent/90 transition transform hover:scale-[1.02] shadow-md flex items-center justify-center gap-2">
                             <span>Kirim Jawaban</span>
                         </button>
@@ -534,7 +534,7 @@
                  <span class="text-xs sm:text-sm font-bold text-primary bg-white/90 backdrop-blur-sm border border-gold/30 px-3 py-1.5 rounded-full shadow-sm whitespace-nowrap" x-text="`${activeStep + 1} / ${stepsCount}`"></span>
             </div>
             
-            <button x-show="activeStep < stepsCount - 1" @click="activeStep++" class="flex items-center justify-center gap-1.5 px-3 sm:px-6 py-2 sm:py-3 rounded-xl font-bold text-xs sm:text-sm md:text-base whitespace-nowrap bg-white border-2 border-gold/40 text-primary hover:bg-cream hover:border-gold transition shadow-sm ml-auto">Selanjutnya →</button>
+            <button x-show="activeStep < stepsCount - 1" @click="if(activeStep === 1 && answerEq.trim() === '') { alert('Silakan jawab Essential Question terlebih dahulu.'); return; } activeStep++" class="flex items-center justify-center gap-1.5 px-3 sm:px-6 py-2 sm:py-3 rounded-xl font-bold text-xs sm:text-sm md:text-base whitespace-nowrap bg-white border-2 border-gold/40 text-primary hover:bg-cream hover:border-gold transition shadow-sm ml-auto">Selanjutnya →</button>
             <a x-show="activeStep === stepsCount - 1" href="asesmen-sumatif.html" class="flex items-center justify-center gap-1.5 px-3 sm:px-6 py-2 sm:py-3 rounded-xl font-bold text-xs sm:text-sm md:text-base whitespace-nowrap bg-white border-2 border-gold/40 text-primary hover:bg-cream hover:border-gold transition shadow-sm ml-auto" style="display: none;">Lanjut Asesmen →</a>
         </div>
     </div>

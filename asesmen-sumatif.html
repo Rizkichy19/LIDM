@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Asesmen Sumatif — Etnomatematika</title>
+    <title>Uji Kompetensi — Etnomatematika</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -55,7 +55,7 @@
             </div>
 
             <div class="text-xs text-[#F5D060]/70 bg-white/10 px-3 py-1.5 rounded-lg hidden md:block">
-                Asesmen Sumatif
+                Uji Kompetensi
             </div>
         </div>
     </header>
@@ -65,9 +65,9 @@
         <!-- Welcome Screen -->
         <div x-show="!mulai && !selesai" class="animate-fade-in-up" style="display: none;">
             <div class="inline-flex items-center gap-2 bg-accent/10 border border-accent/20 rounded-full px-4 py-1.5 mb-4">
-                <span class="text-accent text-sm font-semibold">🏆 Asesmen Sumatif</span>
+                <span class="text-accent text-sm font-semibold">🏆 Uji Kompetensi</span>
             </div>
-            <h1 class="font-heading font-bold text-3xl text-primary-dark mb-2">Asesmen Sumatif</h1>
+            <h1 class="font-heading font-bold text-3xl text-primary-dark mb-2">Uji Kompetensi</h1>
             <p class="text-text-light mb-8">Kuis ini bertujuan mengukur pemahaman akhir Anda tentang volume dan luas permukaan kubus & balok dalam konteks Benteng Fort Willem I.</p>
 
             <div class="card-heritage max-w-md mx-auto text-center">
@@ -88,7 +88,7 @@
             <!-- Header -->
             <div class="flex items-center justify-between mb-6">
                 <div>
-                    <span class="text-sm text-text-muted">Asesmen Sumatif</span>
+                    <span class="text-sm text-text-muted">Uji Kompetensi</span>
                     <h2 class="font-heading font-bold text-xl text-primary" x-text="`Soal ${currentIndex + 1} / ${soals.length}`"></h2>
                 </div>
                 <span class="bg-accent/10 text-accent text-sm font-semibold px-3 py-1 rounded-full" x-text="namaSiswa"></span>
@@ -160,7 +160,7 @@
                           :class="skor >= 80 ? 'text-accent' : (skor >= 60 ? 'text-gold-dark' : 'text-red-500')"
                           x-text="skor"></span>
                 </div>
-                <h2 class="font-heading font-bold text-2xl text-primary-dark mb-1">Hasil Asesmen Sumatif</h2>
+                <h2 class="font-heading font-bold text-2xl text-primary-dark mb-1">Hasil Uji Kompetensi</h2>
                 <p class="text-text-light"><span x-text="namaSiswa"></span> — Benar: <span x-text="jawabanBenar"></span>/<span x-text="soals.length"></span></p>
                 <div class="inline-block mt-3 px-4 py-1.5 rounded-full text-sm font-semibold"
                      :class="skor >= 80 ? 'bg-accent/10 text-accent' : (skor >= 60 ? 'bg-gold/10 text-gold-dark' : 'bg-red-50 text-red-500')"
@@ -189,6 +189,9 @@
             <div class="flex flex-wrap gap-4 justify-center">
                 <a href="menu.html" class="px-6 py-2.5 bg-heritage-gradient text-white rounded-xl font-semibold text-sm hover:opacity-90 transition">
                     Kembali ke Menu Utama →
+                </a>
+                <a href="leaderboard.html" class="px-6 py-2.5 text-white rounded-xl font-semibold text-sm hover:opacity-90 transition flex items-center gap-2 shadow-lg" style="background: linear-gradient(135deg, #D4A017, #F5D060);">
+                    🏆 Lihat Leaderboard
                 </a>
             </div>
         </div>
@@ -246,9 +249,47 @@
                     this.jawabanBenar = benar;
                     this.skor = Math.round((benar / this.soals.length) * 100);
                     this.selesai = true;
+
+                    if (window.simpanSkorKeFirebase) {
+                        window.simpanSkorKeFirebase(this.namaSiswa, this.skor, this.jawabanBenar, this.soals.length);
+                    }
                 }
             }));
         });
+    </script>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
+        import { getDatabase, ref, push, set } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyDpkzYa9rIgoex2YCZGfHMhC4OFv8OuEiw",
+            authDomain: "fortifylearn.firebaseapp.com",
+            databaseURL: "https://fortifylearn-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "fortifylearn",
+            storageBucket: "fortifylearn.firebasestorage.app",
+            messagingSenderId: "523348398414",
+            appId: "1:523348398414:web:57b5adbbcbcd0ecf954e1f",
+            measurementId: "G-JGEHREPWL7"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const database = getDatabase(app);
+
+        window.simpanSkorKeFirebase = function(nama, skor, benar, total) {
+            const leaderboardRef = ref(database, 'leaderboard/sumatif');
+            const newScoreRef = push(leaderboardRef);
+            set(newScoreRef, {
+                nama: nama,
+                skor: skor,
+                benar: benar,
+                total: total,
+                waktu: Date.now()
+            }).then(() => {
+                console.log("Skor berhasil disimpan ke Leaderboard!");
+            }).catch((error) => {
+                console.error("Gagal menyimpan skor:", error);
+            });
+        };
     </script>
 </body>
 </html>
