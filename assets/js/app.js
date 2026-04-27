@@ -40,12 +40,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // ===== FLIP CARD =====
-    const flipCards = document.querySelectorAll('.flip-card');
-    flipCards.forEach(function (card) {
-        card.addEventListener('click', function () {
-            card.classList.toggle('flipped');
-        });
-    });
+    // Flip card diatur via Alpine.js di HTML untuk mencegah double-click tabrakan event.
 
     // ===== QUIZ LOGIC =====
     const quizOptions = document.querySelectorAll('.quiz-option');
