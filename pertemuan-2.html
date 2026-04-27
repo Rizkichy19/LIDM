@@ -37,7 +37,7 @@
     </script>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body class="bg-cream h-screen overflow-hidden flex flex-col" x-data="{ activeStep: 0, stepsCount: 10, answerEq: '' }">
+<body class="bg-cream h-screen overflow-hidden flex flex-col" x-data="{ activeStep: 0, stepsCount: 10, answerEq: '', isEqSubmitted: false }">
     <!-- Top Navigation Bar -->
     <header class="fixed top-0 left-0 right-0 z-50 text-white shadow-lg border-b border-gold/20" style="background-color: #1C1108;">
         <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
@@ -139,13 +139,34 @@
                             "Bagaimana cara menentukan luas permukaan kubus dan balok?"
                         </p>
                     </div>
-                    <div class="max-w-2xl mx-auto text-left space-y-4">
-                        <label for="answer-eq" class="block font-heading font-semibold text-primary">Tuliskan Jawaban Kalian di Sini:</label>
-                        <textarea id="answer-eq" x-model="answerEq" rows="4" class="w-full rounded-2xl border-2 border-gold/30 focus:border-primary focus:ring-primary bg-white/50 p-4 text-sm shadow-sm transition-all focus:bg-white" placeholder="Ketikkan hasil diskusi kelompok kalian mengenai cara menentukan luas permukaan balok dan kubus..."></textarea>
-                        <button class="w-full bg-accent text-white font-bold py-3 rounded-xl hover:bg-accent/90 transition transform hover:scale-[1.02] shadow-md flex items-center justify-center gap-2">
+                    <form @submit.prevent="submitToGoogle('2', 'Essential Question', $el).then(success => { if(success) isEqSubmitted = true })" class="max-w-2xl mx-auto text-left space-y-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label for="kelompok-eq" class="block font-heading font-semibold text-primary">Pilih Kelompok:</label>
+                                <select id="kelompok-eq" name="Kelompok" required class="w-full rounded-2xl border-2 border-gold/30 focus:border-primary focus:ring-primary bg-white/50 p-4 text-sm shadow-sm transition-all focus:bg-white">
+                                    <option value="" disabled selected>-- Pilih Kelompok --</option>
+                                    <option value="Kelompok 1">Kelompok 1</option>
+                                    <option value="Kelompok 2">Kelompok 2</option>
+                                    <option value="Kelompok 3">Kelompok 3</option>
+                                    <option value="Kelompok 4">Kelompok 4</option>
+                                    <option value="Kelompok 5">Kelompok 5</option>
+                                    <option value="Kelompok 6">Kelompok 6</option>
+                                    <option value="Kelompok 7">Kelompok 7</option>
+                                    <option value="Kelompok 8">Kelompok 8</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="nama-eq" class="block font-heading font-semibold text-primary">Nama Siswa:</label>
+                                <input type="text" id="nama-eq" name="Nama Siswa" required class="w-full rounded-2xl border-2 border-gold/30 focus:border-primary focus:ring-primary bg-white/50 p-4 text-sm shadow-sm transition-all focus:bg-white" placeholder="Masukkan nama Anda...">
+                            </div>
+                        </div>
+
+                        <label for="answer-eq" class="block font-heading font-semibold text-primary mt-4">Tuliskan Jawaban Kalian di Sini:</label>
+                        <textarea id="answer-eq" name="Jawaban" x-model="answerEq" rows="4" required class="w-full rounded-2xl border-2 border-gold/30 focus:border-primary focus:ring-primary bg-white/50 p-4 text-sm shadow-sm transition-all focus:bg-white" placeholder="Ketikkan jawaban Anda mengenai cara menentukan luas permukaan balok dan kubus..."></textarea>
+                        <button type="submit" class="w-full bg-accent text-white font-bold py-3 rounded-xl hover:bg-accent/90 transition transform hover:scale-[1.02] shadow-md flex items-center justify-center gap-2">
                             <span>Kirim Jawaban</span>
                         </button>
-                    </div>
+                    </form>
                 </div>
             </div>
 
@@ -315,6 +336,34 @@
                             </li>
                         </ul>
                     </div>
+                    <form @submit.prevent="submitToGoogle('2', 'Guiding Questions', $el)" class="mt-6 pt-6 border-t border-gold/10 space-y-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label for="kelompok-gq" class="block font-heading font-semibold text-primary">Pilih Kelompok:</label>
+                                <select id="kelompok-gq" name="Kelompok" required class="w-full rounded-2xl border-2 border-gold/30 focus:border-primary focus:ring-primary bg-white/50 p-4 text-sm shadow-sm transition-all focus:bg-white">
+                                    <option value="" disabled selected>-- Pilih Kelompok --</option>
+                                    <option value="Kelompok 1">Kelompok 1</option>
+                                    <option value="Kelompok 2">Kelompok 2</option>
+                                    <option value="Kelompok 3">Kelompok 3</option>
+                                    <option value="Kelompok 4">Kelompok 4</option>
+                                    <option value="Kelompok 5">Kelompok 5</option>
+                                    <option value="Kelompok 6">Kelompok 6</option>
+                                    <option value="Kelompok 7">Kelompok 7</option>
+                                    <option value="Kelompok 8">Kelompok 8</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="nama-gq" class="block font-heading font-semibold text-primary">Nama Perwakilan:</label>
+                                <input type="text" id="nama-gq" name="Nama Siswa" required class="w-full rounded-2xl border-2 border-gold/30 focus:border-primary focus:ring-primary bg-white/50 p-4 text-sm shadow-sm transition-all focus:bg-white" placeholder="Misal: Budi">
+                            </div>
+                        </div>
+
+                        <label for="answer-gq" class="block font-heading font-semibold text-primary mt-4">Tuliskan Jawaban Kalian di Sini:</label>
+                        <textarea id="answer-gq" name="Jawaban" rows="4" required class="w-full rounded-2xl border-2 border-gold/30 focus:border-primary focus:ring-primary bg-white/50 p-4 text-sm shadow-sm transition-all focus:bg-white" placeholder="Ketikkan jawaban diskusi kelompok kalian untuk pertanyaan-pertanyaan pemandu di atas..."></textarea>
+                        <button type="submit" class="w-full bg-accent text-white font-bold py-3 rounded-xl hover:bg-accent/90 transition transform hover:scale-[1.02] shadow-md flex items-center justify-center gap-2">
+                            <span>Kirim Jawaban</span>
+                        </button>
+                    </form>
                 </div>
             </div>
 
@@ -342,6 +391,47 @@
                             </template>
                         </div>
                     </div>
+                    <form @submit.prevent="submitToGoogle('2', 'Guiding Activities', $el)" class="mt-6 pt-6 border-t border-gold/10 space-y-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label for="kelompok-ga" class="block font-heading font-semibold text-primary">Pilih Kelompok:</label>
+                                <select id="kelompok-ga" name="Kelompok" required class="w-full rounded-2xl border-2 border-gold/30 focus:border-primary focus:ring-primary bg-white/50 p-4 text-sm shadow-sm transition-all focus:bg-white">
+                                    <option value="" disabled selected>-- Pilih Kelompok --</option>
+                                    <option value="Kelompok 1">Kelompok 1</option>
+                                    <option value="Kelompok 2">Kelompok 2</option>
+                                    <option value="Kelompok 3">Kelompok 3</option>
+                                    <option value="Kelompok 4">Kelompok 4</option>
+                                    <option value="Kelompok 5">Kelompok 5</option>
+                                    <option value="Kelompok 6">Kelompok 6</option>
+                                    <option value="Kelompok 7">Kelompok 7</option>
+                                    <option value="Kelompok 8">Kelompok 8</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="nama-ga" class="block font-heading font-semibold text-primary">Nama Perwakilan:</label>
+                                <input type="text" id="nama-ga" name="Nama Siswa" required class="w-full rounded-2xl border-2 border-gold/30 focus:border-primary focus:ring-primary bg-white/50 p-4 text-sm shadow-sm transition-all focus:bg-white" placeholder="Misal: Siti">
+                            </div>
+                        </div>
+
+                        <label for="answer-ga" class="block font-heading font-semibold text-primary mt-4">Tuliskan Hasil Analisis Kegiatan Kalian:</label>
+                        <textarea id="answer-ga" name="Jawaban" rows="4" required class="w-full rounded-2xl border-2 border-gold/30 focus:border-primary focus:ring-primary bg-white/50 p-4 text-sm shadow-sm transition-all focus:bg-white" placeholder="Ketikkan penjabaran dari hasil analisis kegiatan..."></textarea>
+                        
+                        <label class="block font-heading font-semibold text-primary mt-4">Unggah Gambar Model/Sketsa Hasil Kerja:</label>
+                        <div class="flex items-center justify-center w-full">
+                            <label class="flex flex-col items-center justify-center w-full h-32 border-2 border-gold/30 border-dashed rounded-2xl cursor-pointer bg-white/50 hover:bg-white transition-all">
+                                <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                                    <span class="text-3xl mb-2">📸</span>
+                                    <p class="mb-1 text-sm text-text-main text-center px-4"><span class="font-semibold text-primary">Klik untuk mengunggah</span> sketsa/foto</p>
+                                    <p class="text-xs text-text-muted">Fitur upload disabel sementara, teks akan dikirim.</p>
+                                </div>
+                                <input type="file" accept="image/*" class="hidden" />
+                            </label>
+                        </div>
+
+                        <button type="submit" class="w-full bg-accent text-white font-bold py-3 mt-4 rounded-xl hover:bg-accent/90 transition transform hover:scale-[1.02] shadow-md flex items-center justify-center gap-2">
+                            <span>Kirim Pekerjaan</span>
+                        </button>
+                    </form>
                 </div>
             </div>
 
@@ -368,6 +458,47 @@
                             </li>
                         </ul>
                     </div>
+                    <form @submit.prevent="submitToGoogle('2', 'Solution & Action', $el)" class="mt-6 pt-6 border-t border-gold/10 space-y-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label for="kelompok-sa" class="block font-heading font-semibold text-primary">Pilih Kelompok:</label>
+                                <select id="kelompok-sa" name="Kelompok" required class="w-full rounded-2xl border-2 border-gold/30 focus:border-primary focus:ring-primary bg-white/50 p-4 text-sm shadow-sm transition-all focus:bg-white">
+                                    <option value="" disabled selected>-- Pilih Kelompok --</option>
+                                    <option value="Kelompok 1">Kelompok 1</option>
+                                    <option value="Kelompok 2">Kelompok 2</option>
+                                    <option value="Kelompok 3">Kelompok 3</option>
+                                    <option value="Kelompok 4">Kelompok 4</option>
+                                    <option value="Kelompok 5">Kelompok 5</option>
+                                    <option value="Kelompok 6">Kelompok 6</option>
+                                    <option value="Kelompok 7">Kelompok 7</option>
+                                    <option value="Kelompok 8">Kelompok 8</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="nama-sa" class="block font-heading font-semibold text-primary">Nama Perwakilan:</label>
+                                <input type="text" id="nama-sa" name="Nama Siswa" required class="w-full rounded-2xl border-2 border-gold/30 focus:border-primary focus:ring-primary bg-white/50 p-4 text-sm shadow-sm transition-all focus:bg-white" placeholder="Misal: Udin">
+                            </div>
+                        </div>
+
+                        <label for="answer-sa" class="block font-heading font-semibold text-primary mt-4">Tuliskan Kesimpulan dan Solusi Akhir Kelompok Kalian:</label>
+                        <textarea id="answer-sa" name="Jawaban" rows="4" required class="w-full rounded-2xl border-2 border-gold/30 focus:border-primary focus:ring-primary bg-white/50 p-4 text-sm shadow-sm transition-all focus:bg-white" placeholder="Ketikkan rangkuman solusi atau action plan di sini..."></textarea>
+                        
+                        <label class="block font-heading font-semibold text-primary mt-4">Unggah Dokumen/Foto:</label>
+                        <div class="flex items-center justify-center w-full">
+                            <label class="flex flex-col items-center justify-center w-full h-32 border-2 border-gold/30 border-dashed rounded-2xl cursor-pointer bg-white/50 hover:bg-white transition-all">
+                                <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                                    <span class="text-3xl mb-2">📄</span>
+                                    <p class="mb-1 text-sm text-text-main text-center px-4"><span class="font-semibold text-primary">Klik untuk mengunggah</span> foto hasil jawaban.</p>
+                                    <p class="text-xs text-text-muted">Fitur upload disabel sementara, teks akan dikirim.</p>
+                                </div>
+                                <input type="file" accept="image/*" class="hidden" />
+                            </label>
+                        </div>
+
+                        <button type="submit" class="w-full bg-accent text-white font-bold py-3 mt-4 rounded-xl hover:bg-accent/90 transition transform hover:scale-[1.02] shadow-md flex items-center justify-center gap-2">
+                            <span>Kirim Jawaban</span>
+                        </button>
+                    </form>
                 </div>
             </div>
 
@@ -534,7 +665,7 @@
                  <span class="text-xs sm:text-sm font-bold text-primary bg-white/90 backdrop-blur-sm border border-gold/30 px-3 py-1.5 rounded-full shadow-sm whitespace-nowrap" x-text="`${activeStep + 1} / ${stepsCount}`"></span>
             </div>
             
-            <button x-show="activeStep < stepsCount - 1" @click="if(activeStep === 1 && answerEq.trim() === '') { alert('Silakan jawab Essential Question terlebih dahulu.'); return; } activeStep++" class="flex items-center justify-center gap-1.5 px-3 sm:px-6 py-2 sm:py-3 rounded-xl font-bold text-xs sm:text-sm md:text-base whitespace-nowrap bg-white border-2 border-gold/40 text-primary hover:bg-cream hover:border-gold transition shadow-sm ml-auto">Selanjutnya →</button>
+            <button x-show="activeStep < stepsCount - 1" @click="if(activeStep === 1 && !isEqSubmitted) { alert('Silakan kirim jawaban Essential Question terlebih dahulu untuk melanjutkan.'); return; } activeStep++" class="flex items-center justify-center gap-1.5 px-3 sm:px-6 py-2 sm:py-3 rounded-xl font-bold text-xs sm:text-sm md:text-base whitespace-nowrap bg-white border-2 border-gold/40 text-primary hover:bg-cream hover:border-gold transition shadow-sm ml-auto">Selanjutnya →</button>
             <a x-show="activeStep === stepsCount - 1" href="asesmen-sumatif.html" class="flex items-center justify-center gap-1.5 px-3 sm:px-6 py-2 sm:py-3 rounded-xl font-bold text-xs sm:text-sm md:text-base whitespace-nowrap bg-white border-2 border-gold/40 text-primary hover:bg-cream hover:border-gold transition shadow-sm ml-auto" style="display: none;">Lanjut Asesmen →</a>
         </div>
     </div>
@@ -545,5 +676,51 @@
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
     <script src="assets/js/3d-surface.js"></script>
     <script src="assets/js/spinwheel.js"></script>
+    
+    <!-- Script Google Sheets Apps Script -->
+    <script>
+        const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycby6YEqsB24ZUMdsp7EAmjn0gn1VsiYxD83Oo2OLlmpzALHF36efsPfg-Cyan4854Vp7uQ/exec";
+        
+        function submitToGoogle(pertemuan, tipeTugas, formElement) {
+            return new Promise((resolve) => {
+                const submitBtn = formElement.querySelector('button[type="submit"]');
+                const originalText = submitBtn.innerHTML;
+                
+                const formData = new FormData(formElement);
+                formData.append('Pertemuan', pertemuan);
+                formData.append('Tipe Tugas', tipeTugas);
+
+                submitBtn.innerHTML = '<span class="animate-pulse">Mengirim... ⏳</span>';
+                submitBtn.disabled = true;
+
+                fetch(GOOGLE_SCRIPT_URL, {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.result === 'success') {
+                        alert('Berhasil: Jawaban ' + tipeTugas + ' sukses dikirim ke Guru!');
+                        submitBtn.innerHTML = '<span>✅ Terkirim</span>';
+                        submitBtn.classList.remove('bg-accent', 'hover:bg-accent/90');
+                        submitBtn.classList.add('bg-green-600');
+                        formElement.reset();
+                        resolve(true);
+                    } else {
+                        alert('Gagal mengirim jawaban. Silakan coba lagi.');
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.disabled = false;
+                        resolve(false);
+                    }
+                })
+                .catch(error => {
+                    alert('Terjadi kesalahan. Pastikan koneksi internet aktif.');
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    resolve(false);
+                });
+            });
+        }
+    </script>
 </body>
 </html>
