@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pertemuan 1 — Volume Kubus & Balok</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -37,17 +40,27 @@
     </script>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body class="bg-cream h-screen overflow-hidden flex flex-col" x-data="{ activeStep: 0, stepsCount: 10, answerEq: '', isEqSubmitted: false }">
+
+<body class="bg-cream h-screen overflow-hidden flex flex-col"
+    x-data="{ activeStep: 0, stepsCount: 10, answerEq: '', isEqSubmitted: false }">
     <!-- Top Navigation Bar -->
-    <header class="fixed top-0 left-0 right-0 z-50 text-white shadow-lg border-b border-gold/20" style="background-color: #1C1108;">
+    <header class="fixed top-0 left-0 right-0 z-50 text-white shadow-lg border-b border-gold/20"
+        style="background-color: #1C1108;">
         <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
-            <a href="menu.html" class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 transition-all duration-200 text-sm font-medium text-white group">
-                <svg class="w-4 h-4 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+            <a href="menu.html"
+                class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 transition-all duration-200 text-sm font-medium text-white group">
+                <svg class="w-4 h-4 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor"
+                    viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                </svg>
                 <span>Kembali ke Menu</span>
             </a>
             <div class="flex items-center gap-2">
                 <div class="w-7 h-7 rounded-lg bg-gold-gradient flex items-center justify-center">
-                    <svg class="w-4 h-4 text-sidebar" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                    <svg class="w-4 h-4 text-sidebar" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                    </svg>
                 </div>
                 <span class="font-heading font-bold text-gold text-sm hidden sm:inline">FORTIFY</span>
             </div>
@@ -67,7 +80,8 @@
             </div>
 
             <!-- Step Progress Bar -->
-            <div class="flex items-center flex-nowrap gap-1.5 mb-3 md:mb-5 overflow-x-auto pb-2 flex-none" style="scrollbar-width: thin; -webkit-overflow-scrolling: touch;">
+            <div class="flex items-center flex-nowrap gap-1.5 mb-3 md:mb-5 overflow-x-auto pb-2 flex-none"
+                style="scrollbar-width: thin; -webkit-overflow-scrolling: touch;">
                 <template x-for="(step, index) in [
                     {label: 'Big Idea', short: 'BI'}, {label: 'Essential Question', short: 'EQ'}, {label: 'The Challenge', short: 'TC'},
                     {label: 'Guiding Resources', short: 'GR'}, {label: 'Guiding Questions', short: 'GQ'}, {label: 'Guiding Activities', short: 'GA'},
@@ -76,13 +90,15 @@
                 ]" :key="index">
                     <div class="flex items-center">
                         <button @click="activeStep = index"
-                                class="flex-shrink-0 flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-semibold transition-all duration-300 whitespace-nowrap"
-                                :class="activeStep === index ? 'bg-primary text-white shadow-md' : (activeStep > index ? 'bg-gold/15 text-primary' : 'bg-cream-dark text-text-muted hover:bg-cream')">
-                            <span class="w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold flex-shrink-0"
-                                  :class="activeStep === index ? 'bg-white/20' : 'bg-white/50'" x-text="index + 1"></span>
+                            class="flex-shrink-0 flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-semibold transition-all duration-300 whitespace-nowrap"
+                            :class="activeStep === index ? 'bg-primary text-white shadow-md' : (activeStep > index ? 'bg-gold/15 text-primary' : 'bg-cream-dark text-text-muted hover:bg-cream')">
+                            <span
+                                class="w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold flex-shrink-0"
+                                :class="activeStep === index ? 'bg-white/20' : 'bg-white/50'" x-text="index + 1"></span>
                             <span class="text-xs" x-text="step.label"></span>
                         </button>
-                        <div x-show="index < stepsCount - 1" class="w-3 h-0.5 flex-shrink-0" :class="activeStep > index ? 'bg-gold' : 'bg-cream-dark'"></div>
+                        <div x-show="index < stepsCount - 1" class="w-3 h-0.5 flex-shrink-0"
+                            :class="activeStep > index ? 'bg-gold' : 'bg-cream-dark'"></div>
                     </div>
                 </template>
             </div>
@@ -95,559 +111,832 @@
                     flex-grow: 1;
                     height: 0;
                 }
-                .step-viewport > div[x-show] {
+
+                .step-viewport>div[x-show] {
                     position: absolute;
                     inset: 0;
                     margin-bottom: 85px;
                 }
-                .step-viewport > div[x-show] > .card-heritage {
+
+                .step-viewport>div[x-show]>.card-heritage {
                     height: 100%;
                     overflow-y: auto;
                     scrollbar-width: thin;
                 }
             </style>
             <div class="step-viewport pr-1 lg:pr-3">
-            <!-- Step 1: Big Idea -->
-            <div x-show="activeStep === 0" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0 translate-y-4" x-transition:enter-end="opacity-100 translate-y-0" style="display: none;">
-                <div class="card-heritage">
-                    <div class="flex items-center gap-3 mb-6">
-                        <div class="w-10 h-10 md:w-12 md:h-12 bg-heritage-gradient rounded-xl flex items-center justify-center"><span class="text-xl md:text-2xl">💡</span></div>
-                        <div><h2 class="font-heading font-bold text-lg md:text-xl text-primary">Big Idea</h2><p class="text-text-muted text-sm">Materi Utama Pertemuan 1</p></div>
-                    </div>
-                    <div class="bg-cream rounded-xl p-4 md:p-6 border border-gold/10 space-y-4 text-sm text-text-main leading-relaxed text-justify">
-                        <p>Benteng Fort Willem I merupakan bangunan bersejarah yang memiliki struktur arsitektur khas dan tersusun atas berbagai bangun ruang sisi datar, seperti balok dan kubus. Dengan karakteristik tersebut, Benteng Fort Willem I dapat dimanfaatkan sebagai konteks nyata dalam pembelajaran matematika, khususnya pada materi bangun ruang sisi datar. Salah satu bangunan yang terdapat di dalam Benteng Fort Willem I adalah ruang barak tentara yang berbentuk balok. Ruang barak tersebut memiliki panjang 12 meter, lebar 8 meter, dan tinggi 4 meter. Berdasarkan ukuran tersebut, dapat ditentukan volume ruang barak sebagai gambaran kapasitas ruang yang tersedia. Selanjutnya, apabila setiap 1 meter kubik ruang mampu menampung 25 kotak perlengkapan logistik, dapat dianalisis jumlah maksimum kotak perlengkapan yang dapat disimpan di dalam ruang barak tersebut.</p>
-                        <div class="mt-4 md:mt-6 rounded-2xl overflow-hidden shadow-md border-4 border-white">
-                            <img src="assets/images/IMG_4498.JPG" alt="Benteng Fort Willem I" class="w-full h-48 md:h-80 object-cover" onerror="this.src='https://placehold.co/800x400/F5EDE0/7B3F00?text=Benteng+Fort+Willem+I'">
-                            <div class="bg-white/50 p-3 text-center border-t border-gold/10">
-                                <p class="text-xs text-text-muted italic">Visualisasi Bangunan Benteng Fort Willem I yang tersusun atas bentuk kubus dan balok.</p>
-                            </div>
-                        </div>
-                        <p class="text-sm text-text-light italic mt-4">🏰 Konteks: Bangunan-bangunan di Benteng Fort Willem I terdiri dari kombinasi kubus dan balok — ruang gudang, pos jaga, dan menara pengawas.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Step 2: Essential Question -->
-            <div x-show="activeStep === 1" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0 translate-y-4" x-transition:enter-end="opacity-100 translate-y-0" style="display: none;">
-                <div class="card-heritage text-center">
-                    <div class="w-16 h-16 bg-gold/10 rounded-2xl flex items-center justify-center mx-auto mb-4"><span class="text-3xl">❓</span></div>
-                    <h2 class="font-heading font-bold text-lg md:text-xl text-primary mb-6">Essential Question</h2>
-                    <div class="bg-heritage-gradient rounded-2xl p-8 text-white max-w-2xl mx-auto mb-8 shadow-xl">
-                        <p class="text-xl md:text-2xl font-heading font-semibold leading-relaxed">
-                            Mari kita kaitkan dengan matematika!
-                            "Berdasarkan big idea, bagaimana cara menentukan volume balok dan kubus?"
-                        </p>
-                    </div>
-                    <form @submit.prevent="submitToGoogle('1', 'Essential Question', $el).then(success => { if(success) isEqSubmitted = true })" class="max-w-2xl mx-auto text-left space-y-4">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <!-- Step 1: Big Idea -->
+                <div x-show="activeStep === 0" x-transition:enter="transition ease-out duration-500"
+                    x-transition:enter-start="opacity-0 translate-y-4"
+                    x-transition:enter-end="opacity-100 translate-y-0" style="display: none;">
+                    <div class="card-heritage">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div
+                                class="w-10 h-10 md:w-12 md:h-12 bg-heritage-gradient rounded-xl flex items-center justify-center">
+                                <span class="text-xl md:text-2xl">💡</span></div>
                             <div>
-                                <label for="kelompok-eq" class="block font-heading font-semibold text-primary">Pilih Kelompok:</label>
-                                <select id="kelompok-eq" name="Kelompok" required class="w-full rounded-2xl border-2 border-gold/30 focus:border-primary focus:ring-primary bg-white/50 p-4 text-sm shadow-sm transition-all focus:bg-white">
-                                    <option value="" disabled selected>-- Pilih Kelompok --</option>
-                                    <option value="Kelompok 1">Kelompok 1</option>
-                                    <option value="Kelompok 2">Kelompok 2</option>
-                                    <option value="Kelompok 3">Kelompok 3</option>
-                                    <option value="Kelompok 4">Kelompok 4</option>
-                                    <option value="Kelompok 5">Kelompok 5</option>
-                                    <option value="Kelompok 6">Kelompok 6</option>
-                                    <option value="Kelompok 7">Kelompok 7</option>
-                                    <option value="Kelompok 8">Kelompok 8</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label for="nama-eq" class="block font-heading font-semibold text-primary">Nama Siswa:</label>
-                                <input type="text" id="nama-eq" name="Nama Siswa" required class="w-full rounded-2xl border-2 border-gold/30 focus:border-primary focus:ring-primary bg-white/50 p-4 text-sm shadow-sm transition-all focus:bg-white" placeholder="Masukkan nama Anda...">
+                                <h2 class="font-heading font-bold text-lg md:text-xl text-primary">Big Idea</h2>
+                                <p class="text-text-muted text-sm">Materi Utama Pertemuan 1</p>
                             </div>
                         </div>
-
-                        <label for="answer-eq" class="block font-heading font-semibold text-primary mt-4">Tuliskan Jawaban Kalian di Sini:</label>
-                        <textarea id="answer-eq" name="Jawaban" x-model="answerEq" rows="4" required class="w-full rounded-2xl border-2 border-gold/30 focus:border-primary focus:ring-primary bg-white/50 p-4 text-sm shadow-sm transition-all focus:bg-white" placeholder="Ketikkan jawaban Anda mengenai cara menentukan volume balok dan kubus..."></textarea>
-                        <button type="submit" class="w-full bg-accent text-white font-bold py-3 rounded-xl hover:bg-accent/90 transition transform hover:scale-[1.02] shadow-md flex items-center justify-center gap-2">
-                            <span>Kirim Jawaban</span>
-                        </button>
-                    </form>
-                </div>
-            </div>
-
-            <!-- Step 3: The Challenge -->
-            <div x-show="activeStep === 2" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0 translate-y-4" x-transition:enter-end="opacity-100 translate-y-0" style="display: none;">
-                <div class="card-heritage">
-                    <div class="flex items-center gap-3 mb-6">
-                        <div class="w-10 h-10 md:w-12 md:h-12 bg-red-50 rounded-xl flex items-center justify-center"><span class="text-xl md:text-2xl">🎯</span></div>
-                        <div><h2 class="font-heading font-bold text-lg md:text-xl text-primary">The Challenge</h2><p class="text-text-muted text-sm">Tantangan Pembelajaran</p></div>
-                    </div>
-                    <div class="bg-gradient-to-br from-primary/5 to-gold/5 rounded-xl p-4 md:p-6 border border-gold/20">
-                        <!-- <p class="text-text-main font-medium italic mb-4">Yuk, klik tombol di samping untuk melihat challenge yang diberikan.</p> -->
-                        <p class="text-sm text-text-main leading-relaxed text-justify mb-4 text-justify">
-                            Salah satu bangunan penyimpanan di kawasan Benteng Fort Willem I berbentuk kubus. Bangunan tersebut memiliki panjang rusuk 9 meter. Bangunan ini akan dilakukan perawatan secara berkala untuk menjaga kondisi bangunan. Biasanya seluruh dinding luar dan atap bangunan akan dicat, sedangkan bagian alas yang menempel langsung pada tanah tidak dicat. Selain itu, kapasitas bangunan juga perlu diketahui untuk menentukan jumlah perlengkapan yang dapat disimpan di dalamnya. Diketahui bahwa setiap 1 meter kubik ruang dapat menampung 20 peti perlengkapan, dan setiap 1 meter persegi permukaan membutuhkan 0,3 liter cat.
-                        </p>
-                        <div class="bg-white rounded-xl p-4 border border-gold/10 space-y-3">
-                            <h4 class="font-semibold text-primary text-sm leading-relaxed">Secara berkelompok tentukan:</h4>
-                            <ul class="space-y-2 text-sm text-text-main">
-                                <li class="flex items-start gap-2"><span class="text-gold">✦</span> Volume bangunan penyimpanan.</li>
-                                <li class="flex items-start gap-2"><span class="text-gold">✦</span> Jumlah peti perlengkapan maksimum yang dapat disimpan.</li>
-                                <li class="flex items-start gap-2"><span class="text-gold">✦</span> Jumlah cat yang dibutuhkan untuk mengecat seluruh permukaan bangunan yang dicat.</li>
-                            </ul>
+                        <div
+                            class="bg-cream rounded-xl p-4 md:p-6 border border-gold/10 space-y-4 text-sm text-text-main leading-relaxed text-justify">
+                            <p>Benteng Fort Willem I merupakan bangunan bersejarah yang memiliki struktur arsitektur
+                                khas dan tersusun atas berbagai bangun ruang sisi datar, seperti balok dan kubus. Dengan
+                                karakteristik tersebut, Benteng Fort Willem I dapat dimanfaatkan sebagai konteks nyata
+                                dalam pembelajaran matematika, khususnya pada materi bangun ruang sisi datar. Salah satu
+                                bangunan yang terdapat di dalam Benteng Fort Willem I adalah ruang barak tentara yang
+                                berbentuk balok. Ruang barak tersebut memiliki panjang 12 meter, lebar 8 meter, dan
+                                tinggi 4 meter. Berdasarkan ukuran tersebut, dapat ditentukan volume ruang barak sebagai
+                                gambaran kapasitas ruang yang tersedia. Selanjutnya, apabila setiap 1 meter kubik ruang
+                                mampu menampung 25 kotak perlengkapan logistik, dapat dianalisis jumlah maksimum kotak
+                                perlengkapan yang dapat disimpan di dalam ruang barak tersebut.</p>
+                            <div class="mt-4 md:mt-6 rounded-2xl overflow-hidden shadow-md border-4 border-white">
+                                <img src="assets/images/IMG_4498.JPG" alt="Benteng Fort Willem I"
+                                    class="w-full h-48 md:h-80 object-cover"
+                                    onerror="this.src='https://placehold.co/800x400/F5EDE0/7B3F00?text=Benteng+Fort+Willem+I'">
+                                <div class="bg-white/50 p-3 text-center border-t border-gold/10">
+                                    <p class="text-xs text-text-muted italic">Visualisasi Bangunan Benteng Fort Willem I
+                                        yang tersusun atas bentuk kubus dan balok.</p>
+                                </div>
+                            </div>
+                            <p class="text-sm text-text-light italic mt-4">🏰 Konteks: Bangunan-bangunan di Benteng Fort
+                                Willem I terdiri dari kombinasi kubus dan balok — ruang gudang, pos jaga, dan menara
+                                pengawas.</p>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Step 4: Guiding Resources -->
-            <div x-show="activeStep === 3" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0 translate-y-4" x-transition:enter-end="opacity-100 translate-y-0" style="display: none;">
-                <div class="card-heritage">
-                    <div class="flex items-center gap-3 mb-6">
-                        <div class="w-10 h-10 md:w-12 md:h-12 bg-blue-50 rounded-xl flex items-center justify-center"><span class="text-xl md:text-2xl">📖</span></div>
-                        <div><h2 class="font-heading font-bold text-lg md:text-xl text-primary">Guiding Resources</h2></div>
-                    </div>
-                    <div class="space-y-6">
-                        <!-- Materi 1: Pengenalan Bangun Ruang -->
-                        <div class="cbl-step p-5 space-y-3">
-                            <h4 class="font-heading font-semibold text-primary text-base">🏛️ Bangun Ruang Sisi Datar</h4>
-                            <p class="text-sm text-text-main leading-relaxed text-justify">
-                                Bangun ruang adalah bentuk yang memiliki <strong>panjang, lebar, dan tinggi</strong>. Pada bangun ruang ada yang namanya <strong>volume</strong> dan <strong>luas permukaan</strong>.
+                <!-- Step 2: Essential Question -->
+                <div x-show="activeStep === 1" x-transition:enter="transition ease-out duration-500"
+                    x-transition:enter-start="opacity-0 translate-y-4"
+                    x-transition:enter-end="opacity-100 translate-y-0" style="display: none;">
+                    <div class="card-heritage text-center">
+                        <div class="w-16 h-16 bg-gold/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                            <span class="text-3xl">❓</span></div>
+                        <h2 class="font-heading font-bold text-lg md:text-xl text-primary mb-6">Essential Question</h2>
+                        <div class="bg-heritage-gradient rounded-2xl p-8 text-white max-w-2xl mx-auto mb-8 shadow-xl">
+                            <p class="text-xl md:text-2xl font-heading font-semibold leading-relaxed">
+                                Mari kita kaitkan dengan matematika!
+                                "Berdasarkan big idea, bagaimana cara menentukan volume balok dan kubus?"
                             </p>
-                            <div class="bg-white rounded-xl p-4 border-l-4 border-gold">
-                                <p class="text-sm text-text-main leading-relaxed text-justify">
-                                    <strong>Volume adalah kapasitas</strong> atau penghitungan <strong>seberapa banyak ruang yang bisa ditempati/diisi</strong> oleh suatu objek.
-                                </p>
-                                <p class="text-sm text-text-main leading-relaxed text-justify mt-3 text-justify">
-                                    Contohnya dapat dilihat ketika kita mengisi air ke dalam botol minum. Umumnya, pada bagian bawah botol tercantum keterangan kapasitas, seperti 500 ml, 700 ml, atau 1 liter. Kapasitas tersebut disebut sebagai volume. Apabila pada botol tertulis volume 1 liter, maka botol tersebut hanya mampu menampung air hingga batas maksimum sebesar 1 liter.
-                                </p>
-                            </div>
-                            <div class="bg-white rounded-xl p-4 border-l-4 border-primary">
-                                <p class="text-sm text-text-main leading-relaxed text-justify">
-                                    Luas permukaan adalah <strong>jumlah luas dari semua sisi yang menutupi bagian luar dari suatu bangun ruang.</strong>
-                                </p>
-                            </div>
                         </div>
-
-                        <!-- Materi 2: Konteks Big Idea -->
-                        <div class="cbl-step p-5 space-y-3">
-                            <h4 class="font-heading font-semibold text-primary text-base">🏰 Kembali ke Big Idea</h4>
-                            <p class="text-sm text-text-main leading-relaxed text-justify text-justify">
-                                Diketahui bahwa salah satu bangunan ruang barak memiliki panjang 12 meter, lebar 8 meter, dan tinggi 4 meter. Berdasarkan ukuran tersebut, dapat ditentukan volume ruang barak sebagai gambaran kapasitas ruang yang tersedia. Selanjutnya, apabila setiap 1 meter kubik ruang mampu menampung 25 kotak perlengkapan logistik, dapat dianalisis jumlah maksimum kotak perlengkapan yang dapat disimpan di dalam ruang barak tersebut.
-                            </p>
-                            
-                            <h5 class="font-semibold text-primary text-sm mt-4">Diketahui:</h5>
-                            <ul class="space-y-2 text-sm text-text-main ml-4 list-disc font-medium">
-                                <li>Panjang ruang barak (p) = 12 meter</li>
-                                <li>Lebar ruang barak (l) = 8 meter</li>
-                                <li>Tinggi ruang barak (t) = 4 meter</li>
-                            </ul>
-                            
-                            <p class="font-semibold text-primary mt-4">Bagaimana cara menentukan volume dari sebuah bangun ruang?</p>
-                            <p class="text-sm text-text-main">Rumus volume dan luas permukaan bangun ruang kubus dan balok adalah sebagai berikut:</p>
-                        </div>
-
-                        <!-- Materi 3: Rumus -->
-                        <div class="cbl-step p-5 space-y-4">
-                            <h4 class="font-heading font-semibold text-primary text-base">📐 Rumus Kubus & Balok</h4>
+                        <form
+                            @submit.prevent="submitToGoogle('1', 'Essential Question', $el).then(success => { if(success) isEqSubmitted = true })"
+                            class="max-w-2xl mx-auto text-left space-y-4">
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <div class="bg-white rounded-xl p-4 border border-gold/20 space-y-3">
-                                    <p class="font-heading font-bold text-primary text-base text-center">1. Kubus</p>
-                                    <div class="w-full flex justify-center my-4 overflow-visible">
-                                        <svg width="140" height="140" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg" class="drop-shadow-sm hover:scale-105 transition-transform duration-300">
-                                            <!-- Top Face -->
-                                            <polygon points="30,60 90,60 115,35 55,35" fill="#FDF5DA" stroke="#67A054" stroke-width="1.5" stroke-linejoin="round"/>
-                                            <!-- Front Face -->
-                                            <rect x="30" y="60" width="60" height="60" fill="#FAEDCE" stroke="#67A054" stroke-width="1.5" stroke-linejoin="round"/>
-                                            <!-- Right Face -->
-                                            <polygon points="90,60 90,120 115,95 115,35" fill="#D4C4A3" stroke="#67A054" stroke-width="1.5" stroke-linejoin="round"/>
-                                        </svg>
+                                <div>
+                                    <label for="kelompok-eq" class="block font-heading font-semibold text-primary">Pilih
+                                        Kelompok:</label>
+                                    <select id="kelompok-eq" name="Kelompok" required
+                                        class="w-full rounded-2xl border-2 border-gold/30 focus:border-primary focus:ring-primary bg-white/50 p-4 text-sm shadow-sm transition-all focus:bg-white">
+                                        <option value="" disabled selected>-- Pilih Kelompok --</option>
+                                        <option value="Kelompok 1">Kelompok 1</option>
+                                        <option value="Kelompok 2">Kelompok 2</option>
+                                        <option value="Kelompok 3">Kelompok 3</option>
+                                        <option value="Kelompok 4">Kelompok 4</option>
+                                        <option value="Kelompok 5">Kelompok 5</option>
+                                        <option value="Kelompok 6">Kelompok 6</option>
+                                        <option value="Kelompok 7">Kelompok 7</option>
+                                        <option value="Kelompok 8">Kelompok 8</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="nama-eq" class="block font-heading font-semibold text-primary">Nama
+                                        Siswa:</label>
+                                    <input type="text" id="nama-eq" name="Nama Siswa" required
+                                        class="w-full rounded-2xl border-2 border-gold/30 focus:border-primary focus:ring-primary bg-white/50 p-4 text-sm shadow-sm transition-all focus:bg-white"
+                                        placeholder="Masukkan nama Anda...">
+                                </div>
+                            </div>
+
+                            <label for="answer-eq" class="block font-heading font-semibold text-primary mt-4">Tuliskan
+                                Jawaban Kalian di Sini:</label>
+                            <textarea id="answer-eq" name="Jawaban" x-model="answerEq" rows="4" required
+                                class="w-full rounded-2xl border-2 border-gold/30 focus:border-primary focus:ring-primary bg-white/50 p-4 text-sm shadow-sm transition-all focus:bg-white"
+                                placeholder="Ketikkan jawaban Anda mengenai cara menentukan volume balok dan kubus..."></textarea>
+                            <button type="submit"
+                                class="w-full bg-accent text-white font-bold py-3 rounded-xl hover:bg-accent/90 transition transform hover:scale-[1.02] shadow-md flex items-center justify-center gap-2">
+                                <span>Kirim Jawaban</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Step 3: The Challenge -->
+                <div x-show="activeStep === 2" x-transition:enter="transition ease-out duration-500"
+                    x-transition:enter-start="opacity-0 translate-y-4"
+                    x-transition:enter-end="opacity-100 translate-y-0" style="display: none;">
+                    <div class="card-heritage">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div
+                                class="w-10 h-10 md:w-12 md:h-12 bg-red-50 rounded-xl flex items-center justify-center">
+                                <span class="text-xl md:text-2xl">🎯</span></div>
+                            <div>
+                                <h2 class="font-heading font-bold text-lg md:text-xl text-primary">The Challenge</h2>
+                                <p class="text-text-muted text-sm">Tantangan Pembelajaran</p>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-gradient-to-br from-primary/5 to-gold/5 rounded-xl p-4 md:p-6 border border-gold/20">
+                            <!-- <p class="text-text-main font-medium italic mb-4">Yuk, klik tombol di samping untuk melihat challenge yang diberikan.</p> -->
+                            <p class="text-sm text-text-main leading-relaxed text-justify mb-4 text-justify">
+                                Salah satu bangunan penyimpanan di kawasan Benteng Fort Willem I berbentuk kubus.
+                                Bangunan tersebut memiliki panjang rusuk 9 meter. Bangunan ini akan dilakukan perawatan
+                                secara berkala untuk menjaga kondisi bangunan. Biasanya seluruh dinding luar dan atap
+                                bangunan akan dicat, sedangkan bagian alas yang menempel langsung pada tanah tidak
+                                dicat. Selain itu, kapasitas bangunan juga perlu diketahui untuk menentukan jumlah
+                                perlengkapan yang dapat disimpan di dalamnya. Diketahui bahwa setiap 1 meter kubik ruang
+                                dapat menampung 20 peti perlengkapan, dan setiap 1 meter persegi permukaan membutuhkan
+                                0,3 liter cat.
+                            </p>
+                            <div class="bg-white rounded-xl p-4 border border-gold/10 space-y-3">
+                                <h4 class="font-semibold text-primary text-sm leading-relaxed">Secara berkelompok
+                                    tentukan:</h4>
+                                <ul class="space-y-2 text-sm text-text-main">
+                                    <li class="flex items-start gap-2"><span class="text-gold">✦</span> Volume bangunan
+                                        penyimpanan.</li>
+                                    <li class="flex items-start gap-2"><span class="text-gold">✦</span> Jumlah peti
+                                        perlengkapan maksimum yang dapat disimpan.</li>
+                                    <li class="flex items-start gap-2"><span class="text-gold">✦</span> Jumlah cat yang
+                                        dibutuhkan untuk mengecat seluruh permukaan bangunan yang dicat.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4: Guiding Resources -->
+                <div x-show="activeStep === 3" x-transition:enter="transition ease-out duration-500"
+                    x-transition:enter-start="opacity-0 translate-y-4"
+                    x-transition:enter-end="opacity-100 translate-y-0" style="display: none;">
+                    <div class="card-heritage">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div
+                                class="w-10 h-10 md:w-12 md:h-12 bg-blue-50 rounded-xl flex items-center justify-center">
+                                <span class="text-xl md:text-2xl">📖</span></div>
+                            <div>
+                                <h2 class="font-heading font-bold text-lg md:text-xl text-primary">Guiding Resources
+                                </h2>
+                            </div>
+                        </div>
+                        <div class="space-y-6">
+                            <!-- Materi 1: Pengenalan Bangun Ruang -->
+                            <div class="cbl-step p-5 space-y-3">
+                                <h4 class="font-heading font-semibold text-primary text-base">🏛️ Bangun Ruang Sisi
+                                    Datar</h4>
+                                <p class="text-sm text-text-main leading-relaxed text-justify">
+                                    Bangun ruang adalah bentuk yang memiliki <strong>panjang, lebar, dan
+                                        tinggi</strong>. Pada bangun ruang ada yang namanya <strong>volume</strong> dan
+                                    <strong>luas permukaan</strong>.
+                                </p>
+                                <div class="bg-white rounded-xl p-4 border-l-4 border-gold">
+                                    <p class="text-sm text-text-main leading-relaxed text-justify">
+                                        <strong>Volume adalah kapasitas</strong> atau penghitungan <strong>seberapa
+                                            banyak ruang yang bisa ditempati/diisi</strong> oleh suatu objek.
+                                    </p>
+                                    <p class="text-sm text-text-main leading-relaxed text-justify mt-3 text-justify">
+                                        Contohnya dapat dilihat ketika kita mengisi air ke dalam botol minum. Umumnya,
+                                        pada bagian bawah botol tercantum keterangan kapasitas, seperti 500 ml, 700 ml,
+                                        atau 1 liter. Kapasitas tersebut disebut sebagai volume. Apabila pada botol
+                                        tertulis volume 1 liter, maka botol tersebut hanya mampu menampung air hingga
+                                        batas maksimum sebesar 1 liter.
+                                    </p>
+                                </div>
+                                <div class="bg-white rounded-xl p-4 border-l-4 border-primary">
+                                    <p class="text-sm text-text-main leading-relaxed text-justify">
+                                        Luas permukaan adalah <strong>jumlah luas dari semua sisi yang menutupi bagian
+                                            luar dari suatu bangun ruang.</strong>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Materi 2: Konteks Big Idea -->
+                            <div class="cbl-step p-5 space-y-3">
+                                <h4 class="font-heading font-semibold text-primary text-base">🏰 Kembali ke Big Idea
+                                </h4>
+                                <p class="text-sm text-text-main leading-relaxed text-justify text-justify">
+                                    Diketahui bahwa salah satu bangunan ruang barak memiliki panjang 12 meter, lebar 8
+                                    meter, dan tinggi 4 meter. Berdasarkan ukuran tersebut, dapat ditentukan volume
+                                    ruang barak sebagai gambaran kapasitas ruang yang tersedia. Selanjutnya, apabila
+                                    setiap 1 meter kubik ruang mampu menampung 25 kotak perlengkapan logistik, dapat
+                                    dianalisis jumlah maksimum kotak perlengkapan yang dapat disimpan di dalam ruang
+                                    barak tersebut.
+                                </p>
+
+                                <h5 class="font-semibold text-primary text-sm mt-4">Diketahui:</h5>
+                                <ul class="space-y-2 text-sm text-text-main ml-4 list-disc font-medium">
+                                    <li>Panjang ruang barak (p) = 12 meter</li>
+                                    <li>Lebar ruang barak (l) = 8 meter</li>
+                                    <li>Tinggi ruang barak (t) = 4 meter</li>
+                                </ul>
+
+                                <p class="font-semibold text-primary mt-4">Bagaimana cara menentukan volume dari sebuah
+                                    bangun ruang?</p>
+                                <p class="text-sm text-text-main">Rumus volume dan luas permukaan bangun ruang kubus dan
+                                    balok adalah sebagai berikut:</p>
+                            </div>
+
+                            <!-- Materi 3: Rumus -->
+                            <div class="cbl-step p-5 space-y-4">
+                                <h4 class="font-heading font-semibold text-primary text-base">📐 Rumus Kubus & Balok
+                                </h4>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div class="bg-white rounded-xl p-4 border border-gold/20 space-y-3">
+                                        <p class="font-heading font-bold text-primary text-base text-center">1. Kubus
+                                        </p>
+                                        <div class="w-full flex justify-center my-4 overflow-visible">
+                                            <svg width="140" height="140" viewBox="0 0 140 140" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                class="drop-shadow-sm hover:scale-105 transition-transform duration-300">
+                                                <!-- Top Face -->
+                                                <polygon points="30,60 90,60 115,35 55,35" fill="#FDF5DA"
+                                                    stroke="#67A054" stroke-width="1.5" stroke-linejoin="round" />
+                                                <!-- Front Face -->
+                                                <rect x="30" y="60" width="60" height="60" fill="#FAEDCE"
+                                                    stroke="#67A054" stroke-width="1.5" stroke-linejoin="round" />
+                                                <!-- Right Face -->
+                                                <polygon points="90,60 90,120 115,95 115,35" fill="#D4C4A3"
+                                                    stroke="#67A054" stroke-width="1.5" stroke-linejoin="round" />
+                                            </svg>
+                                        </div>
+                                        <div class="space-y-2 text-sm font-semibold text-gold-dark mt-4 text-center">
+                                            <p class="text-lg">V = s³</p>
+                                            <p class="text-lg">L = 6 × s²</p>
+                                        </div>
                                     </div>
-                                    <div class="space-y-2 text-sm font-semibold text-gold-dark mt-4 text-center">
-                                        <p class="text-lg">V = s³</p>
-                                        <p class="text-lg">L = 6 × s²</p>
+                                    <div class="bg-white rounded-xl p-4 border border-gold/20 space-y-3">
+                                        <p class="font-heading font-bold text-primary text-base text-center">2. Balok
+                                        </p>
+                                        <div class="w-full flex justify-center my-4 overflow-visible">
+                                            <svg width="240" height="140" viewBox="0 0 240 140" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                class="drop-shadow-sm hover:scale-105 transition-transform duration-300">
+                                                <!-- Top Face -->
+                                                <polygon points="20,60 190,60 215,35 45,35" fill="#FDF5DA"
+                                                    stroke="#67A054" stroke-width="1.5" stroke-linejoin="round" />
+                                                <!-- Front Face -->
+                                                <rect x="20" y="60" width="170" height="60" fill="#FAEDCE"
+                                                    stroke="#67A054" stroke-width="1.5" stroke-linejoin="round" />
+                                                <!-- Right Face -->
+                                                <polygon points="190,60 190,120 215,95 215,35" fill="#D4C4A3"
+                                                    stroke="#67A054" stroke-width="1.5" stroke-linejoin="round" />
+                                            </svg>
+                                        </div>
+                                        <div class="space-y-2 text-sm font-semibold text-gold-dark mt-4 text-center">
+                                            <p class="text-lg">V = p × l × t</p>
+                                            <p class="text-lg">L = 2 × ((p × l) + (p × t) + (l × t))</p>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="bg-white rounded-xl p-4 border border-gold/20 space-y-3">
-                                    <p class="font-heading font-bold text-primary text-base text-center">2. Balok</p>
-                                    <div class="w-full flex justify-center my-4 overflow-visible">
-                                        <svg width="240" height="140" viewBox="0 0 240 140" fill="none" xmlns="http://www.w3.org/2000/svg" class="drop-shadow-sm hover:scale-105 transition-transform duration-300">
-                                            <!-- Top Face -->
-                                            <polygon points="20,60 190,60 215,35 45,35" fill="#FDF5DA" stroke="#67A054" stroke-width="1.5" stroke-linejoin="round"/>
-                                            <!-- Front Face -->
-                                            <rect x="20" y="60" width="170" height="60" fill="#FAEDCE" stroke="#67A054" stroke-width="1.5" stroke-linejoin="round"/>
-                                            <!-- Right Face -->
-                                            <polygon points="190,60 190,120 215,95 215,35" fill="#D4C4A3" stroke="#67A054" stroke-width="1.5" stroke-linejoin="round"/>
-                                        </svg>
+                            </div>
+
+                            <!-- Materi 4: Penyelesaian Big Idea -->
+                            <div class="cbl-step p-5 space-y-3">
+                                <h4 class="font-heading font-semibold text-primary text-base">📝 Penyelesaian Big Idea
+                                </h4>
+                                <p class="text-sm text-text-main leading-relaxed text-justify text-justify mb-2">
+                                    Kita substitusikan nilai-nilai yang sudah diketahui dalam big idea ke rumus balok
+                                    karena bangun yang diketahui berupa balok, maka diperoleh:
+                                </p>
+                                <div
+                                    class="bg-white rounded-xl p-4 border border-gold/10 font-mono text-sm space-y-2 overflow-x-auto text-primary font-semibold">
+                                    <p>V = p × l × t</p>
+                                    <p>⇔ V = 12 × 8 × 4</p>
+                                    <p>⇔ V = 384 m³</p>
+                                </div>
+                                <p class="text-sm text-text-main mt-3">
+                                    Jadi, diperoleh kapasitas dari ruang barak di benteng tersebut adalah <strong>384
+                                        m³</strong>.
+                                </p>
+
+                                <hr class="border-gold/20 my-5 border-dashed">
+
+                                <h5 class="font-semibold text-primary text-sm uppercase tracking-wide">Kembali lagi ke
+                                    big idea</h5>
+                                <p class="text-sm text-text-main mt-3 text-justify">
+                                    Apabila setiap 1 meter kubik ruang mampu menampung 25 kotak perlengkapan logistik,
+                                    dapat dianalisis jumlah maksimum kotak perlengkapan yang dapat disimpan di dalam
+                                    ruang barak tersebut.
+                                </p>
+
+                                <h5 class="font-semibold text-primary text-sm mt-4">Diketahui:</h5>
+                                <ul class="space-y-2 text-sm text-text-main ml-4 list-disc font-medium">
+                                    <li>Volume ruang barak = 384 m³</li>
+                                    <li>Setiap 1 m³ ruang dapat menampung 25 kotak perlengkapan</li>
+                                </ul>
+
+                                <p class="text-sm text-primary font-semibold mt-4">Bagaimana cara menentukan jumlah
+                                    maksimal kotak perlengkapan di barak tersebut?</p>
+                                <p class="text-sm text-text-main text-justify mt-1">
+                                    Setelah volume barak dan jumlah kotak per meter kubik diketahui kita bisa
+                                    mengalikannya, maka diperoleh:
+                                </p>
+
+                                <div
+                                    class="bg-white rounded-xl p-4 border border-gold/10 font-mono text-sm space-y-2 overflow-x-auto text-primary font-semibold mt-3">
+                                    <p>Jumlah maksimal kotak perlengkapan = volume × jumlah kotak</p>
+                                    <p>⇔ Jumlah maksimal kotak perlengkapan = 384 × 25</p>
+                                    <p>⇔ Jumlah maksimal kotak perlengkapan = 9600</p>
+                                </div>
+
+                                <p class="text-sm text-text-main mt-4 text-justify">
+                                    Jadi, diperoleh hasil 9600. Maka ruang barak tersebut dapat menampung maksimal
+                                    <strong>9.600</strong> kotak perlengkapan logistik.
+                                </p>
+                            </div>
+
+                            <!-- 3D Interactive Volume -->
+                            <div class="cbl-step p-5">
+                                <h4 class="font-heading font-semibold text-primary mb-3">🧊 Visualisasi 3D Interaktif
+                                </h4>
+                                <div id="volume-3d"
+                                    class="w-full h-[350px] md:h-[400px] rounded-xl overflow-hidden border border-gold/10 bg-cream-dark mb-4">
+                                </div>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div class="bg-white rounded-xl p-4 border border-gold/10">
+                                        <h5 class="font-semibold text-primary text-sm mb-3">🧊 Kubus</h5>
+                                        <label class="text-xs text-text-muted">Rusuk (s): <span id="kubus-s-val"
+                                                class="font-bold text-primary">3</span></label>
+                                        <input type="range" min="1" max="5" step="0.5" value="3"
+                                            oninput="if(typeof updateVolume3D === 'function') updateVolume3D('kubus-s', this.value); document.getElementById('kubus-s-val').textContent=this.value"
+                                            class="w-full mt-1 accent-primary">
+                                        <p class="text-sm font-semibold text-gold mt-2">Volume = <span
+                                                id="vol-kubus">27</span> m³</p>
                                     </div>
-                                    <div class="space-y-2 text-sm font-semibold text-gold-dark mt-4 text-center">
-                                        <p class="text-lg">V = p × l × t</p>
-                                        <p class="text-lg">L = 2 × ((p × l) + (p × t) + (l × t))</p>
+                                    <div class="bg-white rounded-xl p-4 border border-gold/10">
+                                        <h5 class="font-semibold text-primary text-sm mb-3">📦 Balok</h5>
+                                        <label class="text-xs text-text-muted">Panjang: <span id="balok-p-val"
+                                                class="font-bold text-primary">5</span></label>
+                                        <input type="range" min="2" max="8" step="0.5" value="5"
+                                            oninput="if(typeof updateVolume3D === 'function') updateVolume3D('balok-p', this.value); document.getElementById('balok-p-val').textContent=this.value"
+                                            class="w-full mt-1 accent-primary">
+                                        <label class="text-xs text-text-muted">Lebar: <span id="balok-l-val"
+                                                class="font-bold text-primary">3</span></label>
+                                        <input type="range" min="1" max="6" step="0.5" value="3"
+                                            oninput="if(typeof updateVolume3D === 'function') updateVolume3D('balok-l', this.value); document.getElementById('balok-l-val').textContent=this.value"
+                                            class="w-full mt-1 accent-primary">
+                                        <label class="text-xs text-text-muted">Tinggi: <span id="balok-t-val"
+                                                class="font-bold text-primary">2</span></label>
+                                        <input type="range" min="1" max="5" step="0.5" value="2"
+                                            oninput="if(typeof updateVolume3D === 'function') updateVolume3D('balok-t', this.value); document.getElementById('balok-t-val').textContent=this.value"
+                                            class="w-full mt-1 accent-primary">
+                                        <p class="text-sm font-semibold text-gold mt-2">Volume = <span
+                                                id="vol-balok">30</span> m³</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
 
-                        <!-- Materi 4: Penyelesaian Big Idea -->
-                        <div class="cbl-step p-5 space-y-3">
-                            <h4 class="font-heading font-semibold text-primary text-base">📝 Penyelesaian Big Idea</h4>
-                            <p class="text-sm text-text-main leading-relaxed text-justify text-justify mb-2">
-                                Kita substitusikan nilai-nilai yang sudah diketahui dalam big idea ke rumus balok karena bangun yang diketahui berupa balok, maka diperoleh:
-                            </p>
-                            <div class="bg-white rounded-xl p-4 border border-gold/10 font-mono text-sm space-y-2 overflow-x-auto text-primary font-semibold">
-                                <p>V = p × l × t</p>
-                                <p>⇔ V = 12 × 8 × 4</p>
-                                <p>⇔ V = 384 m³</p>
+                <!-- Step 5: Guiding Questions -->
+                <div x-show="activeStep === 4" x-transition:enter="transition ease-out duration-500"
+                    x-transition:enter-start="opacity-0 translate-y-4"
+                    x-transition:enter-end="opacity-100 translate-y-0" style="display: none;">
+                    <div class="card-heritage">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div
+                                class="w-10 h-10 md:w-12 md:h-12 bg-purple-50 rounded-xl flex items-center justify-center">
+                                <span class="text-xl md:text-2xl">🤔</span></div>
+                            <div>
+                                <h2 class="font-heading font-bold text-lg md:text-xl text-primary">Guiding Questions
+                                </h2>
+                                <p class="text-text-muted text-sm">Pertanyaan Pemandu</p>
                             </div>
-                            <p class="text-sm text-text-main mt-3">
-                                Jadi, diperoleh kapasitas dari ruang barak di benteng tersebut adalah <strong>384 m³</strong>.
-                            </p>
-
-                            <hr class="border-gold/20 my-5 border-dashed">
-
-                            <h5 class="font-semibold text-primary text-sm uppercase tracking-wide">Kembali lagi ke big idea</h5>
-                            <p class="text-sm text-text-main mt-3 text-justify">
-                                Apabila setiap 1 meter kubik ruang mampu menampung 25 kotak perlengkapan logistik, dapat dianalisis jumlah maksimum kotak perlengkapan yang dapat disimpan di dalam ruang barak tersebut.
-                            </p>
-                            
-                            <h5 class="font-semibold text-primary text-sm mt-4">Diketahui:</h5>
-                            <ul class="space-y-2 text-sm text-text-main ml-4 list-disc font-medium">
-                                <li>Volume ruang barak = 384 m³</li>
-                                <li>Setiap 1 m³ ruang dapat menampung 25 kotak perlengkapan</li>
-                            </ul>
-
-                            <p class="text-sm text-primary font-semibold mt-4">Bagaimana cara menentukan jumlah maksimal kotak perlengkapan di barak tersebut?</p>
-                            <p class="text-sm text-text-main text-justify mt-1">
-                                Setelah volume barak dan jumlah kotak per meter kubik diketahui kita bisa mengalikannya, maka diperoleh:
-                            </p>
-
-                            <div class="bg-white rounded-xl p-4 border border-gold/10 font-mono text-sm space-y-2 overflow-x-auto text-primary font-semibold mt-3">
-                                <p>Jumlah maksimal kotak perlengkapan = volume × jumlah kotak</p>
-                                <p>⇔ Jumlah maksimal kotak perlengkapan = 384 × 25</p>
-                                <p>⇔ Jumlah maksimal kotak perlengkapan = 9600</p>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="cbl-step p-4 flex items-start gap-3"><span
+                                    class="w-8 h-8 bg-primary text-white rounded-lg flex items-center justify-center text-sm font-bold flex-shrink-0">1</span>
+                                <p class="text-sm text-text-main leading-relaxed text-justify">Bentuk bangun ruang apa
+                                    yang sesuai untuk memodelkan ruang barak Benteng Fort Williem I? Informasi ukuran
+                                    apa saja yang sudah kalian ketahui?</p>
                             </div>
-
-                            <p class="text-sm text-text-main mt-4 text-justify">
-                                Jadi, diperoleh hasil 9600. Maka ruang barak tersebut dapat menampung maksimal <strong>9.600</strong> kotak perlengkapan logistik.
-                            </p>
+                            <div class="cbl-step p-4 flex items-start gap-3"><span
+                                    class="w-8 h-8 bg-primary text-white rounded-lg flex items-center justify-center text-sm font-bold flex-shrink-0">2</span>
+                                <p class="text-sm text-text-main leading-relaxed text-justify">Rumus apa yang digunakan
+                                    untuk menghitung volume bangun ruang tersebut?</p>
+                            </div>
+                            <div class="cbl-step p-4 flex items-start gap-3"><span
+                                    class="w-8 h-8 bg-primary text-white rounded-lg flex items-center justify-center text-sm font-bold flex-shrink-0">3</span>
+                                <p class="text-sm text-text-main leading-relaxed text-justify">Setelah volume diketahui,
+                                    bagaimana cara menentukan jumlah maksimum kotak perlengkapan yang dapat disimpan
+                                    didalam ruang barak?</p>
+                            </div>
                         </div>
 
-                        <!-- 3D Interactive Volume -->
-                        <div class="cbl-step p-5">
-                            <h4 class="font-heading font-semibold text-primary mb-3">🧊 Visualisasi 3D Interaktif</h4>
-                            <div id="volume-3d" class="w-full h-[350px] md:h-[400px] rounded-xl overflow-hidden border border-gold/10 bg-cream-dark mb-4"></div>
+                        <form @submit.prevent="submitToGoogle('1', 'Guiding Questions', $el)"
+                            class="mt-6 pt-6 border-t border-gold/10 space-y-4">
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <div class="bg-white rounded-xl p-4 border border-gold/10">
-                                    <h5 class="font-semibold text-primary text-sm mb-3">🧊 Kubus</h5>
-                                    <label class="text-xs text-text-muted">Rusuk (s): <span id="kubus-s-val" class="font-bold text-primary">3</span></label>
-                                    <input type="range" min="1" max="5" step="0.5" value="3" oninput="if(typeof updateVolume3D === 'function') updateVolume3D('kubus-s', this.value); document.getElementById('kubus-s-val').textContent=this.value" class="w-full mt-1 accent-primary">
-                                    <p class="text-sm font-semibold text-gold mt-2">Volume = <span id="vol-kubus">27</span> m³</p>
+                                <div>
+                                    <label for="kelompok-gq" class="block font-heading font-semibold text-primary">Pilih
+                                        Kelompok:</label>
+                                    <select id="kelompok-gq" name="Kelompok" required
+                                        class="w-full rounded-2xl border-2 border-gold/30 focus:border-primary focus:ring-primary bg-white/50 p-4 text-sm shadow-sm transition-all focus:bg-white">
+                                        <option value="" disabled selected>-- Pilih Kelompok --</option>
+                                        <option value="Kelompok 1">Kelompok 1</option>
+                                        <option value="Kelompok 2">Kelompok 2</option>
+                                        <option value="Kelompok 3">Kelompok 3</option>
+                                        <option value="Kelompok 4">Kelompok 4</option>
+                                        <option value="Kelompok 5">Kelompok 5</option>
+                                        <option value="Kelompok 6">Kelompok 6</option>
+                                        <option value="Kelompok 7">Kelompok 7</option>
+                                        <option value="Kelompok 8">Kelompok 8</option>
+                                    </select>
                                 </div>
-                                <div class="bg-white rounded-xl p-4 border border-gold/10">
-                                    <h5 class="font-semibold text-primary text-sm mb-3">📦 Balok</h5>
-                                    <label class="text-xs text-text-muted">Panjang: <span id="balok-p-val" class="font-bold text-primary">5</span></label>
-                                    <input type="range" min="2" max="8" step="0.5" value="5" oninput="if(typeof updateVolume3D === 'function') updateVolume3D('balok-p', this.value); document.getElementById('balok-p-val').textContent=this.value" class="w-full mt-1 accent-primary">
-                                    <label class="text-xs text-text-muted">Lebar: <span id="balok-l-val" class="font-bold text-primary">3</span></label>
-                                    <input type="range" min="1" max="6" step="0.5" value="3" oninput="if(typeof updateVolume3D === 'function') updateVolume3D('balok-l', this.value); document.getElementById('balok-l-val').textContent=this.value" class="w-full mt-1 accent-primary">
-                                    <label class="text-xs text-text-muted">Tinggi: <span id="balok-t-val" class="font-bold text-primary">2</span></label>
-                                    <input type="range" min="1" max="5" step="0.5" value="2" oninput="if(typeof updateVolume3D === 'function') updateVolume3D('balok-t', this.value); document.getElementById('balok-t-val').textContent=this.value" class="w-full mt-1 accent-primary">
-                                    <p class="text-sm font-semibold text-gold mt-2">Volume = <span id="vol-balok">30</span> m³</p>
+                                <div>
+                                    <label for="nama-gq" class="block font-heading font-semibold text-primary">Nama
+                                        Perwakilan:</label>
+                                    <input type="text" id="nama-gq" name="Nama Siswa" required
+                                        class="w-full rounded-2xl border-2 border-gold/30 focus:border-primary focus:ring-primary bg-white/50 p-4 text-sm shadow-sm transition-all focus:bg-white"
+                                        placeholder="Misal: Budi">
+                                </div>
+                            </div>
+
+                            <label for="answer-gq" class="block font-heading font-semibold text-primary mt-4">Tuliskan
+                                Jawaban Kalian di Sini:</label>
+                            <textarea id="answer-gq" name="Jawaban" rows="4" required
+                                class="w-full rounded-2xl border-2 border-gold/30 focus:border-primary focus:ring-primary bg-white/50 p-4 text-sm shadow-sm transition-all focus:bg-white"
+                                placeholder="Ketikkan jawaban diskusi kelompok kalian untuk pertanyaan-pertanyaan pemandu di atas..."></textarea>
+                            <button type="submit"
+                                class="w-full bg-accent text-white font-bold py-3 rounded-xl hover:bg-accent/90 transition transform hover:scale-[1.02] shadow-md flex items-center justify-center gap-2">
+                                <span>Kirim Jawaban</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Step 6, 7, 8, 9, 10 -->
+                <div x-show="activeStep === 5" style="display: none;">
+                    <div class="card-heritage">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div
+                                class="w-10 h-10 md:w-12 md:h-12 bg-green-50 rounded-xl flex items-center justify-center">
+                                <span class="text-xl md:text-2xl">🔬</span></div>
+                            <div>
+                                <h2 class="font-heading font-bold text-lg md:text-xl text-primary">Guiding Activities
+                                </h2>
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="cbl-step p-5">
+                                <div class="flex items-start gap-3"><span class="text-2xl flex-shrink-0">1️⃣</span>
+                                    <p class="text-sm text-text-main leading-relaxed text-justify mt-1.5">Bentuk bangun
+                                        ruang yang sesuai dengan ruang barak tentara di Benteng Fort Willem I.</p>
+                                </div>
+                            </div>
+                            <div class="cbl-step p-5">
+                                <div class="flex items-start gap-3"><span class="text-2xl flex-shrink-0">2️⃣</span>
+                                    <p class="text-sm text-text-main leading-relaxed text-justify mt-1.5">Gambarlah
+                                        model ruang barak di Benteng Fort Willem I berbentuk balok pada lembar kerja dan
+                                        tuliskan ukurannya.</p>
+                                </div>
+                            </div>
+                            <div class="cbl-step p-5">
+                                <div class="flex items-start gap-3"><span class="text-2xl flex-shrink-0">3️⃣</span>
+                                    <p class="text-sm text-text-main leading-relaxed text-justify mt-1.5">Hitunglah
+                                        volume ruang barak berdasarkan ukuran yang diketahui, serta tentukan jumlah
+                                        maksimum kotak perlengkapan logistik.</p>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Step 5: Guiding Questions -->
-            <div x-show="activeStep === 4" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0 translate-y-4" x-transition:enter-end="opacity-100 translate-y-0" style="display: none;">
-                <div class="card-heritage">
-                    <div class="flex items-center gap-3 mb-6">
-                        <div class="w-10 h-10 md:w-12 md:h-12 bg-purple-50 rounded-xl flex items-center justify-center"><span class="text-xl md:text-2xl">🤔</span></div>
-                        <div><h2 class="font-heading font-bold text-lg md:text-xl text-primary">Guiding Questions</h2><p class="text-text-muted text-sm">Pertanyaan Pemandu</p></div>
-                    </div>
-                    <div class="space-y-3">
-                        <div class="cbl-step p-4 flex items-start gap-3"><span class="w-8 h-8 bg-primary text-white rounded-lg flex items-center justify-center text-sm font-bold flex-shrink-0">1</span><p class="text-sm text-text-main leading-relaxed text-justify">Bentuk bangun ruang apa yang sesuai untuk memodelkan ruang barak Benteng Fort Williem I? Informasi ukuran apa saja yang sudah kalian ketahui?</p></div>
-                        <div class="cbl-step p-4 flex items-start gap-3"><span class="w-8 h-8 bg-primary text-white rounded-lg flex items-center justify-center text-sm font-bold flex-shrink-0">2</span><p class="text-sm text-text-main leading-relaxed text-justify">Rumus apa yang digunakan untuk menghitung volume bangun ruang tersebut?</p></div>
-                        <div class="cbl-step p-4 flex items-start gap-3"><span class="w-8 h-8 bg-primary text-white rounded-lg flex items-center justify-center text-sm font-bold flex-shrink-0">3</span><p class="text-sm text-text-main leading-relaxed text-justify">Setelah volume diketahui, bagaimana cara menentukan jumlah maksimum kotak perlengkapan yang dapat disimpan didalam ruang barak?</p></div>
-                    </div>
-                    
-                    <form @submit.prevent="submitToGoogle('1', 'Guiding Questions', $el)" class="mt-6 pt-6 border-t border-gold/10 space-y-4">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div>
-                                <label for="kelompok-gq" class="block font-heading font-semibold text-primary">Pilih Kelompok:</label>
-                                <select id="kelompok-gq" name="Kelompok" required class="w-full rounded-2xl border-2 border-gold/30 focus:border-primary focus:ring-primary bg-white/50 p-4 text-sm shadow-sm transition-all focus:bg-white">
-                                    <option value="" disabled selected>-- Pilih Kelompok --</option>
-                                    <option value="Kelompok 1">Kelompok 1</option>
-                                    <option value="Kelompok 2">Kelompok 2</option>
-                                    <option value="Kelompok 3">Kelompok 3</option>
-                                    <option value="Kelompok 4">Kelompok 4</option>
-                                    <option value="Kelompok 5">Kelompok 5</option>
-                                    <option value="Kelompok 6">Kelompok 6</option>
-                                    <option value="Kelompok 7">Kelompok 7</option>
-                                    <option value="Kelompok 8">Kelompok 8</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label for="nama-gq" class="block font-heading font-semibold text-primary">Nama Perwakilan:</label>
-                                <input type="text" id="nama-gq" name="Nama Siswa" required class="w-full rounded-2xl border-2 border-gold/30 focus:border-primary focus:ring-primary bg-white/50 p-4 text-sm shadow-sm transition-all focus:bg-white" placeholder="Misal: Budi">
-                            </div>
-                        </div>
-
-                        <label for="answer-gq" class="block font-heading font-semibold text-primary mt-4">Tuliskan Jawaban Kalian di Sini:</label>
-                        <textarea id="answer-gq" name="Jawaban" rows="4" required class="w-full rounded-2xl border-2 border-gold/30 focus:border-primary focus:ring-primary bg-white/50 p-4 text-sm shadow-sm transition-all focus:bg-white" placeholder="Ketikkan jawaban diskusi kelompok kalian untuk pertanyaan-pertanyaan pemandu di atas..."></textarea>
-                        <button type="submit" class="w-full bg-accent text-white font-bold py-3 rounded-xl hover:bg-accent/90 transition transform hover:scale-[1.02] shadow-md flex items-center justify-center gap-2">
-                            <span>Kirim Jawaban</span>
-                        </button>
-                    </form>
-                </div>
-            </div>
-
-            <!-- Step 6, 7, 8, 9, 10 -->
-            <div x-show="activeStep === 5" style="display: none;">
-                <div class="card-heritage">
-                    <div class="flex items-center gap-3 mb-6">
-                        <div class="w-10 h-10 md:w-12 md:h-12 bg-green-50 rounded-xl flex items-center justify-center"><span class="text-xl md:text-2xl">🔬</span></div>
-                        <div><h2 class="font-heading font-bold text-lg md:text-xl text-primary">Guiding Activities</h2></div>
-                    </div>
-                    <div class="space-y-4">
-                        <div class="cbl-step p-5"><div class="flex items-start gap-3"><span class="text-2xl flex-shrink-0">1️⃣</span><p class="text-sm text-text-main leading-relaxed text-justify mt-1.5">Bentuk bangun ruang yang sesuai dengan ruang barak tentara di Benteng Fort Willem I.</p></div></div>
-                        <div class="cbl-step p-5"><div class="flex items-start gap-3"><span class="text-2xl flex-shrink-0">2️⃣</span><p class="text-sm text-text-main leading-relaxed text-justify mt-1.5">Gambarlah model ruang barak di Benteng Fort Willem I berbentuk balok pada lembar kerja dan tuliskan ukurannya.</p></div></div>
-                        <div class="cbl-step p-5"><div class="flex items-start gap-3"><span class="text-2xl flex-shrink-0">3️⃣</span><p class="text-sm text-text-main leading-relaxed text-justify mt-1.5">Hitunglah volume ruang barak berdasarkan ukuran yang diketahui, serta tentukan jumlah maksimum kotak perlengkapan logistik.</p></div></div>
-                    </div>
-                    
-                    <form @submit.prevent="submitToGoogle('1', 'Guiding Activities', $el)" class="mt-6 pt-6 border-t border-gold/10 space-y-4">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div>
-                                <label for="kelompok-ga" class="block font-heading font-semibold text-primary">Pilih Kelompok:</label>
-                                <select id="kelompok-ga" name="Kelompok" required class="w-full rounded-2xl border-2 border-gold/30 focus:border-primary focus:ring-primary bg-white/50 p-4 text-sm shadow-sm transition-all focus:bg-white">
-                                    <option value="" disabled selected>-- Pilih Kelompok --</option>
-                                    <option value="Kelompok 1">Kelompok 1</option>
-                                    <option value="Kelompok 2">Kelompok 2</option>
-                                    <option value="Kelompok 3">Kelompok 3</option>
-                                    <option value="Kelompok 4">Kelompok 4</option>
-                                    <option value="Kelompok 5">Kelompok 5</option>
-                                    <option value="Kelompok 6">Kelompok 6</option>
-                                    <option value="Kelompok 7">Kelompok 7</option>
-                                    <option value="Kelompok 8">Kelompok 8</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label for="nama-ga" class="block font-heading font-semibold text-primary">Nama Perwakilan:</label>
-                                <input type="text" id="nama-ga" name="Nama Siswa" required class="w-full rounded-2xl border-2 border-gold/30 focus:border-primary focus:ring-primary bg-white/50 p-4 text-sm shadow-sm transition-all focus:bg-white" placeholder="Misal: Siti">
-                            </div>
-                        </div>
-
-                        <label for="answer-ga" class="block font-heading font-semibold text-primary mt-4">Tuliskan Hasil Analisis Kegiatan Kalian:</label>
-                        <textarea id="answer-ga" name="Jawaban" rows="4" required class="w-full rounded-2xl border-2 border-gold/30 focus:border-primary focus:ring-primary bg-white/50 p-4 text-sm shadow-sm transition-all focus:bg-white" placeholder="Ketikkan penjabaran dari hasil analisis kegiatan..."></textarea>
-                        
-                        <label class="block font-heading font-semibold text-primary mt-4">Unggah Gambar Model/Sketsa Hasil Kerja:</label>
-                        <div class="flex items-center justify-center w-full">
-                            <label class="flex flex-col items-center justify-center w-full h-32 border-2 border-gold/30 border-dashed rounded-2xl cursor-pointer bg-white/50 hover:bg-white transition-all">
-                                <div class="flex flex-col items-center justify-center pt-5 pb-6">
-                                    <span class="text-3xl mb-2">📸</span>
-                                    <p class="mb-1 text-sm text-text-main text-center px-4"><span class="font-semibold text-primary">Klik untuk mengunggah</span> sketsa/foto</p>
-                                    <p class="text-xs text-text-muted">Fitur upload disabel sementara, teks akan dikirim.</p>
+                        <form @submit.prevent="submitToGoogle('1', 'Guiding Activities', $el)"
+                            class="mt-6 pt-6 border-t border-gold/10 space-y-4">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label for="kelompok-ga" class="block font-heading font-semibold text-primary">Pilih
+                                        Kelompok:</label>
+                                    <select id="kelompok-ga" name="Kelompok" required
+                                        class="w-full rounded-2xl border-2 border-gold/30 focus:border-primary focus:ring-primary bg-white/50 p-4 text-sm shadow-sm transition-all focus:bg-white">
+                                        <option value="" disabled selected>-- Pilih Kelompok --</option>
+                                        <option value="Kelompok 1">Kelompok 1</option>
+                                        <option value="Kelompok 2">Kelompok 2</option>
+                                        <option value="Kelompok 3">Kelompok 3</option>
+                                        <option value="Kelompok 4">Kelompok 4</option>
+                                        <option value="Kelompok 5">Kelompok 5</option>
+                                        <option value="Kelompok 6">Kelompok 6</option>
+                                        <option value="Kelompok 7">Kelompok 7</option>
+                                        <option value="Kelompok 8">Kelompok 8</option>
+                                    </select>
                                 </div>
-                                <input type="file" accept="image/*" class="hidden" />
-                            </label>
-                        </div>
-
-                        <button type="submit" class="w-full bg-accent text-white font-bold py-3 mt-4 rounded-xl hover:bg-accent/90 transition transform hover:scale-[1.02] shadow-md flex items-center justify-center gap-2">
-                            <span>Kirim Pekerjaan</span>
-                        </button>
-                    </form>
-                </div>
-            </div>
-
-            <div x-show="activeStep === 6" style="display: none;">
-                <div class="card-heritage">
-                    <div class="flex items-center gap-3 mb-6">
-                        <div class="w-10 h-10 md:w-12 md:h-12 bg-gold/10 rounded-xl flex items-center justify-center"><span class="text-xl md:text-2xl">🔑</span></div>
-                        <div><h2 class="font-heading font-bold text-lg md:text-xl text-primary">Solution & Action</h2></div>
-                    </div>
-                    <div class="bg-cream rounded-xl p-4 md:p-6 border border-gold/10 space-y-4 text-sm text-text-main">
-                        <ul class="space-y-3"><li>✦ Diskusikanlah dengan anggota kelompok untuk menyelesaikan challenge yang telah diberikan pada bagian ‘the challenge’ sebelumnya.</li><li>✦ Gunakan guiding resources sebagai panduan.</li>
-                    </div>
-                    <form @submit.prevent="submitToGoogle('1', 'Solution & Action', $el)" class="mt-6 pt-6 border-t border-gold/10 space-y-4">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div>
-                                <label for="kelompok-sa" class="block font-heading font-semibold text-primary">Pilih Kelompok:</label>
-                                <select id="kelompok-sa" name="Kelompok" required class="w-full rounded-2xl border-2 border-gold/30 focus:border-primary focus:ring-primary bg-white/50 p-4 text-sm shadow-sm transition-all focus:bg-white">
-                                    <option value="" disabled selected>-- Pilih Kelompok --</option>
-                                    <option value="Kelompok 1">Kelompok 1</option>
-                                    <option value="Kelompok 2">Kelompok 2</option>
-                                    <option value="Kelompok 3">Kelompok 3</option>
-                                    <option value="Kelompok 4">Kelompok 4</option>
-                                    <option value="Kelompok 5">Kelompok 5</option>
-                                    <option value="Kelompok 6">Kelompok 6</option>
-                                    <option value="Kelompok 7">Kelompok 7</option>
-                                    <option value="Kelompok 8">Kelompok 8</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label for="nama-sa" class="block font-heading font-semibold text-primary">Nama Perwakilan:</label>
-                                <input type="text" id="nama-sa" name="Nama Siswa" required class="w-full rounded-2xl border-2 border-gold/30 focus:border-primary focus:ring-primary bg-white/50 p-4 text-sm shadow-sm transition-all focus:bg-white" placeholder="Misal: Udin">
-                            </div>
-                        </div>
-
-                        <label for="answer-sa" class="block font-heading font-semibold text-primary mt-4">Tuliskan Kesimpulan dan Solusi Akhir Kelompok Kalian:</label>
-                        <textarea id="answer-sa" name="Jawaban" rows="4" required class="w-full rounded-2xl border-2 border-gold/30 focus:border-primary focus:ring-primary bg-white/50 p-4 text-sm shadow-sm transition-all focus:bg-white" placeholder="Ketikkan rangkuman solusi atau action plan di sini..."></textarea>
-                        
-                        <label class="block font-heading font-semibold text-primary mt-4">Unggah Dokumen/Foto:</label>
-                        <div class="flex items-center justify-center w-full">
-                            <label class="flex flex-col items-center justify-center w-full h-32 border-2 border-gold/30 border-dashed rounded-2xl cursor-pointer bg-white/50 hover:bg-white transition-all">
-                                <div class="flex flex-col items-center justify-center pt-5 pb-6">
-                                    <span class="text-3xl mb-2">📄</span>
-                                    <p class="mb-1 text-sm text-text-main text-center px-4"><span class="font-semibold text-primary">Klik untuk mengunggah</span> foto hasil jawaban.</p>
-                                    <p class="text-xs text-text-muted">Fitur upload disabel sementara, teks akan dikirim.</p>
+                                <div>
+                                    <label for="nama-ga" class="block font-heading font-semibold text-primary">Nama
+                                        Perwakilan:</label>
+                                    <input type="text" id="nama-ga" name="Nama Siswa" required
+                                        class="w-full rounded-2xl border-2 border-gold/30 focus:border-primary focus:ring-primary bg-white/50 p-4 text-sm shadow-sm transition-all focus:bg-white"
+                                        placeholder="Misal: Siti">
                                 </div>
-                                <input type="file" accept="image/*" class="hidden" />
-                            </label>
-                        </div>
-
-                        <button type="submit" class="w-full bg-accent text-white font-bold py-3 mt-4 rounded-xl hover:bg-accent/90 transition transform hover:scale-[1.02] shadow-md flex items-center justify-center gap-2">
-                            <span>Kirim Jawaban</span>
-                        </button>
-                    </form>
-                </div>
-            </div>
-
-            <!-- Step 8: Assessment Publishing -->
-            <div x-show="activeStep === 7" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0 translate-y-4" x-transition:enter-end="opacity-100 translate-y-0" style="display: none;">
-                <div class="card-heritage">
-                    <div class="flex items-center gap-3 mb-6">
-                        <div class="w-10 h-10 md:w-12 md:h-12 bg-indigo-50 rounded-xl flex items-center justify-center"><span class="text-xl md:text-2xl">🎤</span></div>
-                        <div><h2 class="font-heading font-bold text-lg md:text-xl text-primary">Assessment Publishing</h2></div>
-                    </div>
-                    
-                    <div class="space-y-6">
-                        <!-- Custom Spinwheel Widget -->
-                        <div class="mx-auto w-full max-w-[340px] flex flex-col items-center justify-center my-6">
-                            <div class="relative w-full aspect-square">
-                                <!-- Pointer/Indicator -->
-                                <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-2 w-0 h-0 border-l-[15px] border-r-[15px] border-t-[30px] border-l-transparent border-r-transparent border-t-accent z-20 filter drop-shadow hover:scale-110 transition-transform origin-top"></div>
-                                
-                                <!-- Wheel Canvas Container -->
-                                <div class="w-full h-full rounded-full border-[6px] border-gold shadow-xl overflow-hidden relative bg-cream-dark">
-                                    <canvas id="custom-spinwheel" class="w-full h-full transition-transform duration-[4000ms] ease-[cubic-bezier(0.25,0.1,0.15,1)] origin-center" width="400" height="400"></canvas>
-                                </div>
-                                
-                                <!-- Center Spin Button -->
-                                <button id="custom-spin-btn" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-white rounded-full shadow-[0_4px_10px_rgba(0,0,0,0.3)] border-4 border-gold-dark flex items-center justify-center font-heading font-bold text-primary-dark hover:scale-110 active:scale-95 transition-transform z-10 cursor-pointer">
-                                    SPIN
-                                </button>
                             </div>
-                            
-                            <!-- Result Text -->
-                            <div class="mt-6 h-10 w-full flex items-center justify-center">
-                                <p id="spin-result" class="font-heading font-bold text-lg md:text-xl text-accent opacity-0 scale-90 transition-all duration-500 text-center px-4 py-2 bg-accent/10 border border-accent/20 rounded-xl w-full"></p>
-                            </div>
-                        </div>
 
-                        <div class="bg-cream rounded-xl p-4 md:p-6 border border-gold/10 text-sm text-text-main">
-                            <ul class="space-y-3 list-disc ml-5">
-                                <li>Salah satu kelompok mempresentasikan hasil diskusi di depan kelas.</li>
-                                <li>Kelompok lain memberikan tanggapan, pertanyaan, atau saran terhadap hasil presentasi.</li>
-                                <li>Peserta didik bersama guru menyimpulkan hasil kegiatan pembelajaran yang telah dilakukan.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                            <label for="answer-ga" class="block font-heading font-semibold text-primary mt-4">Tuliskan
+                                Hasil Analisis Kegiatan Kalian:</label>
+                            <textarea id="answer-ga" name="Jawaban" rows="4" required
+                                class="w-full rounded-2xl border-2 border-gold/30 focus:border-primary focus:ring-primary bg-white/50 p-4 text-sm shadow-sm transition-all focus:bg-white"
+                                placeholder="Ketikkan penjabaran dari hasil analisis kegiatan..."></textarea>
 
-            <div x-show="activeStep === 8" style="display: none;">
-                <div class="card-heritage">
-                    <div class="flex items-center gap-3 mb-6">
-                        <div class="w-10 h-10 md:w-12 md:h-12 bg-orange-50 rounded-xl flex items-center justify-center"><span class="text-xl md:text-2xl">🪞</span></div>
-                        <div><h2 class="font-heading font-bold text-lg md:text-xl text-primary">Assessment Reflection</h2></div>
-                    </div>
-                    <div class="bg-cream rounded-xl p-4 md:p-6 border border-gold/10 flex flex-col sm:flex-row items-center gap-6 text-left mb-6">
-                        <div class="text-6xl text-primary opacity-80 flex-shrink-0">🤔</div>
-                        <div class="flex-grow">
-                            <h3 class="font-bold text-primary text-lg mb-2">Assessment Reflection</h3>
-                            <p class="text-sm text-text-main leading-relaxed text-justify">Mainkan permainan di bawah ini dan jawablah pertanyaan secara jujur sebagai bahan refleksi diri dari kegiatan pembelajaran yang telah dilakukan.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="w-full flex justify-center bg-white rounded-xl p-2 md:p-4 border border-gold/10 shadow-sm">
-                        <template x-if="activeStep === 8">
-                            <iframe style="max-width:100%; border-radius: 0.5rem;" src="https://wordwall.net/embed/91a5315e30944fad8c1a91db584d9d1f?themeId=23&templateId=49&fontStackId=0" width="500" height="380" frameborder="0" allowfullscreen></iframe>
-                        </template>
-                    </div>
-                </div>
-            </div>
-
-            <div x-show="activeStep === 9" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0 translate-y-4" x-transition:enter-end="opacity-100 translate-y-0" style="display: none;">
-                <div class="card-heritage">
-                    <div class="flex items-center gap-3 mb-6">
-                        <div class="w-10 h-10 md:w-12 md:h-12 bg-accent/10 rounded-xl flex items-center justify-center"><span class="text-xl md:text-2xl">📝</span></div>
-                        <div><h2 class="font-heading font-bold text-lg md:text-xl text-primary">Rangkuman</h2></div>
-                    </div>
-                    
-                    <div class="space-y-6">
-                        <div class="bg-cream rounded-xl p-4 md:p-6 border border-gold/10 text-sm text-text-main leading-relaxed text-justify space-y-4">
-                            <p>
-                                Bangun ruang adalah bentuk yang memiliki <strong>panjang, lebar, dan tinggi</strong>. Pada bangun ruang ada yang namanya <strong>volume</strong> dan <strong>luas permukaan</strong>.
-                            </p>
-                            <p>
-                                <strong>Volume adalah kapasitas</strong> atau penghitungan <strong>seberapa banyak ruang yang bisa ditempati/diisi</strong> oleh suatu objek.
-                            </p>
-                        </div>
-
-                        <div class="bg-white rounded-xl p-4 md:p-6 border border-gold/10 shadow-sm text-sm text-text-main">
-                            <p class="mb-6 leading-relaxed">Rumus volume dan luas permukaan bangun ruang kubus dan balok adalah sebagai berikut:</p>
-                            
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                                <div class="flex flex-col">
-                                    <h4 class="mb-4">1. Kubus</h4>
-                                    <div class="relative w-40 h-40 mb-2 opacity-80 self-center">
-                                        <svg viewBox="0 0 100 100" class="w-full h-full stroke-current text-primary" fill="none">
-                                            <rect x="30" y="20" width="45" height="45" stroke-dasharray="2,2" stroke-width="1.5"/>
-                                            <line x1="30" y1="65" x2="15" y2="80" stroke-dasharray="2,2" stroke-width="1.5"/>
-                                            <line x1="30" y1="20" x2="15" y2="35" stroke-width="1.5"/>
-                                            <line x1="75" y1="20" x2="60" y2="35" stroke-width="1.5"/>
-                                            <line x1="75" y1="65" x2="60" y2="80" stroke-width="1.5"/>
-                                            <rect x="15" y="35" width="45" height="45" stroke-width="1.5"/>
-                                            
-                                            <!-- Labels -->
-                                            <text x="12" y="90" font-size="8" fill="currentColor" stroke="none">A</text>
-                                            <text x="60" y="90" font-size="8" fill="currentColor" stroke="none">B</text>
-                                            <text x="78" y="73" font-size="8" fill="currentColor" stroke="none">C</text>
-                                            <text x="25" y="73" font-size="8" fill="currentColor" stroke="none">D</text>
-                                            
-                                            <text x="9" y="32" font-size="8" fill="currentColor" stroke="none">E</text>
-                                            <text x="56" y="32" font-size="8" fill="currentColor" stroke="none">F</text>
-                                            <text x="77" y="16" font-size="8" fill="currentColor" stroke="none">G</text>
-                                            <text x="26" y="16" font-size="8" fill="currentColor" stroke="none">H</text>
-                                        </svg>
+                            <label class="block font-heading font-semibold text-primary mt-4">Unggah Gambar Model/Sketsa
+                                Hasil Kerja:</label>
+                            <div class="flex items-center justify-center w-full">
+                                <label
+                                    class="flex flex-col items-center justify-center w-full h-32 border-2 border-gold/30 border-dashed rounded-2xl cursor-pointer bg-white/50 hover:bg-white transition-all">
+                                    <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                                        <span class="text-3xl mb-2">📸</span>
+                                        <p class="mb-1 text-sm text-text-main text-center px-4"><span
+                                                class="font-semibold text-primary">Klik untuk mengunggah</span>
+                                            sketsa/foto</p>
+                                        <p class="text-xs text-text-muted">Fitur upload disabel sementara, teks akan
+                                            dikirim.</p>
                                     </div>
-                                    <p class="font-serif italic text-base self-center">V = s³</p>
+                                    <input type="file" accept="image/*" class="hidden" />
+                                </label>
+                            </div>
+
+                            <button type="submit"
+                                class="w-full bg-accent text-white font-bold py-3 mt-4 rounded-xl hover:bg-accent/90 transition transform hover:scale-[1.02] shadow-md flex items-center justify-center gap-2">
+                                <span>Kirim Pekerjaan</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <div x-show="activeStep === 6" style="display: none;">
+                    <div class="card-heritage">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div
+                                class="w-10 h-10 md:w-12 md:h-12 bg-gold/10 rounded-xl flex items-center justify-center">
+                                <span class="text-xl md:text-2xl">🔑</span></div>
+                            <div>
+                                <h2 class="font-heading font-bold text-lg md:text-xl text-primary">Solution & Action
+                                </h2>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-cream rounded-xl p-4 md:p-6 border border-gold/10 space-y-4 text-sm text-text-main">
+                            <ul class="space-y-3">
+                                <li>✦ Diskusikanlah dengan anggota kelompok untuk menyelesaikan challenge yang telah
+                                    diberikan pada bagian ‘the challenge’ sebelumnya.</li>
+                                <li>✦ Gunakan guiding resources sebagai panduan.</li>
+                        </div>
+                        <form @submit.prevent="submitToGoogle('1', 'Solution & Action', $el)"
+                            class="mt-6 pt-6 border-t border-gold/10 space-y-4">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label for="kelompok-sa" class="block font-heading font-semibold text-primary">Pilih
+                                        Kelompok:</label>
+                                    <select id="kelompok-sa" name="Kelompok" required
+                                        class="w-full rounded-2xl border-2 border-gold/30 focus:border-primary focus:ring-primary bg-white/50 p-4 text-sm shadow-sm transition-all focus:bg-white">
+                                        <option value="" disabled selected>-- Pilih Kelompok --</option>
+                                        <option value="Kelompok 1">Kelompok 1</option>
+                                        <option value="Kelompok 2">Kelompok 2</option>
+                                        <option value="Kelompok 3">Kelompok 3</option>
+                                        <option value="Kelompok 4">Kelompok 4</option>
+                                        <option value="Kelompok 5">Kelompok 5</option>
+                                        <option value="Kelompok 6">Kelompok 6</option>
+                                        <option value="Kelompok 7">Kelompok 7</option>
+                                        <option value="Kelompok 8">Kelompok 8</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="nama-sa" class="block font-heading font-semibold text-primary">Nama
+                                        Perwakilan:</label>
+                                    <input type="text" id="nama-sa" name="Nama Siswa" required
+                                        class="w-full rounded-2xl border-2 border-gold/30 focus:border-primary focus:ring-primary bg-white/50 p-4 text-sm shadow-sm transition-all focus:bg-white"
+                                        placeholder="Misal: Udin">
+                                </div>
+                            </div>
+
+
+
+                            <label class="block font-heading font-semibold text-primary mt-4">Unggah
+                                Dokumen/Foto:</label>
+                            <div class="flex items-center justify-center w-full">
+                                <label
+                                    class="flex flex-col items-center justify-center w-full h-32 border-2 border-gold/30 border-dashed rounded-2xl cursor-pointer bg-white/50 hover:bg-white transition-all">
+                                    <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                                        <span class="text-3xl mb-2">📄</span>
+                                        <p class="mb-1 text-sm text-text-main text-center px-4"><span
+                                                class="font-semibold text-primary">Klik untuk mengunggah</span> foto
+                                            hasil jawaban.</p>
+                                        <p class="text-xs text-text-muted">Fitur upload disabel sementara, teks akan
+                                            dikirim.</p>
+                                    </div>
+                                    <input type="file" accept="image/*" class="hidden" />
+                                </label>
+                            </div>
+
+                            <button type="submit"
+                                class="w-full bg-accent text-white font-bold py-3 mt-4 rounded-xl hover:bg-accent/90 transition transform hover:scale-[1.02] shadow-md flex items-center justify-center gap-2">
+                                <span>Kirim Jawaban</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Step 8: Assessment Publishing -->
+                <div x-show="activeStep === 7" x-transition:enter="transition ease-out duration-500"
+                    x-transition:enter-start="opacity-0 translate-y-4"
+                    x-transition:enter-end="opacity-100 translate-y-0" style="display: none;">
+                    <div class="card-heritage">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div
+                                class="w-10 h-10 md:w-12 md:h-12 bg-indigo-50 rounded-xl flex items-center justify-center">
+                                <span class="text-xl md:text-2xl">🎤</span></div>
+                            <div>
+                                <h2 class="font-heading font-bold text-lg md:text-xl text-primary">Assessment Publishing
+                                </h2>
+                            </div>
+                        </div>
+
+                        <div class="space-y-6">
+                            <!-- Custom Spinwheel Widget -->
+                            <div class="mx-auto w-full max-w-[340px] flex flex-col items-center justify-center my-6">
+                                <div class="relative w-full aspect-square">
+                                    <!-- Pointer/Indicator -->
+                                    <div
+                                        class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-2 w-0 h-0 border-l-[15px] border-r-[15px] border-t-[30px] border-l-transparent border-r-transparent border-t-accent z-20 filter drop-shadow hover:scale-110 transition-transform origin-top">
+                                    </div>
+
+                                    <!-- Wheel Canvas Container -->
+                                    <div
+                                        class="w-full h-full rounded-full border-[6px] border-gold shadow-xl overflow-hidden relative bg-cream-dark">
+                                        <canvas id="custom-spinwheel"
+                                            class="w-full h-full transition-transform duration-[4000ms] ease-[cubic-bezier(0.25,0.1,0.15,1)] origin-center"
+                                            width="400" height="400"></canvas>
+                                    </div>
+
+                                    <!-- Center Spin Button -->
+                                    <button id="custom-spin-btn"
+                                        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-white rounded-full shadow-[0_4px_10px_rgba(0,0,0,0.3)] border-4 border-gold-dark flex items-center justify-center font-heading font-bold text-primary-dark hover:scale-110 active:scale-95 transition-transform z-10 cursor-pointer">
+                                        SPIN
+                                    </button>
                                 </div>
 
-                                <div class="flex flex-col">
-                                    <h4 class="mb-4">2. Balok</h4>
-                                    <div class="relative w-48 h-40 mb-2 opacity-80 self-center">
-                                        <svg viewBox="0 0 120 100" class="w-full h-full stroke-current text-primary" fill="none">
-                                            <rect x="35" y="20" width="70" height="40" stroke-dasharray="2,2" stroke-width="1.5"/>
-                                            <line x1="35" y1="60" x2="20" y2="75" stroke-dasharray="2,2" stroke-width="1.5"/>
-                                            <line x1="35" y1="20" x2="20" y2="35" stroke-width="1.5"/>
-                                            <line x1="105" y1="20" x2="90" y2="35" stroke-width="1.5"/>
-                                            <line x1="105" y1="60" x2="90" y2="75" stroke-width="1.5"/>
-                                            <rect x="20" y="35" width="70" height="40" stroke-width="1.5"/>
-                                            
-                                            <!-- Labels -->
-                                            <text x="15" y="86" font-size="8" fill="currentColor" stroke="none">A</text>
-                                            <text x="90" y="86" font-size="8" fill="currentColor" stroke="none">B</text>
-                                            <text x="108" y="68" font-size="8" fill="currentColor" stroke="none">C</text>
-                                            <text x="32" y="68" font-size="8" fill="currentColor" stroke="none">D</text>
-                                            
-                                            <text x="12" y="32" font-size="8" fill="currentColor" stroke="none">E</text>
-                                            <text x="86" y="32" font-size="8" fill="currentColor" stroke="none">F</text>
-                                            <text x="107" y="16" font-size="8" fill="currentColor" stroke="none">G</text>
-                                            <text x="33" y="16" font-size="8" fill="currentColor" stroke="none">H</text>
-                                        </svg>
+                                <!-- Result Text -->
+                                <div class="mt-6 h-10 w-full flex items-center justify-center">
+                                    <p id="spin-result"
+                                        class="font-heading font-bold text-lg md:text-xl text-accent opacity-0 scale-90 transition-all duration-500 text-center px-4 py-2 bg-accent/10 border border-accent/20 rounded-xl w-full">
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="bg-cream rounded-xl p-4 md:p-6 border border-gold/10 text-sm text-text-main">
+                                <ul class="space-y-3 list-disc ml-5">
+                                    <li>Salah satu kelompok mempresentasikan hasil diskusi di depan kelas.</li>
+                                    <li>Kelompok lain memberikan tanggapan, pertanyaan, atau saran terhadap hasil
+                                        presentasi.</li>
+                                    <li>Peserta didik bersama guru menyimpulkan hasil kegiatan pembelajaran yang telah
+                                        dilakukan.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div x-show="activeStep === 8" style="display: none;">
+                    <div class="card-heritage">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div
+                                class="w-10 h-10 md:w-12 md:h-12 bg-orange-50 rounded-xl flex items-center justify-center">
+                                <span class="text-xl md:text-2xl">🪞</span></div>
+                            <div>
+                                <h2 class="font-heading font-bold text-lg md:text-xl text-primary">Assessment Reflection
+                                </h2>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-cream rounded-xl p-4 md:p-6 border border-gold/10 flex flex-col sm:flex-row items-center gap-6 text-left mb-6">
+                            <div class="text-6xl text-primary opacity-80 flex-shrink-0">🤔</div>
+                            <div class="flex-grow">
+                                <h3 class="font-bold text-primary text-lg mb-2">Assessment Reflection</h3>
+                                <p class="text-sm text-text-main leading-relaxed text-justify">Mainkan permainan di
+                                    bawah ini dan jawablah pertanyaan secara jujur sebagai bahan refleksi diri dari
+                                    kegiatan pembelajaran yang telah dilakukan.</p>
+                            </div>
+                        </div>
+
+                        <div
+                            class="w-full flex justify-center bg-white rounded-xl p-2 md:p-4 border border-gold/10 shadow-sm">
+                            <template x-if="activeStep === 8">
+                                <iframe style="max-width:100%; border-radius: 0.5rem;"
+                                    src="https://wordwall.net/embed/91a5315e30944fad8c1a91db584d9d1f?themeId=23&templateId=49&fontStackId=0"
+                                    width="500" height="380" frameborder="0" allowfullscreen></iframe>
+                            </template>
+                        </div>
+                    </div>
+                </div>
+
+                <div x-show="activeStep === 9" x-transition:enter="transition ease-out duration-500"
+                    x-transition:enter-start="opacity-0 translate-y-4"
+                    x-transition:enter-end="opacity-100 translate-y-0" style="display: none;">
+                    <div class="card-heritage">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div
+                                class="w-10 h-10 md:w-12 md:h-12 bg-accent/10 rounded-xl flex items-center justify-center">
+                                <span class="text-xl md:text-2xl">📝</span></div>
+                            <div>
+                                <h2 class="font-heading font-bold text-lg md:text-xl text-primary">Rangkuman</h2>
+                            </div>
+                        </div>
+
+                        <div class="space-y-6">
+                            <div
+                                class="bg-cream rounded-xl p-4 md:p-6 border border-gold/10 text-sm text-text-main leading-relaxed text-justify space-y-4">
+                                <p>
+                                    Bangun ruang adalah bentuk yang memiliki <strong>panjang, lebar, dan
+                                        tinggi</strong>. Pada bangun ruang ada yang namanya <strong>volume</strong> dan
+                                    <strong>luas permukaan</strong>.
+                                </p>
+                                <p>
+                                    <strong>Volume adalah kapasitas</strong> atau penghitungan <strong>seberapa banyak
+                                        ruang yang bisa ditempati/diisi</strong> oleh suatu objek.
+                                </p>
+                            </div>
+
+                            <div
+                                class="bg-white rounded-xl p-4 md:p-6 border border-gold/10 shadow-sm text-sm text-text-main">
+                                <p class="mb-6 leading-relaxed">Rumus volume dan luas permukaan bangun ruang kubus dan
+                                    balok adalah sebagai berikut:</p>
+
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                    <div class="flex flex-col">
+                                        <h4 class="mb-4">1. Kubus</h4>
+                                        <div class="relative w-40 h-40 mb-2 opacity-80 self-center">
+                                            <svg viewBox="0 0 100 100" class="w-full h-full stroke-current text-primary"
+                                                fill="none">
+                                                <rect x="30" y="20" width="45" height="45" stroke-dasharray="2,2"
+                                                    stroke-width="1.5" />
+                                                <line x1="30" y1="65" x2="15" y2="80" stroke-dasharray="2,2"
+                                                    stroke-width="1.5" />
+                                                <line x1="30" y1="20" x2="15" y2="35" stroke-width="1.5" />
+                                                <line x1="75" y1="20" x2="60" y2="35" stroke-width="1.5" />
+                                                <line x1="75" y1="65" x2="60" y2="80" stroke-width="1.5" />
+                                                <rect x="15" y="35" width="45" height="45" stroke-width="1.5" />
+
+                                                <!-- Labels -->
+                                                <text x="12" y="90" font-size="8" fill="currentColor"
+                                                    stroke="none">A</text>
+                                                <text x="60" y="90" font-size="8" fill="currentColor"
+                                                    stroke="none">B</text>
+                                                <text x="78" y="73" font-size="8" fill="currentColor"
+                                                    stroke="none">C</text>
+                                                <text x="25" y="73" font-size="8" fill="currentColor"
+                                                    stroke="none">D</text>
+
+                                                <text x="9" y="32" font-size="8" fill="currentColor"
+                                                    stroke="none">E</text>
+                                                <text x="56" y="32" font-size="8" fill="currentColor"
+                                                    stroke="none">F</text>
+                                                <text x="77" y="16" font-size="8" fill="currentColor"
+                                                    stroke="none">G</text>
+                                                <text x="26" y="16" font-size="8" fill="currentColor"
+                                                    stroke="none">H</text>
+                                            </svg>
+                                        </div>
+                                        <p class="font-serif italic text-base self-center">V = s³</p>
                                     </div>
-                                    <p class="font-serif italic text-base self-center">V = p &times; l &times; t</p>
+
+                                    <div class="flex flex-col">
+                                        <h4 class="mb-4">2. Balok</h4>
+                                        <div class="relative w-48 h-40 mb-2 opacity-80 self-center">
+                                            <svg viewBox="0 0 120 100" class="w-full h-full stroke-current text-primary"
+                                                fill="none">
+                                                <rect x="35" y="20" width="70" height="40" stroke-dasharray="2,2"
+                                                    stroke-width="1.5" />
+                                                <line x1="35" y1="60" x2="20" y2="75" stroke-dasharray="2,2"
+                                                    stroke-width="1.5" />
+                                                <line x1="35" y1="20" x2="20" y2="35" stroke-width="1.5" />
+                                                <line x1="105" y1="20" x2="90" y2="35" stroke-width="1.5" />
+                                                <line x1="105" y1="60" x2="90" y2="75" stroke-width="1.5" />
+                                                <rect x="20" y="35" width="70" height="40" stroke-width="1.5" />
+
+                                                <!-- Labels -->
+                                                <text x="15" y="86" font-size="8" fill="currentColor"
+                                                    stroke="none">A</text>
+                                                <text x="90" y="86" font-size="8" fill="currentColor"
+                                                    stroke="none">B</text>
+                                                <text x="108" y="68" font-size="8" fill="currentColor"
+                                                    stroke="none">C</text>
+                                                <text x="32" y="68" font-size="8" fill="currentColor"
+                                                    stroke="none">D</text>
+
+                                                <text x="12" y="32" font-size="8" fill="currentColor"
+                                                    stroke="none">E</text>
+                                                <text x="86" y="32" font-size="8" fill="currentColor"
+                                                    stroke="none">F</text>
+                                                <text x="107" y="16" font-size="8" fill="currentColor"
+                                                    stroke="none">G</text>
+                                                <text x="33" y="16" font-size="8" fill="currentColor"
+                                                    stroke="none">H</text>
+                                            </svg>
+                                        </div>
+                                        <p class="font-serif italic text-base self-center">V = p &times; l &times; t</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
             </div> <!-- End of Scrollable Steps Wrapper -->
         </div>
@@ -656,14 +945,24 @@
     <!-- Navigation Buttons (Fixed Bottom) -->
     <div class="fixed bottom-0 left-0 right-0 z-50 px-4 pb-3 sm:pb-5 flex justify-center pointer-events-none">
         <div class="w-full max-w-5xl px-0 lg:px-4 flex items-center justify-between pointer-events-auto drop-shadow-md">
-            <button @click="activeStep = Math.max(0, activeStep - 1)" class="flex items-center justify-center gap-1.5 px-3 sm:px-6 py-2 sm:py-3 rounded-xl font-bold text-xs sm:text-sm md:text-base whitespace-nowrap bg-white border-2 border-gold/40 text-primary hover:bg-cream hover:border-gold transition shadow-sm" :disabled="activeStep === 0" :class="activeStep === 0 ? 'opacity-0 cursor-not-allowed hidden' : ''">← Sebelumnya</button>
-            
+            <button @click="activeStep = Math.max(0, activeStep - 1)"
+                class="flex items-center justify-center gap-1.5 px-3 sm:px-6 py-2 sm:py-3 rounded-xl font-bold text-xs sm:text-sm md:text-base whitespace-nowrap bg-white border-2 border-gold/40 text-primary hover:bg-cream hover:border-gold transition shadow-sm"
+                :disabled="activeStep === 0" :class="activeStep === 0 ? 'opacity-0 cursor-not-allowed hidden' : ''">←
+                Sebelumnya</button>
+
             <div class="flex-grow flex justify-center px-2" :class="activeStep === 0 ? 'opacity-0' : ''">
-                 <span class="text-xs sm:text-sm font-bold text-primary bg-white/90 backdrop-blur-sm border border-gold/30 px-3 py-1.5 rounded-full shadow-sm whitespace-nowrap" x-text="`${activeStep + 1} / ${stepsCount}`"></span>
+                <span
+                    class="text-xs sm:text-sm font-bold text-primary bg-white/90 backdrop-blur-sm border border-gold/30 px-3 py-1.5 rounded-full shadow-sm whitespace-nowrap"
+                    x-text="`${activeStep + 1} / ${stepsCount}`"></span>
             </div>
-            
-            <button x-show="activeStep < stepsCount - 1" @click="if(activeStep === 1 && !isEqSubmitted) { alert('Silakan kirim jawaban Essential Question terlebih dahulu untuk melanjutkan.'); return; } activeStep++" class="flex items-center justify-center gap-1.5 px-3 sm:px-6 py-2 sm:py-3 rounded-xl font-bold text-xs sm:text-sm md:text-base whitespace-nowrap bg-white border-2 border-gold/40 text-primary hover:bg-cream hover:border-gold transition shadow-sm ml-auto">Selanjutnya →</button>
-            <a x-show="activeStep === stepsCount - 1" href="pertemuan-2.html" class="flex items-center justify-center gap-1.5 px-3 sm:px-6 py-2 sm:py-3 rounded-xl font-bold text-xs sm:text-sm md:text-base whitespace-nowrap bg-white border-2 border-gold/40 text-primary hover:bg-cream hover:border-gold transition shadow-sm ml-auto" style="display: none;">Lanjut Pertemuan 2 →</a>
+
+            <button x-show="activeStep < stepsCount - 1"
+                @click="if(activeStep === 1 && !isEqSubmitted) { alert('Silakan kirim jawaban Essential Question terlebih dahulu untuk melanjutkan.'); return; } activeStep++"
+                class="flex items-center justify-center gap-1.5 px-3 sm:px-6 py-2 sm:py-3 rounded-xl font-bold text-xs sm:text-sm md:text-base whitespace-nowrap bg-white border-2 border-gold/40 text-primary hover:bg-cream hover:border-gold transition shadow-sm ml-auto">Selanjutnya
+                →</button>
+            <a x-show="activeStep === stepsCount - 1" href="pertemuan-2.html"
+                class="flex items-center justify-center gap-1.5 px-3 sm:px-6 py-2 sm:py-3 rounded-xl font-bold text-xs sm:text-sm md:text-base whitespace-nowrap bg-white border-2 border-gold/40 text-primary hover:bg-cream hover:border-gold transition shadow-sm ml-auto"
+                style="display: none;">Lanjut Pertemuan 2 →</a>
         </div>
     </div>
     </main>
@@ -673,16 +972,16 @@
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
     <script src="assets/js/3d-volume.js"></script>
     <script src="assets/js/spinwheel.js"></script>
-    
+
     <!-- Script Google Sheets Apps Script -->
     <script>
         const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycby6YEqsB24ZUMdsp7EAmjn0gn1VsiYxD83Oo2OLlmpzALHF36efsPfg-Cyan4854Vp7uQ/exec";
-        
+
         function submitToGoogle(pertemuan, tipeTugas, formElement) {
             return new Promise((resolve) => {
                 const submitBtn = formElement.querySelector('button[type="submit"]');
                 const originalText = submitBtn.innerHTML;
-                
+
                 const formData = new FormData(formElement);
                 formData.append('Pertemuan', pertemuan);
                 formData.append('Tipe Tugas', tipeTugas);
@@ -694,30 +993,31 @@
                     method: 'POST',
                     body: formData
                 })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.result === 'success') {
-                        alert('Berhasil: Jawaban ' + tipeTugas + ' sukses dikirim ke Guru!');
-                        submitBtn.innerHTML = '<span>✅ Terkirim</span>';
-                        submitBtn.classList.remove('bg-accent', 'hover:bg-accent/90');
-                        submitBtn.classList.add('bg-green-600');
-                        formElement.reset();
-                        resolve(true);
-                    } else {
-                        alert('Gagal mengirim jawaban. Silakan coba lagi.');
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.result === 'success') {
+                            alert('Berhasil: Jawaban ' + tipeTugas + ' sukses dikirim ke Guru!');
+                            submitBtn.innerHTML = '<span>✅ Terkirim</span>';
+                            submitBtn.classList.remove('bg-accent', 'hover:bg-accent/90');
+                            submitBtn.classList.add('bg-green-600');
+                            formElement.reset();
+                            resolve(true);
+                        } else {
+                            alert('Gagal mengirim jawaban. Silakan coba lagi.');
+                            submitBtn.innerHTML = originalText;
+                            submitBtn.disabled = false;
+                            resolve(false);
+                        }
+                    })
+                    .catch(error => {
+                        alert('Terjadi kesalahan. Pastikan koneksi internet aktif.');
                         submitBtn.innerHTML = originalText;
                         submitBtn.disabled = false;
                         resolve(false);
-                    }
-                })
-                .catch(error => {
-                    alert('Terjadi kesalahan. Pastikan koneksi internet aktif.');
-                    submitBtn.innerHTML = originalText;
-                    submitBtn.disabled = false;
-                    resolve(false);
-                });
+                    });
             });
         }
     </script>
 </body>
+
 </html>
