@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="About Us — FORTIFY Media Interaktif Etnomatematika">
+    <title>About Us — FORTIFY</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'anton': ['Anton', 'sans-serif'],
+                        'sans': ['Montserrat', 'ui-sans-serif', 'system-ui'],
+                    },
+                    colors: {
+                        'gold': '#D4A017',
+                        'cream': '#FDF8F0',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="min-h-screen overflow-x-hidden font-sans text-black">
+
+    <!-- Top Navbar -->
+    <nav class="relative z-50 flex items-center justify-between px-6 py-6 max-w-[1400px] mx-auto">
+        <a href="index.html" class="font-anton text-2xl tracking-tighter hover:opacity-70 transition-opacity">FORTIFY</a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-8 text-xs font-bold uppercase tracking-widest">
+            <a href="index.html" class="hover:text-yellow-600 transition flex items-center gap-1 uppercase">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                    <polyline points="9 22 9 12 15 12 15 22"/>
+                </svg>
+                BERANDA
+            </a>
+            <a href="about.html" class="text-yellow-600 flex items-center gap-1 uppercase">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="8" r="4"/>
+                    <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+                </svg>
+                ABOUT US
+            </a>
+            <a href="menu.html" class="bg-black text-white px-6 py-2 rounded-full hover:scale-105 transition-transform active:scale-95 inline-block">
+                MULAI BELAJAR
+            </a>
+        </div>
+
+        <!-- Mobile Buttons -->
+        <div class="md:hidden flex items-center gap-2">
+            <a href="index.html"
+               class="bg-black text-white px-3 py-2 rounded-2xl font-anton text-xs tracking-tight flex items-center gap-1.5 hover:scale-105 active:scale-95 transition-transform shadow-lg border border-white/10">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                    <polyline points="9 22 9 12 15 12 15 22"/>
+                </svg>
+                HOME
+            </a>
+            <a href="about.html"
+               class="bg-yellow-400 text-black border border-yellow-600 px-3 py-2 rounded-2xl font-anton text-xs tracking-tight flex items-center gap-1.5 hover:scale-105 active:scale-95 transition-transform shadow-lg">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="8" r="4"/>
+                    <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+                </svg>
+                ABOUT
+            </a>
+        </div>
+    </nav>
+
+    <!-- About Content (Placeholder) -->
+    <main class="relative min-h-[80vh] flex flex-col items-center justify-center text-center px-4">
+        <div class="max-w-2xl mx-auto">
+            <p class="text-[10px] md:text-sm font-bold uppercase tracking-[0.3em] mb-4 text-gray-400">
+                Tim Pengembang
+            </p>
+            <h1 class="font-anton text-[14vw] md:text-[7vw] leading-[0.85] tracking-[-0.05em] uppercase mb-8">
+                ABOUT US
+            </h1>
+            <div class="w-20 h-1 bg-black mx-auto mb-10 rounded-full"></div>
+
+            <!-- Placeholder notice -->
+            <div class="bg-gray-50 border border-gray-200 rounded-2xl px-8 py-10 text-left">
+                <p class="text-gray-400 text-sm text-center italic">
+                    Halaman ini sedang dalam pengembangan. <br>Konten akan segera hadir.
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/6282137585734" target="_blank" rel="noopener noreferrer"
+       id="wa-float-btn"
+       title="Chat via WhatsApp"
+       style="
+           position: fixed;
+           bottom: 28px;
+           right: 28px;
+           z-index: 9999;
+           display: flex;
+           align-items: center;
+           gap: 10px;
+           background: #25D366;
+           color: white;
+           padding: 14px 20px;
+           border-radius: 50px;
+           font-family: 'Montserrat', sans-serif;
+           font-size: 13px;
+           font-weight: 700;
+           text-decoration: none;
+           box-shadow: 0 8px 30px rgba(37,211,102,0.45);
+           transition: transform 0.2s ease, box-shadow 0.2s ease;
+       "
+       onmouseover="this.style.transform='scale(1.07)'; this.style.boxShadow='0 12px 40px rgba(37,211,102,0.6)'"
+       onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 8px 30px rgba(37,211,102,0.45)'">
+        <svg width="22" height="22" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="16" cy="16" r="16" fill="white"/>
+            <path d="M16 6C10.477 6 6 10.477 6 16c0 1.89.52 3.66 1.42 5.18L6 26l4.95-1.4A10 10 0 1 0 16 6zm0 18.18a8.18 8.18 0 0 1-4.18-1.15l-.3-.18-3.1.88.84-3.02-.2-.31A8.18 8.18 0 1 1 16 24.18zm4.5-6.1c-.25-.12-1.47-.72-1.7-.8-.22-.09-.38-.12-.54.12-.16.25-.62.8-.76.97-.14.16-.28.18-.52.06-.25-.12-1.04-.38-1.98-1.22-.73-.65-1.22-1.46-1.37-1.7-.14-.25-.01-.38.1-.5.11-.11.25-.28.37-.42.12-.14.16-.25.25-.41.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.2-.47-.4-.4-.54-.41H11.8c-.16 0-.42.06-.64.3-.22.25-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.6 4.12 3.64.58.25 1.03.4 1.38.51.58.18 1.1.16 1.52.1.46-.07 1.47-.6 1.68-1.18.2-.58.2-1.08.14-1.18-.06-.1-.22-.16-.47-.28z" fill="#25D366"/>
+        </svg>
+        <span>Chat Kami</span>
+    </a>
+
+    <!-- JS -->
+    <script src="assets/js/app.js"></script>
+</body>
+</html>
