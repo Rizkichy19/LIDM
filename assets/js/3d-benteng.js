@@ -84,20 +84,20 @@ function initBenteng3D(containerId) {
     addBox(8.4, 0.3, 4.4, 0, 3.15, 0, roofMaterial);
 
     // Left wing - Balok - "Gudang Senjata"
-    addBox(3, 2.5, 3, -5.5, 1.25, 0.5, wallMaterial);
-    addBox(3.3, 0.3, 3.3, -5.5, 2.65, 0.5, roofMaterial);
+    addBox(4.5, 2.5, 3, -6.25, 1.25, 0.5, wallMaterial);
+    addBox(4.8, 0.3, 3.3, -6.25, 2.65, 0.5, roofMaterial);
 
     // Right wing - Balok - "Ruang Tahanan"
-    addBox(3, 2.5, 3, 5.5, 1.25, 0.5, wallMaterial);
-    addBox(3.3, 0.3, 3.3, 5.5, 2.65, 0.5, roofMaterial);
+    addBox(4.5, 2.5, 3, 6.25, 1.25, 0.5, wallMaterial);
+    addBox(4.8, 0.3, 3.3, 6.25, 2.65, 0.5, roofMaterial);
 
     // Guard post 1 - Kubus - "Pos Jaga Kiri"
-    addBox(1.8, 1.8, 1.8, -7.5, 0.9, -3.5, guardMaterial);
-    addBox(2, 0.2, 2, -7.5, 1.9, -3.5, roofMaterial);
+    addBox(1.8, 1.8, 1.8, -9.0, 0.9, -3.5, guardMaterial);
+    addBox(2, 0.2, 2, -9.0, 1.9, -3.5, roofMaterial);
 
     // Guard post 2 - Kubus - "Pos Jaga Kanan"
-    addBox(1.8, 1.8, 1.8, 7.5, 0.9, -3.5, guardMaterial);
-    addBox(2, 0.2, 2, 7.5, 1.9, -3.5, roofMaterial);
+    addBox(1.8, 1.8, 1.8, 9.0, 0.9, -3.5, guardMaterial);
+    addBox(2, 0.2, 2, 9.0, 1.9, -3.5, roofMaterial);
 
     // Front wall - Balok tipis - "Dinding Depan"
     addBox(18, 2, 0.4, 0, 1, -4.5, wallMaterial);
@@ -136,10 +136,10 @@ function initBenteng3D(containerId) {
     }
 
     addLabel('Barak Utama (Balok)', 0, 4.5, 0);
-    addLabel('Gudang (Balok)', -5.5, 4, 0.5);
-    addLabel('Gudang (Balok)', 5.5, 4, 0.5);
-    addLabel('Pos Jaga (Kubus)', -7.5, 3, -3.5);
-    addLabel('Pos Jaga (Kubus)', 7.5, 3, -3.5);
+    addLabel('Gudang (Balok)', -6.25, 4, 0.5);
+    addLabel('Gudang (Balok)', 6.25, 4, 0.5);
+    addLabel('Pos Jaga (Kubus)', -9.0, 3, -3.5);
+    addLabel('Pos Jaga (Kubus)', 9.0, 3, -3.5);
     addLabel('Menara (Balok)', 0, 5.5, 4.5);
 
     // Animation

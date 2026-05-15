@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
@@ -6,9 +6,7 @@
     <title>Asesmen Diagnostik — Etnomatematika</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Anton&family=Grandstander:ital,wght@0,100..900;1,100..900&display=swap');
-    </style>
+    <style>@import url('https://fonts.googleapis.com/css2?family=Anton&family=Grandstander:ital,wght@0,100..900;1,100..900&display=swap');</style>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -20,18 +18,11 @@
                         'sans': ['Grandstander', 'ui-sans-serif', 'system-ui'],
                     },
                     colors: {
-                        'primary': '#7B3F00',
-                        'primary-dark': '#5C2E00',
-                        'gold': '#D4A017',
-                        'gold-light': '#F5D060',
-                        'gold-dark': '#B8860B',
-                        'cream': '#FDF8F0',
-                        'cream-dark': '#F5EDE0',
-                        'sidebar': '#1C1108',
-                        'accent': '#2E7D32',
-                        'text-main': '#1A1A1A',
-                        'text-light': '#6B5B4F',
-                        'text-muted': '#9B8B7F',
+                        'primary': '#7B3F00','primary-dark': '#5C2E00',
+                        'gold': '#D4A017','gold-light': '#F5D060','gold-dark': '#B8860B',
+                        'cream': '#FDF8F0','cream-dark': '#F5EDE0',
+                        'sidebar': '#1C1108','accent': '#2E7D32',
+                        'text-main': '#1A1A1A','text-light': '#6B5B4F','text-muted': '#9B8B7F',
                     }
                 }
             }
@@ -40,44 +31,40 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body class="bg-cream min-h-screen pt-16">
-    <!-- Top Navigation Bar -->
-            <header class="fixed top-0 left-0 right-0 z-50 text-white shadow-lg border-b border-gold/20" style="background-color: #1C1108;">
+    <header class="fixed top-0 left-0 right-0 z-50 text-white shadow-lg border-b border-gold/20" style="background-color: #1C1108;">
         <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
             <div class="flex items-center gap-3">
-                <a href="menu.html" style="display:flex; align-items:center; justify-content:center; width:34px; height:34px; color:#D4A017; text-decoration:none; transition: opacity 0.2s;" onmouseover="this.style.opacity=0.7" onmouseout="this.style.opacity=1">
-                    <svg style="width:22px;height:22px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/>
-                    </svg>
+                <a href="menu.html" style="display:flex;align-items:center;justify-content:center;width:34px;height:34px;color:#D4A017;text-decoration:none;transition:opacity 0.2s;" onmouseover="this.style.opacity=0.7" onmouseout="this.style.opacity=1">
+                    <svg style="width:22px;height:22px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/></svg>
                 </a>
-                <span style="font-family: 'Anton', sans-serif; font-size:20px; font-weight:normal; letter-spacing: 1px; color:#D4A017; margin:0; line-height:1.2; padding-top: 3px;">ASESMEN DIAGNOSTIK</span>
+                <span style="font-family:'Anton',sans-serif;font-size:20px;font-weight:normal;letter-spacing:1px;color:#D4A017;margin:0;line-height:1.2;padding-top:3px;">ASESMEN DIAGNOSTIK</span>
             </div>
         </div>
     </header>
 
     <div class="p-6 lg:p-10 max-w-4xl mx-auto" x-data="kuisDiagnostik()">
-        
-        <!-- Welcome Screen -->
-        <div x-show="!mulai && !selesai" class="animate-fade-in-up" style="display: none;">
-            <h1 class="font-heading font-bold text-3xl text-primary-dark mb-2">Asesmen Diagnostik</h1>
-            <p class="text-text-light mb-8">Ayo kerjakan kuis ini untuk mengukur pemahaman awal kalian tentang volume dan luas permukaan kubus & balok.</p>
 
+        <!-- Welcome Screen -->
+        <div x-show="!mulai && !selesai" class="animate-fade-in-up" style="display:none;">
+            <h1 class="font-heading font-bold text-3xl text-primary-dark mb-2">Asesmen Diagnostik</h1>
+            <p class="text-text-light mb-8">Ayo kerjakan kuis ini untuk mengukur pemahaman awal kalian tentang keliling dan luas bangun datar (persegi & persegi panjang).</p>
             <div class="card-heritage max-w-md mx-auto text-center">
                 <div class="w-16 h-16 bg-gold/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
                     <svg class="w-8 h-8 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
                 </div>
                 <h3 class="font-heading font-semibold text-lg text-primary mb-4">Mulai Asesmen Diagnostik</h3>
-                <input type="text" x-model="namaSiswa" placeholder="Nama lengkap..." class="w-full px-4 py-3 rounded-xl border-2 border-gold/20 focus:border-gold focus:outline-none bg-cream text-text-main font-medium text-center mb-3">
-                <input type="text" x-model="kodeKelas" placeholder="Kode Kelas (Misal: 7A, 7B)..." class="w-full px-4 py-3 rounded-xl border-2 border-gold/20 focus:border-gold focus:outline-none bg-cream text-text-main font-medium text-center mb-4 uppercase">
-                <p class="text-xs text-text-muted mb-6" x-text="`${soals.length} soal pilihan ganda`"></p>
-                <button @click="mulaiKuis" class="w-full bg-heritage-gradient text-white font-heading font-bold py-3 rounded-xl hover:opacity-90 transition">
-                    Mulai Kuis →
+                <input type="text" x-model="namaSiswa" placeholder="Nama lengkap..." class="w-full rounded-2xl border-2 border-gold/30 focus:border-primary focus:ring-primary bg-white/50 p-4 text-sm shadow-sm transition-all focus:bg-white text-center mb-3">
+                <input type="text" x-model="kodeKelas" placeholder="Kode Kelas (Misal: 8A, 8B)..." class="w-full rounded-2xl border-2 border-gold/30 focus:border-primary focus:ring-primary bg-white/50 p-4 text-sm shadow-sm transition-all focus:bg-white text-center mb-4 uppercase">
+                <p class="text-xs text-text-muted mb-6">10 soal pilihan ganda (dipilih acak)</p>
+                <button @click="mulaiKuis" class="w-full flex items-center justify-center gap-1.5 py-3 rounded-xl font-bold text-base whitespace-nowrap bg-accent border-2 border-accent/40 text-white hover:bg-accent/90 transition shadow-sm mt-2">
+                    Mulai Kuis
+                    <svg style="width:18px;height:18px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
                 </button>
             </div>
         </div>
 
         <!-- Quiz Screen -->
-        <div x-show="mulai && !selesai" style="display: none;">
-            <!-- Header -->
+        <div x-show="mulai && !selesai" style="display:none;">
             <div class="flex items-center justify-between mb-6">
                 <div>
                     <span class="text-sm text-text-muted">Asesmen Diagnostik</span>
@@ -85,79 +72,77 @@
                 </div>
                 <span class="bg-gold/10 text-primary text-sm font-semibold px-3 py-1 rounded-full"><span x-text="namaSiswa"></span> - <span x-text="kodeKelas.toUpperCase()"></span></span>
             </div>
-
-            <!-- Progress Bar -->
             <div class="w-full bg-cream-dark rounded-full h-2 mb-6">
                 <div class="bg-gold-gradient h-2 rounded-full transition-all duration-500" :style="`width: ${((currentIndex + 1) / soals.length) * 100}%`"></div>
             </div>
-
-            <!-- Navigation Dots -->
             <div class="flex flex-wrap gap-2 mb-6">
                 <template x-for="(soal, index) in soals" :key="index">
-                    <button @click="currentIndex = index"
-                            class="w-8 h-8 rounded-lg text-xs font-bold transition-all duration-200"
-                            :class="index === currentIndex ? 'bg-primary text-white scale-110' : (jawaban[index] ? 'bg-gold/20 text-primary border border-gold/30' : 'bg-cream-dark text-text-muted hover:bg-cream')"
-                            x-text="index + 1">
-                    </button>
+                    <button @click="currentIndex = index" class="w-8 h-8 rounded-lg text-xs font-bold transition-all duration-200"
+                        :class="index === currentIndex ? 'bg-primary text-white scale-110' : (jawaban[index] !== undefined ? 'bg-gold/20 text-primary border border-gold/30' : 'bg-cream-dark text-text-muted hover:bg-cream')"
+                        x-text="index + 1"></button>
                 </template>
             </div>
-
-            <!-- Question Card -->
             <div class="card-heritage mb-6">
                 <div class="flex items-start gap-3 mb-6">
                     <span class="bg-heritage-gradient text-white font-bold text-sm w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" x-text="currentIndex + 1"></span>
                     <p class="text-text-main font-medium leading-relaxed" x-text="soals[currentIndex].pertanyaan"></p>
                 </div>
-
-                <!-- Options -->
                 <div class="space-y-3">
-                    <template x-for="pilihan_key in ['a', 'b', 'c', 'd']" :key="pilihan_key">
-                        <button @click="jawaban[currentIndex] = pilihan_key"
-                                class="quiz-option w-full text-left flex items-center gap-3 p-3 rounded-lg border transition-all"
-                                :class="jawaban[currentIndex] === pilihan_key ? 'border-primary bg-primary/10' : 'border-gold/20 hover:border-gold/50'">
-                            <span class="w-8 h-8 rounded-lg flex items-center justify-center font-bold text-sm flex-shrink-0"
-                                  :class="jawaban[currentIndex] === pilihan_key ? 'bg-primary text-white' : 'bg-cream text-primary'"
-                                  x-text="pilihan_key.toUpperCase()">
-                            </span>
-                            <span class="text-sm" x-text="soals[currentIndex].pilihan[pilihan_key]"></span>
+                    <template x-for="pk in ['a', 'b', 'c', 'd']" :key="pk">
+                        <button @click="jawaban[currentIndex] = pk"
+                            class="quiz-option w-full text-left flex items-center gap-3 p-4 rounded-2xl border-2 transition-all transform hover:scale-[1.01] shadow-sm"
+                            :class="jawaban[currentIndex] === pk ? 'border-primary bg-primary/10 shadow-md' : 'border-gold/30 hover:border-gold bg-white/50 hover:bg-white'">
+                            <span class="w-10 h-10 rounded-xl flex items-center justify-center font-bold text-sm flex-shrink-0 transition-colors"
+                                :class="jawaban[currentIndex] === pk ? 'bg-primary text-white' : 'bg-gold/20 text-primary'"
+                                x-text="pk.toUpperCase()"></span>
+                            <span class="text-sm" x-text="soals[currentIndex].pilihan[pk]"></span>
                         </button>
                     </template>
                 </div>
             </div>
-
-            <!-- Bottom Navigation -->
-            <div class="flex items-center justify-between">
+            <div class="flex items-center justify-between w-full mt-8">
                 <button @click="if(currentIndex > 0) currentIndex--"
-                        class="flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-sm transition"
-                        :class="currentIndex === 0 ? 'bg-cream-dark text-text-muted cursor-not-allowed' : 'bg-white border border-gold/20 text-primary hover:bg-cream'"
-                        :disabled="currentIndex === 0">
-                    ← Sebelumnya
+                    class="flex items-center justify-center gap-1.5 px-3 sm:px-6 py-2 sm:py-3 rounded-xl font-bold text-xs sm:text-sm md:text-base whitespace-nowrap bg-white border-2 border-gold/40 text-primary hover:bg-cream hover:border-gold transition shadow-sm"
+                    :class="currentIndex === 0 ? 'opacity-50 cursor-not-allowed' : ''"
+                    :disabled="currentIndex === 0">
+                    <svg style="width:18px;height:18px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/></svg>
+                    <span class="hidden sm:inline">Sebelumnya</span>
+                </button>
+                
+                <div class="flex-grow flex justify-center px-2">
+                    <span class="text-xs sm:text-sm font-bold text-primary bg-white/90 backdrop-blur-sm border border-gold/30 px-4 py-1.5 rounded-full shadow-sm whitespace-nowrap">
+                        <span x-text="currentIndex + 1"></span> / <span x-text="soals.length"></span>
+                    </span>
+                </div>
+
+                <button x-show="currentIndex < soals.length - 1" @click="currentIndex++" 
+                    class="flex items-center justify-center gap-1.5 px-3 sm:px-6 py-2 sm:py-3 rounded-xl font-bold text-xs sm:text-sm md:text-base whitespace-nowrap bg-white border-2 border-gold/40 text-primary hover:bg-cream hover:border-gold transition shadow-sm ml-auto">
+                    <span class="hidden sm:inline">Selanjutnya</span>
+                    <svg style="width:18px;height:18px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
                 </button>
 
-                <button x-show="currentIndex < soals.length - 1" @click="currentIndex++" class="flex items-center gap-2 bg-heritage-gradient text-white px-6 py-2.5 rounded-xl font-semibold text-sm hover:opacity-90 transition">
-                    Selanjutnya →
-                </button>
-                <button x-show="currentIndex === soals.length - 1" @click="submitKuis" class="flex items-center gap-2 bg-accent text-white px-6 py-2.5 rounded-xl font-semibold text-sm hover:bg-accent/90 transition">
-                    ✓ Selesai & Lihat Hasil
+                <button x-show="currentIndex === soals.length - 1" @click="submitKuis" 
+                    class="flex items-center justify-center gap-1.5 px-3 sm:px-6 py-2 sm:py-3 rounded-xl font-bold text-xs sm:text-sm md:text-base whitespace-nowrap bg-accent border-2 border-accent/40 text-white hover:bg-accent/90 transition shadow-sm ml-auto">
+                    <span class="hidden sm:inline">Selesai</span>
+                    <svg style="width:18px;height:18px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
                 </button>
             </div>
         </div>
 
         <!-- Result Screen -->
-        <div x-show="selesai" class="animate-fade-in-up" style="display: none;">
+        <div x-show="selesai" class="animate-fade-in-up" style="display:none;">
             <div class="text-center mb-8">
                 <div class="inline-flex items-center justify-center w-24 h-24 rounded-full mb-4"
-                     :class="skor >= 80 ? 'bg-accent/10' : (skor >= 60 ? 'bg-gold/10' : 'bg-red-50')">
+                    :class="skor >= 80 ? 'bg-accent/10' : (skor >= 60 ? 'bg-gold/10' : 'bg-red-50')">
                     <span class="font-heading font-black text-4xl"
-                          :class="skor >= 80 ? 'text-accent' : (skor >= 60 ? 'text-gold-dark' : 'text-red-500')"
-                          x-text="skor"></span>
+                        :class="skor >= 80 ? 'text-accent' : (skor >= 60 ? 'text-gold-dark' : 'text-red-500')"
+                        x-text="skor"></span>
                 </div>
                 <h2 class="font-heading font-bold text-2xl text-primary-dark mb-1">Hasil Asesmen Diagnostik</h2>
                 <p class="text-text-light"><span x-text="namaSiswa"></span> — Benar: <span x-text="jawabanBenar"></span>/<span x-text="soals.length"></span></p>
                 <div class="inline-block mt-3 px-4 py-1.5 rounded-full text-sm font-semibold"
-                     :class="skor >= 80 ? 'bg-accent/10 text-accent' : (skor >= 60 ? 'bg-gold/10 text-gold-dark' : 'bg-red-50 text-red-500')"
-                     x-text="skor >= 80 ? '🌟 Sangat Baik!' : (skor >= 60 ? '👍 Cukup Baik' : '📖 Perlu Belajar Lagi')">
-                </div>
+                    :class="skor >= 80 ? 'bg-accent/10 text-accent' : (skor >= 60 ? 'bg-gold/10 text-gold-dark' : 'bg-red-50 text-red-500')"
+                    x-text="skor >= 80 ? '🌟 Sangat Baik!' : (skor >= 60 ? '👍 Cukup Baik' : '📖 Perlu Belajar Lagi')"></div>
             </div>
 
             <!-- Review -->
@@ -178,14 +163,16 @@
                 </template>
             </div>
 
-            <div class="flex flex-wrap gap-4 justify-center">
-                <button @click="resetKuis" class="px-6 py-2.5 bg-white border border-gold/20 text-primary rounded-xl font-semibold text-sm hover:bg-cream transition">
-                    🔄 Kerjakan Ulang
+            <div class="flex flex-col sm:flex-row flex-wrap gap-4 justify-center mt-8">
+                <button @click="resetKuis" class="flex items-center justify-center gap-1.5 px-6 py-3 rounded-xl font-bold text-sm md:text-base whitespace-nowrap bg-white border-2 border-gold/40 text-primary hover:bg-cream hover:border-gold transition shadow-sm">
+                    <svg style="width:18px;height:18px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+                    Kerjakan Ulang
                 </button>
-                <a href="pertemuan-1.html" class="px-6 py-2.5 bg-heritage-gradient text-white rounded-xl font-semibold text-sm hover:opacity-90 transition">
-                    Lanjut ke Pertemuan 1 →
+                <a href="pertemuan-1.html" class="flex items-center justify-center gap-1.5 px-6 py-3 rounded-xl font-bold text-sm md:text-base whitespace-nowrap bg-accent border-2 border-accent/40 text-white hover:bg-accent/90 transition shadow-sm">
+                    Lanjut ke Pertemuan 1
+                    <svg style="width:18px;height:18px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
                 </a>
-                <a :href="`leaderboard.html?kelas=${kodeKelas.toUpperCase()}&jenis=diagnostik`" class="px-6 py-2.5 text-white rounded-xl font-semibold text-sm hover:opacity-90 transition flex items-center gap-2 shadow-lg" style="background: linear-gradient(135deg, #D4A017, #F5D060);">
+                <a :href="`leaderboard.html?kelas=${kodeKelas.toUpperCase()}&jenis=diagnostik`" class="flex items-center justify-center gap-1.5 px-6 py-3 rounded-xl font-bold text-sm md:text-base whitespace-nowrap text-white hover:opacity-90 transition shadow-sm border-2 border-gold-light/40" style="background:linear-gradient(135deg,#D4A017,#F5D060);">
                     🏆 Lihat Leaderboard
                 </a>
             </div>
@@ -195,123 +182,64 @@
     <script>
         document.addEventListener('alpine:init', () => {
             Alpine.data('kuisDiagnostik', () => ({
-                mulai: false,
-                selesai: false,
-                namaSiswa: '',
-                kodeKelas: '',
-                currentIndex: 0,
-                jawaban: {},
-                skor: 0,
-                jawabanBenar: 0,
-                review: [],
-                soals: [
-                    {
-                        pertanyaan: 'Sebuah kubus memiliki panjang rusuk 4 cm. Berapakah volumenya?',
-                        pilihan: { a: '16 cm³', b: '32 cm³', c: '64 cm³', d: '96 cm³' },
-                        jawaban_benar: 'c',
-                        pembahasan: 'Volume kubus = s³ = 4³ = 64 cm³'
-                    },
-                    {
-                        pertanyaan: 'Balok dengan ukuran panjang 6 cm, lebar 4 cm, dan tinggi 3 cm memiliki volume…',
-                        pilihan: { a: '13 cm³', b: '24 cm³', c: '72 cm³', d: '96 cm³' },
-                        jawaban_benar: 'c',
-                        pembahasan: 'Volume balok = p × l × t = 6 × 4 × 3 = 72 cm³'
-                    },
-                    {
-                        pertanyaan: 'Sebuah kubus memiliki volume 125 cm³. Panjang rusuknya adalah…',
-                        pilihan: { a: '3 cm', b: '4 cm', c: '5 cm', d: '6 cm' },
-                        jawaban_benar: 'c',
-                        pembahasan: 'Volume kubus = s³, sehingga s = ∛125 = 5 cm'
-                    },
-                    {
-                        pertanyaan: 'Balok berukuran 10 cm × 5 cm × 2 cm memiliki luas permukaan…',
-                        pilihan: { a: '100 cm²', b: '140 cm²', c: '160 cm²', d: '200 cm²' },
-                        jawaban_benar: 'c',
-                        pembahasan: 'Luas permukaan = 2(pl + pt + lt) = 2(50 + 20 + 10) = 2(80) = 160 cm²'
-                    },
-                    {
-                        pertanyaan: 'Sebuah kubus memiliki 6 sisi yang sama besar. Jika satu sisi luasnya 9 cm², maka panjang rusuk kubus tersebut adalah…',
-                        pilihan: { a: '2 cm', b: '3 cm', c: '6 cm', d: '9 cm' },
-                        jawaban_benar: 'b',
-                        pembahasan: 'Luas sisi kubus berbentuk persegi = s². Jika s² = 9, maka s = √9 = 3 cm'
-                    },
-                    {
-                        pertanyaan: 'Sebuah balok memiliki panjang 5 cm, lebar 3 cm, dan tinggi 2 cm. Luas permukaannya adalah…',
-                        pilihan: { a: '30 cm²', b: '62 cm²', c: '60 cm²', d: '90 cm' },
-                        jawaban_benar: 'b',
-                        pembahasan: 'Luas permukaan balok = 2(pl + pt + lt) = 2(15 + 10 + 6) = 2(31) = 62 cm²'
-                    },
-                    {
-                        pertanyaan: 'Sebuah balok diputar posisinya, tetapi ukurannya tetap sama. Apa yang berubah?',
-                        pilihan: { a: 'Volume berubah', b: 'Luas permukaan berubah', c: 'Bentuk berubah', d: 'Tidak ada yang berubah' },
-                        jawaban_benar: 'd',
-                        pembahasan: 'Karena ukuran tidak direkayasa, maka memutar posisi balok tidak akan mengubah volume, luas permukaan, maupun bentuk aslinya.'
-                    },
-                    {
-                        pertanyaan: 'Rumus luas permukaan kubus adalah…',
-                        pilihan: { a: '4s²', b: '6s²', c: 's³', d: '2s²' },
-                        jawaban_benar: 'b',
-                        pembahasan: 'Kubus memiliki 6 buah sisi yang kongruen berbentuk persegi. Jika luas tiap persegi adalah s², maka total luas permukaannya adalah 6s².'
-                    },
-                    {
-                        pertanyaan: 'Balok berukuran 7 cm × 3 cm × 2 cm. Untuk menghitung volumenya, dilakukan dengan cara…',
-                        pilihan: { a: 'Menjumlahkan semua sisi', b: 'Mengalikan panjang, lebar, dan tinggi', c: 'Menghitung luas alas saja', d: 'Mengurangi panjang dengan lebar' },
-                        jawaban_benar: 'b',
-                        pembahasan: 'Volume bangun ruang sisi datar dengan penampang lurus seperti balok selalu dihitung dengan rumus = p × l × t.'
-                    },
-                    {
-                        pertanyaan: 'Akuarium berbentuk balok berukuran 10 cm × 5 cm × 4 cm memiliki volume maksimal…',
-                        pilihan: { a: '50 cm³', b: '100 cm³', c: '200 cm³', d: '400 cm³' },
-                        jawaban_benar: 'c',
-                        pembahasan: 'Volume maksimal adalah ruang yang bisa menampung air di akuarium tersebut = p × l × t = 10 × 5 × 4 = 200 cm³'
-                    }
+                mulai: false, selesai: false,
+                namaSiswa: '', kodeKelas: '',
+                currentIndex: 0, jawaban: {},
+                skor: 0, jawabanBenar: 0, review: [],
+                soals: [],
+                bankSoal: [
+                    { pertanyaan: 'Sebuah persegi memiliki panjang sisi 6 cm. Kelilingnya adalah...', pilihan: { a: '12 cm', b: '24 cm', c: '36 cm', d: '48 cm' }, jawaban_benar: 'b', pembahasan: 'Keliling persegi = 4 × s = 4 × 6 = 24 cm' },
+                    { pertanyaan: 'Sebuah persegi memiliki sisi 8 cm. Luasnya adalah...', pilihan: { a: '16 cm²', b: '32 cm²', c: '64 cm²', d: '128 cm²' }, jawaban_benar: 'c', pembahasan: 'Luas persegi = s² = 8² = 64 cm²' },
+                    { pertanyaan: 'Sebuah persegi panjang memiliki panjang 10 cm dan lebar 4 cm. Kelilingnya adalah...', pilihan: { a: '14 cm', b: '28 cm', c: '40 cm', d: '48 cm' }, jawaban_benar: 'b', pembahasan: 'Keliling persegi panjang = 2(p + l) = 2(10 + 4) = 28 cm' },
+                    { pertanyaan: 'Sebuah persegi panjang memiliki panjang 7 cm dan lebar 5 cm. Luasnya adalah...', pilihan: { a: '12 cm²', b: '24 cm²', c: '35 cm²', d: '49 cm²' }, jawaban_benar: 'c', pembahasan: 'Luas persegi panjang = p × l = 7 × 5 = 35 cm²' },
+                    { pertanyaan: 'Sebuah persegi memiliki keliling 20 cm. Panjang sisinya adalah...', pilihan: { a: '4 cm', b: '5 cm', c: '6 cm', d: '10 cm' }, jawaban_benar: 'b', pembahasan: 'Keliling = 4s → s = 20 ÷ 4 = 5 cm' },
+                    { pertanyaan: 'Sebuah persegi panjang memiliki panjang 12 cm dan lebar 3 cm. Luasnya adalah...', pilihan: { a: '15 cm²', b: '24 cm²', c: '36 cm²', d: '48 cm²' }, jawaban_benar: 'c', pembahasan: 'Luas = p × l = 12 × 3 = 36 cm²' },
+                    { pertanyaan: 'Sebuah persegi memiliki sisi 9 cm. Luasnya adalah...', pilihan: { a: '18 cm²', b: '36 cm²', c: '72 cm²', d: '81 cm²' }, jawaban_benar: 'd', pembahasan: 'Luas persegi = s² = 9² = 81 cm²' },
+                    { pertanyaan: 'Keliling sebuah persegi adalah 36 cm. Luasnya adalah...', pilihan: { a: '36 cm²', b: '64 cm²', c: '81 cm²', d: '144 cm²' }, jawaban_benar: 'c', pembahasan: 'Sisi = 36 ÷ 4 = 9 cm. Luas = 9² = 81 cm²' },
+                    { pertanyaan: 'Luas sebuah persegi panjang adalah 48 cm². Jika panjangnya 12 cm, lebarnya adalah...', pilihan: { a: '2 cm', b: '3 cm', c: '4 cm', d: '6 cm' }, jawaban_benar: 'c', pembahasan: 'Lebar = Luas ÷ panjang = 48 ÷ 12 = 4 cm' },
+                    { pertanyaan: 'Sebuah persegi memiliki luas 64 cm². Kelilingnya adalah...', pilihan: { a: '16 cm', b: '24 cm', c: '32 cm', d: '64 cm' }, jawaban_benar: 'c', pembahasan: 'Sisi = √64 = 8 cm. Keliling = 4 × 8 = 32 cm' },
+                    { pertanyaan: 'Sebuah persegi panjang memiliki keliling 30 cm. Jika panjangnya 9 cm, lebarnya adalah...', pilihan: { a: '3 cm', b: '6 cm', c: '9 cm', d: '12 cm' }, jawaban_benar: 'b', pembahasan: '2(p + l) = 30 → p + l = 15 → l = 15 - 9 = 6 cm' },
+                    { pertanyaan: 'Panjang sebuah persegi panjang dua kali lebarnya. Jika lebarnya 5 cm, luasnya adalah...', pilihan: { a: '25 cm²', b: '50 cm²', c: '75 cm²', d: '100 cm²' }, jawaban_benar: 'b', pembahasan: 'p = 2l = 10 cm. Luas = p × l = 10 × 5 = 50 cm²' },
+                    { pertanyaan: 'Sebuah persegi panjang memiliki luas 72 cm² dan lebar 6 cm. Kelilingnya adalah...', pilihan: { a: '24 cm', b: '30 cm', c: '36 cm', d: '42 cm' }, jawaban_benar: 'c', pembahasan: 'p = 72 ÷ 6 = 12 cm. Keliling = 2(12 + 6) = 36 cm' },
+                    { pertanyaan: 'Keliling suatu persegi panjang adalah 40 cm. Jika panjangnya 12 cm, luasnya adalah...', pilihan: { a: '48 cm²', b: '64 cm²', c: '72 cm²', d: '96 cm²' }, jawaban_benar: 'd', pembahasan: '2(12 + l) = 40 → l = 8 cm. Luas = 12 × 8 = 96 cm²' },
+                    { pertanyaan: 'Sebuah persegi memiliki luas yang sama dengan persegi panjang berukuran 16 cm × 4 cm. Panjang sisi persegi adalah...', pilihan: { a: '6 cm', b: '8 cm', c: '10 cm', d: '12 cm' }, jawaban_benar: 'b', pembahasan: 'Luas persegi panjang = 64 cm². Sisi persegi = √64 = 8 cm' },
+                    { pertanyaan: 'Sebuah persegi panjang memiliki keliling 50 cm. Jika panjangnya 5 cm lebih panjang dari lebarnya, luasnya adalah...', pilihan: { a: '120 cm²', b: '140 cm²', c: '150 cm²', d: '156 cm²' }, jawaban_benar: 'c', pembahasan: 'p = l + 5. 2(l+5+l) = 50 → l = 10, p = 15. Luas = 15×10 = 150 cm²' },
+                    { pertanyaan: 'Sebuah taman berbentuk persegi memiliki keliling 64 m. Jalan setapak di dalamnya berbentuk persegi dengan sisi setengah sisi taman. Luas jalan tersebut adalah...', pilihan: { a: '16 m²', b: '32 m²', c: '64 m²', d: '256 m²' }, jawaban_benar: 'c', pembahasan: 'Sisi taman = 16 m. Sisi jalan = 8 m. Luas = 8² = 64 m²' },
+                    { pertanyaan: 'Dua buah persegi memiliki perbandingan sisi 1 : 2. Perbandingan luasnya adalah...', pilihan: { a: '1 : 2', b: '1 : 3', c: '1 : 4', d: '2 : 4' }, jawaban_benar: 'c', pembahasan: 'Perbandingan luas = (1)² : (2)² = 1 : 4' },
+                    { pertanyaan: 'Sebuah persegi panjang memiliki luas 120 cm². Jika panjangnya dikurangi 2 cm dan lebarnya ditambah 2 cm, luasnya tetap. Ukuran panjang dan lebar semula adalah...', pilihan: { a: '10 cm dan 12 cm', b: '12 cm dan 10 cm', c: '15 cm dan 8 cm', d: '20 cm dan 6 cm' }, jawaban_benar: 'b', pembahasan: 'p=12, l=10. Cek: (12-2)(10+2) = 10×12 = 120 ✓. Luas = 12×10 = 120 ✓' },
+                    { pertanyaan: 'Sebuah persegi memiliki sisi 10 cm. Kelilingnya sama dengan keliling persegi panjang yang panjangnya 15 cm. Lebar persegi panjang tersebut adalah...', pilihan: { a: '5 cm', b: '7 cm', c: '10 cm', d: '15 cm' }, jawaban_benar: 'a', pembahasan: 'Keliling persegi = 40 cm. 2(15 + l) = 40 → l = 5 cm' }
                 ],
                 mulaiKuis() {
-                    if (!this.namaSiswa.trim()) {
-                        alert('Silakan masukkan nama Anda terlebih dahulu.');
-                        return;
-                    }
-                    if (!this.kodeKelas.trim()) {
-                        alert('Silakan masukkan Kode Kelas Anda (Contoh: 7A).');
-                        return;
-                    }
+                    if (!this.namaSiswa.trim()) { alert('Silakan masukkan nama Anda terlebih dahulu.'); return; }
+                    if (!this.kodeKelas.trim()) { alert('Silakan masukkan Kode Kelas Anda.'); return; }
+                    // Pilih 10 soal secara acak
+                    let shuffled = [...this.bankSoal].sort(() => Math.random() - 0.5);
+                    this.soals = shuffled.slice(0, 10);
                     this.mulai = true;
                 },
                 submitKuis() {
                     if (Object.keys(this.jawaban).length < this.soals.length) {
                         if (!confirm('Anda belum menjawab semua soal. Yakin ingin menyelesaikan kuis?')) return;
                     }
-                    
                     let benar = 0;
                     this.review = this.soals.map((soal, index) => {
                         let jawab = this.jawaban[index] || null;
                         let isBenar = jawab === soal.jawaban_benar;
                         if (isBenar) benar++;
-                        return {
-                            pertanyaan: soal.pertanyaan,
-                            jawaban_siswa: jawab,
-                            jawaban_benar: soal.jawaban_benar,
-                            is_benar: isBenar,
-                            pembahasan: soal.pembahasan
-                        };
+                        return { pertanyaan: soal.pertanyaan, jawaban_siswa: jawab, jawaban_benar: soal.jawaban_benar, is_benar: isBenar, pembahasan: soal.pembahasan };
                     });
-                    
                     this.jawabanBenar = benar;
                     this.skor = Math.round((benar / this.soals.length) * 100);
                     this.selesai = true;
-
                     if (window.simpanSkorKeFirebase) {
                         window.simpanSkorKeFirebase(this.namaSiswa, this.skor, this.jawabanBenar, this.soals.length, this.kodeKelas);
                     }
                 },
                 resetKuis() {
-                    this.currentIndex = 0;
-                    this.jawaban = {};
-                    this.mulai = false;
-                    this.selesai = false;
-                    this.skor = 0;
-                    this.jawabanBenar = 0;
-                    this.review = [];
+                    this.currentIndex = 0; this.jawaban = {};
+                    this.mulai = false; this.selesai = false;
+                    this.skor = 0; this.jawabanBenar = 0; this.review = [];
+                    this.soals = [];
                 }
             }));
         });
@@ -319,36 +247,22 @@
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
         import { getDatabase, ref, push, set } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js";
-
         const firebaseConfig = {
             apiKey: "AIzaSyDpkzYa9rIgoex2YCZGfHMhC4OFv8OuEiw",
             authDomain: "fortifylearn.firebaseapp.com",
             databaseURL: "https://fortifylearn-default-rtdb.asia-southeast1.firebasedatabase.app",
-            projectId: "fortifylearn",
-            storageBucket: "fortifylearn.firebasestorage.app",
-            messagingSenderId: "523348398414",
-            appId: "1:523348398414:web:57b5adbbcbcd0ecf954e1f",
+            projectId: "fortifylearn", storageBucket: "fortifylearn.firebasestorage.app",
+            messagingSenderId: "523348398414", appId: "1:523348398414:web:57b5adbbcbcd0ecf954e1f",
             measurementId: "G-JGEHREPWL7"
         };
-
         const app = initializeApp(firebaseConfig);
         const database = getDatabase(app);
-
         window.simpanSkorKeFirebase = function(nama, skor, benar, total, kodeKelas) {
             const classCode = kodeKelas.toUpperCase().trim();
-            const leaderboardRef = ref(database, `leaderboard/diagnostik/${classCode}`);
-            const newScoreRef = push(leaderboardRef);
-            set(newScoreRef, {
-                nama: nama,
-                skor: skor,
-                benar: benar,
-                total: total,
-                waktu: Date.now()
-            }).then(() => {
-                console.log("Skor berhasil disimpan ke Leaderboard Diagnostik!");
-            }).catch((error) => {
-                console.error("Gagal menyimpan skor:", error);
-            });
+            const newScoreRef = push(ref(database, `leaderboard/diagnostik/${classCode}`));
+            set(newScoreRef, { nama, skor, benar, total, waktu: Date.now() })
+                .then(() => console.log("Skor berhasil disimpan!"))
+                .catch(e => console.error("Gagal:", e));
         };
     </script>
 </body>

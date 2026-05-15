@@ -1,0 +1,364 @@
+﻿
+============================================================
+PAGE 1
+============================================================
+SOAL ASESMEN DIAGNOSTIK
+1. Sebuah persegi memiliki panjang sisi 6 cm. Kelilingnya adalah à
+A. 12 cm
+B. 24 cm [MERAH]
+C. 36 cm
+D. 48 cm
+2. Sebuah persegi memiliki sisi 8 cm. Luasnya adalah à
+A. 16 cm▓
+B. 32 cm▓
+C. 64 cm▓ [MERAH]
+D. 128 cm▓
+3. Sebuah persegi panjang memiliki panjang 10 cm dan lebar 4 cm. Kelilingnya adalah à
+A. 14 cm
+B. 28 cm [MERAH]
+C. 40 cm
+D. 48 cm
+4. Sebuah persegi panjang memiliki panjang 7 cm dan lebar 5 cm. Luasnya adalah à
+A. 12 cm▓
+B. 24 cm▓
+C. 35 cm▓ [MERAH]
+D. 49 cm▓
+5. Sebuah persegi memiliki keliling 20 cm. Panjang sisinya adalah à
+A. 4 cm
+B. 5 cm [MERAH]
+C. 6 cm
+D. 10 cm
+6. Sebuah persegi panjang memiliki panjang 12 cm dan lebar 3 cm. Luasnya adalah à
+A. 15 cm▓
+B. 24 cm▓
+C. 36 cm▓ [MERAH]
+D. 48 cm▓
+7. Sebuah persegi memiliki sisi 9 cm. Luasnya adalah à
+A. 18 cm▓
+B. 36 cm▓
+C. 72 cm▓
+D. 81 cm▓ [MERAH]
+8. Keliling sebuah persegi adalah 36 cm. Luasnya adalah à
+A. 36 cm▓
+B. 64 cm▓
+
+============================================================
+PAGE 2
+============================================================
+C. 81 cm▓ [MERAH]
+D. 144 cm▓
+9. Luas sebuah persegi panjang adalah 48 cm▓. Jika panjangnya 12 cm, lebarnya adalah à
+A. 2 cm
+B. 3 cm
+C. 4 cm [MERAH]
+D. 6 cm
+10. Sebuah persegi memiliki luas 64 cm▓. Kelilingnya adalah à
+A. 16 cm
+B. 24 cm
+C. 32 cm [MERAH]
+D. 64 cm
+11. Sebuah persegi panjang memiliki keliling 30 cm. Jika panjangnya 9 cm, lebarnya adalah
+à
+A. 3 cm
+B. 6 cm [MERAH]
+C. 9 cm
+D. 12 cm
+12. Panjang sebuah persegi panjang dua kali lebarnya. Jika lebarnya 5 cm, luasnya adalah à
+A. 25 cm▓
+B. 50 cm▓ [MERAH]
+C. 75 cm▓
+D. 100 cm▓
+13. Sebuah persegi panjang memiliki luas 72 cm▓ dan lebar 6 cm. Kelilingnya adalah à
+A. 24 cm
+B. 30 cm
+C. 36 cm [MERAH]
+D. 42 cm
+14. Keliling suatu persegi panjang adalah 40 cm. Jika panjangnya 12 cm, luasnya adalah à
+A. 48 cm▓
+B. 64 cm▓
+C. 72 cm▓
+D. 96 cm▓ [MERAH]
+15. Sebuah persegi memiliki luas yang sama dengan persegi panjang berukuran 16 cm ╫ 4
+cm. Panjang sisi persegi adalah à
+A. 6 cm
+B. 8 cm [MERAH]
+C. 10 cm
+D. 12 cm
+
+============================================================
+PAGE 3
+============================================================
+16. Sebuah persegi panjang memiliki keliling 50 cm. Jika panjangnya 5 cm lebih panjang
+dari lebarnya, luasnya adalah à
+A. 120 cm▓
+B. 140 cm▓
+C. 150 cm▓ [MERAH]
+D. 156 cm▓
+17. Sebuah taman berbentuk persegi memiliki keliling 64 m. Jalan setapak di dalamnya
+berbentuk persegi dengan sisi setengah sisi taman. Luas jalan tersebut adalah à
+A. 16 m▓
+B. 32 m▓
+C. 64 m▓ [MERAH]
+D. 256 m▓
+18. Dua buah persegi memiliki perbandingan sisi 1 : 2. Perbandingan luasnya adalah à
+A. 1 : 2
+B. 1 : 3
+C. 1 : 4 [MERAH]
+D. 2 : 4
+19. Sebuah persegi panjang memiliki luas 120 cm▓. Jika panjangnya dikurangi 2 cm dan
+lebarnya ditambah 2 cm, luasnya tetap. Ukuran panjang dan lebar semula adalah à
+A. 10 cm dan 12 cm
+B. 12 cm dan 10 cm [MERAH]
+C. 15 cm dan 8 cm
+D. 20 cm dan 6 cm
+20. Sebuah persegi memiliki sisi 10 cm. Kelilingnya sama dengan keliling persegi panjang
+yang panjangnya 15 cm. Lebar persegi panjang tersebut adalah à
+A. 5 cm [MERAH]
+B. 7 cm
+C. 10 cm
+D. 15 cm
+
+============================================================
+PAGE 4
+============================================================
+SOAL UJI KOMPETENSI
+1. Benteng Fort Willem I di Ambarawa memiliki banyak ruangan yang dulunya digunakan sebagai
+tempat penyimpanan logistik. Salah satu ruangan tersebut dapat dimodelkan sebagai bangun
+ruang berbentuk balok dengan panjang 20 meter, lebar 10 meter, dan tinggi 5 meter. Perhitungan
+volume ruangan penting untuk mengetahui kapasitas maksimum penyimpanan barang di
+dalamnya. Volume ruangan tersebut adalah à
+A. 500 m│
+B. 1000 m│ [MERAH]
+C. 1500 m│
+D. 2000 m│
+2. Di dalam kompleks benteng, terdapat lorong panjang yang menghubungkan beberapa ruangan
+utama. Lorong ini berbentuk balok dengan panjang 15 meter, tinggi 10 meter dan lebar 4 meter.
+Lantai lorong tersebut akan dipasang ubin untuk keperluan renovasi agar lebih nyaman dilalui
+pengunjung. Luas lantai lorong yang akan dipasangi ubin adalah à
+A. 40 m▓
+B. 60 m▓ [MERAH]
+C. 80 m▓
+D. 100 m▓
+3. Salah satu ruang penjagaan di Benteng Fort Willem I berbentuk balok dengan ukuran panjang 12
+meter, lebar 8 meter, dan tinggi 4 meter. Dalam rangka perawatan bangunan, seluruh dinding dan
+atap ruangan akan dicat ulang, sedangkan lantai tidak termasuk bagian yang dicat. Luas
+permukaan yang akan dicat adalah à
+A. 256 m▓
+B. 320 m▓
+C. 352 m▓ [MERAH]
+D. 384 m▓
+4. Pada bagian sudut benteng terdapat menara kecil yang digunakan untuk mengawasi area sekitar.
+Menara ini dapat dimodelkan sebagai bangun ruang berbentuk kubus dengan panjang rusuk 4
+meter. Perhitungan volume diperlukan untuk mengetahui kapasitas ruang di dalam menara
+tersebut. Volume menara tersebut adalah à
+A. 16 m│
+B. 32 m│
+C. 64 m│ [MERAH]
+D. 128 m│
+5. Selain fungsi pengawasan, menara di benteng juga perlu dirawat secara berkala, termasuk
+pengecatan seluruh permukaannya. Sebuah menara berbentuk kubus memiliki panjang rusuk 5
+meter, sehingga seluruh sisi luarnya akan dicat ulang agar tetap terjaga dari kerusakan.
+Luas permukaan menara tersebut adalah à
+A. 100 m▓
+B. 125 m▓
+
+============================================================
+PAGE 5
+============================================================
+C. 150 m▓ [MERAH]
+D. 200 m▓
+6. Sebuah gudang di dalam benteng digunakan untuk menyimpan perlengkapan militer dan
+dimodelkan sebagai balok dengan ukuran panjang 10 meter, lebar 6 meter, dan tinggi 4 meter.
+Untuk keperluan analisis, dilakukan beberapa perhitungan terkait ukuran bangunan tersebut.
+Tentukan kebenaran pernyataan berikut:
+(1) Volume gudang adalah 240 m│
+(2) Luas lantai gudang adalah 60 m▓
+(3) Luas permukaan seluruh bangunan adalah 200 m▓
+A. (1), (2), dan (3) benar
+B. (1) dan (2) benar [MERAH]
+C. (2) dan (3) benar
+D. hanya (1) benar
+7. (Pilihan Ganda Kompleks) Salah satu ruang penyimpanan amunisi di Benteng Fort Willem I
+berbentuk balok dengan ukuran panjang 8 meter, lebar 5 meter, dan tinggi 4 meter. Perhitungan
+luas dan volume ruang sangat penting untuk memastikan keamanan serta efisiensi penyimpanan
+barang.
+Pilih semua pernyataan yang benar:
+A. Volume = 160 m│ [MERAH]
+B. Luas lantai = 40 m▓ [MERAH]
+C. Luas permukaan = 184 m▓ [MERAH]
+D. Luas permukaan = 196 m▓
+8. Sebuah ruang di dalam benteng memiliki volume 300 m│. Ruangan tersebut memiliki panjang 10
+meter dan lebar 6 meter. Informasi ini digunakan untuk menentukan tinggi ruangan dalam rangka
+perencanaan ventilasi udara.
+Tinggi ruangan tersebut adalah à
+A. 3 m
+B. 4 m
+C. 5 m [MERAH]
+D. 6 m
+9. Salah satu menara berbentuk kubus di benteng diketahui memiliki luas permukaan sebesar 216
+m▓. Informasi ini dapat digunakan untuk menentukan ukuran panjang rusuk menara tersebut.
+Panjang rusuk kubus tersebut adalah à
+A. 4 m
+B. 5 m
+C. 6 m [MERAH]
+D. 8 m
+10. Sebuah ruangan utama di benteng berbentuk balok dengan ukuran panjang 14 meter, lebar 6
+meter, dan tinggi 5 meter. Data ini digunakan untuk menghitung berbagai aspek ukuran
+bangunan dalam rangka pemeliharaan dan renovasi.
+
+============================================================
+PAGE 6
+============================================================
+Tentukan kebenaran pernyataan berikut:
+(1) Volume = 420 m│
+(2) Luas permukaan = 388 m▓
+(3) Luas lantai = 84 m▓
+A. semua benar
+B. (1) dan (3) benar [MERAH]
+C. (1) dan (2) benar
+D. hanya (2) benar
+11. Pada bagian dalam benteng terdapat ruangan besar berbentuk balok dengan ukuran panjang 18
+meter, lebar 10 meter, dan tinggi 6 meter. Untuk keperluan renovasi, hanya dinding ruangan yang
+akan dicat, tanpa melibatkan lantai dan atap. Luas dinding yang akan dicat adalah à
+A. 336 m▓ [MERAH]
+B. 420 m▓
+C. 480 m▓
+D. 540 m▓
+12. (Pilihan Ganda Kompleks) Sebuah gudang di dalam benteng berbentuk kubus dengan volume
+512 m│. Perhitungan ukuran kubus ini diperlukan untuk menentukan kebutuhan bahan bangunan
+saat renovasi.
+Pilih semua pernyataan yang benar:
+A. Panjang rusuk = 8 m [MERAH]
+B. Luas permukaan = 384 m▓ [MERAH]
+C. Luas satu sisi = 64 m▓ [MERAH]
+D. Luas permukaan = 256 m▓
+13. Salah satu ruang penyimpanan berbentuk balok memiliki ukuran panjang 12 meter, lebar 8 meter,
+dan tinggi 6 meter. Perhitungan volume ruang ini penting untuk menentukan kapasitas
+maksimum penyimpanan barang.
+Volume ruang tersebut adalah à
+A. 480 m│
+B. 576 m│ [MERAH]
+C. 600 m│
+D. 768 m│
+14. Sebuah menara berbentuk kubus dengan panjang rusuk 7 meter digunakan sebagai pos
+pengamatan. Untuk memastikan keakuratan data bangunan, dilakukan beberapa perhitungan
+matematis. Tentukan kebenaran pernyataan berikut:
+(1) Volume = 343 m│ [MERAH]
+(2) Luas permukaan = 294 m▓
+(3) Luas satu sisi = 49 m▓ [MERAH]
+A. semua benar
+B. (1) dan (3) benar [MERAH]
+
+============================================================
+PAGE 7
+============================================================
+C. (2) dan (3) benar
+D. hanya (1) benar
+15. Sebuah balok di dalam benteng memiliki luas permukaan 352 m▓, dengan panjang 10 meter dan [MERAH]
+lebar 6 meter. Tinggi balok perlu ditentukan untuk melengkapi data bangunan. [MERAH]
+Tinggi balok tersebut adalah à [MERAH]
+A. 4 m [MERAH]
+B. 5 m [MERAH]
+C. 6 m [MERAH]
+D. 8 m [MERAH]
+16. Sebuah ruangan di benteng memiliki bentuk kubus dengan volume 343 m│. Bangunan ini
+digunakan sebagai ruang penyimpanan khusus sehingga diperlukan perhitungan ukuran
+rusuknya.
+Panjang rusuk kubus tersebut adalah à
+A. 5 m
+B. 6 m
+C. 7 m [MERAH]
+D. 8 m
+17. (Pilihan Ganda Kompleks) Sebuah ruangan berbentuk balok dengan ukuran panjang 20 meter,
+lebar 10 meter, dan tinggi 5 meter digunakan sebagai aula pertemuan di dalam benteng.
+Perhitungan ukuran ruang ini penting untuk berbagai keperluan operasional.
+Pilih semua pernyataan yang benar:
+A. Volume = 1000 m│ [MERAH]
+B. Luas permukaan = 700 m▓ [MERAH]
+C. Luas lantai = 200 m▓ [MERAH]
+D. Luas dinding = 300 m▓
+18. Sebuah balok di dalam benteng memiliki volume 480 m│ dan luas alas 60 m▓. Data ini digunakan
+untuk menentukan tinggi ruangan dalam proses perencanaan renovasi.
+Tinggi balok tersebut adalah à
+A. 6 m
+B. 8 m [MERAH]
+C. 10 m
+D. 12 m
+19. Sebuah kubus di dalam benteng memiliki luas permukaan 600 m▓. Informasi ini digunakan untuk
+menentukan panjang rusuk bangunan tersebut.
+Panjang rusuk kubus adalah à
+A. 8 m
+B. 10 m [MERAH]
+C. 12 m
+D. 15 m
+
+============================================================
+PAGE 8
+============================================================
+20. (Pilihan Ganda Kompleks) Sebuah ruangan berbentuk balok dengan ukuran panjang 15 meter,
+lebar 8 meter, dan tinggi 6 meter digunakan untuk penyimpanan logistik di dalam benteng.
+Beberapa perhitungan dilakukan untuk memastikan kesesuaian kapasitas ruang.
+Tentukan kebenaran pernyataan berikut:
+(1) Volume = 720 m│ [MERAH]
+(2) Luas permukaan = 444 m▓
+(3) Luas lantai = 120 m▓ [MERAH]
+21. (Pilihan Benar Salah) Perhatikan data ukuran Ruang Logistik di Benteng Fort Willem I berikut!
+Bentuk: Balok
+Panjang = 20 m
+Lebar = 10 m
+Tinggi = 5 m
+Pilihlah pernyataan yang benar!
+[ ] Volume ruangan tersebut adalah 1.000 m│ [MERAH]
+[ ] Luas lantai ruangan tersebut adalah 200 m▓ [MERAH]
+[ ] Volume ruangan tersebut lebih kecil daripada volume menara kubus dengan rusuk 4 m.
+22. (Pilihan Benar Salah) Perhatikan data ukuran Ruang Penjagaan di Benteng Fort Willem I
+berikut!
+Bentuk: Balok
+Panjang = 12 m
+Lebar = 8 m
+Tinggi = 4 m
+Pilihlah pernyataan yang benar!
+[ ] Luas permukaan yang akan dicat (dinding dan atap) adalah 256 m▓ [MERAH]
+[ ] Luas lantai ruangan tersebut adalah 96 m▓. [MERAH]
+[ ] Keliling lantai ruangan tersebut adalah 40 m. [MERAH]
+23. (Pilihan Benar Salah) Perhatikan data ukuran Menara Pengawas di Benteng Fort Willem I
+berikut!
+Bentuk: Kubus
+Panjang rusuk = 4 m
+Pilihlah pernyataan yang benar!
+[ ] Volume menara tersebut adalah 64 m│ [MERAH]
+[ ] Luas satu sisi permukaan menara adalah 16 m▓. [MERAH]
+[ ] Volume menara ini lebih besar daripada volume lorong dengan luas lantai 60 m▓ dan tinggi 1 [MERAH]
+m. [MERAH]
+24. (Pilihan Benar Salah) Perhatikan data ukuran Gudang Amunisi di Benteng Fort Willem I
+berikut!
+Bentuk: Balok
+Panjang = 8 m
+Lebar = 5 m
+
+============================================================
+PAGE 9
+============================================================
+Tinggi = 4 m
+Pilihlah pernyataan yang benar!
+[ ] Volume gudang tersebut adalah 160 m│ [MERAH]
+[ ] Luas lantai gudang tersebut adalah 40 m▓ [MERAH]
+[ ] Luas permukaan total gudang tersebut adalah 184 m▓ [MERAH]
+25. (Pilihan Benar Salah) Perhatikan data ukuran Ruang Utama di Benteng Fort Willem I berikut!
+Bentuk: Balok
+Panjang = 14 m
+Lebar = 6 m
+Tinggi = 5 m
+Pilihlah pernyataan yang benar!
+[ ] Volume ruang utama adalah 420 m│ [MERAH]
+[ ] Luas lantai ruang utama (84 m▓) lebih besar daripada luas lantai gudang amunisi (40 m▓) [MERAH]
+[ ] Luas permukaan total ruang utama adalah 388 m▓
+26. (Pilihan Benar Salah) Perhatikan data ukuran Menara Renovasi di Benteng Fort Willem I
+berikut!
+Bentuk: Kubus
+Panjang rusuk = 7 m
+Pilihlah pernyataan yang benar!
+[ ] Volume menara tersebut adalah 343 m│ [MERAH]
+[ ] Luas satu sisi permukaan menara adalah 49 m▓ [MERAH]
+[ ] Urutan volume dari yang terkecil ke terbesar adalah Menara rusuk 4 m û Gudang Amunisi û [MERAH]
+Menara rusuk 7 m. [MERAH]
