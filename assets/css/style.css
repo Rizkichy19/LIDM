@@ -7,8 +7,8 @@
 
 /* ===== CSS Variables (Theme) ===== */
 :root {
-    --font-sans: 'Google Sans Flex', 'Montserrat', ui-sans-serif, system-ui, sans-serif;
-    --font-heading: 'Montserrat', 'Anton', ui-sans-serif, system-ui, sans-serif;
+    --font-sans: 'Grandstander', ui-sans-serif, system-ui, sans-serif;
+    --font-heading: 'Grandstander', 'Anton', ui-sans-serif, system-ui, sans-serif;
     --font-anton: 'Anton', sans-serif;
     --font-oleo: 'Oleo Script', cursive;
 
@@ -115,15 +115,15 @@ a {
 /* ===== Card Styles ===== */
 .card-heritage {
     background: white;
-    border-radius: 1rem;
+    border-radius: 1.5rem;
     padding: 2rem;
-    box-shadow: 0 4px 20px rgba(123, 63, 0, 0.08);
-    border: 1px solid rgba(212, 160, 23, 0.15);
+    box-shadow: 4px 4px 0px #7B3F00;
+    border: 3px solid #7B3F00;
     transition: all 0.3s ease;
 }
 .card-heritage:hover {
-    box-shadow: 0 8px 30px rgba(123, 63, 0, 0.15);
-    transform: translateY(-4px);
+    box-shadow: 6px 6px 0px #7B3F00;
+    transform: translateY(-2px) translateX(-2px);
 }
 
 /* ===== CBL Step Cards ===== */
@@ -141,18 +141,36 @@ a {
 /* ===== Quiz Option Styles ===== */
 .quiz-option {
     background: white;
-    border: 2px solid rgba(212, 160, 23, 0.2);
-    border-radius: 0.75rem;
+    border: 3px solid #7B3F00;
+    border-radius: 1rem;
     padding: 1rem 1.5rem;
     cursor: pointer;
-    transition: all 0.3s ease;
+    box-shadow: 3px 3px 0px #7B3F00;
+    transition: all 0.2s ease;
     width: 100%;
     text-align: left;
 }
-.quiz-option:hover        { border-color: var(--color-gold); background: rgba(253,248,240,0.8); transform: translateX(4px); }
-.quiz-option.selected     { border-color: var(--color-primary); background: rgba(123,63,0,0.05); box-shadow: 0 0 0 3px rgba(123,63,0,0.1); }
-.quiz-option.correct      { border-color: var(--color-accent); background: rgba(46,125,50,0.05); }
-.quiz-option.wrong        { border-color: #E53935; background: rgba(229,57,53,0.05); }
+.quiz-option:hover { 
+    border-color: #D4A017; 
+    background: #FFFAF0; 
+    transform: translate(-2px, -2px);
+    box-shadow: 5px 5px 0px #D4A017; 
+}
+.quiz-option.selected { 
+    border-color: var(--color-primary); 
+    background: #EBF8FF; 
+    box-shadow: 4px 4px 0px var(--color-primary); 
+}
+.quiz-option.correct { 
+    border-color: var(--color-accent); 
+    background: #F0FFF4; 
+    box-shadow: 4px 4px 0px var(--color-accent);
+}
+.quiz-option.wrong { 
+    border-color: #E53935; 
+    background: #FFF5F5; 
+    box-shadow: 4px 4px 0px #E53935;
+}
 
 /* ===== Gradient Backgrounds ===== */
 .bg-heritage-gradient {

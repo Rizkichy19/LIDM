@@ -9,7 +9,9 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Anton&family=Grandstander:ital,wght@0,100..900;1,100..900&display=swap');
+    </style>
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -19,7 +21,7 @@
                 extend: {
                     fontFamily: {
                         'anton': ['Anton', 'sans-serif'],
-                        'sans': ['Montserrat', 'ui-sans-serif', 'system-ui'],
+                        'sans': ['Grandstander', 'ui-sans-serif', 'system-ui'],
                     },
                     colors: {
                         'gold': '#D4A017',
@@ -81,57 +83,72 @@
         </div>
     </nav>
 
-    <!-- About Content (Placeholder) -->
-    <main class="relative min-h-[80vh] flex flex-col items-center justify-center text-center px-4">
-        <div class="max-w-2xl mx-auto">
-            <p class="text-[10px] md:text-sm font-bold uppercase tracking-[0.3em] mb-4 text-gray-400">
-                Tim Pengembang
-            </p>
-            <h1 class="font-anton text-[14vw] md:text-[7vw] leading-[0.85] tracking-[-0.05em] uppercase mb-8">
-                ABOUT US
-            </h1>
-            <div class="w-20 h-1 bg-black mx-auto mb-10 rounded-full"></div>
+    <!-- About Content -->
+    <main class="relative min-h-[80vh] flex flex-col items-center px-4 pt-4 pb-12 md:pt-8 md:pb-20 overflow-hidden">
+        
+        <!-- Floating Math Decor -->
+        <div class="absolute top-10 left-10 text-5xl animate-bounce font-serif font-black text-[#D4A017] opacity-80" style="animation-duration: 3s;">+</div>
+        <div class="absolute top-20 right-16 text-6xl animate-pulse font-serif font-black text-[#EF476F] opacity-80">÷</div>
+        <div class="absolute bottom-20 left-20 text-5xl animate-bounce font-serif font-black text-[#06D6A0] opacity-80" style="animation-duration: 4s;">π</div>
+        <div class="absolute bottom-32 right-10 text-6xl font-serif font-black text-[#118AB2] opacity-80" style="animation: float 5s ease-in-out infinite;">∑</div>
 
-            <!-- Placeholder notice -->
-            <div class="bg-gray-50 border border-gray-200 rounded-2xl px-8 py-10 text-left">
-                <p class="text-gray-400 text-sm text-center italic">
-                    Halaman ini sedang dalam pengembangan. <br>Konten akan segera hadir.
-                </p>
+        <div class="max-w-5xl mx-auto w-full z-10">
+            <div class="text-center mb-16 relative">
+                <span class="inline-block bg-[#FFD166] border-2 border-[#7B3F00] text-[#7B3F00] font-bold text-xs px-4 py-1.5 rounded-full mb-4 shadow-[2px_2px_0px_#7B3F00] rotate-[-2deg]">
+                    Halo Teman-Teman!
+                </span>
+                <h1 class="font-anton text-5xl md:text-7xl tracking-wide uppercase text-[#1A1A1A] drop-shadow-[3px_3px_0px_#D4A017]">
+                    TIM PENGEMBANG
+                </h1>
+                <p class="font-sans font-bold text-lg md:text-xl text-[#7B3F00] mt-3 bg-white/60 inline-block px-4 py-1 rounded-xl border border-dashed border-[#7B3F00]/30">Get to know who's behind FORTIFY!</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-6 lg:gap-8">
+                <!-- Habba -->
+                <div class="bg-[#FFF5F5] rounded-[30px] p-6 border-4 border-[#7B3F00] shadow-[0px_8px_0px_#7B3F00] flex flex-col items-center text-center transform hover:-translate-y-2 hover:shadow-[0px_12px_0px_#7B3F00] transition-all duration-300 relative group">
+                    <div class="absolute -top-5 -right-3 text-5xl group-hover:rotate-12 group-hover:scale-110 transition-transform z-30">👑</div>
+                    <div class="w-32 h-32 mb-4 rounded-full overflow-hidden border-[4px] border-[#7B3F00] shadow-[4px_4px_0px_#7B3F00] bg-white flex items-center justify-center relative z-10">
+                        <img src="assets/images/HABBA.png" alt="Habba Arizal Annas" class="w-full h-full object-cover">
+                    </div>
+                    <span class="inline-block bg-[#EF476F] text-white text-[11px] font-bold px-4 py-1.5 rounded-full uppercase tracking-widest border-2 border-[#7B3F00] shadow-[2px_2px_0px_#7B3F00] mb-4 -mt-4 z-20">Ketua</span>
+                    <h3 class="font-bold text-xl text-[#1A1A1A] leading-tight mb-3 font-heading">Habba Arizal A.</h3>
+                    <p class="text-xs text-[#7B3F00] font-bold bg-white px-3 py-2 rounded-xl border-2 border-dashed border-[#7B3F00]/30 mt-auto w-full">Pendidikan Matematika</p>
+                </div>
+
+                <!-- Sabrina -->
+                <div class="bg-[#F0FFF4] rounded-[30px] p-6 border-4 border-[#7B3F00] shadow-[0px_8px_0px_#7B3F00] flex flex-col items-center text-center transform hover:-translate-y-2 hover:shadow-[0px_12px_0px_#7B3F00] transition-all duration-300 relative group">
+                    <div class="w-32 h-32 mb-4 rounded-full overflow-hidden border-[4px] border-[#7B3F00] shadow-[4px_4px_0px_#7B3F00] bg-white flex items-center justify-center relative z-10">
+                        <img src="assets/images/SABRINA.png" alt="Sabrina Riski Astutiningtyas" class="w-full h-full object-cover" style="object-position: top;">
+                    </div>
+                    <span class="inline-block bg-[#06D6A0] text-white text-[11px] font-bold px-4 py-1.5 rounded-full uppercase tracking-widest border-2 border-[#7B3F00] shadow-[2px_2px_0px_#7B3F00] mb-4 -mt-4 z-20">Anggota</span>
+                    <h3 class="font-bold text-xl text-[#1A1A1A] leading-tight mb-3 font-heading">Sabrina Riski A.</h3>
+                    <p class="text-xs text-[#7B3F00] font-bold bg-white px-3 py-2 rounded-xl border-2 border-dashed border-[#7B3F00]/30 mt-auto w-full">Pendidikan Matematika</p>
+                </div>
+
+                <!-- Rizki -->
+                <div class="bg-[#EBF8FF] rounded-[30px] p-6 border-4 border-[#7B3F00] shadow-[0px_8px_0px_#7B3F00] flex flex-col items-center text-center transform hover:-translate-y-2 hover:shadow-[0px_12px_0px_#7B3F00] transition-all duration-300 relative group">
+                    <div class="w-32 h-32 mb-4 rounded-full overflow-hidden border-[4px] border-[#7B3F00] shadow-[4px_4px_0px_#7B3F00] bg-white flex items-center justify-center relative z-10">
+                        <img src="assets/images/RIZKY.png" alt="Rizki Cahya" class="w-full h-full object-cover" style="object-position: top;">
+                    </div>
+                    <span class="inline-block bg-[#118AB2] text-white text-[11px] font-bold px-4 py-1.5 rounded-full uppercase tracking-widest border-2 border-[#7B3F00] shadow-[2px_2px_0px_#7B3F00] mb-4 -mt-4 z-20">Anggota</span>
+                    <h3 class="font-bold text-xl text-[#1A1A1A] leading-tight mb-3 font-heading">Rizki Cahya</h3>
+                    <p class="text-xs text-[#7B3F00] font-bold bg-white px-3 py-2 rounded-xl border-2 border-dashed border-[#7B3F00]/30 mt-auto w-full">Sistem Informasi</p>
+                </div>
+
+                <!-- Khusnun -->
+                <div class="bg-[#FAF5FF] rounded-[30px] p-6 border-4 border-[#7B3F00] shadow-[0px_8px_0px_#7B3F00] flex flex-col items-center text-center transform hover:-translate-y-2 hover:shadow-[0px_12px_0px_#7B3F00] transition-all duration-300 relative group">
+                    <div class="w-32 h-32 mb-4 rounded-full overflow-hidden border-[4px] border-[#7B3F00] shadow-[4px_4px_0px_#7B3F00] bg-white flex items-center justify-center relative z-10">
+                        <img src="assets/images/KHUSNUN.png" alt="Khusnun Najwa Ramdhani" class="w-full h-full object-cover" style="object-position: top;">
+                    </div>
+                    <span class="inline-block bg-[#9D4EDD] text-white text-[11px] font-bold px-4 py-1.5 rounded-full uppercase tracking-widest border-2 border-[#7B3F00] shadow-[2px_2px_0px_#7B3F00] mb-4 -mt-4 z-20">Anggota</span>
+                    <h3 class="font-bold text-xl text-[#1A1A1A] leading-tight mb-3 font-heading">Khusnun Najwa R.</h3>
+                    <p class="text-xs text-[#7B3F00] font-bold bg-white px-3 py-2 rounded-xl border-2 border-dashed border-[#7B3F00]/30 mt-auto w-full">Teknik Informatika</p>
+                </div>
             </div>
         </div>
+        
+        <!-- Original Background from CSS will be used -->
     </main>
-
-    <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/6282137585734" target="_blank" rel="noopener noreferrer"
-       id="wa-float-btn"
-       title="Chat via WhatsApp"
-       style="
-           position: fixed;
-           bottom: 28px;
-           right: 28px;
-           z-index: 9999;
-           display: flex;
-           align-items: center;
-           gap: 10px;
-           background: #25D366;
-           color: white;
-           padding: 14px 20px;
-           border-radius: 50px;
-           font-family: 'Montserrat', sans-serif;
-           font-size: 13px;
-           font-weight: 700;
-           text-decoration: none;
-           box-shadow: 0 8px 30px rgba(37,211,102,0.45);
-           transition: transform 0.2s ease, box-shadow 0.2s ease;
-       "
-       onmouseover="this.style.transform='scale(1.07)'; this.style.boxShadow='0 12px 40px rgba(37,211,102,0.6)'"
-       onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 8px 30px rgba(37,211,102,0.45)'">
-        <svg width="22" height="22" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="16" cy="16" r="16" fill="white"/>
-            <path d="M16 6C10.477 6 6 10.477 6 16c0 1.89.52 3.66 1.42 5.18L6 26l4.95-1.4A10 10 0 1 0 16 6zm0 18.18a8.18 8.18 0 0 1-4.18-1.15l-.3-.18-3.1.88.84-3.02-.2-.31A8.18 8.18 0 1 1 16 24.18zm4.5-6.1c-.25-.12-1.47-.72-1.7-.8-.22-.09-.38-.12-.54.12-.16.25-.62.8-.76.97-.14.16-.28.18-.52.06-.25-.12-1.04-.38-1.98-1.22-.73-.65-1.22-1.46-1.37-1.7-.14-.25-.01-.38.1-.5.11-.11.25-.28.37-.42.12-.14.16-.25.25-.41.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.2-.47-.4-.4-.54-.41H11.8c-.16 0-.42.06-.64.3-.22.25-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.6 4.12 3.64.58.25 1.03.4 1.38.51.58.18 1.1.16 1.52.1.46-.07 1.47-.6 1.68-1.18.2-.58.2-1.08.14-1.18-.06-.1-.22-.16-.47-.28z" fill="#25D366"/>
-        </svg>
-        <span>Chat Kami</span>
-    </a>
 
     <!-- JS -->
     <script src="assets/js/app.js"></script>

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="id">
 
 <head>
@@ -7,9 +7,9 @@
     <title>Pertemuan 1 — Volume Kubus & Balok</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Anton&family=Grandstander:ital,wght@0,100..900;1,100..900&display=swap');
+    </style>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -17,8 +17,8 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        'heading': ['Montserrat', 'ui-sans-serif', 'system-ui'],
-                        'sans': ['Montserrat', 'ui-sans-serif', 'system-ui'],
+                        'heading': ['Grandstander', 'ui-sans-serif', 'system-ui'],
+                        'sans': ['Grandstander', 'ui-sans-serif', 'system-ui'],
                     },
                     colors: {
                         'primary': '#7B3F00',
@@ -44,28 +44,15 @@
 <body class="bg-cream h-screen overflow-hidden flex flex-col"
     x-data="{ activeStep: 0, stepsCount: 10, answerEq: '', isEqSubmitted: false }">
     <!-- Top Navigation Bar -->
-    <header class="fixed top-0 left-0 right-0 z-50 text-white shadow-lg border-b border-gold/20"
-        style="background-color: #1C1108;">
+        <header class="fixed top-0 left-0 right-0 z-50 text-white shadow-lg border-b border-gold/20" style="background-color: #1C1108;">
         <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
-            <a href="menu.html"
-                class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 transition-all duration-200 text-sm font-medium text-white group">
-                <svg class="w-4 h-4 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor"
-                    viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                </svg>
-                <span>Kembali ke Menu</span>
-            </a>
-            <div class="flex items-center gap-2">
-                <div class="w-7 h-7 rounded-lg bg-gold-gradient flex items-center justify-center">
-                    <svg class="w-4 h-4 text-sidebar" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+            <div class="flex items-center gap-3">
+                <a href="menu.html" style="display:flex; align-items:center; justify-content:center; width:34px; height:34px; color:#D4A017; text-decoration:none; transition: opacity 0.2s;" onmouseover="this.style.opacity=0.7" onmouseout="this.style.opacity=1">
+                    <svg style="width:22px;height:22px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/>
                     </svg>
-                </div>
-                <span class="font-heading font-bold text-gold text-sm hidden sm:inline">FORTIFY</span>
-            </div>
-            <div class="text-xs text-[#F5D060]/70 bg-white/10 px-3 py-1.5 rounded-lg hidden md:block">
-                Pertemuan 1
+                </a>
+                <span style="font-family: 'Anton', sans-serif; font-size:20px; font-weight:normal; letter-spacing: 1px; color:#D4A017; margin:0; line-height:1.2; padding-top: 3px;">PERTEMUAN 1</span>
             </div>
         </div>
     </header>
@@ -904,7 +891,10 @@
         <div class="w-full max-w-5xl px-0 lg:px-4 flex items-center justify-between pointer-events-auto drop-shadow-md">
             <button @click="activeStep = Math.max(0, activeStep - 1)"
                 class="flex items-center justify-center gap-1.5 px-3 sm:px-6 py-2 sm:py-3 rounded-xl font-bold text-xs sm:text-sm md:text-base whitespace-nowrap bg-white border-2 border-gold/40 text-primary hover:bg-cream hover:border-gold transition shadow-sm"
-                :disabled="activeStep === 0" :class="activeStep === 0 ? 'opacity-0 cursor-not-allowed hidden' : ''">←
+                :disabled="activeStep === 0" :class="activeStep === 0 ? 'opacity-0 cursor-not-allowed hidden' : ''">
+                <svg style="width:18px;height:18px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/>
+                </svg>
                 Sebelumnya</button>
 
             <div class="flex-grow flex justify-center px-2" :class="activeStep === 0 ? 'opacity-0' : ''">
@@ -915,47 +905,22 @@
 
             <button x-show="activeStep < stepsCount - 1"
                 @click="if(activeStep === 1 && !isEqSubmitted) { alert('Silakan kirim jawaban Essential Question terlebih dahulu untuk melanjutkan.'); return; } activeStep++"
-                class="flex items-center justify-center gap-1.5 px-3 sm:px-6 py-2 sm:py-3 rounded-xl font-bold text-xs sm:text-sm md:text-base whitespace-nowrap bg-white border-2 border-gold/40 text-primary hover:bg-cream hover:border-gold transition shadow-sm ml-auto">Selanjutnya
-                →</button>
+                class="flex items-center justify-center gap-1.5 px-3 sm:px-6 py-2 sm:py-3 rounded-xl font-bold text-xs sm:text-sm md:text-base whitespace-nowrap bg-white border-2 border-gold/40 text-primary hover:bg-cream hover:border-gold transition shadow-sm ml-auto">
+                Selanjutnya
+                <svg style="width:18px;height:18px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/>
+                </svg>
+            </button>
             <a x-show="activeStep === stepsCount - 1" href="pertemuan-2.html"
                 class="flex items-center justify-center gap-1.5 px-3 sm:px-6 py-2 sm:py-3 rounded-xl font-bold text-xs sm:text-sm md:text-base whitespace-nowrap bg-white border-2 border-gold/40 text-primary hover:bg-cream hover:border-gold transition shadow-sm ml-auto"
-                style="display: none;">Lanjut Pertemuan 2 →</a>
+                style="display: none;">Lanjut Pertemuan 2 
+                <svg style="width:18px;height:18px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/>
+                </svg>
+            </a>
         </div>
     </div>
     </main>
-
-    
-    <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/6282137585734" target="_blank" rel="noopener noreferrer"
-       id="wa-float-btn"
-       title="Chat via WhatsApp"
-       style="
-           position: fixed;
-           bottom: 28px;
-           right: 28px;
-           z-index: 9999;
-           display: flex;
-           align-items: center;
-           gap: 10px;
-           background: #25D366;
-           color: white;
-           padding: 14px 20px;
-           border-radius: 50px;
-           font-family: 'Montserrat', sans-serif;
-           font-size: 13px;
-           font-weight: 700;
-           text-decoration: none;
-           box-shadow: 0 8px 30px rgba(37,211,102,0.45);
-           transition: transform 0.2s ease, box-shadow 0.2s ease;
-       "
-       onmouseover="this.style.transform='scale(1.07)'; this.style.boxShadow='0 12px 40px rgba(37,211,102,0.6)'"
-       onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 8px 30px rgba(37,211,102,0.45)'">
-        <svg width="22" height="22" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="16" cy="16" r="16" fill="white"/>
-            <path d="M16 6C10.477 6 6 10.477 6 16c0 1.89.52 3.66 1.42 5.18L6 26l4.95-1.4A10 10 0 1 0 16 6zm0 18.18a8.18 8.18 0 0 1-4.18-1.15l-.3-.18-3.1.88.84-3.02-.2-.31A8.18 8.18 0 1 1 16 24.18zm4.5-6.1c-.25-.12-1.47-.72-1.7-.8-.22-.09-.38-.12-.54.12-.16.25-.62.8-.76.97-.14.16-.28.18-.52.06-.25-.12-1.04-.38-1.98-1.22-.73-.65-1.22-1.46-1.37-1.7-.14-.25-.01-.38.1-.5.11-.11.25-.28.37-.42.12-.14.16-.25.25-.41.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.2-.47-.4-.4-.54-.41H11.8c-.16 0-.42.06-.64.3-.22.25-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.6 4.12 3.64.58.25 1.03.4 1.38.51.58.18 1.1.16 1.52.1.46-.07 1.47-.6 1.68-1.18.2-.58.2-1.08.14-1.18-.06-.1-.22-.16-.47-.28z" fill="#25D366"/>
-        </svg>
-        <span>Chat Kami</span>
-    </a>
 <script src="assets/js/app.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>

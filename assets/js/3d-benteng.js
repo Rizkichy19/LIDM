@@ -137,7 +137,9 @@ function initBenteng3D(containerId) {
 
     addLabel('Barak Utama (Balok)', 0, 4.5, 0);
     addLabel('Gudang (Balok)', -5.5, 4, 0.5);
+    addLabel('Gudang (Balok)', 5.5, 4, 0.5);
     addLabel('Pos Jaga (Kubus)', -7.5, 3, -3.5);
+    addLabel('Pos Jaga (Kubus)', 7.5, 3, -3.5);
     addLabel('Menara (Balok)', 0, 5.5, 4.5);
 
     // Animation
