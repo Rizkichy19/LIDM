@@ -274,3 +274,40 @@ a {
     font-weight: 600;
     border: 1px solid rgba(212,160,23,0.3);
 }
+
+/* ===== Mascot Animation ===== */
+.mascot-sprite {
+    --frames: 12; /* UBAH ANGKA 12 INI SESUAI JUMLAH GAMBAR FRAME BERJALAN ANDA */
+    
+    width: 100%;
+    height: 100%;
+    background: url('../images/sprite_sheet_maskot.png') left center;
+    background-size: calc(var(--frames) * 100%) 100%;
+    background-repeat: no-repeat;
+    
+    /* Animasi sprite berjalan. Ubah angka 7 menjadi (jumlah frames - 1) jika frame Anda bukan 8 */
+    animation: walk-cycle 1s steps(11) infinite;
+}
+
+/* Pose Diam Saat Animasi Selesai (dipicu oleh JavaScript) */
+.mascot-sprite.idle {
+    background: url('../images/Maskot_diam.png') center bottom;
+    background-size: contain;
+    background-repeat: no-repeat;
+    animation: none; /* Hentikan animasi berjalan */
+}
+
+/* Keyframes untuk sprite animasi berjalan di tempat (seperti flipbook) */
+@keyframes walk-cycle {
+    to { background-position: 100% center; }
+}
+
+/* Keyframes untuk memindahkan posisi kontainer maskot dari ujung kiri layar ke dalam layar */
+@keyframes walk-in {
+    from { left: -250px; }
+    to { left: -30px; }
+}
+
+@keyframes walk-anim {
+    to { transform: translateX(-100%); }
+}

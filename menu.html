@@ -134,6 +134,36 @@
             box-shadow: 4px 4px 0px #7B3F00;
             border: 3px solid #7B3F00;
         }
+
+        /* Mascot Responsive Styles */
+        .mascot-walker {
+            position: absolute; 
+            z-index: 40; /* Berada di bawah header hitam (z-index: 50) tapi di atas garis peta */
+            transition: transform 0.6s linear; /* Waktu transisi tiap langkah */
+            pointer-events: none; 
+            display: flex; 
+            justify-content: center;
+            align-items: flex-end; /* Agar kaki maskot menjejak di tengah node */
+            top: 0px; 
+            left: 0px; 
+            width: 110px;
+            height: 110px; /* Ukuran HP */
+            margin-left: -55px; /* Setengah dari width */
+            margin-top: -85px;  /* Angkat sedikit agar kaki pas di node */
+        }
+        .mascot-walker img {
+            height: 100%; 
+            width: auto; 
+            object-fit: contain;
+        }
+        @media (min-width: 640px) {
+            .mascot-walker {
+                width: 180px;
+                height: 180px; /* Ukuran PC/Tablet */
+                margin-left: -90px;
+                margin-top: -140px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -284,6 +314,11 @@
             </a>
         </div>
 
+        <!-- Animated Mascot (Kembali ke dalam Peta agar ikut tergulung header) -->
+        <div id="mascot-walker" class="mascot-walker">
+            <img id="mascot-img" src="assets/images/Maskot_diam.png">
+        </div>
+
     </div>
 
     <!-- FOOTER -->
@@ -299,10 +334,157 @@
     </div>
 </div>
 
-<!-- Mascot Video -->
-<div style="position: fixed; bottom: 90px; left: -30px; z-index: 999; width: 220px; height: 220px; mix-blend-mode: darken; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.1) translateY(-5px)'" onmouseout="this.style.transform='scale(1) translateY(0)'">
-    <video src="assets/videos/mascot1.mp4" autoplay loop muted playsinline style="width: 100%; height: 100%; object-fit: contain; pointer-events: none;"></video>
-</div>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const mascot = document.getElementById("mascot-walker");
+        const mascotImg = document.getElementById("mascot-img");
+        
+        // --- Sistem Animasi Custom JSON ---
+        let walkFrames = [];
+        let walkInterval = null;
+        let isWalking = false;
+
+        // Ambil data frame dari Maskot.json
+        fetch('assets/images/Maskot.json')
+            .then(res => res.json())
+            .then(data => {
+                // Ekstrak semua gambar base64 dari layer pertama
+                if(data.layers && data.layers[0] && data.layers[0].sprites) {
+                    walkFrames = data.layers[0].sprites.map(sprite => sprite.base64);
+                }
+            })
+            .catch(err => console.error("Gagal memuat Maskot.json:", err));
+
+        function startWalk() {
+            if(walkFrames.length === 0 || isWalking) return;
+            isWalking = true;
+            let currentFrame = 0;
+            // Ganti frame setiap 80ms (sekitar 12 FPS). Ubah angka 80 jika terlalu cepat/lambat.
+            walkInterval = setInterval(() => {
+                mascotImg.src = walkFrames[currentFrame];
+                currentFrame = (currentFrame + 1) % walkFrames.length;
+            }, 80); 
+        }
+
+        function stopWalk() {
+            isWalking = false;
+            clearInterval(walkInterval);
+            mascotImg.src = "assets/images/Maskot_diam.png"; // Kembali diam
+        }
+        
+        // --- Logika Pathfinding & State ---
+        const zzNodes = Array.from(document.querySelectorAll('.zz-node'));
+        const clickables = document.querySelectorAll('.node-btn, .node-label');
+        const wrapper = document.getElementById('zzWrapper');
+
+        // Fungsi untuk mendapatkan koordinat target (tengah node + offset agar di samping)
+        function getTargetCoords(nodeElement) {
+            const wrapRect = wrapper.getBoundingClientRect();
+            const rect = nodeElement.getBoundingClientRect();
+            
+            let targetX = (rect.left - wrapRect.left) + (rect.width / 2);
+            let targetY = (rect.top - wrapRect.top) + (rect.height / 2);
+
+            // Cek apakah di baris ini label ada di kiri atau kanan
+            const parentRow = nodeElement.closest('.zz-row');
+            if (parentRow) {
+                if (parentRow.querySelector('.label-left')) {
+                    // Label di kiri node, jadi maskot berdiri di KANAN node
+                    targetX += 65; 
+                } else if (parentRow.querySelector('.label-right')) {
+                    // Label di kanan node, jadi maskot berdiri di KIRI node
+                    targetX -= 65;
+                }
+            }
+
+            return { x: targetX, y: targetY };
+        }
+
+        let currentPosIndex = -1; // -1 = start di pojok kanan atas
+        // Posisi default di dalam wrapper (kanan atas)
+        let currentCoords = { x: 300, y: 20 }; 
+
+        // Muat posisi terakhir dari sessionStorage
+        const savedPos = sessionStorage.getItem('mascotNodePos');
+        if (savedPos !== null && parseInt(savedPos) >= 0 && parseInt(savedPos) < zzNodes.length) {
+            currentPosIndex = parseInt(savedPos);
+            // Snap langsung tanpa animasi
+            mascot.style.transition = 'none';
+            currentCoords = getTargetCoords(zzNodes[currentPosIndex]);
+            mascot.style.transform = `translate(${currentCoords.x}px, ${currentCoords.y}px)`;
+            
+            // Kembalikan transisi setelah snap
+            setTimeout(() => { mascot.style.transition = 'transform 0.6s linear'; }, 50);
+        } else {
+            // Jika belum ada posisi, taruh di kanan atas
+            mascot.style.transition = 'none';
+            mascot.style.transform = `translate(${currentCoords.x}px, ${currentCoords.y}px)`;
+            setTimeout(() => { mascot.style.transition = 'transform 0.6s linear'; }, 50);
+        }
+
+        // Fungsi berjalan perlahan ke satu titik
+        function walkToCoords(targetCoords) {
+            return new Promise(resolve => {
+                // Tentukan arah hadap
+                if (targetCoords.x < currentCoords.x) {
+                    mascotImg.style.transform = `scaleX(-1)`; // Hadap Kiri
+                } else {
+                    mascotImg.style.transform = `scaleX(1)`; // Hadap Kanan
+                }
+                
+                mascot.style.transform = `translate(${targetCoords.x}px, ${targetCoords.y}px)`;
+                currentCoords = targetCoords;
+                
+                // Tunggu transisi CSS selesai (0.6s)
+                setTimeout(() => resolve(), 600);
+            });
+        }
+
+        // Event listener klik untuk tiap tombol
+        clickables.forEach(node => {
+            node.addEventListener('click', async function(e) {
+                e.preventDefault();
+                const targetUrl = this.getAttribute('href');
+                if(!targetUrl || targetUrl === "#") return;
+
+                // Cari tahu index dari node yang diklik (1-8 => index 0-7)
+                // Kita bisa mencari relasi antara href node ini dengan zz-nodes
+                const targetZzNodeIndex = zzNodes.findIndex(z => z.getAttribute('href') === targetUrl);
+                
+                if(targetZzNodeIndex === -1) {
+                    window.location.href = targetUrl;
+                    return;
+                }
+
+                // Mulai mainkan animasi frame jalan
+                startWalk();
+
+                // Pathfinding berurutan
+                // Jika dari luar peta (-1), langsung jalan ke titik tersebut (atau bisa ke titik 0 dulu)
+                if (currentPosIndex === -1) {
+                    await walkToCoords(getTargetCoords(zzNodes[targetZzNodeIndex]));
+                } else {
+                    // Berjalan melewati titik-titik perantara
+                    const step = currentPosIndex < targetZzNodeIndex ? 1 : -1;
+                    for (let i = currentPosIndex + step; i !== targetZzNodeIndex + step; i += step) {
+                        await walkToCoords(getTargetCoords(zzNodes[i]));
+                    }
+                }
+
+                stopWalk();
+                currentPosIndex = targetZzNodeIndex;
+                
+                // Simpan posisi ke sessionStorage agar saat "Back", dia tetap disitu
+                sessionStorage.setItem('mascotNodePos', currentPosIndex);
+
+                // Delay sedikit lalu pindah halaman
+                setTimeout(() => {
+                    window.location.href = targetUrl;
+                }, 300);
+            });
+        });
+    });
+</script>
 <script src="assets/js/app.js"></script>
 </body>
 </html>

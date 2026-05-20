@@ -618,15 +618,14 @@
                             <div class="flex items-center justify-center w-full">
                                 <label
                                     class="flex flex-col items-center justify-center w-full h-32 border-2 border-gold/30 border-dashed rounded-2xl cursor-pointer bg-white/50 hover:bg-white transition-all">
-                                    <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                                    <div class="flex flex-col items-center justify-center pt-5 pb-6" id="preview-ga">
                                         <span class="text-3xl mb-2">📸</span>
                                         <p class="mb-1 text-sm text-text-main text-center px-4"><span
                                                 class="font-semibold text-primary">Klik untuk mengunggah</span>
                                             sketsa/foto</p>
-                                        <p class="text-xs text-text-muted">Fitur upload disabel sementara, teks akan
-                                            dikirim.</p>
+                                        <p class="text-xs text-text-muted">Maksimal ukuran file: 2MB</p>
                                     </div>
-                                    <input type="file" accept="image/*" class="hidden" />
+                                    <input type="file" id="file-ga" accept="image/*" class="hidden" onchange="document.getElementById('preview-ga').innerHTML='<span class=\'text-3xl mb-2\'>✅</span><p class=\'text-sm font-semibold text-primary text-center px-2 truncate w-full\'>'+this.files[0].name+'</p>'" />
                                 </label>
                             </div>
 
@@ -691,15 +690,14 @@
                             <div class="flex items-center justify-center w-full">
                                 <label
                                     class="flex flex-col items-center justify-center w-full h-32 border-2 border-gold/30 border-dashed rounded-2xl cursor-pointer bg-white/50 hover:bg-white transition-all">
-                                    <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                                    <div class="flex flex-col items-center justify-center pt-5 pb-6" id="preview-sa">
                                         <span class="text-3xl mb-2">📄</span>
                                         <p class="mb-1 text-sm text-text-main text-center px-4"><span
                                                 class="font-semibold text-primary">Klik untuk mengunggah</span> foto
                                             hasil jawaban.</p>
-                                        <p class="text-xs text-text-muted">Fitur upload disabel sementara, teks akan
-                                            dikirim.</p>
+                                        <p class="text-xs text-text-muted">Maksimal ukuran file: 2MB</p>
                                     </div>
-                                    <input type="file" accept="image/*" class="hidden" />
+                                    <input type="file" id="file-sa" accept="image/*" class="hidden" onchange="document.getElementById('preview-sa').innerHTML='<span class=\'text-3xl mb-2\'>✅</span><p class=\'text-sm font-semibold text-primary text-center px-2 truncate w-full\'>'+this.files[0].name+'</p>'" />
                                 </label>
                             </div>
 
@@ -929,7 +927,7 @@
 
     <!-- Script Google Sheets Apps Script -->
     <script>
-        const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycby6YEqsB24ZUMdsp7EAmjn0gn1VsiYxD83Oo2OLlmpzALHF36efsPfg-Cyan4854Vp7uQ/exec";
+        const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxVMxbbSy9ZrMddpXofVkEvpkQd6fUwUp4axVdIDPr8LLCRWLLTrbuoWJnWIjp5A-OYGQ/exec";
 
         function submitToGoogle(pertemuan, tipeTugas, formElement) {
             return new Promise((resolve) => {
@@ -940,35 +938,76 @@
                 formData.append('Pertemuan', pertemuan);
                 formData.append('Tipe Tugas', tipeTugas);
 
+                const fileInput = formElement.querySelector('input[type="file"]');
+                let file = null;
+                if (fileInput && fileInput.files.length > 0) {
+                    file = fileInput.files[0];
+                }
+
                 submitBtn.innerHTML = '<span class="animate-pulse">Mengirim... ⏳</span>';
                 submitBtn.disabled = true;
 
-                fetch(GOOGLE_SCRIPT_URL, {
-                    method: 'POST',
-                    body: formData
-                })
-                    .then(response => response.json())
-                    .then(data => {
-                        if (data.result === 'success') {
-                            alert('Berhasil: Jawaban ' + tipeTugas + ' sukses dikirim ke Guru!');
-                            submitBtn.innerHTML = '<span>✅ Terkirim</span>';
-                            submitBtn.classList.remove('bg-accent', 'hover:bg-accent/90');
-                            submitBtn.classList.add('bg-green-600');
-                            formElement.reset();
-                            resolve(true);
-                        } else {
-                            alert('Gagal mengirim jawaban. Silakan coba lagi.');
+                // Fungsi untuk mengirim data
+                const sendData = (base64Data = "", mimeType = "", filename = "") => {
+                    if (base64Data) {
+                        formData.append('base64', base64Data);
+                        formData.append('mimeType', mimeType);
+                        formData.append('filename', filename);
+                    }
+                    fetch(GOOGLE_SCRIPT_URL, {
+                        method: 'POST',
+                        body: formData
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.result === 'success') {
+                                alert('Berhasil: Jawaban ' + tipeTugas + ' sukses dikirim ke Guru!');
+                                submitBtn.innerHTML = '<span>✅ Terkirim</span>';
+                                submitBtn.classList.remove('bg-accent', 'hover:bg-accent/90');
+                                submitBtn.classList.add('bg-green-600');
+                                formElement.reset();
+                                
+                                // Reset preview file jika ada
+                                const previewBox = formElement.querySelector('div[id^="preview-"]');
+                                if (previewBox) {
+                                    previewBox.innerHTML = '<span class="text-3xl mb-2">📸</span><p class="mb-1 text-sm text-text-main text-center px-4"><span class="font-semibold text-primary">Klik untuk mengunggah</span> foto baru</p>';
+                                }
+                                
+                                resolve(true);
+                            } else {
+                                alert('Gagal mengirim jawaban. Pesan Error Server: ' + (data.error || 'Silakan coba lagi.'));
+                                submitBtn.innerHTML = originalText;
+                                submitBtn.disabled = false;
+                                resolve(false);
+                            }
+                        })
+                        .catch(error => {
+                            console.error("Fetch error:", error);
+                            alert('Terjadi kesalahan sistem (Cek Console/Tekan F12). Pastikan koneksi internet aktif.');
                             submitBtn.innerHTML = originalText;
                             submitBtn.disabled = false;
                             resolve(false);
-                        }
-                    })
-                    .catch(error => {
-                        alert('Terjadi kesalahan. Pastikan koneksi internet aktif.');
+                        });
+                };
+
+                if (file) {
+                    // Maksimal 2MB untuk mencegah timeout Apps Script
+                    if (file.size > 2 * 1024 * 1024) {
+                        alert('Ukuran foto terlalu besar! Maksimal 2MB. Silakan kompres atau pilih foto lain.');
                         submitBtn.innerHTML = originalText;
                         submitBtn.disabled = false;
                         resolve(false);
-                    });
+                        return;
+                    }
+                    const reader = new FileReader();
+                    reader.onload = function (e) {
+                        const base64Data = e.target.result.split(',')[1];
+                        sendData(base64Data, file.type, file.name);
+                    };
+                    reader.readAsDataURL(file);
+                } else {
+                    sendData();
+                }
             });
         }
     </script>
