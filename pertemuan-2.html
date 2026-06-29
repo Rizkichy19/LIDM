@@ -37,7 +37,36 @@
     </script>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body class="bg-cream h-screen overflow-hidden flex flex-col" x-data="{ activeStep: 0, stepsCount: 10, answerEq: '', isEqSubmitted: false }">
+<body class="bg-cream h-screen overflow-hidden flex flex-col"
+    x-data="{
+        activeStep: 0,
+        stepsCount: 10,
+        answerEq: '',
+        isEqSubmitted: false,
+        isGqSubmitted: false,
+        isGaSubmitted: false,
+        isSaSubmitted: false,
+        canGoTo(index) {
+            if (index <= 1) return true;
+            if (!this.isEqSubmitted) return false;
+            if (index <= 4) return true;
+            if (!this.isGqSubmitted) return false;
+            if (index <= 5) return true;
+            if (!this.isGaSubmitted) return false;
+            if (index <= 6) return true;
+            if (!this.isSaSubmitted) return false;
+            return true;
+        }
+    }"
+    x-init="
+        $el.addEventListener('step-submitted', (e) => {
+            const t = e.detail.tipeTugas;
+            if (t === 'Essential Question') isEqSubmitted = true;
+            if (t === 'Guiding Questions') isGqSubmitted = true;
+            if (t === 'Guiding Activities') isGaSubmitted = true;
+            if (t === 'Solution & Action') isSaSubmitted = true;
+        });
+    ">
     <!-- Top Navigation Bar -->
     <header class="fixed top-0 left-0 right-0 z-50 text-white shadow-lg border-b border-gold/20" style="background-color: #1C1108;">
         <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
@@ -66,17 +95,19 @@
                 <template x-for="(step, index) in [
                     {label: 'Big Idea', short: 'BI'}, {label: 'Essential Question', short: 'EQ'}, {label: 'The Challenge', short: 'TC'},
                     {label: 'Guiding Resources', short: 'GR'}, {label: 'Guiding Questions', short: 'GQ'}, {label: 'Guiding Activities', short: 'GA'},
-                    {label: 'Solution & Action', short: 'SA'}, {label: 'Assessment Publishing', short: 'AP'}, {label: 'Assessment Reflection', short: 'AR'},
+                    {label: 'Solution &amp; Action', short: 'SA'}, {label: 'Assessment Publishing', short: 'AP'}, {label: 'Assessment Reflection', short: 'AR'},
                     {label: 'Rangkuman', short: 'R'}
                 ]" :key="index">
                     <div class="flex items-center">
-                        <button @click="activeStep = index"
-                                class="flex-shrink-0 flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-semibold transition-all duration-300 whitespace-nowrap"
-                                :class="activeStep === index ? 'bg-accent text-white shadow-md' : (activeStep > index ? 'bg-accent/15 text-accent' : 'bg-cream-dark text-text-muted hover:bg-cream')">
+                        <button
+                            @click="canGoTo(index) ? (activeStep = index) : alert('🔒 Selesaikan dan kirim jawaban pada step yang diwajibkan terlebih dahulu!')"
+                            class="flex-shrink-0 flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-semibold transition-all duration-300 whitespace-nowrap"
+                            :class="activeStep === index ? 'bg-accent text-white shadow-md' : (activeStep > index ? 'bg-accent/15 text-accent' : (canGoTo(index) ? 'bg-cream-dark text-text-muted hover:bg-cream' : 'bg-cream-dark text-text-muted opacity-40 cursor-not-allowed'))">
                             <span class="w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold flex-shrink-0"
                                   :class="activeStep === index ? 'bg-white/20' : 'bg-white/50'"
-                                  x-show="index < 7"
+                                  x-show="index < 7 && canGoTo(index)"
                                   x-text="index + 1"></span>
+                            <span x-show="!canGoTo(index)" class="text-[10px] flex-shrink-0">🔒</span>
                             <span class="text-xs" x-text="step.label"></span>
                         </button>
                         <div x-show="index < stepsCount - 1" class="w-3 h-0.5 flex-shrink-0" :class="activeStep > index ? 'bg-accent' : 'bg-cream-dark'"></div>
@@ -112,7 +143,8 @@
                         <div><h2 class="font-heading font-bold text-lg md:text-xl text-primary">Big Idea</h2><p class="text-text-muted text-sm">Materi Utama Pertemuan 2</p></div>
                     </div>
                     <div class="bg-cream rounded-xl p-4 md:p-6 border border-gold/10 space-y-4 text-sm text-text-main leading-relaxed text-justify">
-                         <p>Benteng Fort Willem I merupakan bangunan bersejarah yang dapat dimanfaatkan sebagai konteks pembelajaran matematika pada materi luas permukaan bangun ruang sisi datar. Salah satu ruang berbentuk balok memiliki panjang 10 m, lebar 6 m, dan tinggi 4 m, sehingga dapat dihitung luas permukaannya untuk mengetahui luas dinding, lantai, dan atap. Selain itu, terdapat peti berbentuk kubus dengan rusuk 2 m yang juga dapat dihitung luas permukaannya untuk menentukan kebutuhan bahan pelapis.</p>
+                         <p>Benteng Fort Willem I merupakan salah satu bangunan warisan budaya yang memiliki nilai sejarah dan arsitektur yang perlu dilestarikan. Sebagai bangunan bersejarah, berbagai bagian benteng memerlukan perawatan secara berkala agar tetap terjaga dan dapat dimanfaatkan sebagai sumber pembelajaran bagi generasi mendatang.</p>
+                         <p>Salah satu ruang berbentuk balok memiliki panjang 10 m, lebar 6 m, dan tinggi 4 m, sehingga dapat dihitung luas permukaannya untuk mengetahui luas dinding, lantai, dan atap. Selain itu, terdapat peti berbentuk kubus dengan rusuk 2 m yang juga dapat dihitung luas permukaannya untuk menentukan kebutuhan bahan pelapis.</p>
                         
                         <div class="mt-4 md:mt-6 rounded-2xl overflow-hidden shadow-md border-4 border-white">
                             <img src="assets/images/IMG_4510.JPG" alt="Area dan Ruangan Benteng Fort Willem I" class="w-full h-48 md:h-80 object-cover" onerror="this.src='https://placehold.co/800x400/F5EDE0/7B3F00?text=Benteng+Fort+Willem+I'">
@@ -121,6 +153,30 @@
                             </div>
                         </div>
                         <p class="text-sm text-text-light italic mt-4">🏰 Konteks: Untuk merenovasi dinding Benteng Fort Willem I, kita perlu tahu berapa luas seluruh permukaan dinding agar bisa menghitung kebutuhan cat.</p>
+
+                        <!-- Conservation Insight Section -->
+                        <div class="mt-12 relative pt-6 px-2 sm:px-0">
+                            <!-- Title Badge -->
+                            <div class="absolute top-0 left-4 sm:left-12 bg-[#F3D5B5] text-[#7B3F00] font-bold px-6 py-2 flex items-center gap-2 z-30 shadow-sm" style="clip-path: polygon(0 0, 100% 0, 92% 50%, 100% 100%, 0 100%); min-width: 220px;">
+                                <span class="text-lg md:text-xl font-heading flex items-center gap-2">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+                                    Tahukah kamu
+                                </span>
+                            </div>
+
+                            <div class="border-dashed border-[3px] border-[#D4A017] rounded-3xl p-6 sm:pl-32 relative bg-white/60 shadow-sm mt-4">
+                                <!-- Circular Images Container -->
+                                <div class="flex sm:absolute sm:-left-8 sm:top-1/2 sm:-translate-y-1/2 flex-row sm:flex-col justify-center mb-4 sm:mb-0 z-20">
+                                    <img src="assets/images/IMG_4498.JPG" class="w-16 h-16 sm:w-20 sm:h-20 rounded-full object-cover border-4 border-white shadow-md z-10 transform sm:translate-x-4 -mr-4 sm:mr-0">
+                                    <img src="assets/images/IMG_4510.JPG" class="w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover border-4 border-white shadow-md z-20 transform sm:-translate-y-4 -mr-4 sm:mr-0" onerror="this.src='https://placehold.co/100x100/F5EDE0/7B3F00?text=Benteng'">
+                                    <img src="assets/images/IMG_4498.JPG" class="w-16 h-16 sm:w-20 sm:h-20 rounded-full object-cover border-4 border-white shadow-md z-10 transform sm:translate-x-4 sm:-translate-y-8">
+                                </div>
+
+                                <p class="text-sm md:text-base text-text-main text-justify leading-relaxed sm:pl-2">
+                                    Benteng Fort Willem I merupakan salah satu bangunan cagar budaya yang menyimpan nilai sejarah penting. Agar bangunan bersejarah tetap terjaga dan dapat dimanfaatkan sebagai sumber belajar, diperlukan berbagai upaya pelestarian, salah satunya melalui perawatan bangunan secara berkala. Kegiatan seperti pengecatan dan pelapisan bangunan membantu menjaga kondisi bangunan sehingga warisan budaya dapat terus dikenalkan kepada generasi mendatang.
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -412,16 +468,25 @@
                         <label for="answer-ga" class="block font-heading font-semibold text-primary mt-4">Tuliskan Hasil Analisis Kegiatan Kalian:</label>
                         <textarea id="answer-ga" name="Jawaban" rows="4" required class="w-full rounded-2xl border-2 border-gold/30 focus:border-primary focus:ring-primary bg-white/50 p-4 text-sm shadow-sm transition-all focus:bg-white" placeholder="Ketikkan penjabaran dari hasil analisis kegiatan..."></textarea>
                         
-                        <label class="block font-heading font-semibold text-primary mt-4">Unggah Gambar Model/Sketsa Hasil Kerja:</label>
-                        <div class="flex items-center justify-center w-full">
-                            <label class="flex flex-col items-center justify-center w-full h-32 border-2 border-gold/30 border-dashed rounded-2xl cursor-pointer bg-white/50 hover:bg-white transition-all">
-                                <div class="flex flex-col items-center justify-center pt-5 pb-6" id="preview-ga">
-                                    <span class="text-3xl mb-2">📸</span>
-                                    <p class="mb-1 text-sm text-text-main text-center px-4"><span class="font-semibold text-primary">Klik untuk mengunggah</span> sketsa/foto</p>
-                                    <p class="text-xs text-text-muted">Maksimal ukuran file: 2MB</p>
+                        <label class="block font-heading font-semibold text-primary mt-4">Buat Sketsa/Model Hasil Kerja:</label>
+                        <div class="whiteboard-container w-full border-2 border-gold/30 rounded-2xl overflow-hidden bg-white mt-4 flex flex-col" id="whiteboard-ga-2">
+                            <div class="whiteboard-toolbar bg-cream border-b border-gold/20 p-2 flex flex-wrap gap-2 items-center justify-between">
+                                <div class="flex gap-2">
+                                    <button type="button" class="wb-pen-btn p-2 rounded-lg hover:bg-gold/10 transition" title="Pena">🖌️</button>
+                                    <button type="button" class="wb-text-btn p-2 rounded-lg hover:bg-gold/10 transition" title="Teks">🆎</button>
+                                    <button type="button" class="wb-eraser-btn p-2 rounded-lg hover:bg-gold/10 transition" title="Penghapus">🧽</button>
+                                    <div class="w-px h-8 bg-gold/30 mx-1"></div>
+                                    <input type="color" class="wb-color-picker w-8 h-8 rounded cursor-pointer border-0 p-0 bg-transparent" value="#1A1A1A" title="Warna">
                                 </div>
-                                <input type="file" id="file-ga" accept="image/*" class="hidden" onchange="document.getElementById('preview-ga').innerHTML='<span class=\'text-3xl mb-2\'>✅</span><p class=\'text-sm font-semibold text-primary text-center px-2 truncate w-full\'>'+this.files[0].name+'</p>'" />
-                            </label>
+                                <div class="flex gap-2">
+                                    <button type="button" class="wb-undo-btn p-2 rounded-lg hover:bg-gold/10 transition" title="Undo">↩️</button>
+                                    <button type="button" class="wb-redo-btn p-2 rounded-lg hover:bg-gold/10 transition" title="Redo">↪️</button>
+                                    <button type="button" class="wb-clear-btn p-2 text-red-500 hover:bg-red-50 rounded-lg transition" title="Hapus Semua">🗑️</button>
+                                </div>
+                            </div>
+                            <div class="whiteboard-canvas-container w-full h-[400px] relative">
+                                <canvas id="canvas-ga-2"></canvas>
+                            </div>
                         </div>
 
                         <button type="submit" class="w-full bg-accent text-white font-bold py-3 mt-4 rounded-xl hover:bg-accent/90 transition transform hover:scale-[1.02] shadow-md flex items-center justify-center gap-2">
@@ -478,16 +543,25 @@
 
 
                         
-                        <label class="block font-heading font-semibold text-primary mt-4">Unggah Dokumen/Foto:</label>
-                        <div class="flex items-center justify-center w-full">
-                            <label class="flex flex-col items-center justify-center w-full h-32 border-2 border-gold/30 border-dashed rounded-2xl cursor-pointer bg-white/50 hover:bg-white transition-all">
-                                <div class="flex flex-col items-center justify-center pt-5 pb-6" id="preview-sa">
-                                    <span class="text-3xl mb-2">📄</span>
-                                    <p class="mb-1 text-sm text-text-main text-center px-4"><span class="font-semibold text-primary">Klik untuk mengunggah</span> foto hasil jawaban.</p>
-                                    <p class="text-xs text-text-muted">Maksimal ukuran file: 2MB</p>
+                        <label class="block font-heading font-semibold text-primary mt-4">Buat Sketsa/Solusi Akhir:</label>
+                        <div class="whiteboard-container w-full border-2 border-gold/30 rounded-2xl overflow-hidden bg-white mt-4 flex flex-col" id="whiteboard-sa-2">
+                            <div class="whiteboard-toolbar bg-cream border-b border-gold/20 p-2 flex flex-wrap gap-2 items-center justify-between">
+                                <div class="flex gap-2">
+                                    <button type="button" class="wb-pen-btn p-2 rounded-lg hover:bg-gold/10 transition" title="Pena">🖌️</button>
+                                    <button type="button" class="wb-text-btn p-2 rounded-lg hover:bg-gold/10 transition" title="Teks">🆎</button>
+                                    <button type="button" class="wb-eraser-btn p-2 rounded-lg hover:bg-gold/10 transition" title="Penghapus">🧽</button>
+                                    <div class="w-px h-8 bg-gold/30 mx-1"></div>
+                                    <input type="color" class="wb-color-picker w-8 h-8 rounded cursor-pointer border-0 p-0 bg-transparent" value="#1A1A1A" title="Warna">
                                 </div>
-                                <input type="file" id="file-sa" accept="image/*" class="hidden" onchange="document.getElementById('preview-sa').innerHTML='<span class=\'text-3xl mb-2\'>✅</span><p class=\'text-sm font-semibold text-primary text-center px-2 truncate w-full\'>'+this.files[0].name+'</p>'" />
-                            </label>
+                                <div class="flex gap-2">
+                                    <button type="button" class="wb-undo-btn p-2 rounded-lg hover:bg-gold/10 transition" title="Undo">↩️</button>
+                                    <button type="button" class="wb-redo-btn p-2 rounded-lg hover:bg-gold/10 transition" title="Redo">↪️</button>
+                                    <button type="button" class="wb-clear-btn p-2 text-red-500 hover:bg-red-50 rounded-lg transition" title="Hapus Semua">🗑️</button>
+                                </div>
+                            </div>
+                            <div class="whiteboard-canvas-container w-full h-[400px] relative">
+                                <canvas id="canvas-sa-2"></canvas>
+                            </div>
                         </div>
 
                         <button type="submit" class="w-full bg-accent text-white font-bold py-3 mt-4 rounded-xl hover:bg-accent/90 transition transform hover:scale-[1.02] shadow-md flex items-center justify-center gap-2">
@@ -657,7 +731,15 @@
                  <span class="text-xs sm:text-sm font-bold text-primary bg-white/90 backdrop-blur-sm border border-gold/30 px-3 py-1.5 rounded-full shadow-sm whitespace-nowrap" x-text="`${activeStep + 1} / ${stepsCount}`"></span>
             </div>
             
-            <button x-show="activeStep < stepsCount - 1" @click="if(activeStep === 1 && !isEqSubmitted) { alert('Silakan kirim jawaban Essential Question terlebih dahulu untuk melanjutkan.'); return; } activeStep++" class="flex items-center justify-center gap-1.5 px-3 sm:px-6 py-2 sm:py-3 rounded-xl font-bold text-xs sm:text-sm md:text-base whitespace-nowrap bg-white border-2 border-gold/40 text-primary hover:bg-cream hover:border-gold transition shadow-sm ml-auto">
+            <button x-show="activeStep < stepsCount - 1"
+                @click="
+                    if (activeStep === 1 && !isEqSubmitted) { alert('Silakan kirim jawaban Essential Question terlebih dahulu untuk melanjutkan.'); return; }
+                    if (activeStep === 4 && !isGqSubmitted) { alert('Silakan kirim jawaban Guiding Questions terlebih dahulu untuk melanjutkan.'); return; }
+                    if (activeStep === 5 && !isGaSubmitted) { alert('Silakan kirim pekerjaan Guiding Activities terlebih dahulu untuk melanjutkan.'); return; }
+                    if (activeStep === 6 && !isSaSubmitted) { alert('Silakan kirim jawaban Solution & Action terlebih dahulu untuk melanjutkan.'); return; }
+                    activeStep++
+                "
+                class="flex items-center justify-center gap-1.5 px-3 sm:px-6 py-2 sm:py-3 rounded-xl font-bold text-xs sm:text-sm md:text-base whitespace-nowrap bg-white border-2 border-gold/40 text-primary hover:bg-cream hover:border-gold transition shadow-sm ml-auto">
                 Selanjutnya
                 <svg style="width:18px;height:18px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/>
@@ -681,6 +763,20 @@
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
     <script src="assets/js/3d-surface.js"></script>
     <script src="assets/js/spinwheel.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.1/fabric.min.js"></script>
+    <script src="assets/js/whiteboard.js"></script>
+    <script>
+        // Init whiteboards
+        document.addEventListener('DOMContentLoaded', () => {
+            const wbGa2 = new InteractiveWhiteboard('whiteboard-ga-2', 'canvas-ga-2');
+            const wbSa2 = new InteractiveWhiteboard('whiteboard-sa-2', 'canvas-sa-2');
+            
+            window.whiteboards = {
+                'Guiding Activities': wbGa2,
+                'Solution & Action': wbSa2
+            };
+        });
+    </script>
     
     <!-- Script Google Sheets Apps Script -->
     <script>
@@ -699,6 +795,12 @@
                 let file = null;
                 if (fileInput && fileInput.files.length > 0) {
                     file = fileInput.files[0];
+                }
+
+                let whiteboardBase64 = null;
+                if (window.whiteboards && window.whiteboards[tipeTugas]) {
+                    const wb = window.whiteboards[tipeTugas];
+                    whiteboardBase64 = wb.getBase64Image().split(',')[1];
                 }
 
                 submitBtn.innerHTML = '<span class="animate-pulse">Mengirim... ⏳</span>';
@@ -729,7 +831,20 @@
                             if (previewBox) {
                                 previewBox.innerHTML = '<span class="text-3xl mb-2">📸</span><p class="mb-1 text-sm text-text-main text-center px-4"><span class="font-semibold text-primary">Klik untuk mengunggah</span> foto baru</p>';
                             }
-                            
+
+                            // Clear whiteboard if used
+                            if (window.whiteboards && window.whiteboards[tipeTugas]) {
+                                const wb = window.whiteboards[tipeTugas];
+                                wb.canvas.clear();
+                                wb.canvas.backgroundColor = '#ffffff';
+                                wb.history = [];
+                                wb.historyStep = -1;
+                                wb.saveHistory();
+                            }
+
+                            // Notify Alpine.js to unlock next steps
+                            document.body.dispatchEvent(new CustomEvent('step-submitted', { detail: { tipeTugas } }));
+
                             resolve(true);
                         } else {
                             alert('Gagal mengirim jawaban. Pesan Error Server: ' + (data.error || 'Silakan coba lagi.'));
@@ -762,6 +877,9 @@
                         sendData(base64Data, file.type, file.name);
                     };
                     reader.readAsDataURL(file);
+                } else if (whiteboardBase64) {
+                    // Send whiteboard image
+                    sendData(whiteboardBase64, 'image/jpeg', `whiteboard_${tipeTugas.replace(/[^a-z0-9]/gi, '_').toLowerCase()}.jpg`);
                 } else {
                     sendData();
                 }
